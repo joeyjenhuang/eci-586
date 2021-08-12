@@ -116,29 +116,31 @@ Optional Software:
 
   
 
-**Course Goals:** Goals for the Introduction to Learning Analytics course are guided by the North Carolina State University motto: Think and Do.  Specifically, goals for this course are twofold:
+**Course Goals:**
 
-1.  **Disciplinary Knowledge.** Students will deepen their understanding of Learning Analytics as an emerging approach within the field of Learning Analytics, including its application in a wide range of education settings. 
+## **Student Learning Outcomes** 
 
-2.  **Technical Skills.** Scholars will develop proficiency with the processes, tools, and techniques necessary to efficiently, effectively, and ethically apply data visualization best practices for understanding and improving learning and the contexts in which learning occurs. 
+Goals for the Introduction to Learning Analytics course are guided by the North Carolina State University motto: ***Think and Do***. Specifically, goals for this course are twofold:
 
-**Student Learning Outcomes:** The following learning objectives are aligned with the overarching learning objectives of the Graduate Certificate in Learning Analytics program and are embedded in each unit of the course. Students who complete this course will be able to:
+-   **Disciplinary Knowledge.** Students will deepen their understanding of Learning Analytics as an emerging approach within the field of Learning Analytics, including its application in a wide range of education settings. 
 
-1.  **Conceptual Foundations:** Describe Learning Analytics as a discipline (e.g. history, concepts, theories, methodologies, stakeholders, legal and ethical issues) and how it has been applied to important problems, questions, and issues in education;
+-   **Technical Skills.** Scholars will develop proficiency with the processes, tools, and techniques necessary to efficiently, effectively, and ethically apply data visualization best practices for understanding and improving learning and the contexts in which learning occurs. 
 
-2.  **Data Sources & Measures:** Identify and appropriately use educational data sources (e.g. Student Information and Learning Management Systems) and key student metrics;
+The following learning objectives are aligned with the overarching learning objectives of the Graduate Certificate in Learning Analytics program and are embedded in each unit of the course. Students who complete this course will be able to:
 
-3.  **Tool Proficiency:** Efficiently and effectively apply up-to-date software and tools (i.e. R or Tableau) to implement Learning Analytics workflows for preparing, analyzing, and sharing data;
+-   **Conceptual Foundations:** Describe Learning Analytics as a discipline (e.g. history, concepts, theories, methodologies, stakeholders, legal and ethical issues) and how it has been applied to important problems, questions, and issues in education;
 
-4.  **Processes & Techniques**: Understand and apply data visualization approaches and techniques (e.g. interactive visualization and data dashboards) in order to understand and improve learning and the contexts in which learning occurs; and, 
+-   **Data Sources & Measures:** Identify and appropriately use educational data sources (e.g. Student Information and Learning Management Systems) and key student metrics;
 
-5.  **Communication:** Clearly communicate methods, analyses, findings, and recommendations that can provide actionable insight into learning contexts for a range of education stakeholders.
+-   **Tool Proficiency:** Efficiently and effectively apply up-to-date software and tools (i.e. R or Tableau) to implement Learning Analytics workflows for preparing, analyzing, and sharing data;
+
+-   **Processes & Techniques**: Understand and apply data visualization approaches and techniques (e.g. interactive visualization and data dashboards) in order to understand and improve learning and the contexts in which learning occurs; and, 
+
+-   **Communication:** Clearly communicate methods, analyses, findings, and recommendations that can provide actionable insight into learning contexts for a range of education stakeholders.
 
 ## **Course Structure & Schedule**
 
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing the technical skills necessary for exploratory analysis through various software tutorials. In week 3, students will apply these skills to conduct a self-directed analysis and create a data product using an educational dataset provided or a dataset of their own choosing. 
-
-  
 
 | **Welcome: Course Overview & Introductions (August 10 - August 16)**       |
 |----------------------------------------------------------------------------|
