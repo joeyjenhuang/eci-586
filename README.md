@@ -24,73 +24,51 @@ Office location: Friday Institute for Educational Innovation 
 
 Office phone: (919) 513-8563
 
-Office Hours: any weekday by appointment
+Office Hours: Monday-Friday 8:00-4:00 by [appointment](https://calendly.com/sbkellogg/analytics)
 
 **Course Texts**
 
-There are no required textbooks for this course. Course readings and content (e.g. articles, videos) will be provided through Moodle course site or will be accessible online through NCSU Library site. You can also configure Google Scholar to allow automatic access to the libraries' subscriptions to journals and databases: <https://www.lib.ncsu.edu/articles/google-scholar>   
-
-  
+There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>   
 
 Required
 
-  
-
 1.  Krumm, A., Means, B., & Bienkowski, M. (2018). Learning analytics goes to school: A collaborative approach to improving education. Routledge. [Paperback ($27) and eBook ($31) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-School-Andrew-Krumm-dp-1138121835/dp/1138121835/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388348).
 
-2.    
+2.  
 
-3.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org> (for students interested in learning R programming only; for students planning to use point-and-click tools instead of programming, this text is recommended for exploration but not required)
+3.  Carolan, B. V. (2013). Social network analysis and education: Theory, methods & applications. Sage Publications. Digital copy available through [NCSU Library](https://catalog.lib.ncsu.edu/catalog/NCSU2803782). 
 
-4.    
+4.  
 
-  
+5.  
 
 Optional
 
-  
-
 1.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org> (for students interested in learning R programming only; for students planning to use point-and-click tools instead of programming, this text is recommended for exploration but not required)
 
-2.  Krumm, A., Means, B., & Bienkowski, M. (2018). Learning analytics goes to school: A collaborative approach to improving education. Routledge. [Paperback ($27) and eBook ($31) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-School-Andrew-Krumm-dp-1138121835/dp/1138121835/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388348).
+2.  Sclater, N. (2017). Learning analytics explained. Taylor & Francis. [Paperback ($43) and eBook ($43) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-Explained-Niall-Sclater-dp-113893173X/dp/113893173X/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388651).
 
-3.  Sclater, N. (2017). Learning analytics explained. Taylor & Francis. [Paperback ($43) and eBook ($43) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-Explained-Niall-Sclater-dp-113893173X/dp/113893173X/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388651).
+3.  Kieran Healy, Data Visualization: A Practical Introduction (Princeton: Princeton University Press, 2018), <http://socviz.co/>. [Free online](http://socviz.co/); $30 used, $36 new at [Amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/).
 
-4.  Kieran Healy, Data Visualization: A Practical Introduction (Princeton: Princeton University Press, 2018), <http://socviz.co/>. [Free online](http://socviz.co/); $30 used, $36 new at [Amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/).
+4.  Claus E. Wilke, Fundamentals of Data Visualization (Sebastopol, California: O'Reilly Media, 2018), <https://serialmentor.com/dataviz/>. [Free online](https://serialmentor.com/dataviz/); $32 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089). An eBook version is also available through [the O'Reilly database](http://go.oreilly.com/georgia-state-university), but you can just use [the online version](https://serialmentor.com/dataviz/).
 
-5.  Claus E. Wilke, Fundamentals of Data Visualization (Sebastopol, California: O'Reilly Media, 2018), <https://serialmentor.com/dataviz/>. [Free online](https://serialmentor.com/dataviz/); $32 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089). An eBook version is also available through [the O'Reilly database](http://go.oreilly.com/georgia-state-university), but you can just use [the online version](https://serialmentor.com/dataviz/).
-
-6.  Alberto Cairo, The Truthful Art: Data, Charts, and Maps for Communication (Berkeley, California: New Riders, 2016). $27 used, $32 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075).
+5.  Alberto Cairo, The Truthful Art: Data, Charts, and Maps for Communication (Berkeley, California: New Riders, 2016). $27 used, $32 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075).
 
 **Required and Recommended Software:** Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
 
-  
-
 This course requires R and R Studio or Tableau (linked below) that will be used to provide hands-on experience with the concepts and skills addressed in course readings. R, R studio, and Tableau can be installed on computers running Windows, MacOS, and Linux operating systems. 
-
-  
 
 Finally, students should feel comfortable installing new software programs and navigating unfamiliar graphical user interfaces. It is also recommended that students in this class have some background knowledge of online learning environments (e.g. LMS, MOOCs, etc.) and an understanding of basic descriptive statistics (e.g. distribution, frequencies, mean, variability, etc.). 
 
-  
-
 Required Software: 
 
-  
-
 For students who prefer completing course projects using a programming tools, we will use:
-
-  
 
 1.  **R** (<https://www.r-project.org>) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network, <http://cran.r-project.org/>. 
 
 2.  **R Studio** (<https://www.rstudio.com>) is an integrated development environment (IDE) for R which includes an R console, syntax-highlighting editor, and tools for plotting, packages, and workspace management. The R Student Desktop application can be downloaded from <https://www.rstudio.com/products/RStudio/#Desktop>. 
 
-  
-
 For students who prefer using point and click non-programming tools if this matches better with your comfort level or intended mode of application after completing the course, we will use:
-
-  
 
 1.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key: TC85-6EF8-D0F0-4E00-0988 
 
@@ -110,15 +88,11 @@ Optional Software:
 
 5.  Blogs and articles about data visualization: <https://flowingdata.com/>
 
-  
-
 **Server Space:** NC State is a Google Apps for Education institution. Your Google Drive provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century."  This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files. 
-
-  
 
 **Course Goals:**
 
-## **Student Learning Outcomes** 
+## **Student Learning Outcomes**
 
 Goals for the Introduction to Learning Analytics course are guided by the North Carolina State University motto: ***Think and Do***. Specifically, goals for this course are twofold:
 
@@ -165,8 +139,6 @@ This course is divided into four units focused on conceptualizing Learning Analy
 | Week 14                                                                    |
 | Week 15                                                                    |
 
-  
-
 **Major Assignments & Assessment:**
 
 1.  **Housekeeping (4 pts)**: Students will review the syllabus and "sign" the Online Learner Agreement sent at the beginning of the semester that outlines expectations for participating in an online course. Student will also be required to install necessary software and post a brief introduction of themselves and respond to their peers. 
@@ -179,39 +151,23 @@ This course is divided into four units focused on conceptualizing Learning Analy
 
 5.  **Final Project (24 pts)**: In the third week of each unit, students will prepare a brief report or data product on an analysis they conducted using an instructor provided dataset or a data source of your choosing.
 
-  
-
 **Grading Scale:** The grading scale is based on 100 points:
 
 A+ (97-100), A (94-96), A- (90-93), B+ (87-89), B (84-86), B- (80-83)
 
 C+ (77-79), C (74-76), C- (70-73), D+ (67-69), D (64-66), D- (60-63), F (59 or less)
 
-  
-
 Full credit is not awarded for late work. Late work accepted but penalized at 15% per week it is late. Assignments submitted by the due date, however, may be revised and resubmitted for a higher grade by the following week. Students experiencing unforeseen circumstances with a resulting excused absence (e.g., family medical emergency) are allowed to make up work without penalty.
-
-  
 
 **Course Feedback Expectations:** Please contact your instructor via email (shaun.kellogg\@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback for to help improve the design of current and future course implementations. 
 
-  
-
 **Academic Integrity:** Students are bound by the academic integrity policy as stated in the code of student conduct. Therefore, students are required to uphold the university pledge of honor and exercise honesty in completing any assignment. See the website for a full explanation: <http://www.ncsu.edu/policies/student_services/student_discipline/POL11.35.1.php>
-
-  
 
 **N.C. State University Policies, Regulations, and Rules (PRR)**: Students are responsible for reviewing the PRRs which pertain to their course rights and responsibilities. These include: <http://policies.ncsu.edu/policy/pol-04-25-05> (Equal Opportunity and Non-Discrimination Policy Statement), <http://oied.ncsu.edu/oied/policies.php>  (Office for Institutional Equity and Diversity), <http://policies.ncsu.edu/policy/pol-1135-01> (Code of Student Conduct), and <http://policies.ncsu.edu/regulation/reg-02-50-03> (Grades and Grade Point Average).
 
-  
-
 **University Non-Discrimination Policies:** It is the policy of the State of North Carolina to provide equality of opportunity in education and employment for all students and employees. Accordingly, the university does not practice or condone unlawful discrimination in any form against students, employees or applicants on the grounds of race, color, religion, creed, sex, national origin, age, disability, or veteran status. In addition, North Carolina State University regards discrimination based on sexual orientation to be inconsistent with its goal of providing a welcoming environment in which all its students, faculty, and staff may learn and work up to their full potential.
 
-  
-
 **Disabilities**: Reasonable accommodations will be made for students with verifiable disabilities. In order to take advantage of available accommodations, students must register with the Disability Resource Office at Holmes Hall, Suite 304, Campus Box 7509, 919-515-7653. For more information on NC State's policy on working with students with disabilities, please see the Academic Accommodations for Students with Disabilities Regulation (REG02.20.01).
-
-  
 
 **COVID -19 Announcement:**
 
@@ -289,6 +245,3 @@ In some cases, another option may be to request  an incomplete in the course. 
     **<https://moodle-projects.wolfware.ncsu.edu/course/view.php?id=226>
 
 -   **NC State Libraries** [Technology Lending Program](https://www.lib.ncsu.edu/devices)
-
-  
-  
