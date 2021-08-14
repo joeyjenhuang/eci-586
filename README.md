@@ -1,8 +1,10 @@
-# **ECI 586: Introduction to Learning Analytics**
+# **ECI 586: An Introduction to Learning Analytics**
 
 ## Course Overview
 
-As the use of digital resources continues to expand in education, an unprecedented amount of new data is becoming available to educational researchers and practitioners. In response, Learning Analytics (LA) has emerged over the past decade as an interdisciplinary field encompassing Learning (e.g. educational technology, learning and assessment sciences), Analytics (e.g. visualization, computer/data sciences), and Human-Centered Design (e.g. usability, participatory design). This course will provide students with an overview of the field, examples of its use in educational contexts, and applied experience with widely adopted tools and techniques for working with and exploring data. As participants gain experience in the collection, analysis, and reporting of data throughout the course, they will be better prepared to help educational organizations understand and improve learning and the contexts in which learning occurs.
+As the use of digital resources continues to expand in education, an unprecedented amount of new data is becoming available to educational researchers and practitioners. In response, Learning Analytics (LA) has emerged over the past decade as an interdisciplinary field encompassing Learning (e.g. educational technology, learning and assessment sciences), Analytics (e.g. visualization, computer/data sciences), and Human-Centered Design (e.g. usability, participatory design).
+
+This course will provide students with an overview of the field, examples of its use in educational contexts, and applied experience with widely adopted tools and techniques for working with and exploring data. As participants gain experience in the collection, analysis, and reporting of data throughout the course, they will be better prepared to help educational organizations understand and improve learning and the contexts in which learning occurs.
 
 **Number of Credits:** 3
 
@@ -13,6 +15,8 @@ As the use of digital resources continues to expand in education, an unprecedent
 **Meeting Time:** This distance education course is predominantly asynchronous. Online tools are utilized throughout the course for communication and interaction. In addition, we may use Zoom for real-time web conferencing, virtual office hours, or whole class discussions. For real-time meetings, we will send out a doodle to find a time that works for the majority of students and record real-time meetings for students who are not able to attend.
 
 **Virtual Class Locations:** This course will be taught online through NC State's Moodle course management platform. Access <http://wolfware.ncsu.edu/> and log-in with your Unity ID and password. After logging-in, locate and click on ECI 586 to access the course site.
+
+Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem).
 
 ## Instructor Information
 
@@ -53,27 +57,15 @@ There are several required textbooks for this course, all of which are freely av
 
 ## Software
 
-Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
-
-This course requires R and R Studio, which will be used to provide hands-on experience with the concepts and skills addressed in course readings. R, R studio, and Tableau can be installed on computers running Windows, MacOS, and Linux operating systems. 
-
-Finally, students should feel comfortable installing new software programs and navigating unfamiliar graphical user interfaces. It is also recommended that students in this class have some background knowledge of online learning environments (e.g. LMS, MOOCs, etc.) and an understanding of basic descriptive statistics (e.g. distribution, frequencies, mean, variability, etc.). 
+Students should feel comfortable installing new software programs and navigating unfamiliar graphical user interfaces. It is also recommended that students in this class have some background knowledge of online learning environments (e.g. LMS, MOOCs, etc.) and
 
 ### Required Software
 
-For students who prefer completing course projects using a programming tools, we will use:
+This course requires R and R Studio, which will be used to provide hands-on experience with the concepts and skills addressed in course readings.
 
 1.  **R** (<https://www.r-project.org>) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network, <http://cran.r-project.org/>. 
 
 2.  **R Studio** (<https://www.rstudio.com>) is an integrated development environment (IDE) for R which includes an R console, syntax-highlighting editor, and tools for plotting, packages, and workspace management. The R Student Desktop application can be downloaded from <https://www.rstudio.com/products/RStudio/#Desktop>. 
-
-For students who prefer using point and click non-programming tools if this matches better with your comfort level or intended mode of application after completing the course, we will use:
-
-1.  
-
-Regardless of choice of analysis tools, tutorials for the course will provided by:  
-
-1.  
 
 ### Optional Software
 
@@ -85,11 +77,9 @@ Regardless of choice of analysis tools, tutorials for the course will provided b
 
 4.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com> 
 
-5.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key: TC85-6EF8-D0F0-4E00-0988 
+5.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key provided in the email. Tableau provides a serious of tutorials for you to get familiar with the technology (<https://www.tableau.com/learn/training>).
 
-6.  Tableau online tutorials (<https://www.tableau.com/learn/training>). Tableau provides a serious of tutorials for you to get familiar with the technology. 
-
-7.  Blogs and articles about data visualization: <https://flowingdata.com/>
+6.  Blogs and articles about data visualization: <https://flowingdata.com/>
 
 ### Server Space
 
@@ -119,30 +109,25 @@ The following learning objectives are aligned with the overarching learning obje
 
 ## Course Structure & Schedule
 
-This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing the technical skills necessary for exploratory analysis through various software tutorials. In week 3, students will apply these skills to conduct a self-directed analysis and create a data product using an educational dataset provided or a dataset of their own choosing.
+This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing technical skills necessary for exploratory analysis through R software tutorials. In week 3, we apply these skills to conduct an analysis and create a data product using an educational dataset provided or a dataset of their own choosing.
 
-| **Welcome: Course Overview & Introductions (August 10 - August 16)**       |
-|----------------------------------------------------------------------------|
-| Week 1                                                                     |
-| **Unit 1: Introduction to Learning Analytics (August 17 - September 6)**   |
-| Week 2                                                                     |
-| Week 3                                                                     |
-| Week 4                                                                     |
-| **Unit 2: Data Workflows and Visual Design (September 7 - September 27)**  |
-| Week 5                                                                     |
-| Week 6                                                                     |
-| Week 7                                                                     |
-| **Unit 3: Truth, Beauty & Interactive Graphs (September 28 - October 18)** |
-| Week 8                                                                     |
-| Week 9                                                                     |
-| Week 10                                                                    |
-| **Unit 4: Data Stories & Dashboards (October 19 - November 8)**            |
-| Week 11                                                                    |
-| Week 12                                                                    |
-| Week 13                                                                    |
-| **Wrap Up: Final Project & Make-up Work (November 9- November 20)**        |
-| Week 14                                                                    |
-| Week 15                                                                    |
+| Orientation |                                 |
+|-------------|---------------------------------|
+| Week 1      |                                 |
+| **Unit 1**  | **What is Learning Analytics?** |
+| Week 2      | Readings and Discussion:        |
+| Week 3      |                                 |
+| Week 4      |                                 |
+| **Unit 2**  |                                 |
+|             |                                 |
+|             |                                 |
+|             |                                 |
+|             |                                 |
+|             |                                 |
+|             |                                 |
+|             |                                 |
+|             |                                 |
+|             |                                 |
 
 ## **Major Assignments & Assessment**
 
