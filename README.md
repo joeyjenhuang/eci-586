@@ -14,19 +14,14 @@ As the use of digital resources continues to expand in education, an unprecedent
 
 **Virtual Class Locations:** This course will be taught online through NC State's Moodle course management platform. Access <http://wolfware.ncsu.edu/> and log-in with your Unity ID and password. After logging-in, locate and click on ECI 586 to access the course site.
 
-**Instructor Information**
+## **Instructor Information**
 
-Name: Dr. Shaun Kellogg
-
-Email: shaun.kellogg\@ncsu.edu 
-
-Calendly/Zoom/Skype/Twitter/GitHub: sbkellogg
-
-Office location: Friday Institute for Educational Innovation 
-
-Office phone: (919) 513-8563
-
-Office Hours: Monday-Friday 8:00-4:00 by [appointment](https://calendly.com/sbkellogg/analytics)
+**Name:** Dr. Shaun Kellogg  
+**Email:** shaun.kellogg\@ncsu.edu   
+**Office location:** Friday Institute for Educational Innovation   
+**Office phone:** (919) 513-8563  
+**Office Hours:** Monday-Friday 8:00-4:00 by [appointment](https://calendly.com/sbkellogg/analytics)  
+**Calendly/Zoom/Skype/Twitter/GitHub:** sbkellogg
 
 ## **Course Texts**
 
