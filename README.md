@@ -29,29 +29,27 @@ There are several required textbooks for this course, all of which are freely av
 
 ### Required
 
-1.  Krumm, A., Means, B., & Bienkowski, M. (2018). Learning analytics goes to school: A collaborative approach to improving education. Routledge. [Paperback ($27) and eBook ($31) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-School-Andrew-Krumm-dp-1138121835/dp/1138121835/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388348).
+1.  Krumm, A., Means, B., & Bienkowski, M. (2018). [*Learning analytics goes to school: A collaborative approach to improving education.*](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) Routledge. Digital copy available through NCSU Library.
 
-2.  Data Science in Education Using R is available free online at <https://datascienceineducation.com>  
+2.  Estrellado, R. A., Freer, E. A., Mostipak, J., Rosenberg, J. M., & Velásquez, I. C. (2020). [*Data science in education using R*.](https://datascienceineducation.com) Routledge.
 
-3.  Carolan, B. V. (2013). Social network analysis and education: Theory, methods & applications. Sage Publications. Digital copy available through [NCSU Library](https://catalog.lib.ncsu.edu/catalog/NCSU2803782). 
+3.  Lang, C., Siemens, G., Wise, A., & Gasevic, D. (Eds.). (2017). [*Handbook of learning analytics*.](https://www.solaresearch.org/publications/hla-17/) New York, NY, USA: SOLAR, Society for Learning Analytics and Research.
 
-4.  
-
-5.  
+4.  Carolan, B. V. (2013). [Social network analysis and education: Theory, methods & applications.](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)Sage Publications.
 
 ### Optional
 
-1.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org>
+1.  Wickham, H., & Grolemund, G. (2016). *R for data science: import, tidy, transform, visualize, and model data*. " O'Reilly Media, Inc.".
 
-2.  Sclater, N. (2017). Learning analytics explained. Taylor & Francis. [Paperback ($43) and eBook ($43) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-Explained-Niall-Sclater-dp-113893173X/dp/113893173X/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388651).
+2.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org>
 
-3.  Kieran Healy, Data Visualization: A Practical Introduction (Princeton: Princeton University Press, 2018), <http://socviz.co/>. [Free online](http://socviz.co/); $30 used, $36 new at [Amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/).
+3.  Sclater, N. (2017). Learning analytics explained. Taylor & Francis. [Paperback ($43) and eBook ($43) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-Explained-Niall-Sclater-dp-113893173X/dp/113893173X/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388651).
 
-4.  Claus E. Wilke, Fundamentals of Data Visualization (Sebastopol, California: O'Reilly Media, 2018), <https://serialmentor.com/dataviz/>. [Free online](https://serialmentor.com/dataviz/); $32 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089). An eBook version is also available through [the O'Reilly database](http://go.oreilly.com/georgia-state-university), but you can just use [the online version](https://serialmentor.com/dataviz/).
+4.  Kieran Healy, Data Visualization: A Practical Introduction (Princeton: Princeton University Press, 2018), <http://socviz.co/>. [Free online](http://socviz.co/); $30 used, $36 new at [Amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/).
 
-5.  Alberto Cairo, The Truthful Art: Data, Charts, and Maps for Communication (Berkeley, California: New Riders, 2016). $27 used, $32 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075).
+5.  Claus E. Wilke, Fundamentals of Data Visualization (Sebastopol, California: O'Reilly Media, 2018), <https://serialmentor.com/dataviz/>. [Free online](https://serialmentor.com/dataviz/); $32 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089). An eBook version is also available through [the O'Reilly database](http://go.oreilly.com/georgia-state-university), but you can just use [the online version](https://serialmentor.com/dataviz/).
 
-6.  Witten, I. H., Frank, E., Hall, M., and Pal, C. J. (2016). Data Mining: Practical Machine Learning Tools and Techniques, fourth edition, Elsevier: San Francisco. (The book is available free for students at NCSU. You can find the e-book in NCSU library. Paperback ($50) and eBook ($50) are also available to purchase on Amazon.)
+6.  Alberto Cairo, The Truthful Art: Data, Charts, and Maps for Communication (Berkeley, California: New Riders, 2016). $27 used, $32 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075).
 
 ## **Software**
 
