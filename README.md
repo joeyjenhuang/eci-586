@@ -8,9 +8,11 @@ As the use of digital resources continues to expand in education, an unprecedent
 
 **Course Prerequisites/Co-requisites:** This course has no prerequisites.
 
+## Time & Location
+
 **Meeting Time:** This distance education course is predominantly asynchronous. Online tools are utilized throughout the course for communication and interaction. In addition, we may use Zoom for real-time web conferencing, virtual office hours, or whole class discussions. For real-time meetings, we will send out a doodle to find a time that works for the majority of students and record real-time meetings for students who are not able to attend.
 
-**Virtual Class Locations:** This course will be taught online through NC State's Moodle course management platform. Access <http://wolfware.ncsu.edu/> and log-in with your Unity ID and password. After logging-in, locate and click on ECI 593 to access the course site.
+**Virtual Class Locations:** This course will be taught online through NC State's Moodle course management platform. Access <http://wolfware.ncsu.edu/> and log-in with your Unity ID and password. After logging-in, locate and click on ECI 586 to access the course site.
 
 **Instructor Information**
 
@@ -56,7 +58,9 @@ Optional
 
 6.  Witten, I. H., Frank, E., Hall, M., and Pal, C. J. (2016). Data Mining: Practical Machine Learning Tools and Techniques, fourth edition, Elsevier: San Francisco. (The book is available free for students at NCSU. You can find the e-book in NCSU library. Paperback ($50) and eBook ($50) are also available to purchase on Amazon.)
 
-**Required and Recommended Software:** Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
+## **Software** 
+
+Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
 
 This course requires R and R Studio or Tableau (linked below) that will be used to provide hands-on experience with the concepts and skills addressed in course readings. R, R studio, and Tableau can be installed on computers running Windows, MacOS, and Linux operating systems. 
 
