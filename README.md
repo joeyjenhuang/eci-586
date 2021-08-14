@@ -39,27 +39,27 @@ There are several required textbooks for this course, all of which are freely av
 
 ### Optional
 
-1.  Wickham, H., & Grolemund, G. (2016). *R for data science: import, tidy, transform, visualize, and model data*. " O'Reilly Media, Inc.".
+1.  Sclater, N. (2017). [*Learning analytics explained*](https://catalog.lib.ncsu.edu/catalog/NCSU4863297). Taylor & Francis.
 
-2.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org>
+2.  Xie, Y., Allaire, J. J., & Grolemund, G. (2018). [*R markdown: The definitive guide*.](https://bookdown.org/yihui/rmarkdown/) CRC Press.
 
-3.  Sclater, N. (2017). Learning analytics explained. Taylor & Francis. [Paperback ($43) and eBook ($43) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-Explained-Niall-Sclater-dp-113893173X/dp/113893173X/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388651).
+3.  Wickham, H., & Grolemund, G. (2016). [*R for data science: import, tidy, transform, visualize, and model data*.](https://r4ds.had.co.nz/) " O'Reilly Media, Inc.".
 
-4.  Kieran Healy, Data Visualization: A Practical Introduction (Princeton: Princeton University Press, 2018), <http://socviz.co/>. [Free online](http://socviz.co/); $30 used, $36 new at [Amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/).
+4.  Wickham, H. (2021). [*Mastering shiny*.](https://mastering-shiny.org/) " O'Reilly Media, Inc.".
 
-5.  Claus E. Wilke, Fundamentals of Data Visualization (Sebastopol, California: O'Reilly Media, 2018), <https://serialmentor.com/dataviz/>. [Free online](https://serialmentor.com/dataviz/); $32 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089). An eBook version is also available through [the O'Reilly database](http://go.oreilly.com/georgia-state-university), but you can just use [the online version](https://serialmentor.com/dataviz/).
+5.  Healy, K. (2018). [*Data visualization: a practical introduction*.](http://socviz.co/) Princeton University Press.
 
-6.  Alberto Cairo, The Truthful Art: Data, Charts, and Maps for Communication (Berkeley, California: New Riders, 2016). $27 used, $32 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075).
+6.  Cairo, A. (2016). [*The truthful art: Data, charts, and maps for communication*.](https://catalog.lib.ncsu.edu/catalog/NCSU3923006) New Riders.
 
 ## **Software**
 
 Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
 
-This course requires R and R Studio or Tableau (linked below) that will be used to provide hands-on experience with the concepts and skills addressed in course readings. R, R studio, and Tableau can be installed on computers running Windows, MacOS, and Linux operating systems. 
+This course requires R and R Studio, which will be used to provide hands-on experience with the concepts and skills addressed in course readings. R, R studio, and Tableau can be installed on computers running Windows, MacOS, and Linux operating systems. 
 
 Finally, students should feel comfortable installing new software programs and navigating unfamiliar graphical user interfaces. It is also recommended that students in this class have some background knowledge of online learning environments (e.g. LMS, MOOCs, etc.) and an understanding of basic descriptive statistics (e.g. distribution, frequencies, mean, variability, etc.). 
 
-Required Software: 
+### Required Software
 
 For students who prefer completing course projects using a programming tools, we will use:
 
@@ -69,35 +69,41 @@ For students who prefer completing course projects using a programming tools, we
 
 For students who prefer using point and click non-programming tools if this matches better with your comfort level or intended mode of application after completing the course, we will use:
 
-1.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key: TC85-6EF8-D0F0-4E00-0988 
+1.  
 
 Regardless of choice of analysis tools, tutorials for the course will provided by:  
 
-1.  **LinkedIn Learning** (<https://www.linkedin.com/learning)> offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
+1.  
 
-Optional Software:
+### Optional Software
 
-1.  **Data Camp** (<https://www.datacamp.com>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our DataCamp site and full catalogue of courses and resources for 6 months. 
+1.  **Data Camp** (<https://www.datacamp.com>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our DataCamp site and full catalogue of courses and resources for 6 months.
 
-2.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
+2.  **LinkedIn Learning** (<https://www.linkedin.com/learning)> offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
 
-3.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com> 
+3.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
 
-4.  Tableau online tutorials (<https://www.tableau.com/learn/training>). Tableau provides a serious of tutorials for you to get familiar with the technology. 
+4.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com> 
 
-5.  Blogs and articles about data visualization: <https://flowingdata.com/>
+5.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key: TC85-6EF8-D0F0-4E00-0988 
 
-**Server Space:** NC State is a Google Apps for Education institution. Your Google Drive provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century."  This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files. 
+6.  Tableau online tutorials (<https://www.tableau.com/learn/training>). Tableau provides a serious of tutorials for you to get familiar with the technology. 
 
-**Course Goals:**
+7.  Blogs and articles about data visualization: <https://flowingdata.com/>
 
-## **Student Learning Outcomes**
+### **Server Space**
+
+NC State is a Google Apps for Education institution. Your Google Drive provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century."  This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files. 
+
+## **Course Goals**
 
 Goals for the Introduction to Learning Analytics course are guided by the North Carolina State University motto: ***Think and Do***. Specifically, goals for this course are twofold:
 
 -   **Disciplinary Knowledge.** Students will deepen their understanding of Learning Analytics as an emerging approach within the field of Learning Analytics, including its application in a wide range of education settings. 
 
 -   **Technical Skills.** Scholars will develop proficiency with the processes, tools, and techniques necessary to efficiently, effectively, and ethically apply data visualization best practices for understanding and improving learning and the contexts in which learning occurs. 
+
+## **Student Learning Outcomes**
 
 The following learning objectives are aligned with the overarching learning objectives of the Graduate Certificate in Learning Analytics program and are embedded in each unit of the course. Students who complete this course will be able to:
 
@@ -138,7 +144,7 @@ This course is divided into four units focused on conceptualizing Learning Analy
 | Week 14                                                                    |
 | Week 15                                                                    |
 
-**Major Assignments & Assessment:**
+## **Major Assignments & Assessment**
 
 1.  **Housekeeping (4 pts)**: Students will review the syllabus and "sign" the Online Learner Agreement sent at the beginning of the semester that outlines expectations for participating in an online course. Student will also be required to install necessary software and post a brief introduction of themselves and respond to their peers. 
 
@@ -146,7 +152,7 @@ This course is divided into four units focused on conceptualizing Learning Analy
 
 3.  **Software Tutorials (24 pts):** In Part 2 of each unit, students gain hands-on experience with text-mining tools and processes using R or SAS. The first week of Part 2 consists of tutorials and resources that will introduce students to reading and wrangling data for analysis, exploring data for interesting patterns or trends, and reporting data in a reproducible way. Full credit will be provided for successful completion of tutorials. 
 
-4.  **Data Products (24 pts)**: In the third week of each unit, students will prepare a brief report or data product on an analysis they conducted using an instructor provided dataset or a data source of your choosing. Product or report will include key finding and insights gained from the analysis. Students are asked to use an instructor provided rubric to reflect on and self-assess on their data product and will be provided exemplar products from prior course offerings.
+4.  **Guided Walkthroughs (24 pts)**: In the third week of each unit, students will prepare a brief report or data product on an analysis they conducted using an instructor provided dataset or a data source of your choosing. Product or report will include key finding and insights gained from the analysis. Students are asked to use an instructor provided rubric to reflect on and self-assess on their data product and will be provided exemplar products from prior course offerings.
 
 5.  **Final Project (24 pts)**: In the third week of each unit, students will prepare a brief report or data product on an analysis they conducted using an instructor provided dataset or a data source of your choosing.
 
