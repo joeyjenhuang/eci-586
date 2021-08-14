@@ -58,7 +58,7 @@ Optional
 
 6.  Witten, I. H., Frank, E., Hall, M., and Pal, C. J. (2016). Data Mining: Practical Machine Learning Tools and Techniques, fourth edition, Elsevier: San Francisco. (The book is available free for students at NCSU. You can find the e-book in NCSU library. Paperback ($50) and eBook ($50) are also available to purchase on Amazon.)
 
-## **Software** 
+## **Software**
 
 Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
 
