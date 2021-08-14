@@ -27,11 +27,11 @@ As the use of digital resources continues to expand in education, an unprecedent
 
 There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>   
 
-Required
+### Required
 
 1.  Krumm, A., Means, B., & Bienkowski, M. (2018). Learning analytics goes to school: A collaborative approach to improving education. Routledge. [Paperback ($27) and eBook ($31) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-School-Andrew-Krumm-dp-1138121835/dp/1138121835/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388348).
 
-2.  
+2.  Data Science in Education Using R is available free online at <https://datascienceineducation.com>  
 
 3.  Carolan, B. V. (2013). Social network analysis and education: Theory, methods & applications. Sage Publications. Digital copy available through [NCSU Library](https://catalog.lib.ncsu.edu/catalog/NCSU2803782). 
 
@@ -39,7 +39,7 @@ Required
 
 5.  
 
-Optional
+### Optional
 
 1.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org>
 
