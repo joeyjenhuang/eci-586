@@ -26,7 +26,7 @@ Office phone: (919) 513-8563
 
 Office Hours: Monday-Friday 8:00-4:00 by [appointment](https://calendly.com/sbkellogg/analytics)
 
-**Course Texts**
+## **Course Texts**
 
 There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>   
 
@@ -44,7 +44,7 @@ Required
 
 Optional
 
-1.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org> (for students interested in learning R programming only; for students planning to use point-and-click tools instead of programming, this text is recommended for exploration but not required)
+1.  R for Data Science and Mastering Shiny are available free online at <https://r4ds.had.co.nz> and <https://mastering-shiny.org>
 
 2.  Sclater, N. (2017). Learning analytics explained. Taylor & Francis. [Paperback ($43) and eBook ($43) are also available to purchase on Amazon](https://www.amazon.com/Learning-Analytics-Explained-Niall-Sclater-dp-113893173X/dp/113893173X/ref=mt_paperback?_encoding=UTF8&me=&qid=1587388651).
 
@@ -53,6 +53,8 @@ Optional
 4.  Claus E. Wilke, Fundamentals of Data Visualization (Sebastopol, California: O'Reilly Media, 2018), <https://serialmentor.com/dataviz/>. [Free online](https://serialmentor.com/dataviz/); $32 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089). An eBook version is also available through [the O'Reilly database](http://go.oreilly.com/georgia-state-university), but you can just use [the online version](https://serialmentor.com/dataviz/).
 
 5.  Alberto Cairo, The Truthful Art: Data, Charts, and Maps for Communication (Berkeley, California: New Riders, 2016). $27 used, $32 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075).
+
+6.  Witten, I. H., Frank, E., Hall, M., and Pal, C. J. (2016). Data Mining: Practical Machine Learning Tools and Techniques, fourth edition, Elsevier: San Francisco. (The book is available free for students at NCSU. You can find the e-book in NCSU library. Paperback ($50) and eBook ($50) are also available to purchase on Amazon.)
 
 **Required and Recommended Software:** Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
 
@@ -114,7 +116,7 @@ The following learning objectives are aligned with the overarching learning obje
 
 ## **Course Structure & Schedule**
 
-This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing the technical skills necessary for exploratory analysis through various software tutorials. In week 3, students will apply these skills to conduct a self-directed analysis and create a data product using an educational dataset provided or a dataset of their own choosing. 
+This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing the technical skills necessary for exploratory analysis through various software tutorials. In week 3, students will apply these skills to conduct a self-directed analysis and create a data product using an educational dataset provided or a dataset of their own choosing.
 
 | **Welcome: Course Overview & Introductions (August 10 - August 16)**       |
 |----------------------------------------------------------------------------|
