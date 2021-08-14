@@ -1,6 +1,6 @@
 # **ECI 586: Introduction to Learning Analytics**
 
-## **Course Overview**
+## Course Overview
 
 As the use of digital resources continues to expand in education, an unprecedented amount of new data is becoming available to educational researchers and practitioners. In response, Learning Analytics (LA) has emerged over the past decade as an interdisciplinary field encompassing Learning (e.g. educational technology, learning and assessment sciences), Analytics (e.g. visualization, computer/data sciences), and Human-Centered Design (e.g. usability, participatory design). This course will provide students with an overview of the field, examples of its use in educational contexts, and applied experience with widely adopted tools and techniques for working with and exploring data. As participants gain experience in the collection, analysis, and reporting of data throughout the course, they will be better prepared to help educational organizations understand and improve learning and the contexts in which learning occurs.
 
@@ -14,16 +14,16 @@ As the use of digital resources continues to expand in education, an unprecedent
 
 **Virtual Class Locations:** This course will be taught online through NC State's Moodle course management platform. Access <http://wolfware.ncsu.edu/> and log-in with your Unity ID and password. After logging-in, locate and click on ECI 586 to access the course site.
 
-## **Instructor Information**
+## Instructor Information
 
 **Name:** Dr. Shaun Kellogg  
-**Email:** shaun.kellogg\@ncsu.edu   
+**Email:** shaun.kellogg\@ncsu.edu  
 **Office location:** Friday Institute for Educational Innovation   
 **Office phone:** (919) 513-8563  
 **Office Hours:** Monday-Friday 8:00-4:00 by [appointment](https://calendly.com/sbkellogg/analytics)  
 **Calendly/Zoom/Skype/Twitter/GitHub:** sbkellogg
 
-## **Course Texts**
+## Course Texts
 
 There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>   
 
@@ -51,7 +51,7 @@ There are several required textbooks for this course, all of which are freely av
 
 6.  Cairo, A. (2016). [*The truthful art: Data, charts, and maps for communication*.](https://catalog.lib.ncsu.edu/catalog/NCSU3923006) New Riders.
 
-## **Software**
+## Software
 
 Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem). 
 
@@ -91,11 +91,11 @@ Regardless of choice of analysis tools, tutorials for the course will provided b
 
 7.  Blogs and articles about data visualization: <https://flowingdata.com/>
 
-### **Server Space**
+### Server Space
 
 NC State is a Google Apps for Education institution. Your Google Drive provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century."  This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files. 
 
-## **Course Goals**
+## Course Goals
 
 Goals for the Introduction to Learning Analytics course are guided by the North Carolina State University motto: ***Think and Do***. Specifically, goals for this course are twofold:
 
@@ -103,7 +103,7 @@ Goals for the Introduction to Learning Analytics course are guided by the North 
 
 -   **Technical Skills.** Scholars will develop proficiency with the processes, tools, and techniques necessary to efficiently, effectively, and ethically apply data visualization best practices for understanding and improving learning and the contexts in which learning occurs. 
 
-## **Student Learning Outcomes**
+## Student Learning Outcomes
 
 The following learning objectives are aligned with the overarching learning objectives of the Graduate Certificate in Learning Analytics program and are embedded in each unit of the course. Students who complete this course will be able to:
 
@@ -117,7 +117,7 @@ The following learning objectives are aligned with the overarching learning obje
 
 -   **Communication:** Clearly communicate methods, analyses, findings, and recommendations that can provide actionable insight into learning contexts for a range of education stakeholders.
 
-## **Course Structure & Schedule**
+## Course Structure & Schedule
 
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing the technical skills necessary for exploratory analysis through various software tutorials. In week 3, students will apply these skills to conduct a self-directed analysis and create a data product using an educational dataset provided or a dataset of their own choosing.
 
