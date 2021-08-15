@@ -143,6 +143,8 @@ This course is divided into four units focused on conceptualizing Learning Analy
 
 5.  **Final Project (24 pts)**: In lieu of a final exam, students will prepare a brief report or "data product" describing an analysis they conducted using an instructor provided dataset or a data source of your choosing.
 
+## **Assessment**
+
 **Grading Scale:** The grading scale is based on 100 points:
 
 A+ (97-100), A (94-96), A- (90-93), B+ (87-89), B (84-86), B- (80-83)
@@ -152,6 +154,8 @@ C+ (77-79), C (74-76), C- (70-73), D+ (67-69), D (64-66), D- (60-63), F (59 or l
 Late work is accepted but may be penalized at 15% per week it is late. Assignments submitted by the due date, however, may be revised and resubmitted for a higher grade by the following week. Students experiencing unforeseen circumstances with a resulting excused absence (e.g., family medical emergency) are allowed to make up work without penalty.
 
 **Course Feedback Expectations:** Please contact your instructor via email (shaun.kellogg\@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback for to help improve the design of current and future course implementations. 
+
+## **NC State Policies**
 
 **Academic Integrity:** Students are bound by the academic integrity policy as stated in the code of student conduct. Therefore, students are required to uphold the university pledge of honor and exercise honesty in completing any assignment. See the website for a full explanation: <http://www.ncsu.edu/policies/student_services/student_discipline/POL11.35.1.php>
 
