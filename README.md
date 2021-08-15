@@ -113,7 +113,7 @@ This course is divided into four units focused on conceptualizing Learning Analy
 
 | WELCOME    | OVERVIEW & INTRODUCTIONS (Aug 16 - Aug 22)                                                                                                          |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Week 1     | Introductions, syllabus review, and software installation                                                                                           |
+| Week 1     | Introductions, syllabus review, and software setup                                                                                                  |
 | **UNIT 1** | **WHAT IS LEARNING ANALYTICS?**                                                                                                                     |
 | Week 2     | **Readings & Discussion:** Introduction to Learning Analytics as a discipline (e.g. history, concepts, theories, methodologies, stakeholders, etc.) |
 | Week 3     | **Software Tutorial**: Software tutorials on text preprocessing, word counts, and Term Frequency- Inverse Document Frequency, and word clouds.      |
