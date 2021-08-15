@@ -226,13 +226,10 @@ In some cases, another option may be to request  an incomplete in the course. 
 
 -   **NC State Protect the Pack Resources for Students:** [Resources for Students \| Protect the Pack](https://www.ncsu.edu/coronavirus/reactivating-campus/resources-for-students/)
 
--   **NC State Keep Learning, tips for students opting to take courses remotely:  
-    **[Keep Learning Tips for Remote Learning](https://dasa.ncsu.edu/students/keep-learning/)
+-   **NC State Keep Learning, tips for students opting to take courses remotely:** [Keep Learning Tips for Remote Learning](https://dasa.ncsu.edu/students/keep-learning/)
 
--   **Introduction to Zoom for students:  
-    **<https://youtu.be/5LbPzzPbYEw>
+-   **Introduction to Zoom for students:** <https://youtu.be/5LbPzzPbYEw>
 
--   **Learning with Moodle, a student's guide to using Moodle:  
-    **<https://moodle-projects.wolfware.ncsu.edu/course/view.php?id=226>
+-   **Learning with Moodle, a student's guide to using Moodle:** <https://moodle-projects.wolfware.ncsu.edu/course/view.php?id=226>
 
 -   **NC State Libraries** [Technology Lending Program](https://www.lib.ncsu.edu/devices)
