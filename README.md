@@ -119,11 +119,11 @@ This course is divided into four units focused on conceptualizing Learning Analy
 | Week 6     |                                                                                                                                                     |
 | Week 7     |                                                                                                                                                     |
 | **UNIT 3** | TEXT AS DATA                                                                                                                                        |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
+| Week 8     |                                                                                                                                                     |
+| Week 9     |                                                                                                                                                     |
+| Week 10    |                                                                                                                                                     |
+| UNIT 4     |                                                                                                                                                     |
+| Week 11    |                                                                                                                                                     |
 
 ## **Major Assignments & Assessment**
 
