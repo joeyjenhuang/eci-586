@@ -1,3 +1,4 @@
-remote_theme: pages-themes/cayman@v0.2.0
-plugins:
-- jekyll-remote-theme
+title: An Introduction to Learning Analytics
+description: ECI 586 Section 601
+theme: jekyll-theme-slate
+
