@@ -1,4 +1,4 @@
-# **ECI-586 Syllabus**
+# **Syllabus**
 
 ## Course Overview
 
