@@ -107,23 +107,28 @@ The following learning objectives are aligned with the overarching learning obje
 
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing technical skills necessary for exploratory analysis through R software tutorials. In week 3, we apply these skills to conduct an analysis and create a data product using an educational dataset provided or a dataset of their own choosing.
 
-| WELCOME    | OVERVIEW & INTRODUCTIONS (Aug 16 - Aug 22)                                                                                                          |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Week 1     | Introductions, syllabus review, and software installation                                                                                           |
-| **UNIT 1** | **WHAT IS LEARNING ANALYTICS?**                                                                                                                     |
-| Week 2     | **Readings & Discussion:** Introduction to Learning Analytics as a discipline (e.g. history, concepts, theories, methodologies, stakeholders, etc.) |
-| Week 3     | **Software Tutorial**: Software tutorials on text preprocessing, word counts, and Term Frequency- Inverse Document Frequency, and word clouds.      |
-| Week 4     | **Case Study**: Software tutorials on text preprocessing, word counts, and Term Frequency- Inverse Document Frequency, and word clouds.             |
-| **UNIT 2** |                                                                                                                                                     |
-| Week 5     |                                                                                                                                                     |
-| Week 6     |                                                                                                                                                     |
-| Week 7     |                                                                                                                                                     |
-| **UNIT 3** | TEXT AS DATA                                                                                                                                        |
-| Week 8     |                                                                                                                                                     |
-| Week 9     |                                                                                                                                                     |
-| Week 10    |                                                                                                                                                     |
-| UNIT 4     |                                                                                                                                                     |
-| Week 11    |                                                                                                                                                     |
+| WELCOME     | OVERVIEW & INTRODUCTIONS (Aug 16 - Aug 22)                                                                                                                                                                                             |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Week 1      | Introductions, syllabus review, and software setup                                                                                                                                                                                     |
+| **UNIT 1**  | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                        |
+| Week 2      | **Readings & Discussion:** Introduction to Learning Analytics as a discipline, including a little history, key concepts, learning theories, methodologies, etc.)                                                                       |
+| Week 3      | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report "tidy" data.                                                                                     |
+| Week 4      | **Case Study**: A look into online science classes designed and taught by instructors through a state-wide online course provider.                                                                                                     |
+| **UNIT 2**  | **DATA VISUALIZATION**                                                                                                                                                                                                                 |
+| Week 5      |                                                                                                                                                                                                                                        |
+| Week 6      |                                                                                                                                                                                                                                        |
+| Week 7      |                                                                                                                                                                                                                                        |
+| **UNIT 3**  | **TEXT AS DATA**                                                                                                                                                                                                                       |
+| Week 8      |                                                                                                                                                                                                                                        |
+| Week 9      |                                                                                                                                                                                                                                        |
+| Week 10     |                                                                                                                                                                                                                                        |
+| **UNIT 4**  | **A NETWORK PERSPECTIVE**                                                                                                                                                                                                              |
+| Week 11     |                                                                                                                                                                                                                                        |
+| Week 12     |                                                                                                                                                                                                                                        |
+| Week 13     |                                                                                                                                                                                                                                        |
+| **WRAP UP** | **FINAL PROJECT & Make-up Work**                                                                                                                                                                                                       |
+| Week 14     | **Make-up Assignments:** Final opportunity for students to complete any missing work. This week should also be used to make significant progress on your final project.                                                                |
+| Week 15     | **Final Project:** In lieu of a final exam, students will complete and Independent analysis and develop a data product (e.g. case study, presentation, data dashboard, etc.) that demonstrates concepts learned throughout the course. |
 
 ## **Major Assignments & Assessment**
 
