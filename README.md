@@ -4,7 +4,7 @@
 
 As the use of digital resources continues to expand in education, an unprecedented amount of new data is becoming available to educational researchers and practitioners. In response, Learning Analytics (LA) has emerged over the past decade as an interdisciplinary field encompassing Learning (e.g. educational technology, learning and assessment sciences), Analytics (e.g. visualization, computer/data sciences), and Human-Centered Design (e.g. usability, participatory design).
 
-This course will provide students with an overview of the field, examples of its use in educational contexts, and applied experience with widely adopted tools and techniques for working with and exploring data. As participants gain experience in the collection, analysis, and reporting of data throughout the course, they will be better prepared to help educational organizations understand and improve learning and the contexts in which learning occurs.
+This course will provide students with an overview of the field, examples of its use in educational contexts, and applied experience with tools and techniques for analyzing new sources of data from new perspectives. As participants gain experience in the collection, analysis, and reporting of data throughout the course, they will be better prepared to help educational organizations understand and improve learning and the contexts in which learning occurs.
 
 **Number of Credits:** 3
 
@@ -12,9 +12,9 @@ This course will provide students with an overview of the field, examples of its
 
 ## Time & Location
 
-**Meeting Time:** This distance education course is predominantly asynchronous. Online tools are utilized throughout the course for communication and interaction. In addition, we may use Zoom for real-time web conferencing, virtual office hours, or whole class discussions. For real-time meetings, we will send out a doodle to find a time that works for the majority of students and record real-time meetings for students who are not able to attend.
+**Meeting Time:** This distance education course is predominantly asynchronous. Online tools are utilized throughout the course for communication and interaction. In addition, we may use Zoom for synchronous web conferencing, virtual office hours, or whole class discussions. For live meetings, we will send out a poll to find a time that works for the majority of students and record these meetings for students who are not able to attend.
 
-**Virtual Class Locations:** This course will be taught online through NC State's Moodle course management platform. Access <http://wolfware.ncsu.edu/> and log-in with your Unity ID and password. After logging-in, locate and click on ECI 586 to access the course site.
+**Virtual Class Locations:** All course materials and activities can be accessed online through NC State's Moodle course management platform. Access <http://wolfware.ncsu.edu/> and log-in with your Unity ID and password. After logging-in, locate and click on ECI 586 An Introduction to Learning Analytics to access the course site.
 
 Students must have Internet access and access to a Web browser (e.g., Safari, Firefox, Chrome) to participate in this course. The Moodle course site and Web-based software required for completing course projects may only be accessed online. It is strongly recommended that students have high-speed Internet access (e.g., cable modem).
 
@@ -29,17 +29,17 @@ Students must have Internet access and access to a Web browser (e.g., Safari, Fi
 
 ## Course Texts
 
-There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>   
+There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided at no cost through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>.
 
 ### Required
 
-1.  Krumm, A., Means, B., & Bienkowski, M. (2018). [*Learning analytics goes to school: A collaborative approach to improving education.*](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) Routledge. Digital copy available through NCSU Library.
+1.  Krumm, A., Means, B., & Bienkowski, M. (2018). [*Learning analytics goes to school: A collaborative approach to improving education.*](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) Routledge.
 
 2.  Estrellado, R. A., Freer, E. A., Mostipak, J., Rosenberg, J. M., & Velásquez, I. C. (2020). [*Data science in education using R*.](https://datascienceineducation.com) Routledge.
 
 3.  Lang, C., Siemens, G., Wise, A., & Gasevic, D. (Eds.). (2017). [*Handbook of learning analytics*.](https://www.solaresearch.org/publications/hla-17/) New York, NY, USA: SOLAR, Society for Learning Analytics and Research.
 
-4.  Carolan, B. V. (2013). [Social network analysis and education: Theory, methods & applications.](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)Sage Publications.
+4.  Carolan, B. V. (2013). [*Social network analysis and education: Theory, methods & applications*.](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) Sage Publications.
 
 ### Optional
 
@@ -57,7 +57,7 @@ There are several required textbooks for this course, all of which are freely av
 
 ## Software
 
-Students should feel comfortable installing new software programs and navigating unfamiliar graphical user interfaces. It is also recommended that students in this class have some background knowledge of online learning environments (e.g. LMS, MOOCs, etc.) and
+Students should feel comfortable installing new software programs and navigating unfamiliar graphical user interfaces. It is also recommended that students in this class have some background knowledge of online learning environments (e.g. LMS, MOOCs, etc.).
 
 ### Required Software
 
@@ -69,7 +69,7 @@ This course requires R and R Studio, which will be used to provide hands-on expe
 
 ### Optional Software
 
-1.  **Google Apps.** Your Google Drive provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century." This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files.
+1.  **Google Drive** provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century." This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files.
 
 2.  **Data Camp** (<https://www.datacamp.com>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our DataCamp site, full catalogue of courses and resources for 6 months.
 
@@ -79,7 +79,7 @@ This course requires R and R Studio, which will be used to provide hands-on expe
 
 5.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com> 
 
-6.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key provided in the email. Tableau provides a serious of tutorials for you to get familiar with the technology (<https://www.tableau.com/learn/training>). 
+6.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key provided in the email. Tableau also provides a serious of tutorials for you to get familiar with the technology (<https://www.tableau.com/learn/training>). 
 
 ## Course Goals
 
@@ -87,7 +87,7 @@ Goals for the Introduction to Learning Analytics course are guided by the North 
 
 -   **Disciplinary Knowledge.** Students will deepen their understanding of Learning Analytics as an emerging approach within the field of Learning Analytics, including its application in a wide range of education settings. 
 
--   **Technical Skills.** Scholars will develop proficiency with the processes, tools, and techniques necessary to efficiently, effectively, and ethically apply data visualization best practices for understanding and improving learning and the contexts in which learning occurs. 
+-   **Technical Skills.** Scholars will develop proficiency with the processes, tools, and techniques necessary to efficiently, effectively, and ethically apply Learning Analytics for understanding and improving learning and the contexts in which learning occurs. 
 
 ## Student Learning Outcomes
 
@@ -105,43 +105,43 @@ The following learning objectives are aligned with the overarching learning obje
 
 ## Course Structure & Schedule
 
-This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. Week 1 of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In week 2, we focus on developing technical skills necessary for exploratory analysis through R software tutorials. In week 3, we apply these skills to conduct an analysis and create a data product using an educational dataset provided or a dataset of their own choosing.
+This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.
 
-| Schedule    | Topics                                                                                                                                                                                                                                 |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **WELCOME** | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                           |
-| Week 1      | Introductions, syllabus review, and software setup                                                                                                                                                                                     |
-| **UNIT 1**  | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                        |
-| Week 2      | **Readings & Discussion:** Introduction to Learning Analytics as a discipline, including a little history, key concepts, learning theories, methodologies, etc.)                                                                       |
-| Week 3      | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report "tidy" data.                                                                                     |
-| Week 4      | **Case Study**: A look into student-level data from online classes provided by a state-wide virtual public school.                                                                                                                     |
-| **UNIT 2**  | **DATA VISUALIZATION**                                                                                                                                                                                                                 |
-| Week 5      | **Readings & Discussion:** An examination of use of data visualization and dashboards to understand and improve student learning.                                                                                                      |
-| Week 6      | **R Toolkit Tutorial**: A deeper dive into the "grammar of graphics" and development of foundational skills for creating interactive data apps.                                                                                        |
-| Week 7      | **Case Study**: An exploration of aggregate student data to examine educational inequities and changes over time.                                                                                                                      |
-| **UNIT 3**  | **TEXT AS DATA**                                                                                                                                                                                                                       |
-| Week 8      | **Readings & Discussion:** Introduction to text mining in education, including a key concepts and common techniques, and their application in educational settings.                                                                    |
-| Week 9      | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report text as data.                                                                                    |
-| Week 10     | **Case Study**: A focus on text processing, word frequencies, and sentiment lexicons to examine public opinions on Twitter around the Common Core and Next Generation Science Standards.                                               |
-| **UNIT 4**  | **A NETWORK PERSPECTIVE**                                                                                                                                                                                                              |
-| Week 11     | **Readings & Discussion:** Introduction to social network analysis in education, including a key concepts and common techniques, and applications in educational settings.                                                             |
-| Week 12     | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report relational data.                                                                                 |
-| Week 13     | **Case Study**: A focus on network data formats, descriptives, and sociograms to examine peer interaction in an Massively Open Online Course for Educators.                                                                            |
-| **WRAP UP** | **MAKE UP & FINAL PROJECTS**                                                                                                                                                                                                           |
-| Week 14     | **Make-up Week:** Final opportunity for students to complete any missing work. This week should also be used to make significant progress on your final project.                                                                       |
-| Week 15     | **Final Project:** In lieu of a final exam, students will complete and Independent analysis and develop a data product (e.g. case study, presentation, data dashboard, etc.) that demonstrates concepts learned throughout the course. |
+| Schedule    | Topics                                                                                                                                                                                                                             |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **WELCOME** | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                       |
+| Week 1      | Introductions, syllabus review, and software setup                                                                                                                                                                                 |
+| **UNIT 1**  | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                    |
+| Week 2      | **Readings & Discussion:** Introduction to Learning Analytics as a discipline, including a little history, key concepts, learning theories, methodologies, etc.)                                                                   |
+| Week 3      | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report "tidy" data.                                                                                 |
+| Week 4      | **Case Study**: A look into student-level data from online classes provided by a state-wide virtual public school.                                                                                                                 |
+| **UNIT 2**  | **DATA VISUALIZATION**                                                                                                                                                                                                             |
+| Week 5      | **Readings & Discussion:** An examination of the use of data visualization and dashboards in Learning Analytics to understand and improve student learning.                                                                        |
+| Week 6      | **R Toolkit Tutorial**: A deeper dive into the "grammar of graphics" and development of foundational skills for creating interactive data apps.                                                                                    |
+| Week 7      | **Case Study**: An exploration of aggregate student data to examine educational inequities and changes over time.                                                                                                                  |
+| **UNIT 3**  | **TEXT AS DATA**                                                                                                                                                                                                                   |
+| Week 8      | **Readings & Discussion:** Introduction to text mining in education, including a key concepts and common techniques, and their application in educational settings.                                                                |
+| Week 9      | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report text as data.                                                                                |
+| Week 10     | **Case Study**: A focus on text processing, word frequencies, and sentiment lexicons to examine public opinions on Twitter around the Common Core and Next Generation Science Standards.                                           |
+| **UNIT 4**  | **A NETWORK PERSPECTIVE**                                                                                                                                                                                                          |
+| Week 11     | **Readings & Discussion:** Introduction to social network analysis in education, including a key concepts and common techniques, and applications in educational settings.                                                         |
+| Week 12     | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report relational data.                                                                             |
+| Week 13     | **Case Study**: A focus on network data formats, descriptives, and sociograms to examine peer interaction in Massively Open Online Course for Educators (MOOC-Eds).                                                                |
+| **WRAP UP** | **MAKE UP & FINAL PROJECTS**                                                                                                                                                                                                       |
+| Week 14     | **Make-up Week:** Final opportunity for students to complete any missing work. This week should also be used to make significant progress on your final project.                                                                   |
+| Week 15     | **Final Project:** In lieu of a final exam, students will complete and Independent analysis and develop a data product (e.g. report, presentation, data dashboard, etc.) that demonstrates concepts learned throughout the course. |
 
 ## **Major Assignments & Assessment**
 
 1.  **Housekeeping (4 pts)**: Students will review the syllabus and "sign" the Online Learner Agreement sent at the beginning of the semester that outlines expectations for participating in an online course. Student will also be required to install necessary software and post a brief introduction of themselves and respond to their peers. 
 
-2.  **Reading & Discussion (24 pts)**: The first week of each unit introduces terminology, core concepts, and applications of an analytical approach through readings, course videos, and discussion. Students will log in throughout week and engage in informal discussion with other members of our learning community. To help guide discussions, students are provided a set of essential questions to address and are also encouraged to explore their own areas of interest. The primary goal of course readings and discussion is to foster a deeper understanding of how Learning Analytics has been applied in educational contexts. A secondary goal
+2.  **Reading & Discussion (24 pts)**: The first week of each unit introduces terminology, core concepts, and applications of an analytical approach through readings, course videos, and discussion. To help guide discussions, students are provided a set of essential questions to address and are also encouraged to explore their own areas of interest. The primary goal of course readings and discussion is to foster a deeper understanding of how Learning Analytics has been applied in educational contexts.
 
-3.  **R Toolkit Tutorials (24 pts):** In the second week of each unit, students gain hands-on experience with text-mining tools and processes using R or SAS. The first week of Part 2 consists of tutorials and resources that will introduce students to reading and wrangling data for analysis, exploring data for interesting patterns or trends, and reporting data in a reproducible way. Full credit will be provided for successful completion of tutorials. 
+3.  **R Toolkit Tutorials (24 pts):** The second week of each unit, consists of tutorials for working with R packages and functions used import, wrangle, explore, and model data. The primary goal of these tutorials is to support familiarity and fluency with R syntax and key functions for data analysis.
 
-4.  **Case Studies (24 pts)**: In the third week of each unit, students will prepare a brief report or data product on an analysis they conducted using an instructor provided dataset or a data source of your choosing. Product or report will include key finding and insights gained from the analysis. Students are asked to use an instructor provided rubric to reflect on and self-assess on their data product and will be provided exemplar products from prior course offerings.
+4.  **Case Studies (24 pts)**: In the third week of each unit, students will complete a "guided walkthrough" demonstrating a basic research workflow modeled after the Data-Intensive Research Workflow from [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm et al., 2018). The primary purpose of these walkthroughs is to illustrate how Learning Analytics methods and techniques can be applied to address research questions of interest, create useful data products, and conduct reproducible research.
 
-5.  **Final Project (24 pts)**: In lieu of a final exam, students will prepare a brief report or "data product" describing an analysis they conducted using an instructor provided dataset or a data source of your choosing.
+5.  **Final Project (24 pts)**: In lieu of a final exam, students will conduct and independent analysis using a data source of their choosing and create a "data product" (e.g. report, presentation, data dashboard, etc.) demonstrating the knowledge and skills gained throughout the semester.
 
 ## **Assessment**
 
@@ -153,19 +153,27 @@ C+ (77-79), C (74-76), C- (70-73), D+ (67-69), D (64-66), D- (60-63), F (59 or l
 
 Late work is accepted but may be penalized at 15% per week it is late. Assignments submitted by the due date, however, may be revised and resubmitted for a higher grade by the following week. Students experiencing unforeseen circumstances with a resulting excused absence (e.g., family medical emergency) are allowed to make up work without penalty.
 
-**Course Feedback Expectations:** Please contact your instructor via email (shaun.kellogg\@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback for to help improve the design of current and future course implementations. 
+**Course Feedback Expectations:** Please contact your instructor via email (shaun.kellogg\@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback to help improve the design of current and future course implementations. 
 
 ## **NC State Policies**
 
 **Academic Integrity:** Students are bound by the academic integrity policy as stated in the code of student conduct. Therefore, students are required to uphold the university pledge of honor and exercise honesty in completing any assignment. See the website for a full explanation: <http://www.ncsu.edu/policies/student_services/student_discipline/POL11.35.1.php>
 
-**N.C. State University Policies, Regulations, and Rules (PRR)**: Students are responsible for reviewing the PRRs which pertain to their course rights and responsibilities. These include: <http://policies.ncsu.edu/policy/pol-04-25-05> (Equal Opportunity and Non-Discrimination Policy Statement), <http://oied.ncsu.edu/oied/policies.php>  (Office for Institutional Equity and Diversity), <http://policies.ncsu.edu/policy/pol-1135-01> (Code of Student Conduct), and <http://policies.ncsu.edu/regulation/reg-02-50-03> (Grades and Grade Point Average).
+**N.C. State University Policies, Regulations, and Rules (PRR)**: Students are responsible for reviewing the PRRs which pertain to their course rights and responsibilities. These include:
+
+-   <http://policies.ncsu.edu/policy/pol-04-25-05> (Equal Opportunity and Non-Discrimination Policy Statement),
+
+-   <http://oied.ncsu.edu/oied/policies.php>  (Office for Institutional Equity and Diversity),
+
+-   <http://policies.ncsu.edu/policy/pol-1135-01> (Code of Student Conduct), and
+
+-   <http://policies.ncsu.edu/regulation/reg-02-50-03> (Grades and Grade Point Average).
 
 **University Non-Discrimination Policies:** It is the policy of the State of North Carolina to provide equality of opportunity in education and employment for all students and employees. Accordingly, the university does not practice or condone unlawful discrimination in any form against students, employees or applicants on the grounds of race, color, religion, creed, sex, national origin, age, disability, or veteran status. In addition, North Carolina State University regards discrimination based on sexual orientation to be inconsistent with its goal of providing a welcoming environment in which all its students, faculty, and staff may learn and work up to their full potential.
 
 **Disabilities**: Reasonable accommodations will be made for students with verifiable disabilities. In order to take advantage of available accommodations, students must register with the Disability Resource Office at Holmes Hall, Suite 304, Campus Box 7509, 919-515-7653. For more information on NC State's policy on working with students with disabilities, please see the Academic Accommodations for Students with Disabilities Regulation (REG02.20.01).
 
-**COVID -19 Announcement:**
+## **COVID -19 Announcement**
 
 Due to the Coronavirus pandemic, public health measures have been implemented across campus.  Students should stay current with these practices and expectations through the [Protect the Pack](https://www.ncsu.edu/coronavirus/) website (<https://www.ncsu.edu/coronavirus/>). The sections below provide expectations and conduct related to COVID-19 issues.
 
@@ -203,7 +211,7 @@ Please also keep in mind the following:
 
 -   **Course Attendance**: NC State attendance policies can be found at:  <https://policies.ncsu.edu/regulation/reg-02-20-03-attendance-regulations/> .  Please refer to this course's attendance, absence, and deadline policies for additional details. If you are quarantined or otherwise need to miss class because you have been advised that you may have been exposed to COVID-19, you should not be penalized regarding attendance or class participation. However, you will be expected to develop a plan to keep up with your coursework during any such absences.  If you become ill with COVID-19, you should follow the steps outlined in the "Health and Participation in Class" section above. COVID 19-related absences will be considered excused; documentation need only involve communication with your instructor.
 
--   **Course Meeting Schedule**: Your course might not have a traditional meeting schedule in Fall 2020.  Be sure to pay attention to any updates to the course schedule as the information in this syllabus may have changed. Please discuss any questions you have with the instructor.
+-   **Course Meeting Schedule**: Your course might not have a traditional meeting schedule in Fall 2021.  Be sure to pay attention to any updates to the course schedule as the information in this syllabus may have changed. Please discuss any questions you have with the instructor.
 
 -   **Classroom Seating:**  To support efficient, effective contact tracing, please sit in the same seat when possible and take note of who is sitting around you; instructors may also assign seats for this purpose. 
 
@@ -223,7 +231,7 @@ If the delivery mode has a negative impact on your academic performance in this 
 
 In some cases, another option may be to request  an incomplete in the course.  Before using any of these tools, discuss the options with your instructor and your academic advisor.  Be aware that if you use the enhanced S/U, you will still need to complete the course and receive at least a C- to pass the course.    
 
-**Other Important Resources**
+## **Other Important Resources**
 
 -   **Keep Learning:** <https://dasa.ncsu.edu/students/keep-learning/>
 
