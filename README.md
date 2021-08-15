@@ -65,25 +65,21 @@ This course requires R and R Studio, which will be used to provide hands-on expe
 
 1.  **R** (<https://www.r-project.org>) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network, <http://cran.r-project.org/>. 
 
-2.  **R Studio** (<https://www.rstudio.com>) is an integrated development environment (IDE) for R which includes an R console, syntax-highlighting editor, and tools for plotting, packages, and workspace management. The R Student Desktop application can be downloaded from <https://www.rstudio.com/products/RStudio/#Desktop>. 
+2.  **RStudio** (<https://www.rstudio.com>) is an integrated development environment (IDE) for R which includes an R console, syntax-highlighting editor, and tools for plotting, packages, and workspace management. This course will be using a shared workspace hosted on RStudio Cloud (<https://rstudio.cloud>). The RStudio Desktop application can be downloaded from <https://www.rstudio.com/products/RStudio/#Desktop>. 
 
 ### Optional Software
 
-1.  **Data Camp** (<https://www.datacamp.com>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our DataCamp site and full catalogue of courses and resources for 6 months.
+1.  **Google Apps.** Your Google Drive provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century." This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files.
 
-2.  **LinkedIn Learning** (<https://www.linkedin.com/learning)> offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
+2.  **Data Camp** (<https://www.datacamp.com>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our DataCamp site, full catalogue of courses and resources for 6 months.
 
-3.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
+3.  **LinkedIn Learning** (<https://www.linkedin.com/learning)> offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
 
-4.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com> 
+4.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
 
-5.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key provided in the email. Tableau provides a serious of tutorials for you to get familiar with the technology (<https://www.tableau.com/learn/training>).
+5.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com> 
 
-6.  Blogs and articles about data visualization: <https://flowingdata.com/>
-
-### Server Space
-
-NC State is a Google Apps for Education institution. Your Google Drive provides "an infinitely large, ultra-secure, and entirely free bookbag for the 21st century."  This space may be useful for your project work, or you may use a third-party Internet service provider to place your data files and projects online (e.g., [Github](https://github.com/), Dropbox). In addition, Moodle provides space for storing private files. 
+6.  **Tableau** (<https://www.tableau.com/tft/activation>) is an interactive data visualization technology. Students have free access to Tableau Desktop. Click on the link above and select "Download Tableau Desktop" and "Download Tableau Prep Builder". On the form, enter your school email address for Business E-mail and enter the name of your school for Organization. Activate with your product key provided in the email. Tableau provides a serious of tutorials for you to get familiar with the technology (<https://www.tableau.com/learn/training>). 
 
 ## Course Goals
 
@@ -123,11 +119,11 @@ This course is divided into four units focused on conceptualizing Learning Analy
 | Week 6     |                                                                                                                                                     |
 | Week 7     |                                                                                                                                                     |
 | **UNIT 3** | TEXT AS DATA                                                                                                                                        |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
+| Week 8     |                                                                                                                                                     |
+| Week 9     |                                                                                                                                                     |
+| Week 10    |                                                                                                                                                     |
+| UNIT 4     |                                                                                                                                                     |
+| Week 11    |                                                                                                                                                     |
 
 ## **Major Assignments & Assessment**
 
