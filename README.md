@@ -1,4 +1,4 @@
-# **Syllabus**
+# 
 
 ## Course Overview
 
@@ -25,7 +25,7 @@ Students must have Internet access and access to a Web browser (e.g., Safari, Fi
 **Office:** [Friday Institute for Educational Innovation](https://www.fi.ncsu.edu)  
 **Phone:** (919) 513-8563  
 **Hours:** Appointments by [Calendly](https://calendly.com/sbkellogg/analytics) Monday-Friday 8:00-4:00  
-**Social:** [Twitter](https://twitter.com/sbkellogg) \| [GitHub](https://github.com/settings/profile) \| [LinkedIn](https://www.linkedin.com/in/shaunbkellogg/) \|
+**Social:** [Twitter](https://twitter.com/sbkellogg) \| [GitHub](https://github.com/settings/profile) \| [LinkedIn](https://www.linkedin.com/in/shaunbkellogg/)
 
 ## Course Texts
 
