@@ -119,10 +119,10 @@ This course is divided into four units focused on conceptualizing Learning Analy
 | Week 3     | **Software Tutorial**: Software tutorials on text preprocessing, word counts, and Term Frequency- Inverse Document Frequency, and word clouds.      |
 | Week 4     | **Case Study**: Software tutorials on text preprocessing, word counts, and Term Frequency- Inverse Document Frequency, and word clouds.             |
 | **UNIT 2** |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
-|            |                                                                                                                                                     |
+| Week 5     |                                                                                                                                                     |
+| Week 6     |                                                                                                                                                     |
+| Week 7     |                                                                                                                                                     |
+| **UNIT 3** | TEXT AS DATA                                                                                                                                        |
 |            |                                                                                                                                                     |
 |            |                                                                                                                                                     |
 |            |                                                                                                                                                     |
