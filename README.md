@@ -143,8 +143,6 @@ This course is divided into four units focused on conceptualizing Learning Analy
 
 5.  **Final Project (24 pts)**: In lieu of a final exam, students will prepare a brief report or "data product" describing an analysis they conducted using an instructor provided dataset or a data source of your choosing.
 
-## **Assessment**
-
 **Grading Scale:** The grading scale is based on 100 points:
 
 A+ (97-100), A (94-96), A- (90-93), B+ (87-89), B (84-86), B- (80-83)
