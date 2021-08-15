@@ -1,7 +1,7 @@
 The R Toolkit
 ========================================================
-date: Unit 1: Week 2 Code-Along
-author: ECI 588: Text Mining in Education
+date: August 15, 2021
+author: ECI 586: Intro to Learning Analytics
 autosize: false
 transition: linear
 font-family: 'Helvetica'
@@ -54,13 +54,15 @@ R is a Calculator
 Numbers and basic arithmetic operators (+ , - , *, /) behave as expected.  
   
 Type this in your console:  
-```{r, eval = FALSE}
+
+```r
 2 + 3
 ```
   
 You'll get this:
-```{r, echo = FALSE}
-2 + 3
+
+```
+[1] 5
 ```
 
 ---
@@ -75,12 +77,14 @@ R is Logical
 R can also perform logical operations.  
   
 What happens when you type this in your console?  
-```{r, eval = FALSE}
+
+```r
 5 > 3
 ```
   
 Or this?
-```{r, eval = FALSE}
+
+```r
 5 == 3
 ```
 
@@ -97,20 +101,30 @@ The Assignment Operator(s)
 
 **Bad Form**
 
-```{r}
+
+```r
 my_variable = 2 + 3
 
 my_variable
+```
+
+```
+[1] 5
 ```
 
 ---
 
 **Good Form**
 
-```{r}
+
+```r
 my_dog <- "Howie"
 
 my_dog
+```
+
+```
+[1] "Howie"
 ```
 
 <!--
@@ -123,12 +137,14 @@ Other Essential Operator(s)
 **The Dollar $ign**
 <small>Used to select variables.</small>  
 
-```{r, eval = F}
+
+```r
 trees$Height
 ```
 
-```{r, echo = F}
-head(trees$Height)
+
+```
+[1] 70 65 63 72 81 83
 ```
   
 
@@ -142,7 +158,8 @@ print to console.</small>
 **The Question Mark?**  
 <small>Used to get help.</small>  
 
-```{r, eval = T}
+
+```r
 ?trees
 ```
 
@@ -164,22 +181,46 @@ Data Types
 
 **Numeric**
 
-```{r}
+
+```r
 my_sum <- 3+3
 
 class(my_sum)
+```
+
+```
+[1] "numeric"
+```
+
+```r
 print(my_sum)
+```
+
+```
+[1] 6
 ```
 
 ------
 
 **Character**
 
-```{r}
+
+```r
 my_cat <- "Muffins"
 
 class(my_cat)
+```
+
+```
+[1] "character"
+```
+
+```r
 my_cat
+```
+
+```
+[1] "Muffins"
 ```
 
 Data Types Cont. 
@@ -187,22 +228,46 @@ Data Types Cont.
 
 **Vector**
 
-```{r}
+
+```r
 my_vector <- c(1,2,3,4)
 
 class(my_vector)
+```
+
+```
+[1] "numeric"
+```
+
+```r
 print(my_vector)
+```
+
+```
+[1] 1 2 3 4
 ```
 
 ------
 
 **List**
 
-```{r}
+
+```r
 my_list <- c(1,"Muffins", 3)
 
 class(my_list)
+```
+
+```
+[1] "character"
+```
+
+```r
 my_list
+```
+
+```
+[1] "1"       "Muffins" "3"      
 ```
 
 Data Types Cont. 
@@ -210,20 +275,39 @@ Data Types Cont.
 
 **Matrix**
 
-```{r}
+
+```r
 my_matrix <- matrix(1:9, nrow = 3, ncol = 3)
 
 print(my_matrix)
+```
+
+```
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
 ```
 
 ------
 
 **Data Frame**
 
-```{r}
+
+```r
 my_df <- trees
 
 head(my_df)
+```
+
+```
+  Girth Height Volume
+1   8.3     70   10.3
+2   8.6     65   10.3
+3   8.8     63   10.2
+4  10.5     72   16.4
+5  10.7     81   18.8
+6  10.8     83   19.7
 ```
 
 <!--Text comment-->
@@ -239,14 +323,27 @@ Objects Concluded
 =========================================================
 
 Aside from being a certain ***class***, objects can have have other attributes, such column names and dimensions:
-```{r}
+
+```r
 colnames(my_df)
+```
+
+```
+[1] "Girth"  "Height" "Volume"
+```
+
+```r
 dim(my_df)
+```
+
+```
+[1] 31  3
 ```
 
 And can even be used with operators! Try this:
 
-```{r, eval = F}
+
+```r
 my_sum * my_matrix
 ```
 
@@ -257,7 +354,8 @@ type: section
 
 Functions are pre-packaged pieces of code that (typically) start with a verb, followed by objects or inputs in parentheses called "arguments":
 
-```{r, eval = F}
+
+```r
 do_this(to_this)  
 do_that(to_this, to_that, with_those)
 ```
@@ -268,7 +366,8 @@ Let's make a function!
 
 Basic template for creating a function:  
 
-```{r, eval = F}
+
+```r
 name_of_function <- function(argument_1, argument_2){
     code_that_does_something
     code_that_does_something_else
@@ -277,7 +376,8 @@ name_of_function <- function(argument_1, argument_2){
 
 Try making this basic addition function: 
 
-```{r, eval = F}
+
+```r
 add_numbers <- function(number_1, number_2) {
     number_1 + number_2
 }
@@ -287,24 +387,27 @@ Let's test it!
 ========================================================
 
 Use your new function to add 1 and 2:
-```{r, echo  = F}
-add_numbers <- function(number_1, number_2) {
-    number_1 + number_2
-}
+
+
+
+```r
+add_numbers(1, 2)
 ```
 
-```{r, eval = T}
-add_numbers(1, 2)
+```
+[1] 3
 ```
 
 
 What happens if we try add the objects we created earlier?
-```{r, eval = F}
+
+```r
 add_numbers(my_sum, my_matrix)
 ```
 
 What about these objects?
-```{r, eval = F}
+
+```r
 add_numbers(my_sum, my_list)
 ```
 
@@ -333,7 +436,8 @@ Let's get some packages!
 ========================================================
 
 **Installing a Package**
-```{r, eval = F}
+
+```r
 # template for installing a package
 install.packages("package_name")
 
@@ -342,7 +446,8 @@ install.packages("tidytext")
 ```
 
 **Loading a Package**
-```{r, eval = F}
+
+```r
 # template for loading a package
 library(package_name)
 
@@ -407,7 +512,8 @@ Installing Packages
 ========================================================
 
 Copy and paste from DSIEUR:
-```{r, eval = F}
+
+```r
 # install devtools
 install.packages("devtools", repos = "http://cran.us.r-project.org")
 
@@ -422,7 +528,8 @@ Loading Packages
 ========================================================
 
 Let's set up our environment:
-```{r, eval = F}
+
+```r
 library(tidyverse)
 
 library(dataedu)
@@ -444,7 +551,8 @@ Using the "masked" functions...
 ========================================================
 
 Just specify the package followed by ::
-```{r, eval = F}
+
+```r
 # using the filter() function from the stats package
 x <- 1:100
 
@@ -458,7 +566,8 @@ starwars %>%
 Loading dataedu Data
 ========================================================
 
-```{r, eval = F}
+
+```r
 dataedu::ma_data_init
 
 dataedu::ma_data_init -> ma_data
@@ -470,7 +579,8 @@ ma_data_init <- dataedu::ma_data_init
 Exploring Data and Common Errors
 ========================================================
 
-```{r, eval = F}
+
+```r
 names(ma_data_init)
 
 glimpse(ma_dat_init) 
@@ -499,7 +609,8 @@ What differences do you see between each line of code? What changes in the outpu
 The Pipe Operator
 ========================================================
 
-```{r, eval = F}
+
+```r
 ma_data_init %>% 
     group_by(District Name) %>%  
     count()
@@ -523,7 +634,8 @@ What differences do you see between each line of code? What changes in the outpu
 "Reading" Code
 ========================================================
 
-```{r, eval = F}
+
+```r
 ma_data_init %>% 
     group_by(`District Name`) %>% 
     count() %>% 
@@ -540,7 +652,8 @@ Take the `ma_data_init` dataset  *and then*
 Exploring Assignment vs. Equality
 ========================================================
 
-```{r, eval = F}
+
+```r
 ma_data_init %>%
     group_by(`District Name`) %>%
     count() %>%
@@ -564,7 +677,8 @@ Why the error for the second and not the others?
 Object and Variable Names Basics
 ========================================================
 
-```{r, eval = F}
+
+```r
 ma data <- 
     ma_data_init %>% 
     clean_names()
