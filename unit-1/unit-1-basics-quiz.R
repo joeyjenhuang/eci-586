@@ -116,9 +116,43 @@ library("tidyverse")
 ### a. Import Data ###################
 
 #' Run the following code to import the online science classes data
-#' We'll be using  to create a visualization. 
+#' we will use to create a basic visualization. 
 
-round(3.14)
+#' Load the tidyverse package that contains functions to import data files
+
+library(tidyverse)
+
+#' Use the read_csv() functions to import our 
+#' dataset from our data folder
+
+sci_classes <- read_csv("unit-0/data/sci-online-classes.csv")
+
+#' Use the view() function to take a look at your data. 
+view(sci_classes)
 
 
+### b. A Code Template ################
 
+#'  Make a boxplot using the sci_classes data 
+#'  showing TimeSpent_hours on the x axis and 
+#'  course subject on the y axis. 
+
+
+ggplot(data = sci_classes) + 
+  geom_boxplot(mapping = aes(x = subject, y = TimeSpent_hours))
+
+
+### c. Aesthetic Mappings #############
+
+#'  Make a scatterplot using the sci_classes data 
+#'  to examine the relationship between 
+#'  TimeSpent_hours (i.e. hours spent online by studnets)
+#'  and FinalGradeCEMS (i.e final course grade).
+#'  Map color to course subject.
+#'  Set the alpha (transparency) to 0.5.   
+
+ggplot(data = sci_classes) + 
+  geom_point(mapping = aes(x = TimeSpent_hours, 
+                           y = FinalGradeCEMS,
+                           color = subject),
+                           alpha = .5)

@@ -231,7 +231,8 @@ the {dplyr} package:
 
 ```{r}
 d %>% 
-  select(student_id, total_points_possible, total_points_earned, TimeSpent)
+  select(student_id, total_points_possible,
+         total_points_earned, TimeSpent)
 ```
 
 Notice how the number of columns (variables) is now different.
@@ -259,7 +260,8 @@ this code.
 
 ```{r}
 d %>% 
-  select(student_id, total_points_possible, total_points_earned)
+  select(student_id, total_points_possible,
+         total_points_earned)
 ```
 
 Once added, the output should be different than in the code above -
