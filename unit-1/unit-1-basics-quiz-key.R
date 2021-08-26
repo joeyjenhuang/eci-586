@@ -4,8 +4,9 @@
 
 ### a. Functions ###################
 
-#' In the space below, use the round() function to round 3.14 to the 
-#' nearest whole number.
+#' In the space below, use the round() function to 
+#' round 3.14 to the nearest whole number.
+#' Run your code to see the result. 
 
 round(3.14)
 
@@ -115,15 +116,15 @@ library("tidyverse")
 
 ### a. Import Data ###################
 
-#' Run the following code to import the online science classes data
-#' we will use to create a basic visualization. 
-
 #' Load the tidyverse package that contains functions to import data files
 
 library(tidyverse)
 
-#' Use the read_csv() functions to import our 
-#' dataset from our data folder
+
+#' Run the following code to use the read_csv() function 
+#' to import the online_science_classes.csv file 
+#' fromour data folder into the R environment. 
+#' You will use this data to create a basic visualization.
 
 sci_classes <- read_csv("unit-0/data/sci-online-classes.csv")
 
