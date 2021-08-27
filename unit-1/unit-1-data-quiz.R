@@ -2,7 +2,7 @@
 
 ## 1. Tibbles ######################
 
-#' Load the tidyverse package that contains functions to import data files
+#' Load the tidyverse package that contains functions to import data files.
 
 library(tidyverse)
 
