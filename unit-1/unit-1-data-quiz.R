@@ -159,5 +159,13 @@ sci_classes %>%
   geom_point(mapping = aes(y = score, 
                            x = TimeSpent_hours,
                            color = Gender)) +
-  facet_wrap(vars(subject))
+  facet_wrap(~subject)
 
+sci_classes %>%
+  mutate(score = percentage_earned * 100) %>%
+  ggplot(mapping = aes(y = score, 
+                       x = TimeSpent_hours,
+                       color = Gender)) +
+  geom_point() +
+  geom_smooth(method="lm", se = FALSE) + 
+  facet_wrap(~subject)
