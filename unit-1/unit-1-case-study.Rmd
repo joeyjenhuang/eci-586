@@ -29,21 +29,23 @@ our focus will be on getting our text "tidy" so we can perform some basic word c
 
 Text Mining Module 1 is guided by a recent publication by *Understanding Public Sentiment About Educational Reforms: The Next Generation Science Standards on Twitter* [@rosenberg2021]. This study in turn builds on upon previous work by @wang2017 examining public opinion on the Common Core State Standards (CCSS) on Twitter. For Module 1, we will focus on analyzing tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand key words and phrases that emerge, as well as public sentiment towards these two curriculum reform efforts.
 
-#### Twitter and the Next Generation Science Standards
-
 [![](img/mining-lms-data.jpeg){width="40%"}](https://doi.org/10.1177/23328584211024261)
 
 [Full Paper (AERA Open)](https://journals.sagepub.com/doi/full/10.1177/23328584211024261)
 
-##### Abstract
+#### Abstract
 
-Earlier studies have suggested that higher education institutions could harness the predictive power of Learning Management System (LMS) data to develop reporting tools that identify at-risk students and allow for more timely pedagogical interventions. This paper confirms and extends this proposition by providing data from an international research project investigating **which student online activities accurately predict academic achievement.** Analysis of LMS tracking data from a Blackboard Vista-supported course identified 15 variables demonstrating a significant simple correlation with student final grade. Regression modelling generated a best-fit predictive model for this course which incorporates key variables such as total number of discussion messages posted, total number of mail messages sent, and total number of assessments completed and which explains more than 30% of the variation in student final grade. Moreover, **network analysis of course discussion forums** afforded insight into the development of the student learning community by identifying disconnected students, patterns of student-to-student communication, and instructor positioning within the network. This study affirms that pedagogically meaningful information can be extracted from LMS-generated student tracking data, and discusses how these findings are informing the **development of a dashboardlike reporting tool for educators** that will extract and visualize real-time data on student engagement and likelihood of success.
+Earlier studies have suggested that higher education institutions could harness the predictive power of Learning Management System (LMS) data to develop reporting tools that identify at-risk students and allow for more timely pedagogical interventions. This paper confirms and extends this proposition by providing data from an international research project investigating **which student online activities accurately predict academic achievement.** Analysis of LMS tracking data from a Blackboard Vista-supported course identified 15 variables demonstrating a significant simple correlation with student final grade... Moreover, **network analysis of course discussion forums** afforded insight into the development of the student learning community by identifying disconnected students, patterns of student-to-student communication, and instructor positioning within the network. This study affirms that pedagogically meaningful information can be extracted from LMS-generated student tracking data, and discusses how these findings are informing the **development of a dashboardlike reporting tool for educators** that will extract and visualize real-time data on student engagement and likelihood of success.
 
-##### Data Sources
+#### Data Sources
 
-Similar to what we'll be learning in this lab, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the `rtweet` package in R. Specifically, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
+Similar to data used in the we'll be learning in this lab, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the `rtweet` package in R. Specifically, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
-##### Analysis
+##### Data Source \#1: Log Data
+
+*Log-trace data* is data generated from our interactions with digital technologies, such as archived data from social media postings. In education, an increasingly common source of log-trace data is that generated from interactions with LMS and other digital tools.
+
+#### Analysis
 
 Also similar to what we'll demonstrate in Lab 3, the authors determined Tweet sentiment using the Java version of SentiStrength to assign tweets to two 5-point scales of sentiment, one for positivity and one for negativity, because SentiStrength is a validated measure for sentiment in short informal texts (Thelwall et al., 2011). In addition, they used this tool because Wang and Fikis (2019) used it to explore the sentiment of CCSS-related posts. We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results.
 
@@ -80,7 +82,7 @@ For our first lab on text mining in STEM education, we'll use approaches similar
 
 #### tidyverse 📦
 
-![](img/tidyverse.png){width="20%"}
+![](img/tidyverse.png){width="40%"}
 
 As noted in our Getting Started activity, R uses "packages" and add-ons that enhance its functionality. One package that we'll be using extensively is {tidyverse}. The {tidyverse} package is actually a [collection of R packages](https://www.tidyverse.org/packages) designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures. This shared features are sometimes "tidy data principles."
 
@@ -89,6 +91,691 @@ Click the green arrow in the right corner of the "code chunk" that follows to lo
 ```{r}
 library(tidyverse)
 library(here)
+library(janitor)
 ```
 
 Again, don't worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package unless you specify otherwise.
+
+## 2. WRANGLE
+
+### a. Import Data
+
+Education data are stored in all sorts of different file formats and structures. In this course, we'll discuss several of these common formats, how to import your data into R, and how to transform you data into other data formats such as network objects required for social network analysis in Unit 3. In this case study, we'll focus on working with **Comma-separated values (CSV)** files.
+
+Similar to spreadsheet formats Excel and Google Sheets, CSVs allow us to store rectangular data frames, but in a much simpler plain-text format, where all the important information in the file is represented by text. Note that "text" here refers to numbers, letters, and symbols you can type on your keyboard. In [Tidyverse Skills for Data Science](Tidyverse Skills for Data Science), Wright et al. (2021) note that the advantage of CSVs is that
+
+> ... that there are no workbooks or metadata making it difficult to open these files. CSVs are flexible files and are thus the preferred storage method for tabular data for many data scientists .
+
+#### Data Source \#1: Log Data
+
+*Log-trace data* is data generated from our interactions with digital technologies, such as archived data from social media postings. In education, an increasingly common source of log-trace data is that generated from interactions with LMS and other digital tools.
+
+The data we will use is a summary type of log-trace data: the number of minutes students spent on the course. While this data type is fairly straightforward, there are even more complex sources of log-trace data out there (e.g., time stamps associated with when students started and stopped accessing the course). We'll name this data set `time_spent`, to help us to quickly recollect what function it serves in this analysis.
+
+```{r}
+time_spent <- read_csv(here("unit-1", "data", "log-data.csv"))
+```
+
+Type `time_spent` into the console (below this window) and then hit return/enter. You should see a printed summary of this data frame. What do you notice about this data? What do you wonder? Add a note (or more---you can type return/enter after a bullet point to add another) on your noticings and wonderings here:
+
+-   
+
+#### Data Source \#2: Academic Achievement Data
+
+In addition to the `time_spent` data we loaded We'll explain a bit more about the second data set - on academic achievement data.
+
+Academic achievement data is (obviously) is a very common form of data in education. In this learning lab, we'll use both the sum of the points students earned as well as the number of points possible to compute the percentage of points they earned in the course---a measure comparable (but likely a little different based on teachers' grading policies) to their final grade. We'll use this in the second learning lab.
+
+We'll load the data in the same way as earlier:
+
+```{r}
+gradebook <- read_csv(here("unit-1", "data", "gradebook-summary.csv"))
+```
+
+You may choose to type the name of the gradebook into the console window and to then (like earlier) type enter/return to view a summary of what data this name points to.
+
+#### Data Source \#3: Self-Report Survey
+
+The third data source is a self-report survey. This was data collected before the start of the course. The survey included ten items, each corresponding to one of three motivation measures: interest, utility value, and perceived competence. These were chosen for their alignment with one way to think about students' motivation, to what extent they expect to do well (corresponding to their perceived competence) and their value for what they are learning (corresponding to their interest and utility value). We'll use this in the third learning lab.
+
+We'll read this file, named `survey.csv`, which is---like our other data files---stored in the `/data` directory.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, read the `survey.csv` file. You can use the code above as a template. Assign the output from the `read_csv()` function to a new object named `survey`.
+
+```{r}
+survey <- read_csv(here("unit-1", "data", "survey.csv"))
+```
+
+**Hint**: By asking you to "assign the output from the `read_csv()` function the name `survey`, consider how in the code chunk above this "Your Turn" code chunk, we assigned the output from the `read_csv()` function to the name `gradebook`.
+
+After reading the data, let's continue the practice of looking at our data. Type `survey` into the console to take a look at the data: Does it appear to be the correct file? What do the variables seem to be about? What wrangling steps do we need to take? Taking a quick peak at the data helps us to begin to formulate answers to these and is an important step in any data analysis, especially as we *prepare* for what we are going to do.
+
+Add one or more of the things you notice or wonder about the data here:
+
+-   
+
+#### View Data
+
+Once your data is in R, there are many different ways you can view it. Give each of the following at try:
+
+```{r}
+# enter the name of your data frame and view directly in the console or a code chunk
+survey
+```
+
+```{r}
+# view your data frame transposed so your can see every column and the first few entries
+glimpse(survey) 
+```
+
+```{r}
+# look at just the first six entries
+head(survey) 
+```
+
+```{r}
+# or the last six entries
+tail(survey) 
+```
+
+```{r}
+# view the names of your variables or columns
+names(survey) 
+```
+
+```{r, eval=FALSE}
+# or view in source pane
+View(survey)
+```
+
+Yes, the "V" is capitalized---very unusual for an R function. Because this function is a bit atypical in more ways than one, I have two recommendations concerning its use:
+
+-   Use it strictly in the console. Because it opens a new viewing window, including it in an R Markdown script can cause issues when "knitting" or rendering an HTML (or PDF) report. Hence I have included the `eval = FALSE` argument in the code chunk so it it not run when you knit your document.
+
+-   Close the viewer window that opens once you have viewed the data. Keeping it open can clutter your work space a bit and can lead to confusion about what data frame it was you viewed.
+
+### b. Tidy Data
+
+Intro...
+
+#### Process Log Data
+
+Earlier, we loaded `time_spent`, which contains information on the number of minutes that students spent on the course, as well as other variables, particularly `course_id`.
+
+Information about the course subject, semester, and section are stored in a single variable---`course_id`. This format of data storage is not ideal, nor is it very "tidy." If we instead give each piece of information its own column, we'll have more opportunities for later analysis. We'll use a function called `separate()` to do this.
+
+First, let's practice with a small data set. We'll create it directly in R; run the code below to do that (and to assign the name `df` to the dataset).
+
+```{r}
+df <- tibble(course_var = c("Fall - Chemistry", 
+                            "Fall - Earth Science", 
+                            "Spring - Forensic Science",
+                            "Spring - Earth Science",
+                            "Spring - Biology"))
+
+df
+```
+
+Print `df` to the console. You should see a single variable, `course_info`, with four rows.
+
+In this (very small) data frame, there is information about both the semester and the course are encoded within the same variable. The `separate()` function has two primary arguments, one each for:
+
+1.  the variable you want to separate
+2.  the names of the new variables to create
+
+Below, see using `course_var` for \#1, and `c("Semester", "Course")` for \#2, can be used to separate the semester and course data into two separate variable
+
+```{r}
+df %>% 
+  separate(course_var, c("semester", "course"))
+```
+
+Next, let's try something slightly different. Here, we have a data frame with a variable that encodes three pieces of information within the same variable: the year, semester, and subject. There are also a few other differences.
+
+```{r}
+df2 <- tibble(course_variable = c("19-Fall-Algebra I", 
+                                  "20-Fall-Algebra II", 
+                                  "20-Spring-Algebra I",
+                                  "20-Spring-Algebra II",
+                                  "21-Fall-Algebra I"))
+df2
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Can you separate the variable in the above data frame not into two, but rather three, new variables? Below is some template code.
+
+```{r}
+df2 %>% 
+  separate(course_variable,
+           c("year", "semester", "subject"))
+```
+
+**Hint**: Try to modify the code from above (in which you separated `course_var` into two variables) based on a) the name of the variable in `df2` and b) adding the name for the third new variable you wish to create.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Let's return back to our `time_spent` data frame, now. It is often helpful to take a look at the data before writing code.
+
+Below, we will load `time_spent` and run the `separate()` function with the `course_id` variable to split up the subject, semester, and section so we can use them later on. In other words, whereas above we separated the variable `course_variable`, in the data set we'll use here, we'll separate the `course_id` variable.
+
+```{r}
+time_spent %>%
+  separate(course_id,
+           c("subject", "semester", "section"))
+```
+
+There is one last key step---one that is likely to be a bit disorienting at first---that we'll do next. Once we've processed the data how we would like, we have to assign, or save, the results back to the name for the data with which we have been working. This is done with the assignment operator, or the \<- symbol. Copy the code you successfully ran in the chunk above to follow the assignment operator in the chunk below. In other words, write the code you wrote above, but assign the output back to `time_spent`.
+
+```{r}
+time_spent <- time_spent %>%
+  separate(course_id,
+           c("subject", "semester", "section"))
+```
+
+We have made a habit of continually looking at our data after running code to ensure that the step worked as intended. Not in a code chunk, but rather in the console below, type the name of the data we have been working with to ensure that the course_id variable has been separated into three variables that correspond to the subject, semester, and section.
+
+If those look good, let's proceed to the next step. If something doesn't look right, consider re-running the code chunks above, perhaps returning all the way to the first code chunk that you ran (to load the data) to ensure that the output is as you intended for it to be.
+
+##### Mutating a column to change the time spent variable to represent hours
+
+In the above code, you used separate to create new variables based on an existing variable. While that function serves a specific problem (when there are effectively multiple variables combined in one), its use represents a pattern that is fairly common: you use a function to solve a problem; figuring out how it works, checking the output, then assigning the output back to the name of the data frame, after which you can proceed to the next step.
+
+There are a lot of other functions like separate that help you to solve specific problems, and we'll introduce many over the two-week institute - and will point you to resources that describe many more.
+
+There are also functions that can serve as general purpose tools that can solve many problems; one of the most useful is `` mutate()` ``, a function to create new variables in a data set. Specifically, we'll use `mutate()` to create a new variable for the percentage of points each student earned; keep in mind as you work through these steps how so many parts of wrangling data involves either changing a variable or creating a new one. For these purposes, mutate can be very helpful.
+
+Let's begin again with a small data set with two variables, `var_a` and `var_b`. Run the chunk below.
+
+```{r}
+df3 <- tibble(var_a = c(30, 50, 30, 10, 30, 40, 40, 30, 20, 50),
+              var_b = c(100, 90, 60, 70, 60, 80, 70, 50, 30, 20))
+```
+
+Next, print `df3` to the console. You should see two numeric variables; imagine they represent points that students earned on a 50-point quiz and a 100-point test, respectively. There are a lot of things that you might wish to do with these variables. For instance, you may wish to sum them together. The code below does this.
+
+```{r}
+df3 %>% 
+  mutate(points_sum = var_a + var_b)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+We can combine many `mutate()` functions together. Below, create a new variable (let's call it `points_proportion`) that represents the proportion of the total points students could, potentially, earn. To do this, you can divide `points_sum` by the maximum possible points---150.
+
+```{r}
+df3 %>% 
+  mutate(points_sum = var_a + var_b) %>% 
+  mutate(points_proportion = points_sum / 150)
+```
+
+**Hint**: Just like you can use the + symbol to add variables together, you can use the / symbol to divide a variable by another---or by a value, like 150!
+
+After adding the above, you should see output that contains four variables, one each for `var_a` and `var_b`, `points_sum`, which represents the sum of the points students earned, and `points_proportion`, which represents the percentage of the total points students earned.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Let's now process the `time_spent` variable. Specifically, this variable currently represents the number of *minutes* that students spent on the course LMS. Below, add to the template of code below to create a new variable, `time_spent_hours`, that represents the number of *hours* that students spent on the course LMS.
+
+```{r}
+time_spent %>% 
+  mutate(time_spent_hours = time_spent / 60)
+```
+
+**Hint**: Refer to the code you wrote above, being clear about a) what the name of the new variable you are creating is and b) how you will create this variable using division (by the number of minutes in an hour).
+
+We used the above as a test bed to ensure that our code worked as intended. Once we are confident that we are creating the variable in the way we intend to, we can assign the output back to the data frame that `time_spent` refers to.
+
+```{r}
+time_spent <- time_spent %>% 
+  mutate(time_spent_hours = time_spent / 60)
+```
+
+Good work wrangling this dataset!
+
+#### Process Gradebook Data
+
+Now let's process the gradebook data. In particular, we'll separate the `course_id` variable in the same way we separated that variable in the log data, and we'll also calculate a new variable representing the proportion of points students earned (out of the points possible to earn).
+
+Let's start with separating the `course_id` variable. Run the code in the next chunk to do this. If you named the three parts of the course ID differently than they're named below (and saved the data you processed to use in this learning lab), be sure that these three variables are named identically; this is the *key* (pun intended!) to these variables joining correctly.
+
+```{r}
+gradebook <- gradebook %>% 
+  separate(course_id,
+           c("subject", "semester", "section"))
+```
+
+Next, we'll mutate our data set to create a new column, one representing the proportion of points students earned. Let's consider a data frame with example data, `df4` .
+
+```{r}
+df4 <- tibble(var_a = c(8, 8, 7, 8, 9, 6, 8, 8, 7, 8),
+              var_b = 9)
+```
+
+*Note*: To create `df4`, for `var_a`, we passed a *vector* that we created with the function `c()` that contains 10 values. Consider these to be the number of times that learners participated in an outside-of-school STEM club. Instead of passing another vector for `var_b`, we simply used the value 9, which represents the number of opportunities students had to participate in the outside-of--school STEM club . In this case, the value 9 is repeated for however many rows there are in the data frame. Thus, in the context of creating a data frame, `var_b = 9` is the same as `var_b = c(9, 9, 9, 9, 9, 9, 9, 9, 9, 9)`.
+
+Since interpreting proportions when the denominator is nine can be difficult, we may which to create a variable for the proportion.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+After running the chunk above, print `df4` to the console to get a sense of what the data frame consists of. To create a third variable that represents the proportion of STEM club activities students participated in, divide `var_a` by `var_b`.
+
+```{r}
+df4 <- df4 %>% 
+  mutate(var_a / var_b)
+```
+
+What happens if the output is different than you intended? That's no problem! Re-run the code-chunk *above* (in which we create `df`) to have a blank slate with which to try again.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Your turn once more. This time, create a new variable---here, let's name it `proportion_earned`---using the `gradebook` data. This will involve using the mutate function with the `gradebook` data, creating a new variable (`proportion_earned`) on the basis of the values of two existing variables:
+
+-   `total_points_possible`
+
+-   `total_points_earned`
+
+Also, once your code is ready, you'll need to assign the results back to `gradebook`. This is challenging as you're starting from scratch with the code. However, good R programmers use other code (that they or others wrote!) often, so feel free to copy and paste code from other, similar problems to give yourself a head start.
+
+```{r}
+gradebook <- gradebook %>% 
+  mutate(proportion_earned = total_points_earned / total_points_possible)
+```
+
+Once the above step is complete, take another look at `gradebook` by printing it to the console or viewing it using a preferred method. There should now be seven columns, the six originally in the data and a new, seventh variable you've "mutated."
+
+#### Process Survey Data
+
+Finally, let's process our survey data that we imported earlier . First though, take a quick look again by typing `survey` into the console or using a preferred viewing method to take a look at the data.
+
+Does it appear to be the correct file? What do the variables seem to be about? What wrangling steps do we need to take? Taking a quick peak at the data helps us to begin to formulate answers to these and is an important step in any data analysis, especially as we *prepare* for what we are going to do.
+
+Add one or more of the things you notice or wonder about the data here:
+
+-   
+
+You may have noticed that `student_ID` is not formatted the same as `student_id` in our other files. This is important because in the next section when were "join," or merge, our data files, these variables will need to have identical names.
+
+Fortunately there is a handy function called `clean_names()` in the {janitor} package for standardizing variable names. Run the following code
+
+```{r}
+survey <- clean_names(survey)
+```
+
+Let's take one more look at the data by typing its name into the console or using a method of your choice to check that the above function appeared to work; if it did, the names should be lower-case, and any symbols or spaces should now be replaced by an underscore (`_`).
+
+### c. Joining the data
+
+We're now ready to join! At their core, joins involve operations on two data frames at the same time. This may seem useful only in certain cases, but consider the following data analysis tasks:
+
+-   You have collected data from *students* from one of ten classrooms; at the same time, you have data on the *teachers* of those ten classes (five of which tried out a new curriculum, and five who taught a "business-as-usual" curriculum
+
+-   You are studying the posts on *Twitter* and *Pinterest* of one of around 100 mathematics teachers
+
+-   After working with a local school district, you collected survey responses from 100s of *teachers* who teach in one of approximately 25 elementary, middle, and high *schools*; you received data from the district on the characteristics of the schools, including how many students they serve and how many teachers work in them
+
+In each of these cases---and many others like them---your single analysis involves multiple data files. While in some cases it is possible to analyze each data set individually, it is often useful (or necessary, depending upon your goal) to join these sources of data together. This is especially the case for learning analytics research, in which researchers and analysts often are interested in understanding teaching and learning through the lens of multiple data sources, including digital data, institutional records, and survey data, among other sources. In all of these cases, knowing how to promptly join together files---even files with tens of thousands of hundreds of thousands of rows---can be empowering.
+
+Consider two example data frames. `df5` contains a variable with four student names, `name` and a variable for the number of STEM-related classes they have taken, `n_stem_classes`.
+
+`df6` contains a variable with three student names, `name` (like in `df5`), as well as another, different variable, for students' self-reported interest in STEM topics, `interest_in_stem`, measured on a one-seven scale, with seven indicating higher levels of interest.
+
+Run the code below and then type `df5` and `df6` in the console.
+
+```{r}
+df5 <- tibble(name = c("Sheila", "Tayla", "Marcus"),
+              n_stem_classes = c(4, 5, 6))
+
+df5
+
+df6 <- tibble(name = c("Tayla", "Marcus", "Sheila", "Vin"),
+              interest_in_stem = c(4, 7, 6, 6))
+
+df6
+```
+
+A key (pun intended) with joins is to consider what variable(s) will serve as the *key*. This is the variable to join by.
+
+A key must have two characteristics; it is:
+
+-   a character string--- a word (thus, you cannot join on a number unless you "coerce" or change it to be a character string, first)
+
+-   present in both of the data frames you are joining.
+
+To join two datasets, it is important that the *key* (or *keys*) on which you are joining the data is formatted identically. The key represents an identifier that is present in both of the data sets you are joining. For instance, you may have data collected from (or created about) the same students that are from two very different sources, such as a self-report survey of students and their teacher-assigned grades in class.
+
+While some of the time it takes some thought to determine what the key is (or what the keys are---you can join on multiple keys!), in the above case, there is just one variable that meets both of the above characteristics.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, enter the name of the variable that is the key within the quotation marks following `by =`. Then run the code chunk and note the output.
+
+```{r}
+full_join(df5, df6, by = "name")
+```
+
+What do you notice about the output of the `full_join()`? All observations are valid; consider how the output is similar to and different from `df5` and `df6`, particularly in one or more notes following the bullet point.
+
+-   
+
+`full_join()` is one of a number of joins from which we can choose. `full_join()` is distinguished from the other joins by how it returns *all* of the rows in both of the data frames being joined. If a particular key is present in one of the data frames but not the other, the values for the variable in the data set for which the key is not present are simply recorded as missing (like in the above, where there is no value for the number of STEM classes Vin has taken).
+
+There is one other join on which we'll focus for now. That is `left_join()`, which differs from `full_join()` in that it returns all of the rows in the "left" data frame, the data frame named first in the function, but not all of the rows in the "right" data frame: it retains only the rows in the "right" data frame, the data frame named second in the function, that have a matching key. An example is necessary. Before running the code below, add the same key you added above.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+```{r}
+left_join(df5, df6, by = "name")
+```
+
+Different from the above, `left_join()` did not return all of the rows from both data frames, instead returning *all* of the rows in the "left" data frame (and those in the "right" data frame with a match).
+
+For now, we're going to use a single join function, `full_join()`. In the code below, join `gradebook` and `time_spent`; type the names of those two data frames as arguments to the `full_join()` function in a similar manner as in the `full_join()` code above, and then run this code chunk. For now, don't specify anything for the `by =` part of the function.
+
+```{r}
+# join together the gradebook and log_wrangled
+joined_data <- full_join(gradebook, time_spent)
+
+joined_data
+```
+
+You may notice a red message that says `Joining, by = c("student_id", "Course", "Subject", "Section")`. This is telling us that these files are being joined on the basis of all four of these variables matching in both data sets; in other words, for rows to be joined, they must match identically on all four of these variables.
+
+This is related to not specifying anything for the `by =` part of the function; by default, `full_join()` (and `left_join()`) will consider any character strings with identical names that are present in both data sets to be keys. But, it's generally better practice to specify the variables on which we are joining.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, write your join like above, but add the `by = c("student_id", "course", "subject", "section")` part to your code. You may notice the red message you may have noticed does not appear. This is generally a better practice because you know precisely on which variables you data sets are joining.
+
+```{r}
+# join together the gradebook and time_spent
+joined_data <- full_join(gradebook, time_spent, by = c("student_id", "subject", "semester", "section"))
+
+joined_data
+```
+
+**Hint:** If you're curious about how to format the use of the `by =` part of your code, look up above at how you used this argument to the `full_join()` function.
+
+What do you notice about the result---the data you joined? In particular, how does it differ from the two data sets from which it was created? Add one or more notes below.
+
+-   
+
+```{r}
+# join together the gradebook and log_wrangled
+data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject", "semester", "section"))
+
+data_to_explore
+```
+
+```{r}
+joined_data <- joined_data %>%
+  mutate(student_id = as.character(student_id))
+```
+
+```{r}
+data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject", "semester", "section"))
+
+data_to_explore
+```
+
+We'll revisit joins in our Unit 2 tutorials, but for a quick overview of the different join functions with helpful visuals, visit: <https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti>
+
+## 3. EXPLORE
+
+### a. Histograms
+
+We're now ready to create a faceted plot. Like in the getting started task, we'll use the ggplot2 package.
+
+The code below creates a histogram with 30 bins---the default number for `geom_histogram`. Change the number of bins below and note any differences in what you interpret about the data.
+
+```{r}
+data_to_explore %>% 
+  ggplot(aes(x = time_spent_hours)) +
+  geom_histogram(bins = 30)
+```
+
+What do you think the ideal number of bins is---with what is ideal being the number of bins that helps you to interpret the overall distribution of the values for how much time students' spent (*note*: there is no one right or wrong answer here!)?
+
+-   
+
+We'll next be using the `facet_wrap()` function to create *small multiples*, or plots that are specific to subsets of your data. These subsets are identified based on another variable in your dataset. For example, the code below uses the built-in `mpg` dataset to plot the relationship between the displacement of a car's engine and its highway miles per gallon fuel efficiency.
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point()
+```
+
+The code in the next plot creates individual plots for each class---think compact car or SUV.
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point() +
+  facet_wrap(~class)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, create a faceted histogram based on the subject of the course. To do so, consider both:
+
+-   What code you used to create the histogram of the time students' spent on the course
+
+-   How, in the example above, `facet_wrap` refers to the variable in that data frame that represents the class of the car---but modifying the code to work for your subject variable
+
+You may also wish to change the color; reflect back to the getting started task for an example of how to do this.
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours)) + 
+  geom_histogram() +
+  facet_wrap(~subject)
+```
+
+What do you notice about this figure? And what do you wonder? Add a note (or a few notes!) below:
+
+-   
+
+### b. Scatter Plots
+
+Having prepared both of the data sets we joined together, and worked hard to join those data sets, we're now ready to use this joined data set in our exploration of how the time students spent on the course LMS relate to the number of points they earned throughout the course.
+
+We'll be using the {ggplot2} package again, but, this time, will be creating a different type of plot.
+
+Run the code below to create a scatter plot of the proportion of points students earned and the number of hours they spent on the course LMS.
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned)) +
+  geom_point()
+```
+
+What do you notice about this graph? And what do you wonder? How about the code---what do you notice about it (and what do you wonder)? Add one or more of what you see as the most important elements.
+
+-   
+
+Using {ggplot2} makes it efficient to iterate through different versions of similar plots. For instance, we can color the points by a third variable, such as the reason for which students enrolled in the course, to begin to explore what was going on for students who spent very little time on the course:
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point()
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+We can also additionally create faceted plots, like the one you created in the last learning lab. In the code below, facet the plot by `subject`.
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
+  facet_wrap(~subject)
+```
+
+You may wish to style your plot. A few ways you can do that are as follows; we'll discuss more throughout the institute. For each of the following, add them to your plot by adding a plus symbol to the line prior to the line you are adding. For instance, the following code styles the x-axis label of a plot:
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
+  xlab("Time Spent (Hours)")
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Try adding (and modifying, if you'd like) any of the following to the faceted plot you created in the code chunk below:
+
+-   `xlab("Time Spent (Hours)")`
+
+-   `ylab("Proportion of Points Earned")`
+
+-   `scale_color_brewer("Enrollment Status", type = "qual", palette = 3)`
+
+-   `ggtitle("How Time Spent on Course LMS is Related to Points Earned in the Course")`
+
+-   `theme(legend.position = "bottom")`
+
+```{r}
+
+```
+
+Once you have settled on a plot you are happy with (for now!), add a sentence or two interpreting your graph (like you were describing it within a manuscript):
+
+-   
+
+### c. Table Summaries
+
+At this point, we should have quite the comprehensive data set, including single measures from a) students for the time they spent in the course LMS and other information about them, such as information on why they are enrolled in the course, b) their academic achievement
+
+We'll explore our data in two ways---by creating:
+
+1.  Descriptive statistics for key variables in our data
+2.  A correlation matrix for key variables that are numbers
+
+We'll take these in turn, considering two different ways to create correlation tables that may be suited better to particular tasks depending on one's goals.
+
+#### Skimr Package
+
+![](img/skimr.png){width="25%"}
+
+An efficient package for creating descriptive statistics *when your goal is to understand your data internally* (rather than to create a table for an external-to-the-research-team audience, like for a manuscript) is the {skimr} package. A key feature of the {skimr} package is that it works well with the {tidyverse} packages we are using: it takes data frames as input, and returns data frames as output, which means we can manipulate them with {tidyverse} functions (with `select()`, `filter()`, and `arrange()`, for example).
+
+Let's load the {skimr} package:
+
+```{r}
+library(skimr)
+```
+
+It's best to dive right into our data with this, so let's go!
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+The challenge here is not the complexity of the `skim()` function, per se, but will be comprehending the terminology. In the code chunk below:
+
+-   Pass to the `skim()` function a single argument (recall from our brief day 1 presentation that functions have *names* and *arguments!*)
+
+-   That single *argument* is the data frame (aka in tidyverse parlance, a tibble) for which you are aiming to calculate descriptive statistics
+
+```{r}
+skim(data_to_explore)
+```
+
+**Note:** If you are having difficult viewing your data in the code chunk, try clicking the icon in the output that looks like a spreadsheet with an arrow on it to expand your output in a separate window.
+
+What do you notice about the output? These observations might pertain to the format of the output or its values (i.e., what the mean for the `val` variable is). Note one or two of these noticings or wonderings below:
+
+-   
+
+As we noted earlier, the {skimr} package works nicely with other {tidyverse} functions.
+
+**Hint:** For help, also consider running `?skim()` in the console to view the documentation for the function.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Recall from the Week 3 tutorials and exercises how we how we isolated data using the `select()` and `filter()` fuctions. Imagine we wished look at descriptives for just `proportion_earned` , `time_spent` and `gender` only for the "OcnA" and "PhysA" subjects.
+
+Can you do this by modifying the code below to do this?
+
+```{r}
+data_to_explore %>% 
+  select(proportion_earned, time_spent, gender, subject) %>% 
+  filter(subject == "OcnA" | subject == "PhysA") %>%
+  skim()
+```
+
+We noted earlier that this output is best for internal use. This is because the output is rich, but not well-suited to exporting to a table that you add, for instance, to a Google Docs or Microsoft Word manuscript. Of course, these values can be entered manually into a table, but we'll also discuss ways later on to create tables that are ready--or nearly-ready--to be added directly to manuscripts.
+
+If you are curious about doing more with {skimr}, check out: [<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
+
+## 4. MODEL
+
+### 
+
+### Creating a correlation matrix for key variables that are numbers
+
+There are two efficient ways to create correlation matrices, one that is best for internal use, and one that is best for inclusion in a manuscript.
+
+#### Corrr Package
+
+![](img/corrr.png){width="25%"}
+
+First, the {corrr} package provides a way to create a correlation matrix in a {tidyverse}-friendly way. Like for the {skimr} package, it can take as little as a line of code to create a correlation matrix. If not familiar, a correlation matrix is a table that presents how *all of the variables* are related to *all of the other variables*.
+
+```{r}
+library(corrr)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+One key is to correlate only numeric variables. `select()` can help us with this. Below, choose the variables you wish to correlate (consider selecting at least 4-5), selecting only the numeric variables by adding to the `select()` function. While some numeric variables can *technically* be used, it is likely not sensible to correlate all of the variables; some---for instance, the `section` variable---are not very sensible to correlate!
+
+```{r}
+data_to_explore %>% 
+  select(proportion_earned, time_spent, int, val, percomp) %>% 
+  correlate()
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Imagine we selected the following three variables. Replace those three with the variables you selected, and examine how the results are modified to a) include only the variables "below the diagonal" of the correlation matrix---because, as you might have observed above, those above and below the diagonal are mirror images of the other---and b) to be rounded to two decimal points to be easier to read.
+
+```{r}
+data_to_explore %>% 
+  select(int, val, percomp) %>% 
+  correlate() %>% 
+  shave() %>% 
+  fashion()
+```
+
+While {corrr} is a nice package to quickly create a correlation matrix, you may wish to create one that is ready to be added directly to a manuscript. {apaTables} is great for creating more formal forms of output that can be added directly to an APA-formatted manuscript; it also has functionality for regression and other types of model output. It is not as friendly to {tidyverse} functions; first, we need to select only the variables we wish to correlate.
+
+Then, we can use that subset of the variables as the argument to the`apa.cor.table()` function.
+
+Run the following code to create a subset of the larger `data_to_explore` data frame with the variables you wish to correlate, then create a correlation table using `apa.cor.table()`.
+
+```{r}
+library(apaTables)
+
+data_to_explore_subset <- data_to_explore %>% 
+  select(int, val, percomp)
+
+apa.cor.table(data_to_explore_subset)
+```
+
+This may look nice, but how to actually add this into a manuscript? Here is perhaps the most challenging task yet---perhaps well suited for the final "Your Turn" of this learning lab. Read the documentation for `apa.cor.table()` by running `?apa.cor.table()` in the console. Look through the documentation and examples to understand how to output a file with the formatted correlation table, and then run the code to do that with your subset of the `data_to_explore` data frame.
+
+```{r}
+apa.cor.table(data_to_explore_subset, filename = "survey-cor-table.doc")
+```
+
+**Hint**: Consider the `filename` argument to the `apa.cor.table()` function.
+
+## 5. COMMUNICATE
+
+The final(ish) step in our workflow/process is sharing the results of analysis with wider audience. Krumm et al. (2018) have outline the following 3-step process for communicating with education stakeholders what you have learned through analysis:
+
+a.  **Select**. Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
+
+b.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
+
+c.  **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
+
+In this particular case study, our target audience is developers of online professional learning opportunities who are looking to receive feedback on what's working well and potential areas for improvement. This lets us assume a good deal of prior knowledge on their end about the context of the evaluation, a high level of familiarly with the online professional development resources being assessed, and fairly literate at reading and interpreting data and charts. This also lets us simplify our data products and narrative and reduce the level of detail needed to communicate useful information.
+
+For summative evaluation, typically at the end of a school year or grant period when the emphasis is on assessing program outcomes and impact, our audience would extend to those less familiar with the program but with a vested interest in program's success, such as the NC State Board of Education or those directly impacted by the program including NC educators is general. In that case, our data product would need to include much more narrative to provide context and greater detail in charts and graphs in order to help interpret the data presented.
