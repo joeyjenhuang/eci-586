@@ -102,7 +102,7 @@ Again, don't worry if you saw a number of messages: those probably mean that the
 
 Education data are stored in all sorts of different file formats and structures. In this course, we'll discuss several of these common formats, how to import your data into R, and how to transform you data into other data formats such as network objects required for social network analysis in Unit 3. In this case study, we'll focus on working with **Comma-separated values (CSV)** files.
 
-Similar to spreadsheet formats Excel and Google Sheets, CSVs allow us to store rectangular data frames, but in a much simpler plain-text format, where all the important information in the file is represented by text. Note that "text" here refers to numbers, letters, and symbols you can type on your keyboard. In [Tidyverse Skills for Data Science](Tidyverse Skills for Data Science), Wright et al. (2021) note that the advantage of CSVs is that
+Similar to spreadsheet formats Excel and Google Sheets, CSVs allow us to store rectangular data frames, but in a much simpler plain-text format, where all the important information in the file is represented by text. Note that "text" here refers to numbers, letters, and symbols you can type on your keyboard. In [Tidyverse Skills for Data Science](Tidyverse%20Skills%20for%20Data%20Science), Wright et al. (2021) note that the advantage of CSVs is that
 
 > ... that there are no workbooks or metadata making it difficult to open these files. CSVs are flexible files and are thus the preferred storage method for tabular data for many data scientists .
 
@@ -701,7 +701,7 @@ data_to_explore %>%
 
 We noted earlier that this output is best for internal use. This is because the output is rich, but not well-suited to exporting to a table that you add, for instance, to a Google Docs or Microsoft Word manuscript. Of course, these values can be entered manually into a table, but we'll also discuss ways later on to create tables that are ready--or nearly-ready--to be added directly to manuscripts.
 
-If you are curious about doing more with {skimr}, check out: [<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
+If you are curious about doing more with {skimr}, check out: [\<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html\>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
 
 ## 4. MODEL
 
