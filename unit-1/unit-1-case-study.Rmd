@@ -23,53 +23,53 @@ knitr::opts_chunk$set(echo = TRUE)
 During the final week of each unit, we will complete a "case study" to
 illustrate how Learning Analytics methods and techniques can be applied
 to address research questions of interest, create useful data products,
-and conduct reproducible research.
-
-Each case study is structured around a basic research workflow modeled
-after the Data-Intensive Research Workflow from [Learning Analytics Goes
-to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm et
-al., 2018). The primary purpose of these case studies is from *Learning
-Analytics Goes to School* (Krumm et al., 2018):
+and conduct reproducible research. Each case study is structured around
+a basic research workflow modeled after the Data-Intensive Research
+Workflow from [Learning Analytics Goes to
+School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm et al.,
+2018):
 
 ![Figure 2.2 Steps of Data-Intensive Research
 Workflow](img/workflow.png){width="70%"}
 
-For Unit 1, we will focus on analysis of open-ended survey items from an
-evaluation of the North Carolina Department of Public Instruction
-(NCDPI) online professional development offered as part of the state's
-[Race to the Top](https://www2.ed.gov/programs/racetothetop/index.html)
-efforts. For more information about the Race to the Top evaluation work,
-visit
-[\<https://cerenc.org/rttt-evaluation/\>](https://cerenc.org/rttt-evaluation/){.uri}.\
-our focus will be on getting our text "tidy" so we can perform some
-basic word counts, look at words that occur at a higher rate in a group
-of documents, and examine words that are unique to those document
-groups. Specifically, the Unit 1 Walkthrough will cover the following
-workflow topics:
+For Unit 1, we will focus on online science classes provided through a
+state-wide online virtual school and conduct an analysis that help
+product students' performance in these online courses. This case study
+is guided by a foundational study in Learning Analytics that illustrates
+how analyses like these can be used develop an early warning system to
+educators identify students at risk of failing and intervene before that
+happens. The Unit 1 case study will cover the following workflow topics:
 
 1.  **Prepare**: Prior to analysis, it's critical to understand the
     context and data sources you're working with so you can formulate
-    useful and answerable questions. You'll also need to set up a
-    "Project" for our Unit 1 walkthrough.
+    useful and answerable questions. You'll also need to become familiar
+    with and load essential packages for analysis.
 2.  **Wrangle**: Wrangling data entails the work of manipulating,
-    cleaning, transforming, and merging data. In section 2 we focus on
-    reading, reducing, and tidying our data.
-3.  **Explore**: In section 3, we use simple summary statistics, more
-    sophisticated approaches like term frequency-inverse document
-    frequency (tf-idf), and basic data visualization to explore our data
-    and see what insight it provides in response to our question.
-4.  **Model** our data until Unit 3 when we learn about topic models, we
-    will be developing "data products" next week to
-5.  **Communicate** our findings and insights.
+    cleaning, transforming, and merging data. In Part 2 we focus on
+    importing CSV files, tidying and joining our data.
+3.  **Explore**: In Part 3, we use basic data visualization and
+    calculate some summary statistics to explore our data and see what
+    insight it provides in response to our question.
+4.  **Model:** After identifying variable that may be related to student
+    performance through exploratory analysis, we'll look at correlations
+    and create some simple models of our data using linear regression.
+5.  **Communicate:** To wrap up our case study, we'll develop our first
+    "data product" and share our analyses and findings by creating our
+    first web page using R Markdown.
 
 ### 1a. Review the Literature
 
-Our Unit Case Study is guided by a well-cited publication by
+Our Unit 1 Case Study is guided by a well-cited publication by two
+authors that have made numerous contributions to the field of Learning
+Analytics over the years. In this section, we'll do a quick review of
+study to help us... Although this article is focused on higher
+education...
 
 [![](img/mining-lms-data.jpeg){width="40%"}](https://doi.org/10.1177/23328584211024261)
 
-[Full Paper (AERA
-Open)](https://journals.sagepub.com/doi/full/10.1177/23328584211024261)
+Macfadyen, L. P., & Dawson, S. (2010). Mining LMS data to develop an
+"early warning system" for educators: A proof of concept. *Computers &
+education*, *54*(2), 588-599.
 
 #### Abstract
 
