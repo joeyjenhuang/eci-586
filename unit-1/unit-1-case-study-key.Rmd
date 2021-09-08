@@ -1,5 +1,5 @@
 ---
-title: 'Unit 1 Case Study: Predicting Academic Achievement'
+title: 'Unit 1 Case Study: Predicting Student Achievement'
 author: "Dr. Shaun Kellogg"
 date: "September 7, 2021 (updated: `r Sys.Date()`)"
 output:
@@ -103,51 +103,59 @@ likelihood of success.
 
 #### Data Sources & Analysis
 
-Similar to data used in the we'll be using later in case study,
-Rosenberg et al. used publicly accessible data from Twitter collected
-using the Full-Archive Twitter API and the `rtweet` package in R.
-Specifically, the authors accessed tweets and user information from the
-hashtag-based \#NGSSchat online community, all tweets that included any
-of the following phrases, with "/" indicating an additional phrase
-featuring the respective plural form: "ngss", "next generation science
-standard/s", "next gen science standard/s".
+The data analyzed in this exploratory research was extracted from the
+course-based instructor tracking logs and the BB VistaTM production
+server. Data collected on each student included 'whole term' counts for
+frequency of usage of course materials and tools supporting content
+delivery, engagement and discussion, assessment and
+administration/management. In addition, tracking data indicating total
+time spent on certain tool-based activities (assessments, assignments,
+total time online) offered a total measure of individual student time on
+task.
 
-#### Analysis
+The authors used scatter plots for identifying potential correlational
+trends between variables under investigation, followed by a a simple
+correlation analysis of each variable to further interrogate the
+significance of selected variables as indicators of student achievement.
+Finally, a linear multiple regression analysis was therefore conducted,
+in order to develop a predictive model in which 'Student final grade'
+was the continuous dependent variable.
 
-This article Also similar to what we'll demonstrate in Lab 3, the
-authors determined Tweet sentiment using the Java version of
-SentiStrength to assign tweets to two 5-point scales of sentiment, one
-for positivity and one for negativity, because SentiStrength is a
-validated measure for sentiment in short informal texts (Thelwall et
-al., 2011). In addition, they used this tool because Wang and Fikis
-(2019) used it to explore the sentiment of CCSS-related posts. We'll be
-using the AFINN sentiment lexicon which also assigns words in a tweet to
-two 5-point scales, in addition to exploring some other sentiment
-lexicons to see if they produce similar results.
+#### **Summary of Key Findings**
 
-The authors also used the `lme4` package in R to run a mixed effects (or
-multi-level) model to determine if sentiment changes over time and
-differs between teachers and non-teacher. We won't look at the
-relationships between tweet sentiment, time and teachers in these labs,
-but we will take a look at the correlation between words within tweets
-in TM Learning Lab 2.
+1.  Although 13 LMS variables for this course appear to show significant
+    correlation with student final grade, it would be erroneous to rely
+    too heavily on the predictive power of simple correlations.
+2.  Some students are making more effective strategic decisions about
+    time use within the virtual class- room that is not adequately
+    represented by simple correlations with time online.
+3.  Total number of discussion messages posted, total number of mail
+    messages sent, and total number of assessments completed were
+    allstatistically significant contributors to students' final grades
+    and indicated that some 33% of the variability in student
+    achievement in this course can be explained by this combination of
+    student online activities within the course site.
+4.  One of the highest performing students established a complex network
+    that included a core group of high-performing peers, conversely a
+    lower performing student's network is primarily comprised of
+    low-performing peers.
 
-**Summary of Key Findings**
+#### [**Your Turn**]{style="color: green;"} **⤵**
 
-1.  Contrasting with sentiment about CSSS, sentiment about the NGSS
-    science education reform effort is overwhelmingly positive, with
-    approximately 9 positive tweets for every negative tweet.
-2.  Teachers were more positive than non-teachers, and sentiment became
-    substantially more positive over the ten years of NGSS-related
-    posts.
-3.  Differences between the context of the tweets were small, but those
-    that did not include the \#NGSSchat hashtag became more positive
-    over time than those posts that did not include the hashtag.
-4.  Individuals posted more tweets during \#NGSSchat chats, the
-    sentiment of their posts was more positive, suggesting that while
-    the context of individual tweets has a small effect (with posts not
-    including the hashtag becoming more positive over time), the effect
-    upon individuals of being involved in the \#NGSSchat was positive.
+Take a quick scan of Table 3 in the article linked above (and also
+located in your "lit" folder in the files pane) and in the space below,
+answer the following question: Of the 13 LMS variables correlated with
+student final grade, which 2-3 do you think will found to significantly
+predict final grades?
+
+-   
+
+Now take a quick look at sections 3.2 Mutltiple Regression and 3.3
+Logistic Regression and asnwer the following questions: What factors in
+the model did ultimately predict final grades? How accurate was this
+model in identifying "at risk" students?
+
+-   
 
 ### 1b. Define Questions
 
@@ -169,24 +177,30 @@ research questions:
     student learning community?
 
 For our case study, we'll adopt questions 1 & 2 wholesale to guide our
-exploratory analysis and modeling. We'll also use approaches and data
-similar to those used by @macfadyen2010mining to better understand how
-LMS, gradebook, and survey data might be predictive of student
-performance.
+exploratory analysis and modeling, with a special emphasis on time spent
+in the LMS. We'll also use analytical approaches and data similar to
+those used by @macfadyen2010mining to better understand how LMS,
+gradebook, and survey data might be predictive of student performance.
 
 ### 1c. Load Libraries
+
+As noted in our Getting Started activity, R uses "packages" and add-ons
+that enhance its functionality. One of our first steps in any workflow
+is to load packages necessary for data wrangling, analysis, and
+reporting. We'll load packages in this section we are already familiar
+with from our tutorials and introduce new packages and corresponding
+functions throughout the case study.
 
 #### tidyverse 📦
 
 ![](img/tidyverse.png){width="40%"}
 
-As noted in our Getting Started activity, R uses "packages" and add-ons
-that enhance its functionality. One package that we'll be using
-extensively is {tidyverse}. The {tidyverse} package is actually a
-[collection of R packages](https://www.tidyverse.org/packages) designed
-for reading, wrangling, and exploring data and which all share an
-underlying design philosophy, grammar, and data structures. This shared
-features are sometimes "tidy data principles."
+One package that we'll be using extensively is {tidyverse}. Recall from
+earlier tutorials that the {tidyverse} package is actually a [collection
+of R packages](https://www.tidyverse.org/packages) designed for reading,
+wrangling, and exploring data and which all share an underlying design
+philosophy, grammar, and data structures. This shared features are
+sometimes "tidy data principles."
 
 Click the green arrow in the right corner of the "code chunk" that
 follows to load the {tidyverse} library as well as the {here} package
@@ -194,13 +208,11 @@ introduced in previous labs.
 
 ```{r}
 library(tidyverse)
-library(here)
-library(janitor)
 ```
 
-Again, don't worry if you saw a number of messages: those probably mean
-that the tidyverse loaded just fine. Any conflicts you may have seen
-mean that functions in these packages you loaded have the same name as
+Don't worry if you saw a number of messages: those probably mean that
+the tidyverse loaded just fine. Any conflicts you may have seen mean
+that functions in these packages you loaded have the same name as
 functions in other packages and R will default to function from the last
 loaded package unless you specify otherwise.
 
@@ -211,18 +223,18 @@ reshaping, transforming, and merging data (Wickham & Grolemund, 2017).
 The importance of data wrangling is difficult to overstate, as it
 involves the initial steps of going from raw data to a dataset that can
 be explored and modeled (Krumm et al, 2018). In Part 2, we focus on the
-the following
+the following workflow processes:
 
 a.  **Import Data**. In this section, we introduce the `read_csv()`
-    function for working with CSV files revisit some key functions to
-    inspecting our data.
+    function for working with CSV files and revisit some key functions
+    for inspecting our data.
 
-b.  **Tidy Data**. We revisit some key {dplyr} functions like `mutate()`
-    for creating or changing variables, and introduce the `separate()`
-    and `clean_names()` functions for getting our data nice and tidy.
+b.  **Tidy Data**. We introduce the `separate()` and `clean_names()`
+    functions for getting our data nice and tidy, and revisit the
+    `mutate()` for creating new variables.
 
 c.  **Join Data**. We conclude our data wrangling by introducing
-    j`oin()` functions for merging our processed files into a single
+    `join()` functions for merging our processed files into a single
     data frame for analysis.
 
 ### a. Import Data
@@ -253,46 +265,94 @@ technologies, such as archived data from social media postings. In
 education, an increasingly common source of log-trace data is that
 generated from interactions with LMS and other digital tools.
 
-The data we will use is a summary type of log-trace data: the number of
+The data we will use in this case study and already been "wrangled"
+quite a bit and is a summary type of log-trace data: the number of
 minutes students spent on the course. While this data type is fairly
 straightforward, there are even more complex sources of log-trace data
 out there (e.g., time stamps associated with when students started and
-stopped accessing the course). We'll name this data set `time_spent`, to
-help us to quickly recollect what function it serves in this analysis.
+stopped accessing the course).
+
+To help us import our data, we'll be using two packages:
+{[readr](https://readr.tidyverse.org)} and
+{[here](https://here.r-lib.org)} . The {readr} package provides a "fast
+and friendly way" to read rectangular data stored in plain-text file
+formats like csv, tsv, and fwf. If you are new to readr, I highly
+recommend the [data import
+chapter](https://r4ds.had.co.nz/data-import.html) in R for data science.
+We don't need to load the {readr} package because it was already loaded
+as part of the tidyverse package we called earlier.
+
+Let's use the `read_csv()` function from {readr} to import our
+`log-data.csv` file directly from our data folder and name this data set
+`time_spent`, to help us to quickly recollect what function it serves in
+this analysis:
 
 ```{r}
+time_spent <- read_csv("data/log-data.csv")
+```
+
+Note that we had to specify the file path in our argument, but this may
+not consistently work depending on the type of operating system you are
+using and where your R Project is located. The message also indicated
+that four of the columns were specified as "character" data types and
+two of the columns `student_id` and `time_spent` as numeric. The student
+id as numeric is problematic and something we will have to deal with
+later.
+
+##### here package
+
+The goal of the {here} package is to enable easy file referencing
+in [project-oriented
+workflows](https://rstats.wtf/project-oriented-workflow.html). In
+contrast to depending on working directories and file paths for
+projects, which are a fragile and dependent on the way you organize your
+files, {here} uses the top-level directory of a project to easily build
+paths to files.
+
+To use the {here} package, we simply insert the `here()` function as our
+first argument for `read_csv()` and include the location of your file by
+typing the folder or folders where your data is stored along with the
+file name.
+
+Give it try:
+
+```{r}
+library(here)
+
 time_spent <- read_csv(here("unit-1", "data", "log-data.csv"))
 ```
 
-Type `time_spent` into the console (below this window) and then hit
-return/enter. You should see a printed summary of this data frame. What
-do you notice about this data? What do you wonder? Add a note (or
-more---you can type return/enter after a bullet point to add another) on
-your noticings and wonderings here:
+Let's take a look at this data in a couple ways. First, type
+`time_spent` into the console (below this window) and then hit
+return/enter. You should see a printed summary of this data frame.
+
+Next, got your files pane (bottom right corner of R Studio), click on
+the data folder then click on the file named "log-data.csv" and in the
+pop-up click "View File."
+
+What do you notice about this data? What questions do you have? Add a
+couple of notes (or more---you can type return/enter after a bullet
+point to add another) on your observations and/or questions here:
 
 -   
 
 #### Data Source \#2: Academic Achievement Data
 
-In addition to the `time_spent` data we loaded We'll explain a bit more
-about the second data set - on academic achievement data.
-
 Academic achievement data is (obviously) is a very common form of data
-in education. In this learning lab, we'll use both the sum of the points
+in education. In this case study, we'll use both the sum of the points
 students earned as well as the number of points possible to compute the
 percentage of points they earned in the course---a measure comparable
 (but likely a little different based on teachers' grading policies) to
-their final grade. We'll use this in the second learning lab.
+their final grade.
 
-We'll load the data in the same way as earlier:
+We'll load the data in the same way as earlier but take a quick peek but
+including the name of our data frame in the code chunk as well:
 
 ```{r}
 gradebook <- read_csv(here("unit-1", "data", "gradebook-summary.csv"))
-```
 
-You may choose to type the name of the gradebook into the console window
-and to then (like earlier) type enter/return to view a summary of what
-data this name points to.
+gradebook
+```
 
 #### Data Source \#3: Self-Report Survey
 
@@ -305,14 +365,11 @@ expect to do well (corresponding to their perceived competence) and
 their value for what they are learning (corresponding to their interest
 and utility value). We'll use this in the third learning lab.
 
-We'll read this file, named `survey.csv`, which is---like our other data
-files---stored in the `/data` directory.
-
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-In the code below, read the `survey.csv` file. You can use the code
-above as a template. Assign the output from the `read_csv()` function to
-a new object named `survey`.
+In the code below, read the `survey.csv` file located in the data
+folder. You can use the code above as a template. Assign the output from
+the `read_csv()` function to a new object named `survey`.
 
 ```{r}
 survey <- read_csv(here("unit-1", "data", "survey.csv"))
@@ -334,6 +391,14 @@ to do.
 Add one or more of the things you notice or wonder about the data here:
 
 -   
+
+**RStudio Tip:** If you happen to run into issues with data import,
+RStudio has a handy "Import Dataset" feature for a point and click
+approach to adding data to your environment. If you want to give this a
+try, be sure to pay attention to the default settings and the name it
+will give you data frame when imported.
+
+![](img/import.png)
 
 #### View Data
 
@@ -370,13 +435,14 @@ names(survey)
 View(survey)
 ```
 
-Yes, the "V" is capitalized---very unusual for an R function. Because
-this function is a bit atypical in more ways than one, I have two
-recommendations concerning its use:
+Yes, the "V" is capitalized---very unusual for an R function (the
+tidyverse does have it's own lowercase `view()` function if that bothers
+you though). Because this function is a bit atypical in more ways than
+one, I have two recommendations concerning its use:
 
 -   Use it strictly in the console. Because it opens a new viewing
-    window, including it in an R Markdown script can cause issues when
-    "knitting" or rendering an HTML (or PDF) report. Hence I have
+    window, **including it in an R Markdown script can cause issues when
+    "knitting"** or rendering an HTML (or PDF) report. Hence I have
     included the `eval = FALSE` argument in the code chunk so it it not
     run when you knit your document.
 
@@ -386,7 +452,32 @@ recommendations concerning its use:
 
 ### b. Tidy Data
 
-Intro...
+Tidy data refers to a consistent way to organize your data in R. In our
+course text, [R for Data
+Science](https://r4ds.had.co.nz/tidy-data.html), Hadley Wickham notes
+that getting your data into this format requires some work, but that
+work pays off in the long term:
+
+> Once you have tidy data and the tidy tools provided by packages in the
+> tidyverse, you will spend much less time munging data from one
+> representation to another, allowing you to spend more time on the
+> analytic questions at hand.
+
+Not surprisingly, the Tidyverse set of packages including packages
+like `dplyr` adhere "tidy" data principles [(Wickham
+2014)](https://www.jstatsoft.org/article/view/v021i12). Tidy data has
+three interrelated rules which make a dataset tidy:
+
+1.  Each variable is a column
+
+2.  Each observation is a row
+
+3.  Each type of observational unit is a table
+
+Why would this data be considered "untidy"? Hint: Look at the column
+names.
+
+![](img/untidy-data.png)
 
 #### Process Log Data
 
@@ -394,11 +485,12 @@ Earlier, we loaded `time_spent`, which contains information on the
 number of minutes that students spent on the course, as well as other
 variables, particularly `course_id`.
 
-Information about the course subject, semester, and section are stored
-in a single variable---`course_id`. This format of data storage is not
-ideal, nor is it very "tidy." If we instead give each piece of
-information its own column, we'll have more opportunities for later
-analysis. We'll use a function called `separate()` to do this.
+Information about the course subject, semester, and section are not
+stored in in a "tidy" format, but rather a single
+variable---`course_id`. This format of data storage is not ideal. If we
+instead give each piece of information its own column, we'll have more
+opportunities for later analysis. We'll use a function called
+`separate()` to do this.
 
 First, let's practice with a small data set. We'll create it directly in
 R; run the code below to do that (and to assign the name `df` to the
@@ -450,7 +542,7 @@ df2
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 Can you separate the variable in the above data frame not into two, but
-rather three, new variables? Below is some template code.
+rather three, new variables?
 
 ```{r}
 df2 %>% 
@@ -462,8 +554,6 @@ df2 %>%
 `course_var` into two variables) based on a) the name of the variable in
 `df2` and b) adding the name for the third new variable you wish to
 create.
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
 
 Let's return back to our `time_spent` data frame, now. It is often
 helpful to take a look at the data before writing code.
@@ -480,14 +570,17 @@ time_spent %>%
            c("subject", "semester", "section"))
 ```
 
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
 There is one last key step---one that is likely to be a bit disorienting
 at first---that we'll do next. Once we've processed the data how we
 would like, we have to assign, or save, the results back to the name for
 the data with which we have been working. This is done with the
-assignment operator, or the \<- symbol. Copy the code you successfully
-ran in the chunk above to follow the assignment operator in the chunk
-below. In other words, write the code you wrote above, but assign the
-output back to `time_spent`.
+assignment operator, or the \<- symbol.
+
+Copy the code you successfully ran in the chunk above to follow the
+assignment operator in the chunk below. In other words, write the code
+you wrote above, but assign the output back to `time_spent`.
 
 ```{r}
 time_spent <- time_spent %>%
@@ -709,11 +802,19 @@ You may have noticed that `student_ID` is not formatted the same as
 section when were "join," or merge, our data files, these variables will
 need to have identical names.
 
-Fortunately there is a handy function called `clean_names()` in the
-{janitor} package for standardizing variable names. Run the following
-code
+Fortunately the
+{[janitor](https://garthtarr.github.io/meatR/janitor.html)} package has
+simple functions for examining and cleaning dirty data. It was built
+with beginning and intermediate R users in mind and is optimized for
+user-friendliness. There is also a handy function called `clean_names()`
+in the {janitor} package for standardizing variable names.
+
+Run the following code load the {janitor} package and clean our column
+names in both data frames so they are consistent:
 
 ```{r}
+library(janitor)
+
 survey <- clean_names(survey)
 ```
 
@@ -859,11 +960,12 @@ joined_data <- full_join(gradebook, time_spent)
 joined_data
 ```
 
-You may notice a red message that says
-`Joining, by = c("student_id", "Course", "Subject", "Section")`. This is
-telling us that these files are being joined on the basis of all four of
-these variables matching in both data sets; in other words, for rows to
-be joined, they must match identically on all four of these variables.
+You may notice a message in the console or first output box above that
+says `Joining, by = c("student_id", "Course", "Subject", "Section")`.
+This is telling us that these files are being joined on the basis of all
+four of these variables matching in both data sets; in other words, for
+rows to be joined, they must match identically on all four of these
+variables.
 
 This is related to not specifying anything for the `by =` part of the
 function; by default, `full_join()` (and `left_join()`) will consider
@@ -873,7 +975,7 @@ variables on which we are joining.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-In the code below, write your join like above, but add the
+In the code chunk below, write your join like above, but add the
 `by = c("student_id", "course", "subject", "section")` part to your
 code. You may notice the red message you may have noticed does not
 appear. This is generally a better practice because you know precisely
@@ -898,9 +1000,9 @@ created? Add one or more notes below.
 
 #### Join Gradebook and Log Data
 
-Now
-
-Join
+Now let's try joining on our final data set so that our LMS, gradebook
+and survey data are all in a single data frame for analysis called
+`data_to_explore`:
 
 ```{r, eval=FALSE}
 # join together the gradebook and log_wrangled
@@ -909,10 +1011,24 @@ data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject"
 data_to_explore
 ```
 
+Oops! You probably notices a red error message telling us that even
+though `student_id` is consistently named in both files, they are not of
+the same data type. Something we were warned about earlier.
+
+We can use the `mutate()` function that we learned about in our
+tutorials to change this variable in our `joined_data` from a "double,"
+i.e. numeric variable to a character variable using the base R
+`as.character()` function:
+
 ```{r}
 joined_data <- joined_data %>%
   mutate(student_id = as.character(student_id))
 ```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code chunk below, try joining our two data frames again using the
+same code from above:
 
 ```{r}
 data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject", "semester", "section"))
@@ -924,6 +1040,9 @@ We'll revisit joins in our Unit 2 tutorials, but for a quick overview of
 the different join functions with helpful visuals,
 visit: <https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti>
 
+Congratulations! We're done wrangling our data and it is ready to
+explore!
+
 ## 3. EXPLORE
 
 As highlighted in both
@@ -934,182 +1053,25 @@ goal in this phase is explore questions that drove the original analysis
 and develop new questions and hypotheses to test in later stages. Topics
 addressed in Part 3 include:
 
--   **Data Visualization**.
+-   **Summarize Key Stats**. We'll learn about the {skmir} package for
+    pulling together some quick creating descriptive statistics when
+    your goal is to understand your data internally.
 
--   **Table Summaries**. We learn about the global regular expression
-    parser, or `grep` package in R, to search for key words among our
-    data set.
+-   **Visualize Data**. We'll introduce the histogram geom for taking a
+    quick peak the distributions of some key variables and put together
+    some scatter plots for examining potential relationships between
+    time spent and student performance.
 
-### a. Data Visualization
+-   **Correlated Variables.** We'll wrap up our Part 3 by learning to
+    create a correlation matrix for quantifying these relationships
+    between key variables and student performance.
 
-#### Histograms
-
-We're now ready to create a faceted plot. Like in the getting started
-task, we'll use the ggplot2 package.
-
-The code below creates a histogram with 30 bins---the default number for
-`geom_histogram`. Change the number of bins below and note any
-differences in what you interpret about the data.
-
-```{r}
-data_to_explore %>% 
-  ggplot(aes(x = time_spent_hours)) +
-  geom_histogram(bins = 30)
-```
-
-What do you think the ideal number of bins is---with what is ideal being
-the number of bins that helps you to interpret the overall distribution
-of the values for how much time students' spent (*note*: there is no one
-right or wrong answer here!)?
-
--   
-
-We'll next be using the `facet_wrap()` function to create *small
-multiples*, or plots that are specific to subsets of your data. These
-subsets are identified based on another variable in your dataset. For
-example, the code below uses the built-in `mpg` dataset to plot the
-relationship between the displacement of a car's engine and its highway
-miles per gallon fuel efficiency.
-
-```{r}
-ggplot(mpg, aes(displ, hwy)) + 
-  geom_point()
-```
-
-The code in the next plot creates individual plots for each
-class---think compact car or SUV.
-
-```{r}
-ggplot(mpg, aes(displ, hwy)) + 
-  geom_point() +
-  facet_wrap(~class)
-```
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-In the code below, create a faceted histogram based on the subject of
-the course. To do so, consider both:
-
--   What code you used to create the histogram of the time students'
-    spent on the course
-
--   How, in the example above, `facet_wrap` refers to the variable in
-    that data frame that represents the class of the car---but modifying
-    the code to work for your subject variable
-
-You may also wish to change the color; reflect back to the getting
-started task for an example of how to do this.
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours)) + 
-  geom_histogram() +
-  facet_wrap(~subject)
-```
-
-What do you notice about this figure? And what do you wonder? Add a note
-(or a few notes!) below:
-
--   
-
-#### Scatter Plots
-
-Having prepared both of the data sets we joined together, and worked
-hard to join those data sets, we're now ready to use this joined data
-set in our exploration of how the time students spent on the course LMS
-relate to the number of points they earned throughout the course.
-
-We'll be using the {ggplot2} package again, but, this time, will be
-creating a different type of plot.
-
-Run the code below to create a scatter plot of the proportion of points
-students earned and the number of hours they spent on the course LMS.
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned)) +
-  geom_point()
-```
-
-What do you notice about this graph? And what do you wonder? How about
-the code---what do you notice about it (and what do you wonder)? Add one
-or more of what you see as the most important elements.
-
--   
-
-Using {ggplot2} makes it efficient to iterate through different versions
-of similar plots. For instance, we can color the points by a third
-variable, such as the reason for which students enrolled in the course,
-to begin to explore what was going on for students who spent very little
-time on the course:
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point()
-```
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-We can also additionally create faceted plots, like the one you created
-in the last learning lab. In the code below, facet the plot by
-`subject`.
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point() +
-  facet_wrap(~subject)
-```
-
-You may wish to style your plot. A few ways you can do that are as
-follows; we'll discuss more throughout the institute. For each of the
-following, add them to your plot by adding a plus symbol to the line
-prior to the line you are adding. For instance, the following code
-styles the x-axis label of a plot:
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point() +
-  xlab("Time Spent (Hours)")
-```
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-Try adding (and modifying, if you'd like) any of the following to the
-faceted plot you created in the code chunk below:
-
--   `xlab("Time Spent (Hours)")`
-
--   `ylab("Proportion of Points Earned")`
-
--   `scale_color_brewer("Enrollment Status", type = "qual", palette = 3)`
-
--   `ggtitle("How Time Spent on Course LMS is Related to Points Earned in the Course")`
-
--   `theme(legend.position = "bottom")`
-
-```{r}
-
-```
-
-Once you have settled on a plot you are happy with (for now!), add a
-sentence or two interpreting your graph (like you were describing it
-within a manuscript):
-
--   
-
-### **b**. Table Summaries
+### a. Table Summaries
 
 At this point, we should have quite the comprehensive data set,
 including single measures from a) students for the time they spent in
 the course LMS and other information about them, such as information on
-why they are enrolled in the course, b) their academic achievement
-
-We'll explore our data in two ways---by creating:
-
-1.  Descriptive statistics for key variables in our data
-2.  A correlation matrix for key variables that are numbers
-
-We'll take these in turn, considering two different ways to create
-correlation tables that may be suited better to particular tasks
-depending on one's goals.
+why they are enrolled in the course, b) their academic achievement.
 
 #### Skimr Package
 
@@ -1189,23 +1151,180 @@ ready--or nearly-ready--to be added directly to manuscripts.
 If you are curious about doing more with {skimr}, check out:
 [\<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html\>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
 
-## 4. MODEL
+### b. Data Visualization
 
-As highlighted in [Chapter 3 of Data Science in Education Using
-R](https://datascienceineducation.com/c03.html), the **Model** step of
-the data science process entails "using statistical models, from simple
-to complex, to understand trends and patterns in the data." The authors
-note that while descriptive statistics and data visualization during
-the **Explore** step can help us to identify patterns and relationships
-in our data, statistical models can be used to help us determine if
-relationships, patterns and trends are actually meaningful. In part Part
-4 we will learn how to:
+#### Histograms
 
-a.  
+You likely notice that the `skim()` function created some miniature
+histrograms for each of the numeric variables in our `data-to-explore`
+data frame. Since we are especially interested in whether time spent in
+the online course is related to student performance, let's take a closer
+look at this variable.
 
-### a. Create a Correlation Matrix
+The code below creates a histogram with 30 bins---the default number for
+`geom_histogram`:
 
-As highlighted in @macfadyen2010,
+```{r}
+data_to_explore %>% 
+  ggplot(aes(x = time_spent_hours)) +
+  geom_histogram(bins = 30)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Now change the number of bins using the code chunk below below and note
+any differences in what you interpret about the data.
+
+```{r}
+
+```
+
+What do you think the ideal number of bins is---with what is ideal being
+the number of bins that helps you to interpret the overall distribution
+of the values for how much time students' spent (*note*: there is no one
+right or wrong answer here!)?
+
+-   
+
+#### Faceting
+
+We'll next be using the `facet_wrap()` function to create *small
+multiples*, or plots that are specific to subsets of your data. These
+subsets are identified based on another variable in your dataset. For
+example, the code below uses the built-in `mpg` dataset to plot the
+relationship between the displacement of a car's engine and its highway
+miles per gallon fuel efficiency.
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point()
+```
+
+The code in the next plot creates individual plots for each
+class---think compact car or SUV.
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point() +
+  facet_wrap(~class)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, create a faceted histogram based on the subject of
+the course. To do so, consider both:
+
+-   What code you used to create the histogram of the time students'
+    spent on the course
+
+-   How, in the example above, `facet_wrap` refers to the variable in
+    that data frame that represents the class of the car---but modifying
+    the code to work for your subject variable
+
+You may also wish to change the color; reflect back to the getting
+started task for an example of how to do this.
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours)) + 
+  geom_histogram() +
+  facet_wrap(~subject)
+```
+
+What do you notice about this figure? What questions do you have? Add a
+note (or a few notes!) below:
+
+-   
+
+#### Scatter Plots
+
+Having prepared the data sets we joined together, and worked hard to
+join those data sets, we're now ready to use this joined data set in our
+exploration of how the time students spent on the course LMS relate to
+the number of points they earned throughout the course.
+
+We'll be using the {ggplot2} package again, but, this time, will be
+creating a different type of plot.
+
+Run the code below to create a scatter plot of the proportion of points
+students earned and the number of hours they spent on the course LMS.
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned)) +
+  geom_point()
+```
+
+What do you notice about this graph? And what do you wonder? How about
+the code---what do you notice about it (and what do you wonder)? Add one
+or more of what you see as the most important elements.
+
+-   
+
+Using {ggplot2} makes it efficient to iterate through different versions
+of similar plots. For instance, we can color the points by a third
+variable, such as the reason for which students enrolled in the course,
+to begin to explore what was going on for students who spent very little
+time on the course:
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point()
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+We can also additionally create faceted plots, like the one you created
+in the last learning lab. In the code below, facet the plot by
+`subject`.
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
+  facet_wrap(~subject)
+```
+
+You may wish to style your plot. A few ways you can do that are as
+follows; we'll discuss more throughout the institute. For each of the
+following, add them to your plot by adding a plus symbol to the line
+prior to the line you are adding. For instance, the following code
+styles the x-axis label of a plot:
+
+```{r}
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
+  xlab("Time Spent (Hours)")
+```
+
+Try adding (and modifying, if you'd like) any of the following to the
+faceted plot you created in the code chunk below:
+
+-   `xlab("Time Spent (Hours)")`
+
+-   `ylab("Proportion of Points Earned")`
+
+-   `scale_color_brewer("Enrollment Status", type = "qual", palette = 3)`
+
+-   `ggtitle("How Time Spent on Course LMS is Related to Points Earned in the Course")`
+
+-   `theme(legend.position = "bottom")`
+
+```{r}
+
+```
+
+Once you have settled on a plot you are happy with (for now!), add a
+sentence or two interpreting your graph (like you were describing it
+within a journal article):
+
+-   
+
+### c. Create a Correlation Matrix
+
+As highlighted in @macfadyen2010, the scatter plots are a useful initial
+approach for identifying potential correlational trends between
+variables under investigation, but to further interrogate the
+significance of selected variables as indicators of student achievement,
+a simple correlation analysis of each variable with student final grade
+can be conducted.
 
 There are two efficient ways to create correlation matrices, one that is
 best for internal use, and one that is best for inclusion in a
@@ -1283,7 +1402,7 @@ or two of these noticings or wonderings below:
 -   
 
 If you are interested in learning more about the {corrr} package, visit:
-<https://corrr.tidymodels.org>
+[\<https://corrr.tidymodels.org\>](https://corrr.tidymodels.org){.uri}
 
 #### APA Formatted Tables
 
@@ -1328,16 +1447,26 @@ You should now see a new Word document in your project folder called
 `survey-cor-table.doc`. Click on that and you'll be prompted to download
 from your browser.
 
-### b. Predict Academic Achievement
+## 4. MODEL
 
-For the purpose of this learning lab, let's consider the
+As highlighted in [Chapter 3 of Data Science in Education Using
+R](https://datascienceineducation.com/c03.html), the **Model** step of
+the data science process entails "using statistical models, from simple
+to complex, to understand trends and patterns in the data." The authors
+note that while descriptive statistics and data visualization during
+the **Explore** step can help us to identify patterns and relationships
+in our data, statistical models can be used to help us determine if
+relationships, patterns and trends are actually meaningful. In part Part
+4 we will learn how to:
+
+### a. Predict Academic Achievement
+
+For the purpose of this case study, let's consider the
 `proportion_earned` variable to be our dependent, or the outcome,
-variable.
-
-You may be new to linear regression models, or you may have a lot of
-experience. In brief, a linear regression model involves estimating the
-relationships between one or more *independent variables* with one
-dependent variable. Mathematically, it can be written like the
+variable. You may be new to linear regression models, or you may have a
+lot of experience. In brief, a linear regression model involves
+estimating the relationships between one or more *independent variables*
+with one dependent variable. Mathematically, it can be written like the
 following.
 
 $$
@@ -1410,8 +1539,8 @@ values to look at are those in the Estimate column, which represent the
 intercept and slopes for your linear regression model.
 
 Note that the estimate for `time_spent_hours` is now 0.0042 and
-statistically significant. We see that `int`, interest in science, both
-of which are statistically significant.
+statistically significant. We see that `int`, interest in science, is
+also statistically significant.
 
 #### Do average students earn an average grade?
 
@@ -1504,8 +1633,6 @@ accompany your narrative.
 ```{r}
 
 ```
-
-INSERT NARRATIVE HERE
 
 ### Congratulations!
 

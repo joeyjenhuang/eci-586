@@ -107,11 +107,11 @@ The data analyzed in this exploratory research was extracted from the
 course-based instructor tracking logs and the BB VistaTM production
 server. Data collected on each student included 'whole term' counts for
 frequency of usage of course materials and tools supporting content
-delivery, engagement and
-discussion, assessment and administration/management. In addition,
-tracking data indicating total time spent on certain tool-based
-activities (assessments, assignments, total time online) offered a total
-measure of individual student time on task.
+delivery, engagement and discussion, assessment and
+administration/management. In addition, tracking data indicating total
+time spent on certain tool-based activities (assessments, assignments,
+total time online) offered a total measure of individual student time on
+task.
 
 The authors used scatter plots for identifying potential correlational
 trends between variables under investigation, followed by a a simple
@@ -119,8 +119,7 @@ correlation analysis of each variable to further interrogate the
 significance of selected variables as indicators of student achievement.
 Finally, a linear multiple regression analysis was therefore conducted,
 in order to develop a predictive model in which 'Student final grade'
-was
-the continuous dependent variable.
+was the continuous dependent variable.
 
 #### **Summary of Key Findings**
 
@@ -128,9 +127,8 @@ the continuous dependent variable.
     correlation with student final grade, it would be erroneous to rely
     too heavily on the predictive power of simple correlations.
 2.  Some students are making more effective strategic decisions about
-    time use within the virtual class-
-    room that is not adequately represented by simple correlations with
-    time online.
+    time use within the virtual class- room that is not adequately
+    represented by simple correlations with time online.
 3.  Total number of discussion messages posted, total number of mail
     messages sent, and total number of assessments completed were
     allstatistically significant contributors to students' final grades
@@ -138,9 +136,9 @@ the continuous dependent variable.
     achievement in this course can be explained by this combination of
     student online activities within the course site.
 4.  One of the highest performing students established a complex network
-    that included a core group of
-    high-performing peers, conversely a lower performing student's
-    network is primarily comprised of low-performing peers.
+    that included a core group of high-performing peers, conversely a
+    lower performing student's network is primarily comprised of
+    low-performing peers.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
@@ -374,7 +372,7 @@ folder. You can use the code above as a template. Assign the output from
 the `read_csv()` function to a new object named `survey`.
 
 ```{r}
-survey <- read_csv(here("unit-1", "data", "survey.csv"))
+
 ```
 
 **Hint**: By asking you to "assign the output from the `read_csv()`
@@ -547,9 +545,7 @@ Can you separate the variable in the above data frame not into two, but
 rather three, new variables?
 
 ```{r}
-df2 %>% 
-  separate(course_variable,
-           c("year", "semester", "subject"))
+
 ```
 
 **Hint**: Try to modify the code from above (in which you separated
@@ -585,9 +581,7 @@ assignment operator in the chunk below. In other words, write the code
 you wrote above, but assign the output back to `time_spent`.
 
 ```{r}
-time_spent <- time_spent %>%
-  separate(course_id,
-           c("subject", "semester", "section"))
+
 ```
 
 We have made a habit of continually looking at our data after running
@@ -645,15 +639,16 @@ df3 %>%
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-We can combine many `mutate()` functions together. Below, create a new
-variable (let's call it `points_proportion`) that represents the
-proportion of the total points students could, potentially, earn. To do
-this, you can divide `points_sum` by the maximum possible points---150.
+We can combine many `mutate()` functions together. Below, complete the
+following code to create a new variable (let's call it
+`points_proportion`) that represents the proportion of the total points
+students could, potentially, earn. To do this, you can divide
+`points_sum` by the maximum possible points---150.
 
 ```{r}
 df3 %>% 
   mutate(points_sum = var_a + var_b) %>% 
-  mutate(points_proportion = points_sum / 150)
+  
 ```
 
 **Hint**: Just like you can use the + symbol to add variables together,
@@ -670,28 +665,30 @@ students earned.
 
 Let's now process the `time_spent` variable. Specifically, this variable
 currently represents the number of *minutes* that students spent on the
-course LMS. Below, add to the template of code below to create a new
-variable, `time_spent_hours`, that represents the number of *hours* that
-students spent on the course LMS.
+course LMS. Below, complete the code template to create a new variable,
+`time_spent_hours`, that represents the number of *hours* that students
+spent on the course LMS.
 
 ```{r}
 time_spent %>% 
-  mutate(time_spent_hours = time_spent / 60)
+  mutate()
 ```
 
 **Hint**: Refer to the code you wrote above, being clear about a) what
 the name of the new variable you are creating is and b) how you will
 create this variable using division (by the number of minutes in an
-hour).
+hour). Also, it's a bit confusing and poor naming on my part, but you
+will need to use the `time_spent` variable in our `time_spent` data
+frame.
 
 We used the above as a test bed to ensure that our code worked as
 intended. Once we are confident that we are creating the variable in the
 way we intend to, we can assign the output back to the data frame that
-`time_spent` refers to.
+`time_spent` refers to. Paste your working code here to save the new
+`time_spent_hours` variable to
 
 ```{r}
-time_spent <- time_spent %>% 
-  mutate(time_spent_hours = time_spent / 60)
+time_spent <- 
 ```
 
 Good work wrangling this dataset!
@@ -739,16 +736,16 @@ are in the data frame. Thus, in the context of creating a data frame,
 Since interpreting proportions when the denominator is nine can be
 difficult, we may which to create a variable for the proportion.
 
+After running the chunk above, print `df4` to the console to get a sense
+of what the data frame consists of.
+
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-After running the chunk above, print `df4` to the console to get a sense
-of what the data frame consists of. To create a third variable that
-represents the proportion of STEM club activities students participated
-in, divide `var_a` by `var_b`.
+To create a third variable that represents the proportion of STEM club
+activities students participated in, divide `var_a` by `var_b`.
 
 ```{r}
-df4 <- df4 %>% 
-  mutate(var_a / var_b)
+
 ```
 
 What happens if the output is different than you intended? That's no
@@ -774,8 +771,7 @@ others wrote!) often, so feel free to copy and paste code from other,
 similar problems to give yourself a head start.
 
 ```{r}
-gradebook <- gradebook %>% 
-  mutate(proportion_earned = total_points_earned / total_points_possible)
+
 ```
 
 Once the above step is complete, take another look at `gradebook` by
@@ -910,7 +906,7 @@ the quotation marks following `by =`. Then run the code chunk and note
 the output.
 
 ```{r}
-full_join(df5, df6, by = "name")
+full_join(df5, df6, by = " ")
 ```
 
 What do you notice about the output of the `full_join()`? All
@@ -936,10 +932,8 @@ only the rows in the "right" data frame, the data frame named second in
 the function, that have a matching key. An example is necessary. Before
 running the code below, add the same key you added above.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
 ```{r}
-left_join(df5, df6, by = "name")
+left_join(df5, df6, by = " ")
 ```
 
 Different from the above, `left_join()` did not return all of the rows
@@ -984,10 +978,7 @@ appear. This is generally a better practice because you know precisely
 on which variables you data sets are joining.
 
 ```{r}
-# join together the gradebook and time_spent
-joined_data <- full_join(gradebook, time_spent, by = c("student_id", "subject", "semester", "section"))
 
-joined_data
 ```
 
 **Hint:** If you're curious about how to format the use of the `by =`
@@ -1033,9 +1024,7 @@ In the code chunk below, try joining our two data frames again using the
 same code from above:
 
 ```{r}
-data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject", "semester", "section"))
 
-data_to_explore
 ```
 
 We'll revisit joins in our Unit 2 tutorials, but for a quick overview of
@@ -1138,8 +1127,8 @@ Can you do this by modifying the code below to do this?
 
 ```{r}
 data_to_explore %>% 
-  select(proportion_earned, time_spent, gender, subject) %>% 
-  filter(subject == "OcnA" | subject == "PhysA") %>%
+  select() %>% 
+  filter() %>%
   skim()
 ```
 
@@ -1151,7 +1140,7 @@ table, but we'll also discuss ways later on to create tables that are
 ready--or nearly-ready--to be added directly to manuscripts.
 
 If you are curious about doing more with {skimr}, check out:
-[<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
+[\<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html\>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
 
 ### b. Data Visualization
 
@@ -1227,9 +1216,7 @@ You may also wish to change the color; reflect back to the getting
 started task for an example of how to do this.
 
 ```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours)) + 
-  geom_histogram() +
-  facet_wrap(~subject)
+
 ```
 
 What do you notice about this figure? What questions do you have? Add a
@@ -1279,9 +1266,7 @@ in the last learning lab. In the code below, facet the plot by
 `subject`.
 
 ```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point() +
-  facet_wrap(~subject)
+
 ```
 
 You may wish to style your plot. A few ways you can do that are as
@@ -1404,7 +1389,7 @@ or two of these noticings or wonderings below:
 -   
 
 If you are interested in learning more about the {corrr} package, visit:
-[<https://corrr.tidymodels.org>](https://corrr.tidymodels.org){.uri}
+[\<https://corrr.tidymodels.org\>](https://corrr.tidymodels.org){.uri}
 
 #### APA Formatted Tables
 
@@ -1591,9 +1576,7 @@ Below, estimate different regression models with at least 2 variables,
 save as `m2`, and view a `summary()` of the results:
 
 ```{r}
-m2 <- lm(proportion_earned ~ int + time_spent_hours + gender + val, data = data_to_explore)
 
-summary(m2)
 ```
 
 Add a brief note or two interpreting the above model (`m2`):
