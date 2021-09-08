@@ -88,8 +88,8 @@ disconnected students, patterns of student-to-student communication, and
 instructor positioning within the network. This study affirms that
 pedagogically meaningful information can be extracted from LMS-generated
 student tracking data, and discusses how these findings are informing
-the **development of a dashboardlike reporting tool for educators** that
-will extract and visualize real-time data on student engagement and
+the **development of a dashboard-like reporting tool for educators**
+that will extract and visualize real-time data on student engagement and
 likelihood of success.
 
 #### Data Sources
