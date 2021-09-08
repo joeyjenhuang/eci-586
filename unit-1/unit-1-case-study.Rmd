@@ -223,6 +223,7 @@ a.  **Import Data**. In this section, we introduce the `read_csv()`
 b.  **Tidy Data**. We revisit some key {dplyr} functions like `mutate()`
     for creating or changing variables, and introduce the `separate()`
     and `clean_names()` functions for getting our data nice and tidy.
+
 c.  **Join Data**. We conclude our data wrangling by introducing
     j`oin()` functions for merging our processed files into a single
     data frame for analysis.
