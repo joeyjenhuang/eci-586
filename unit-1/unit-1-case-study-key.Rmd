@@ -961,10 +961,10 @@ joined_data
 ```
 
 You may notice a message in the console or first output box above that
-says `Joining, by = c("student_id", "Course", "Subject", "Section")`.
-This is telling us that these files are being joined on the basis of all
-four of these variables matching in both data sets; in other words, for
-rows to be joined, they must match identically on all four of these
+says `Joining, c("student_id", "subject", "semester", "section")`. This
+is telling us that these files are being joined on the basis of all four
+of these variables matching in both data sets; in other words, for rows
+to be joined, they must match identically on all four of these
 variables.
 
 This is related to not specifying anything for the `by =` part of the
@@ -976,10 +976,10 @@ variables on which we are joining.
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 In the code chunk below, write your join like above, but add the
-`by = c("student_id", "course", "subject", "section")` part to your
-code. You may notice the red message you may have noticed does not
-appear. This is generally a better practice because you know precisely
-on which variables you data sets are joining.
+`c("student_id", "subject", "semester", "section")` part to your code.
+You may notice the red message you may have noticed does not appear.
+This is generally a better practice because you know precisely on which
+variables you data sets are joining.
 
 ```{r}
 # join together the gradebook and time_spent
@@ -1011,7 +1011,7 @@ data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject"
 data_to_explore
 ```
 
-Oops! You probably notices a red error message telling us that even
+Oops! You probably noticed a red error message telling us that even
 though `student_id` is consistently named in both files, they are not of
 the same data type. Something we were warned about earlier.
 
