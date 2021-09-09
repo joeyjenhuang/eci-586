@@ -1631,7 +1631,7 @@ code chunk, write a very brief narrative to accompany your narrative.
 
 ```
 
-Add your narrative here. \
+Add your narrative here.\
 
 ### Congratulations!
 
