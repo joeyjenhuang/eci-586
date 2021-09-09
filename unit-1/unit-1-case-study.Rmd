@@ -889,13 +889,14 @@ df6 <- tibble(name = c("Tayla", "Marcus", "Sheila", "Vin"),
 df6
 ```
 
-A key (pun intended) with joins is to consider what variable(s) will
+A key (pun intended!) with joins is to consider what variable(s) will
 serve as the *key*. This is the variable to join by.
 
 A key must have two characteristics; it is:
 
 -   a character string--- a word (thus, you cannot join on a number
-    unless you "coerce" or change it to be a character string, first)
+    unless you "coerce" or change it to be a character string, as well
+    see later in this case study).
 
 -   present in both of the data frames you are joining.
 
@@ -915,8 +916,8 @@ characteristics.
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 In the code below, enter the name of the variable that is the key within
-the quotation marks following `by =`. Then run the code chunk and note
-the output.
+the quotation marks following the `by =` argument. Then run the code
+chunk and note the output.
 
 ```{r}
 full_join(df5, df6, by = " ")
@@ -970,7 +971,7 @@ joined_data
 ```
 
 You may notice a message in the console or first output box above that
-says `Joining, by = c("student_id", "Course", "Subject", "Section")`.
+says `Joining, by = c("student_id", "course", "subject", "section")`.
 This is telling us that these files are being joined on the basis of all
 four of these variables matching in both data sets; in other words, for
 rows to be joined, they must match identically on all four of these
@@ -986,9 +987,9 @@ variables on which we are joining.
 
 In the code chunk below, write your join like above, but add the
 `by = c("student_id", "course", "subject", "section")` part to your
-code. You may notice the red message you may have noticed does not
-appear. This is generally a better practice because you know precisely
-on which variables you data sets are joining.
+code. You may notice the message does not appear. This is generally a
+better practice because you know precisely on which variables you data
+sets are joining.
 
 ```{r}
 
@@ -1023,7 +1024,7 @@ the same data type. Something we were warned about earlier.
 
 We can use the `mutate()` function that we learned about in our
 tutorials to change this variable in our `joined_data` from a "double,"
-i.e. numeric variable to a character variable using the base R
+i.e. numeric variable, to a character variable using the base R
 `as.character()` function:
 
 ```{r}
@@ -1053,9 +1054,9 @@ As highlighted in both
 [DSEIUR](https://datascienceineducation.com/c03.html#doing-analysis-exploring-visualizing-and-modeling-data)
 and Learning Analytics Goes to School, calculating summary statistics
 and data visualization are a key part of exploratory data analysis. One
-goal in this phase is explore questions that drove the original analysis
-and develop new questions and hypotheses to test in later stages. Topics
-addressed in Part 3 include:
+goal in this phase is to explore questions that drove the original
+analysis and develop new questions and hypotheses to test in later
+stages. In Part 3 we'll learn to:
 
 -   **Summarize Key Stats**. We'll learn about the {skmir} package for
     pulling together some quick creating descriptive statistics when
@@ -1072,10 +1073,10 @@ addressed in Part 3 include:
 
 ### a. Table Summaries
 
-At this point, we should have quite the comprehensive data set,
-including single measures from a) students for the time they spent in
-the course LMS and other information about them, such as information on
-why they are enrolled in the course, b) their academic achievement.
+At this point, we have quite the comprehensive data set, including
+single measures from a) students for the time they spent in the course
+LMS and other information about them, such as information on why they
+are enrolled in the course, b) their academic achievement.
 
 #### Skimr Package
 
@@ -1118,8 +1119,7 @@ with an arrow on it to expand your output in a separate window.
 
 What do you notice about the output? These observations might pertain to
 the format of the output or its values (i.e., what the mean for the
-`val` variable is). Note one or two of these noticings or wonderings
-below:
+`val` variable is). Note one or two observations or questions below:
 
 -   
 
@@ -1147,10 +1147,11 @@ data_to_explore %>%
 
 We noted earlier that this output is best for internal use. This is
 because the output is rich, but not well-suited to exporting to a table
-that you add, for instance, to a Google Docs or Microsoft Word
-manuscript. Of course, these values can be entered manually into a
-table, but we'll also discuss ways later on to create tables that are
-ready--or nearly-ready--to be added directly to manuscripts.
+that you add, for instance, to a Microsoft Word manuscript. Of course,
+these values can be entered manually into a table, but we'll also
+discuss ways later on to create tables that are ready--or
+nearly-ready--to be added directly to journal articles or evaluation
+reports.
 
 If you are curious about doing more with {skimr}, check out:
 [\<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html\>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
@@ -1160,7 +1161,7 @@ If you are curious about doing more with {skimr}, check out:
 #### Histograms
 
 You likely notice that the `skim()` function created some miniature
-histrograms for each of the numeric variables in our `data-to-explore`
+histograms for each of the numeric variables in our `data-to-explore`
 data frame. Since we are especially interested in whether time spent in
 the online course is related to student performance, let's take a closer
 look at this variable.
@@ -1195,9 +1196,9 @@ right or wrong answer here!)?
 We'll next be using the `facet_wrap()` function to create *small
 multiples*, or plots that are specific to subsets of your data. These
 subsets are identified based on another variable in your dataset. For
-example, the code below uses the built-in `mpg` dataset to plot the
-relationship between the displacement of a car's engine and its highway
-miles per gallon fuel efficiency.
+example, the code below uses the built-in `mpg` dataset from the
+tutorials to plot the relationship between the displacement of a car's
+engine and its highway miles per gallon fuel efficiency.
 
 ```{r}
 ggplot(mpg, aes(displ, hwy)) + 
@@ -1348,10 +1349,10 @@ library(corrr)
 
 #### Time Spent and Course Grade
 
-Since the primary purpose of this case study is to investigate whether
-time spent in an online course is predictive of student achievement,
-let's first take a look and see if there is a simple correlation between
-time spent and student achievement.
+Since one main goal of this case study is to investigate whether time
+spent in an online course is predictive of student achievement, let's
+first take a look and see if there is a simple correlation between time
+spent and student achievement.
 
 Run the following code to create a simple correlation matrix using the
 `correlate()` function from the {corrr} package:
@@ -1363,10 +1364,9 @@ data_to_explore %>%
 ```
 
 For the purpose of printing, and as a quick aside, the {corrr} package
-also has a nice `fashion()` function for converting a correlation data
-frame into a matrix with the correlations cleanly formatted (leading
-zeros removed; spaced for signs) and the diagonal (or any NA) left
-blank.
+also has several nice functions for converting a correlation data frame
+into a matrix with the correlations cleanly formatted (leading zeros
+removed; spaced for signs) and the diagonal (or any NA) left blank.
 
 Run the following code to try it out:
 
@@ -1397,7 +1397,7 @@ sensible to correlate all of the variables; some---for instance, the
 What did you find? Were your selected variables related to time spent in
 the course? These observations might pertain to the format of the output
 or its values (i.e., what the mean for the `val` variable is). Note one
-or two of these noticings or wonderings below:
+or two of these observations or questions below:
 
 -   
 
@@ -1416,8 +1416,8 @@ regression and other types of model output. It is not as friendly to
 {tidyverse} functions; first, we need to select only the variables we
 wish to correlate.
 
-Then, we can use that subset of the variables as the argument to
-the`apa.cor.table()` function.
+Then, we can use that subset of the variables as the argument to the
+`apa.cor.table()` function.
 
 Run the following code to create a subset of the larger
 `data_to_explore` data frame with the variables you wish to correlate,
@@ -1449,17 +1449,16 @@ from your browser.
 
 ## 4. MODEL
 
-As highlighted in [Chapter 3 of Data Science in Education Using
-R](https://datascienceineducation.com/c03.html), the **Model** step of
+As highlighted in [Chapter 3 of Data Science in Education Using
+R](https://datascienceineducation.com/c03.html), the **Model** step of
 the data science process entails "using statistical models, from simple
 to complex, to understand trends and patterns in the data." The authors
 note that while descriptive statistics and data visualization during
 the **Explore** step can help us to identify patterns and relationships
 in our data, statistical models can be used to help us determine if
-relationships, patterns and trends are actually meaningful. In part Part
-4 we will learn how to:
+relationships, patterns and trends are actually meaningful.
 
-### a. Predict Academic Achievement
+### Predict Academic Achievement
 
 For the purpose of this case study, let's consider the
 `proportion_earned` variable to be our dependent, or the outcome,
@@ -1520,9 +1519,9 @@ lm(proportion_earned ~ time_spent_hours + int,
 
 We can see that the intercept is now estimated at 0.44, which tells us
 that when students' time spent and interest are equal to zero, they are
-likely fail the course unsurprisingly. Note that that estimate for
-interest in science is .046, so for every one-unit increase in `int`, we
-should expect an 5 percentage point increase in their grade.
+likely fail the course. Note that that estimate for interest in science
+is .046, so for every one-unit increase in `int`, we should expect an 5
+percentage point increase in their grade.
 
 We can save the output of the function to an object---let's say `m1`,
 standing for model 1. We can then use the `summary()` function built
@@ -1542,15 +1541,15 @@ Note that the estimate for `time_spent_hours` is now 0.0042 and
 statistically significant. We see that `int`, interest in science, is
 also statistically significant.
 
-#### Do average students earn an average grade?
+#### Do "average" students earn an average grade?
 
 Now let's consider the mean values for each of these predictors. Recall
 from our tutorials last week the `summarize()` function from the {dplyr}
-package used to create summary statistics such as the mean, standard
-deviation, or the minimum or maximum of a value. At its core, think of
-`summarize()` as a function that returns a single value (whether it's a
-mean, median, standard deviation---whichever!) that summarizes a single
-column.
+package that was used to create summary statistics such as the mean,
+standard deviation, or the minimum or maximum of a value. At its core,
+think of `summarize()` as a function that returns a single value
+(whether it's a mean, median, standard deviation---whichever!) that
+summarizes a single column.
 
 Let's use the summarize function to calculate the means for time spent
 and interest in science and add the argument `na.rm = TRUE` to tell R
@@ -1566,9 +1565,9 @@ data_to_explore %>%
 The mean value for interest is quite high. If we multiply the estimate
 relationship between interest and proportion of points
 earned---0.046---by this, the mean interest across all of the
-students---we can determine that students' estimate final grade was
-0.046 X 4.3, or **0.197**. For hours spent spent, the average students'
-estimate final grade was 0.0042 X 30.48, or **0.128**.
+students---we can determine that students' estimated construction to
+their final grade was 0.046 X 4.3, or **0.197**. For hours spent spent,
+the average students' estimate was 0.0042 X 30.48, or **0.128**.
 
 If we add both 0.197 and 0.128 to the intercept, 0.449, that equals
 0.774, or about 77%. In other words, a student with average interest in
@@ -1585,7 +1584,7 @@ apa.reg.table(m1, filename = "lm-table.doc")
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Below, estimate different regression models with at least 2 variables,
+Below, estimate a different regression models with at least 2 variables,
 save as `m2`, and view a `summary()` of the results:
 
 ```{r}
@@ -1623,14 +1622,16 @@ what you have learned through analysis:
 For Unit 1 we will keep it simple. In the code chunk below, select a
 chart, table or model created above (or create an entirely new one based
 a new analysis) that you think an education stakeholder might find
-interesting. Beneath the code chunk, write a very brief narrative to
-accompany your narrative.
+interesting and addresses one of our research questions. Beneath the
+code chunk, write a very brief narrative to accompany your narrative.
 
 ### My First Data Product (Change Me)
 
 ```{r}
 
 ```
+
+Add your narrative here. \
 
 ### Congratulations!
 
