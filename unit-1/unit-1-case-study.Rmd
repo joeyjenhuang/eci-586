@@ -36,7 +36,7 @@ For Unit 1, we will focus on online science classes provided through a
 state-wide online virtual school and conduct an analysis that help
 product students' performance in these online courses. This case study
 is guided by a foundational study in Learning Analytics that illustrates
-how analyses like these can be used develop an early warning system to
+how analyses like these can be used develop an early warning system for
 educators identify students at risk of failing and intervene before that
 happens. The Unit 1 case study will cover the following workflow topics:
 
@@ -49,10 +49,11 @@ happens. The Unit 1 case study will cover the following workflow topics:
     importing CSV files, tidying and joining our data.
 3.  **Explore**: In Part 3, we use basic data visualization and
     calculate some summary statistics to explore our data and see what
-    insight it provides in response to our question.
-4.  **Model:** After identifying variable that may be related to student
-    performance through exploratory analysis, we'll look at correlations
-    and create some simple models of our data using linear regression.
+    insight it provides in response to our questions.
+4.  **Model:** After identifying variables that may be related to
+    student performance through exploratory analysis, we'll look at
+    correlations and create some simple models of our data using linear
+    regression.
 5.  **Communicate:** To wrap up our case study, we'll develop our first
     "data product" and share our analyses and findings by creating our
     first web page using R Markdown.
@@ -68,7 +69,7 @@ foothold, this study is particularly relevant since COVID-19. Many
 districts across the county have incorporated a LMS into their remote
 instruction and have set up virtual academies likely to continue
 post-pandemic. In North Carolina specifically, student disengagement has
-become a particular concern among districtrs and the NC Department of
+become a particular concern among districts and the NC Department of
 Public Instruction has recently established the [Office of Learning
 Recovery &
 Acceleration](https://www.dpi.nc.gov/districts-schools/districts-schools-support/office-learning-recovery-acceleration)**.**
@@ -104,7 +105,7 @@ likelihood of success.
 #### Data Sources & Analysis
 
 The data analyzed in this exploratory research was extracted from the
-course-based instructor tracking logs and the BB VistaTM production
+course-based instructor tracking logs and the BB Vista production
 server. Data collected on each student included 'whole term' counts for
 frequency of usage of course materials and tools supporting content
 delivery, engagement and discussion, assessment and
@@ -113,13 +114,13 @@ time spent on certain tool-based activities (assessments, assignments,
 total time online) offered a total measure of individual student time on
 task.
 
-The authors used scatter plots for identifying potential correlational
-trends between variables under investigation, followed by a a simple
+The authors used scatter plots for identifying potential relationships
+between variables under investigation, followed by a a simple
 correlation analysis of each variable to further interrogate the
 significance of selected variables as indicators of student achievement.
-Finally, a linear multiple regression analysis was therefore conducted,
-in order to develop a predictive model in which 'Student final grade'
-was the continuous dependent variable.
+Finally, a linear multiple regression analysis was conducted in order to
+develop a predictive model in which a student final grade was the
+continuous dependent variable.
 
 #### **Summary of Key Findings**
 
@@ -127,14 +128,14 @@ was the continuous dependent variable.
     correlation with student final grade, it would be erroneous to rely
     too heavily on the predictive power of simple correlations.
 2.  Some students are making more effective strategic decisions about
-    time use within the virtual class- room that is not adequately
+    time use within the virtual classroom that is not adequately
     represented by simple correlations with time online.
 3.  Total number of discussion messages posted, total number of mail
-    messages sent, and total number of assessments completed were
-    allstatistically significant contributors to students' final grades
-    and indicated that some 33% of the variability in student
-    achievement in this course can be explained by this combination of
-    student online activities within the course site.
+    messages sent, and total number of assessments completed were all
+    statistically significant contributors to students' final grades and
+    indicated that some 33% of the variability in student achievement in
+    this course can be explained by this combination of student online
+    activities within the course site.
 4.  One of the highest performing students established a complex network
     that included a core group of high-performing peers, conversely a
     lower performing student's network is primarily comprised of
@@ -142,16 +143,16 @@ was the continuous dependent variable.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Take a quick scan of Table 3 in the article linked above (and also
-located in your "lit" folder in the files pane) and in the space below,
-answer the following question: Of the 13 LMS variables correlated with
-student final grade, which 2-3 do you think will found to significantly
+Take a quick scan of Table 3 in the article linked above (also located
+in your "lit" folder in the files pane). In the space below, answer the
+following question: Of the 13 LMS variables correlated with student
+final grade, which 2-3 do you think will be found to significantly
 predict final grades?
 
 -   
 
-Now take a quick look at sections 3.2 Mutltiple Regression and 3.3
-Logistic Regression and asnwer the following questions: What factors in
+Now take a quick look at sections 3.2 Multiple Regression and 3.3
+Logistic Regression and answer the following questions: What factors in
 the model did ultimately predict final grades? How accurate was this
 model in identifying "at risk" students?
 
@@ -176,31 +177,30 @@ research questions:
     offer pedagogically meaningful insights into development of a
     student learning community?
 
-For our case study, we'll adopt questions 1 & 2 wholesale to guide our
-exploratory analysis and modeling, with a special emphasis on time spent
-in the LMS. We'll also use analytical approaches and data similar to
-those used by @macfadyen2010mining to better understand how LMS,
-gradebook, and survey data might be predictive of student performance.
+For our case study, we'll adopt questions 1 & 2 to guide our exploratory
+analysis and modeling, with a special emphasis on time spent in the LMS.
+We'll also use analytical approaches and data similar to those used by
+@macfadyen2010mining to better understand how LMS, gradebook, and survey
+data might be predictive of student performance.
 
 ### 1c. Load Libraries
 
-As noted in our Getting Started activity, R uses "packages" and add-ons
-that enhance its functionality. One of our first steps in any workflow
-is to load packages necessary for data wrangling, analysis, and
-reporting. We'll load packages in this section we are already familiar
-with from our tutorials and introduce new packages and corresponding
-functions throughout the case study.
+As noted in our Getting Started activity and tutorials, R uses
+"packages" and add-ons that enhance its functionality. One of our first
+steps in any workflow is to load packages necessary for data wrangling,
+analysis, and reporting. We'll load the familiar {tidyverse} package in
+this section and introduce new packages and corresponding functions
+throughout the case study.
 
 #### tidyverse 📦
 
 ![](img/tidyverse.png){width="40%"}
 
-One package that we'll be using extensively is {tidyverse}. Recall from
-earlier tutorials that the {tidyverse} package is actually a [collection
-of R packages](https://www.tidyverse.org/packages) designed for reading,
-wrangling, and exploring data and which all share an underlying design
-philosophy, grammar, and data structures. This shared features are
-sometimes "tidy data principles."
+Recall from earlier tutorials that the {tidyverse} package is actually a
+[collection of R packages](https://www.tidyverse.org/packages) designed
+for reading, wrangling, and exploring data and which all share an
+underlying design philosophy, grammar, and data structures. This shared
+features are sometimes "tidy data principles."
 
 Click the green arrow in the right corner of the "code chunk" that
 follows to load the {tidyverse} library as well as the {here} package
@@ -234,7 +234,7 @@ b.  **Tidy Data**. We introduce the `separate()` and `clean_names()`
     `mutate()` for creating new variables.
 
 c.  **Join Data**. We conclude our data wrangling by introducing
-    `join()` functions for merging our processed files into a single
+    `join()` functions for merging our processed files into a single
     data frame for analysis.
 
 ### a. Import Data
@@ -246,16 +246,16 @@ into other data formats such as network objects required for social
 network analysis in Unit 3. In this case study, we'll focus on working
 with **Comma-separated values (CSV)** files.
 
-Similar to spreadsheet formats Excel and Google Sheets, CSVs allow us to
-store rectangular data frames, but in a much simpler plain-text format,
-where all the important information in the file is represented by text.
-Note that "text" here refers to numbers, letters, and symbols you can
-type on your keyboard. In [Tidyverse Skills for Data
+Similar to spreadsheet formats like Excel and Google Sheets, CSVs allow
+us to store rectangular data frames but in a much simpler plain-text
+format, where all the important information in the file is represented
+by text. Note that "text" here refers to numbers, letters, and symbols
+you can type on your keyboard. In [Tidyverse Skills for Data
 Science](Tidyverse%20Skills%20for%20Data%20Science), Wright et al.
-(2021) note that the advantage of CSVs is that
+(2021) note that the advantage of CSVs is that:
 
-> ... that there are no workbooks or metadata making it difficult to
-> open these files. CSVs are flexible files and are thus the preferred
+> ... there are no workbooks or metadata making it difficult to open
+> these files. CSVs are flexible files and are thus the preferred
 > storage method for tabular data for many data scientists .
 
 #### Data Source \#1: Log Data
@@ -266,8 +266,8 @@ education, an increasingly common source of log-trace data is that
 generated from interactions with LMS and other digital tools.
 
 The data we will use in this case study and already been "wrangled"
-quite a bit and is a summary type of log-trace data: the number of
-minutes students spent on the course. While this data type is fairly
+quite a bit and is a summary of log-trace data: the number of minutes
+students spent on the course. While this data type is fairly
 straightforward, there are even more complex sources of log-trace data
 out there (e.g., time stamps associated with when students started and
 stopped accessing the course).
@@ -278,7 +278,7 @@ To help us import our data, we'll be using two packages:
 and friendly way" to read rectangular data stored in plain-text file
 formats like csv, tsv, and fwf. If you are new to readr, I highly
 recommend the [data import
-chapter](https://r4ds.had.co.nz/data-import.html) in R for data science.
+chapter](https://r4ds.had.co.nz/data-import.html) in R for Data Science.
 We don't need to load the {readr} package because it was already loaded
 as part of the tidyverse package we called earlier.
 
@@ -301,16 +301,16 @@ later.
 
 ##### here package
 
-The goal of the {here} package is to enable easy file referencing
-in [project-oriented
+The goal of the {here} package is to enable easy file referencing in
+[project-oriented
 workflows](https://rstats.wtf/project-oriented-workflow.html). In
-contrast to depending on working directories and file paths for
-projects, which are a fragile and dependent on the way you organize your
-files, {here} uses the top-level directory of a project to easily build
-paths to files.
+contrast to depending on working directories and file paths for projects
+like above, which are a fragile and dependent on the way you organize
+your files, {here} uses the top-level directory of a project to easily
+build paths to files.
 
 To use the {here} package, we simply insert the `here()` function as our
-first argument for `read_csv()` and include the location of your file by
+first argument for `read_csv()` and include the location of our file by
 typing the folder or folders where your data is stored along with the
 file name.
 
@@ -345,7 +345,7 @@ percentage of points they earned in the course---a measure comparable
 (but likely a little different based on teachers' grading policies) to
 their final grade.
 
-We'll load the data in the same way as earlier but take a quick peek but
+We'll load the data in the same way as earlier but take a quick peek by
 including the name of our data frame in the code chunk as well:
 
 ```{r}
@@ -367,7 +367,7 @@ and utility value). We'll use this in the third learning lab.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-In the code below, read the `survey.csv` file located in the data
+In the code below, import the `survey.csv` file located in the data
 folder. You can use the code above as a template. Assign the output from
 the `read_csv()` function to a new object named `survey`.
 
@@ -396,7 +396,7 @@ Add one or more of the things you notice or wonder about the data here:
 RStudio has a handy "Import Dataset" feature for a point and click
 approach to adding data to your environment. If you want to give this a
 try, be sure to pay attention to the default settings and the name it
-will give you data frame when imported.
+will give your data frame when imported.
 
 ![](img/import.png)
 
@@ -578,18 +578,22 @@ assignment operator, or the \<- symbol.
 
 Copy the code you successfully ran in the chunk above to follow the
 assignment operator in the chunk below. In other words, write the code
-you wrote above, but assign the output back to `time_spent`.
+you wrote above, but assign the output back to `time_spent` so that it
+now includes the course id separated into three distinct variables.
+
+```{r}
+time_spent <- 
+```
+
+We have made a habit of continually looking at our data after running
+code to ensure that the step worked as intended. Type the name of the
+data we have been working with in the code chunk below to ensure that
+the course_id variable has been separated into three variables that
+correspond to the subject, semester, and section.
 
 ```{r}
 
 ```
-
-We have made a habit of continually looking at our data after running
-code to ensure that the step worked as intended. Not in a code chunk,
-but rather in the console below, type the name of the data we have been
-working with to ensure that the course_id variable has been separated
-into three variables that correspond to the subject, semester, and
-section.
 
 If those look good, let's proceed to the next step. If something doesn't
 look right, consider re-running the code chunks above, perhaps returning
@@ -598,20 +602,20 @@ ensure that the output is as you intended for it to be.
 
 ##### Mutating a column to change the time spent variable to represent hours
 
-In the above code, you used separate to create new variables based on an
-existing variable. While that function serves a specific problem (when
-there are effectively multiple variables combined in one), its use
+In the above code, you used `separate()` to create new variables based
+on an existing variable. While that function solves a specific problem
+(when there are effectively multiple variables combined in one), its use
 represents a pattern that is fairly common: you use a function to solve
 a problem; figuring out how it works, checking the output, then
 assigning the output back to the name of the data frame, after which you
 can proceed to the next step.
 
 There are a lot of other functions like separate that help you to solve
-specific problems, and we'll introduce many over the two-week institute
-- and will point you to resources that describe many more.
+specific problems, and we'll introduce many over the course - and will
+point you to resources that describe many more.
 
 There are also functions that can serve as general purpose tools that
-can solve many problems; one of the most useful is `` mutate()` ``, a
+can solve many problems; one of the most useful is `mutate()`, a
 function to create new variables in a data set. Specifically, we'll use
 `mutate()` to create a new variable for the percentage of points each
 student earned; keep in mind as you work through these steps how so many
@@ -623,7 +627,8 @@ Let's begin again with a small data set with two variables, `var_a` and
 
 ```{r}
 df3 <- tibble(var_a = c(30, 50, 30, 10, 30, 40, 40, 30, 20, 50),
-              var_b = c(100, 90, 60, 70, 60, 80, 70, 50, 30, 20))
+              var_b = c(100, 90, 60, 70, 60, 80, 70, 50, 30, 20)
+              )
 ```
 
 Next, print `df3` to the console. You should see two numeric variables;
@@ -643,7 +648,8 @@ We can combine many `mutate()` functions together. Below, complete the
 following code to create a new variable (let's call it
 `points_proportion`) that represents the proportion of the total points
 students could, potentially, earn. To do this, you can divide
-`points_sum` by the maximum possible points---150.
+`points_sum` created in the second line of code by the maximum possible
+points---150.
 
 ```{r}
 df3 %>% 
@@ -703,10 +709,9 @@ earn).
 
 Let's start with separating the `course_id` variable. Run the code in
 the next chunk to do this. If you named the three parts of the course ID
-differently than they're named below (and saved the data you processed
-to use in this learning lab), be sure that these three variables are
-named identically; this is the *key* (pun intended!) to these variables
-joining correctly.
+differently than they're named below, be sure that these three variables
+are named identically; this is the *key* (literally) to these variables
+joining correctly in the next section.
 
 ```{r}
 gradebook <- gradebook %>% 
@@ -736,8 +741,8 @@ are in the data frame. Thus, in the context of creating a data frame,
 Since interpreting proportions when the denominator is nine can be
 difficult, we may which to create a variable for the proportion.
 
-After running the chunk above, print `df4` to the console to get a sense
-of what the data frame consists of.
+After running the chunk above, print `df4` to the console or view using
+another method to get a sense of what the data frame consists of.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
@@ -781,24 +786,28 @@ seventh variable you've "mutated."
 
 #### Process Survey Data
 
-Finally, let's process our survey data that we imported earlier . First
+Finally, let's process our survey data that we imported earlier. First
 though, take a quick look again by typing `survey` into the console or
-using a preferred viewing method to take a look at the data.
+using the code chunk below.
 
-Does it appear to be the correct file? What do the variables seem to be
-about? What wrangling steps do we need to take? Taking a quick peak at
-the data helps us to begin to formulate answers to these and is an
-important step in any data analysis, especially as we *prepare* for what
-we are going to do.
+```{r}
+
+```
+
+Does it appear to be the correct data frame? What do the variables seem
+to be about? What wrangling steps do we need to take? Taking a quick
+peak at the data helps us to begin to formulate answers to these and is
+an important step in any data analysis, especially as we *prepare* for
+what we are going to do.
 
 Add one or more of the things you notice or wonder about the data here:
 
 -   
 
-You may have noticed that `student_ID` is not formatted the same as
-`student_id` in our other files. This is important because in the next
-section when were "join," or merge, our data files, these variables will
-need to have identical names.
+You may have noticed that `student_ID` is not formatted *exactly* the
+same as `student_id` in our other files. This is important because in
+the next section when we "join," or merge, our data files, these
+variables will need to have identical names.
 
 Fortunately the
 {[janitor](https://garthtarr.github.io/meatR/janitor.html)} package has
@@ -807,8 +816,8 @@ with beginning and intermediate R users in mind and is optimized for
 user-friendliness. There is also a handy function called `clean_names()`
 in the {janitor} package for standardizing variable names.
 
-Run the following code load the {janitor} package and clean our column
-names in both data frames so they are consistent:
+Run the following code to load the {janitor} package and clean our
+column names so both data frames are consistent:
 
 ```{r}
 library(janitor)
@@ -816,10 +825,14 @@ library(janitor)
 survey <- clean_names(survey)
 ```
 
-Let's take one more look at the data by typing its name into the console
-or using a method of your choice to check that the above function
-appeared to work; if it did, the names should be lower-case, and any
-symbols or spaces should now be replaced by an underscore (`_`).
+Let's take one more look at the data by typing its name into the code
+chunk below to check that the above function appeared to work; if it
+did, the names should be lower-case, and any symbols or spaces should
+now be replaced by an underscore (`_`).
+
+```{r}
+
+```
 
 ### c. Joining the data
 
