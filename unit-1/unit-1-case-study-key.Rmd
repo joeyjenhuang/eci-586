@@ -507,7 +507,7 @@ df
 ```
 
 Print `df` to the console. You should see a single variable,
-`course_info`, with four rows.
+`course_var`, with four rows.
 
 In this (very small) data frame, there is information about both the
 semester and the course are encoded within the same variable. The
@@ -761,9 +761,9 @@ using the mutate function with the `gradebook` data, creating a new
 variable (`proportion_earned`) on the basis of the values of two
 existing variables:
 
--   `total_points_possible`
-
 -   `total_points_earned`
+
+-   `total_points_possible`
 
 Also, once your code is ready, you'll need to assign the results back to
 `gradebook`. This is challenging as you're starting from scratch with
