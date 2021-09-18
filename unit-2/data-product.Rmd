@@ -1,0 +1,52 @@
+---
+title: "My First Data Product Example"
+author: "Dr. Shaun Kellogg"
+date: "9/17/2021"
+output: 
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+
+data_to_explore <- read_csv("data/data-to-explore.csv")
+
+data_to_explore  %>% 
+  select(subject, section, time_spent_hours, proportion_earned, enrollment_status, int) %>%
+  drop_na() %>%
+  mutate(grade = proportion_earned * 100) %>%
+  ggplot() +
+#  geom_point(mapping = aes(x = time_spent_hours, 
+#                       y = grade,
+#                       color = subject),
+#             alpha = .5) +
+  geom_smooth(mapping = aes(x = time_spent_hours, 
+                            y = grade,
+                            color = subject,
+                            weight = .5),
+              method = loess,
+              se = FALSE) +
+  ylim(0, 100) + 
+  xlim(0, 100) +
+#  facet_wrap(~subject, ncol = 2) +
+  labs(title = "Will spending more time in an online course land me a better grade?",
+       subtitle = "Spoiler Alert... Yes!",
+       caption = "Fine print: but only after so many hours.") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Set1",
+                     name = "Course Subject", 
+                     labels = c("Anatomy", 
+                                "Biology", 
+                                "Forensics", 
+                                "Oceanography", 
+                                "Physics"))
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
