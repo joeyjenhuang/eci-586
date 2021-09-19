@@ -50,6 +50,8 @@ ggplot(data_to_viz) +
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
+ggplot(data_to_viz) +
+  geom_freqpoly(aes(x = time_spent_hours, color = subject))
 
 
 # COVARIATION ####################
@@ -69,6 +71,8 @@ ggplot(data_to_viz) +
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
+ggplot(data_to_viz) +
+  geom_boxplot(aes(x= time_spent_hours, y = subject))
 
 
 
@@ -86,6 +90,10 @@ ggplot(data_to_viz) +
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
+data_to_explore %>% 
+  count(subject, semester) %>% 
+  ggplot() +
+  geom_tile(mapping = aes(x = subject, y = semester, fill = n))
 
 
 
@@ -104,8 +112,18 @@ ggplot(data_to_viz) +
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
+data_to_explore  %>% 
+  select(subject, section, time_spent_hours, proportion_earned) %>%
+  drop_na() %>%
+  group_by(subject, section) %>% 
+  summarise(mean_time = mean(time_spent_hours), 
+            mean_grade = mean(proportion_earned)) %>% 
+  ggplot(mapping = aes(x = mean_time, y = mean_grade)) +
+  geom_point() +
+  geom_label_repel(aes(label = subject)) +
+  geom_smooth(method = lm)
 
-
+# INSERT QUESTION HERE
 
 ## Big Data & Customizing Plots ####
 
