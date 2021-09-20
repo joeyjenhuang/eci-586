@@ -5,6 +5,7 @@ date: "9/17/2021"
 output: 
   html_document:
     code_folding: hide
+    code_download: TRUE
 ---
 
 ```{r setup, include=FALSE}
