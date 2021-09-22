@@ -373,6 +373,8 @@ the `read_csv()` function to a new object named `survey`.
 
 ```{r}
 survey <- read_csv(here("unit-1", "data", "survey.csv"))
+
+survey
 ```
 
 **Hint**: By asking you to "assign the output from the `read_csv()`
