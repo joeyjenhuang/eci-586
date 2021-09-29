@@ -368,7 +368,15 @@ nearZeroVar(ds_predictors_complete, saveMetrics = TRUE)
 ```
 
 ```{r}
-step_nzv(ds_predictors_complete)
+
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Now use the code chunk below to take a look at the data you just im
+
+```{r}
+nearZeroVar(my_predictors_complete, saveMetrics = TRUE)
 ```
 
 ### d. Convert to Factors 
