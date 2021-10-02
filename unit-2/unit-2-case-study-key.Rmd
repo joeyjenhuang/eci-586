@@ -7,6 +7,8 @@ output:
     toc: yes
     toc_depth: '5'
     toc_float: yes
+    code_folding: show
+    code_download: TRUE
 name: ''
 editor_options:
   markdown:
@@ -358,7 +360,7 @@ my_predictors_complete
 
 1.  How many observations did this return? Why do you think that is?
 
-### c. Check Variance 
+### c. Check Variance
 
 Since the machine learning model we will be using later in this case
 study does not accept missing values
@@ -368,7 +370,10 @@ nearZeroVar(ds_predictors_complete, saveMetrics = TRUE)
 ```
 
 ```{r}
+ds_predictors_dropped <- ds_predictors_complete %>%
+  select(-enrollment_status)
 
+ds_predictors_dropped
 ```
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
@@ -379,7 +384,7 @@ Now use the code chunk below to take a look at the data you just im
 nearZeroVar(my_predictors_complete, saveMetrics = TRUE)
 ```
 
-### d. Convert to Factors 
+### d. Convert to Factors
 
 Since the machine learning model we will be using later in this case
 study does not accept missing values
