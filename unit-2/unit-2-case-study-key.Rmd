@@ -44,6 +44,7 @@ workflow topics:
 5.  **Communicate:** To wrap up our case study, we'll develop our first
     "data product" and share our analyses and findings by creating our
     first web page using R Markdown.
+6.  
 
 ### 1a. Review the Literature
 
