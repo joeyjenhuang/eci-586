@@ -7,6 +7,8 @@ output:
     toc: yes
     toc_depth: '5'
     toc_float: yes
+    code_folding: show
+    code_download: TRUE
 name: ''
 editor_options:
   markdown:
@@ -414,7 +416,7 @@ ds_predictors_4 <- ds_predictors_3 %>%
 Now use the code chunk below to take a look at the data you just im
 
 ```{r}
-nearZeroVar(my_predictors_complete, saveMetrics = TRUE)
+
 ```
 
 ## 4. MODEL
@@ -422,6 +424,8 @@ nearZeroVar(my_predictors_complete, saveMetrics = TRUE)
 ### a. Partition Data
 
 Intro
+
+#### Create an training index
 
 First, we set a seed to ensure the reproducibility of our data
 partition. we create a new object called trainIndex that will take 80
@@ -444,16 +448,27 @@ trainIndex <- createDataPartition(ds_predictors_4$final_grade,
 arguments:
 
 -   `ds_predictors_4$final_grade` selects our outcome that we are
-    interested in predicting;
+    interested in predicting, in our case students' final course grades;
 -   `p =` specifies what proportion of the data we want to be in the
     *training* partition; and,
 -   `times =` can be used to create *multiple* train and test sets,
-    something we will revisit later.
+    something we will revisit later, but for now we'll just create 1
+    train and test set.
+
+#### Index our predictors data set
+
+\# We add a new variable to our dataset, temporarily:
+
+\# this will let us select our rows according to their row number
+
+\# we populate the rows with the numbers 1:464, in order
 
 ```{r}
 ds_predictors_4 <- ds_predictors_4 %>% 
   mutate(temp_id = 1:464)
 ```
+
+Filter our training set
 
 ```{r}
 ds_train <- ds_predictors_4 %>% 
