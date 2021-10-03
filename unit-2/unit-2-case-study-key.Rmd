@@ -165,23 +165,28 @@ reporting. We'll load packages in this section we are already familiar
 with from our tutorials and introduce new packages and corresponding
 functions throughout the case study.
 
-#### tidymodels 📦
+#### caret 📦
 
-![](img/tidyverse.png){width="40%"}
+The [`caret`](http://cran.r-project.org/web/packages/caret/index.html) package
+(short for **C**lassification **A**nd **RE**gression **T**raining) is a
+set of functions that attempt to streamline the process for creating
+predictive models. The package contains tools for:
 
-One package that we'll be using extensively is {tidyverse}. Recall from
-earlier tutorials that the {tidyverse} package is actually a [collection
-of R packages](https://www.tidyverse.org/packages) designed for reading,
-wrangling, and exploring data and which all share an underlying design
-philosophy, grammar, and data structures. This shared features are
-sometimes "tidy data principles."
+-   data splitting
+-   pre-processing
+-   feature selection
+-   model tuning using resampling
+-   variable importance estimation
+-   as well as other functionality.
 
-Click the green arrow in the right corner of the "code chunk" that
-follows to load the {tidyverse} library as well as the {here} package
-introduced in previous labs.
+There are many different modeling functions in R. Some have different
+syntax for model training and/or prediction. The package started off as
+a way to provide a uniform interface the functions themselves, as well
+as a way to standardize common tasks (such parameter tuning and variable
+importance).
 
 ```{r}
-library(tidymodels)
+library(caret)
 ```
 
 Don't worry if you saw a number of messages: those probably mean that
@@ -189,6 +194,10 @@ the tidyverse loaded just fine. Any conflicts you may have seen mean
 that functions in these packages you loaded have the same name as
 functions in other packages and R will default to function from the last
 loaded package unless you specify otherwise.
+
+```{r}
+library(tidyverse)
+```
 
 ## 2. WRANGLE
 
@@ -343,9 +352,9 @@ df
 Another
 
 ```{r}
-ds_predictors_complete <- drop_na(ds_predictors)
+ds_predictors_2 <- drop_na(ds_predictors)
 
-ds_predictors_complete
+ds_predictors_2
 ```
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
@@ -360,20 +369,20 @@ my_predictors_complete
 
 1.  How many observations did this return? Why do you think that is?
 
-### c. Check Variance
+## 3. EXPLORE
+
+### a. Check Variance
 
 Since the machine learning model we will be using later in this case
 study does not accept missing values
 
 ```{r}
-nearZeroVar(ds_predictors_complete, saveMetrics = TRUE)
+nearZeroVar(ds_predictors_2, saveMetrics = TRUE)
 ```
 
 ```{r}
-ds_predictors_dropped <- ds_predictors_complete %>%
+ds_predictors_3 <- ds_predictors_2 %>%
   select(-enrollment_status)
-
-ds_predictors_dropped
 ```
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
@@ -384,568 +393,90 @@ Now use the code chunk below to take a look at the data you just im
 nearZeroVar(my_predictors_complete, saveMetrics = TRUE)
 ```
 
-### d. Convert to Factors
+### b. Convert Characters to Factors
 
 Since the machine learning model we will be using later in this case
 study does not accept missing values
 
-Congratulations! We're done wrangling our data and it is ready to
-explore!
-
-## 3. EXPLORE
-
-As highlighted in both
-[DSEIUR](https://datascienceineducation.com/c03.html#doing-analysis-exploring-visualizing-and-modeling-data)
-and Learning Analytics Goes to School, calculating summary statistics
-and data visualization are a key part of exploratory data analysis. One
-goal in this phase is explore questions that drove the original analysis
-and develop new questions and hypotheses to test in later stages. Topics
-addressed in Part 3 include:
-
--   **Summarize Key Stats**. We'll learn about the {skmir} package for
-    pulling together some quick creating descriptive statistics when
-    your goal is to understand your data internally.
-
--   **Visualize Data**. We'll introduce the histogram geom for taking a
-    quick peak the distributions of some key variables and put together
-    some scatter plots for examining potential relationships between
-    time spent and student performance.
-
--   **Correlated Variables.** We'll wrap up our Part 3 by learning to
-    create a correlation matrix for quantifying these relationships
-    between key variables and student performance.
-
-### a. Table Summaries
-
-At this point, we should have quite the comprehensive data set,
-including single measures from a) students for the time they spent in
-the course LMS and other information about them, such as information on
-why they are enrolled in the course, b) their academic achievement.
-
-#### Skimr Package
-
-![](img/skimr.png){width="25%"}
-
-An efficient package for creating descriptive statistics *when your goal
-is to understand your data internally* (rather than to create a table
-for an external-to-the-research-team audience, like for a journal
-article) is the {skimr} package. A key feature of the {skimr} package is
-that it works well with the {tidyverse} packages we are using: it takes
-data frames as input, and returns data frames as output, which means we
-can manipulate them with {tidyverse} functions like `select()`,
-`filter()`, and `arrange()`, for example.
-
-Let's load the {skimr} package:
+Since the machine learning model we will be using later in this case
+study does not accept missing values
 
 ```{r}
-library(skimr)
+ds_predictors_4 <- ds_predictors_3 %>% 
+    mutate_if(is.character, as.factor)
 ```
 
-The challenge here is not the complexity of the `skim()` function, per
-se, but will be comprehending the terminology. In the code chunk below:
-
--   Pass to the `skim()` function a single argument (recall from our
-    tutorials last week that functions have *names* and *arguments!*)
-
--   That single *argument* is the data frame (aka in tidyverse parlance,
-    a tibble) for which you are aiming to calculate descriptive
-    statistics
-
-Run the following code to "skim" our `data_to_explore` tibble:
-
 ```{r}
-skim(data_to_explore)
-```
 
-**Note:** If you are having difficult viewing your data in the code
-chunk, try clicking the icon in the output that looks like a spreadsheet
-with an arrow on it to expand your output in a separate window.
-
-What do you notice about the output? These observations might pertain to
-the format of the output or its values (i.e., what the mean for the
-`val` variable is). Note one or two of these noticings or wonderings
-below:
-
--   
-
-As we noted earlier, the {skimr} package works nicely with other
-{tidyverse} functions.
-
-**Hint:** For help, also consider running `?skim()` in the console to
-view the documentation for the function.
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-Recall from the Week 3 tutorials and exercises how we how we isolated
-data using the `select()` and `filter()` functions. In the code chunk
-below, look at descriptives for just `proportion_earned` , `time_spent`
-and `gender`, but only for the "OcnA" and "PhysA" subjects.
-
-Can you do this by modifying the code below to do this?
-
-```{r}
-data_to_explore %>% 
-  select(proportion_earned, time_spent, gender, subject) %>% 
-  filter(subject == "OcnA" | subject == "PhysA") %>%
-  skim()
-```
-
-We noted earlier that this output is best for internal use. This is
-because the output is rich, but not well-suited to exporting to a table
-that you add, for instance, to a Google Docs or Microsoft Word
-manuscript. Of course, these values can be entered manually into a
-table, but we'll also discuss ways later on to create tables that are
-ready--or nearly-ready--to be added directly to manuscripts.
-
-If you are curious about doing more with {skimr}, check out:
-[\<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html\>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
-
-### b. Data Visualization
-
-#### Histograms
-
-You likely notice that the `skim()` function created some miniature
-histrograms for each of the numeric variables in our `data-to-explore`
-data frame. Since we are especially interested in whether time spent in
-the online course is related to student performance, let's take a closer
-look at this variable.
-
-The code below creates a histogram with 30 bins---the default number for
-`geom_histogram`:
-
-```{r}
-data_to_explore %>% 
-  ggplot(aes(x = time_spent_hours)) +
-  geom_histogram(bins = 30)
 ```
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Now change the number of bins using the code chunk below below and note
-any differences in what you interpret about the data.
+Now use the code chunk below to take a look at the data you just im
 
 ```{r}
 
 ```
-
-What do you think the ideal number of bins is---with what is ideal being
-the number of bins that helps you to interpret the overall distribution
-of the values for how much time students' spent (*note*: there is no one
-right or wrong answer here!)?
-
--   
-
-#### Faceting
-
-We'll next be using the `facet_wrap()` function to create *small
-multiples*, or plots that are specific to subsets of your data. These
-subsets are identified based on another variable in your dataset. For
-example, the code below uses the built-in `mpg` dataset to plot the
-relationship between the displacement of a car's engine and its highway
-miles per gallon fuel efficiency.
-
-```{r}
-ggplot(mpg, aes(displ, hwy)) + 
-  geom_point()
-```
-
-The code in the next plot creates individual plots for each
-class---think compact car or SUV.
-
-```{r}
-ggplot(mpg, aes(displ, hwy)) + 
-  geom_point() +
-  facet_wrap(~class)
-```
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-In the code below, create a faceted histogram based on the subject of
-the course. To do so, consider both:
-
--   What code you used to create the histogram of the time students'
-    spent on the course
-
--   How, in the example above, `facet_wrap` refers to the variable in
-    that data frame that represents the class of the car---but modifying
-    the code to work for your subject variable
-
-You may also wish to change the color; reflect back to the getting
-started task for an example of how to do this.
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours)) + 
-  geom_histogram() +
-  facet_wrap(~subject)
-```
-
-What do you notice about this figure? What questions do you have? Add a
-note (or a few notes!) below:
-
--   
-
-#### Scatter Plots
-
-Having prepared the data sets we joined together, and worked hard to
-join those data sets, we're now ready to use this joined data set in our
-exploration of how the time students spent on the course LMS relate to
-the number of points they earned throughout the course.
-
-We'll be using the {ggplot2} package again, but, this time, will be
-creating a different type of plot.
-
-Run the code below to create a scatter plot of the proportion of points
-students earned and the number of hours they spent on the course LMS.
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned)) +
-  geom_point()
-```
-
-What do you notice about this graph? And what do you wonder? How about
-the code---what do you notice about it (and what do you wonder)? Add one
-or more of what you see as the most important elements.
-
--   
-
-Using {ggplot2} makes it efficient to iterate through different versions
-of similar plots. For instance, we can color the points by a third
-variable, such as the reason for which students enrolled in the course,
-to begin to explore what was going on for students who spent very little
-time on the course:
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point()
-```
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-We can also additionally create faceted plots, like the one you created
-in the last learning lab. In the code below, facet the plot by
-`subject`.
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point() +
-  facet_wrap(~subject)
-```
-
-You may wish to style your plot. A few ways you can do that are as
-follows; we'll discuss more throughout the institute. For each of the
-following, add them to your plot by adding a plus symbol to the line
-prior to the line you are adding. For instance, the following code
-styles the x-axis label of a plot:
-
-```{r}
-ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point() +
-  xlab("Time Spent (Hours)")
-```
-
-Try adding (and modifying, if you'd like) any of the following to the
-faceted plot you created in the code chunk below:
-
--   `xlab("Time Spent (Hours)")`
-
--   `ylab("Proportion of Points Earned")`
-
--   `scale_color_brewer("Enrollment Status", type = "qual", palette = 3)`
-
--   `ggtitle("How Time Spent on Course LMS is Related to Points Earned in the Course")`
-
--   `theme(legend.position = "bottom")`
-
-```{r}
-
-```
-
-Once you have settled on a plot you are happy with (for now!), add a
-sentence or two interpreting your graph (like you were describing it
-within a journal article):
-
--   
-
-### c. Create a Correlation Matrix
-
-As highlighted in @macfadyen2010, the scatter plots are a useful initial
-approach for identifying potential correlational trends between
-variables under investigation, but to further interrogate the
-significance of selected variables as indicators of student achievement,
-a simple correlation analysis of each variable with student final grade
-can be conducted.
-
-There are two efficient ways to create correlation matrices, one that is
-best for internal use, and one that is best for inclusion in a
-manuscript.
-
-#### Corrr Package
-
-![](img/corrr.png){width="25%"}
-
-First, the {corrr} package provides a way to create a correlation matrix
-in a {tidyverse}-friendly way. Like for the {skimr} package, it can take
-as little as a line of code to create a correlation matrix. If not
-familiar, a correlation matrix is a table that presents how *all of the
-variables* are related to *all of the other variables*.
-
-Run the following code to load the {corrr} package:
-
-```{r}
-library(corrr)
-```
-
-#### Time Spent and Course Grade
-
-Since the primary purpose of this case study is to investigate whether
-time spent in an online course is predictive of student achievement,
-let's first take a look and see if there is a simple correlation between
-time spent and student achievement.
-
-Run the following code to create a simple correlation matrix using the
-`correlate()` function from the {corrr} package:
-
-```{r}
-data_to_explore %>% 
-  select(proportion_earned, time_spent_hours) %>%
-  correlate()
-```
-
-For the purpose of printing, and as a quick aside, the {corrr} package
-also has a nice `fashion()` function for converting a correlation data
-frame into a matrix with the correlations cleanly formatted (leading
-zeros removed; spaced for signs) and the diagonal (or any NA) left
-blank.
-
-Run the following code to try it out:
-
-```{r}
-data_to_explore %>% 
-  select(proportion_earned, time_spent_hours, int, val, percomp) %>% 
-  correlate() %>% 
-  rearrange() %>%
-  shave() %>%
-  fashion()
-```
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-In the code chunk below, select 3-4 numeric variables in addition to
-`time_spent_hours` that you think may be related to student achievement,
-i.e. `proportion_earned`, and run a simple correlation.
-
-```{r}
-
-```
-
-**Hint:** One key is to correlate only numeric variables. Note that
-while some numeric variables can *technically* be used, it is likely not
-sensible to correlate all of the variables; some---for instance, the
-`section` variable---are not very sensible to correlate!
-
-What did you find? Were your selected variables related to time spent in
-the course? These observations might pertain to the format of the output
-or its values (i.e., what the mean for the `val` variable is). Note one
-or two of these noticings or wonderings below:
-
--   
-
-If you are interested in learning more about the {corrr} package, visit:
-[\<https://corrr.tidymodels.org\>](https://corrr.tidymodels.org){.uri}
-
-#### APA Formatted Tables
-
-As we noted earlier, the {skimr} package works nicely with other
-{tidyverse} functions. While {corrr} is a nice package to quickly create
-a correlation matrix, you may wish to create one that is ready to be
-added directly to a dissertation or journal article. {apaTables} is
-great for creating more formal forms of output that can be added
-directly to an APA-formatted manuscript; it also has functionality for
-regression and other types of model output. It is not as friendly to
-{tidyverse} functions; first, we need to select only the variables we
-wish to correlate.
-
-Then, we can use that subset of the variables as the argument to
-the`apa.cor.table()` function.
-
-Run the following code to create a subset of the larger
-`data_to_explore` data frame with the variables you wish to correlate,
-then create a correlation table using `apa.cor.table()`.
-
-```{r}
-library(apaTables)
-
-data_to_explore_subset <- data_to_explore %>% 
-  select(time_spent_hours, proportion_earned, int)
-
-apa.cor.table(data_to_explore_subset)
-```
-
-This may look nice, but how to actually add this into a dissertation or
-journal article that you might be interested in publishing? Read the
-documentation for `apa.cor.table()` by running `?apa.cor.table()` in the
-console. Look through the documentation and examples to understand how
-to output a file with the formatted correlation table, and then run the
-code to do that with your subset of the `data_to_explore` data frame.
-
-```{r}
-apa.cor.table(data_to_explore_subset, filename = "cor-table.doc")
-```
-
-You should now see a new Word document in your project folder called
-`survey-cor-table.doc`. Click on that and you'll be prompted to download
-from your browser.
 
 ## 4. MODEL
 
-As highlighted in [Chapter 3 of Data Science in Education Using
-R](https://datascienceineducation.com/c03.html), the **Model** step of
-the data science process entails "using statistical models, from simple
-to complex, to understand trends and patterns in the data." The authors
-note that while descriptive statistics and data visualization during
-the **Explore** step can help us to identify patterns and relationships
-in our data, statistical models can be used to help us determine if
-relationships, patterns and trends are actually meaningful. In part Part
-4 we will learn how to:
+### a. Partition Data
 
-### a. Predict Academic Achievement
+Intro
 
-For the purpose of this case study, let's consider the
-`proportion_earned` variable to be our dependent, or the outcome,
-variable. You may be new to linear regression models, or you may have a
-lot of experience. In brief, a linear regression model involves
-estimating the relationships between one or more *independent variables*
-with one dependent variable. Mathematically, it can be written like the
-following.
+#### Create an training index
 
-$$
-\operatorname{dependentvar} = \beta_{0} + \beta_{1}(\operatorname{independentvar}) + \epsilon
-$$
+First, we set a seed to ensure the reproducibility of our data
+partition. we create a new object called trainIndex that will take 80
+percent of the data We add a new variable to our dataset, temporarily:
 
-Here, the `dependentvar` is predicted by two *coefficients*, or things
-that help to explain the dependent variable. The first coefficient,
-$\beta_0$, is the intercept. This coefficient tells us what the
-estimated value of the dependent variable is when the independent
-variable (`independentvar`) is equal to 0. The other coefficient,
-$\beta_1$, or the slope, represents the association of a one-unit change
-in the independent variable in the value of the dependent variable.
+\# this will let us select our rows according to their row number
 
-#### Does Time Spent Predict Grade Earned?
-
-Let's consider a simple concrete example. We'll use the `lm()` function
-in R to estimate a linear regression model.
-
-The following code estimates a model in which `proportion_earned`, the
-proportion of points students earned, is the dependent variable. It is
-predicted by one independent variable, `int`, students' self-reported
-interest in science.
+\# we populate the rows with the numbers 1:464, in order
 
 ```{r}
-lm(proportion_earned ~ time_spent_hours, 
-   data = data_to_explore)
+
+set.seed(2020)
+
+trainIndex <- createDataPartition(ds_predictors_4$final_grade,
+                                  p = .8,
+                                  list = FALSE,
+                                  times = 1)
 ```
 
-Let's take a look at the output.
+arguments:
 
-We can see that the intercept is estimated at 0.53. This tells us that
-when students' time spent in the online course is equal to zero, their
-predicted proportion of points earned is 0.62---not such a great grade,
-but also not surprising! But, for every one-unit, or hour, increase in
-time spent in science, their estimate proportion of points earned was
-0.0048. So if a student spent, for instance, 40 hours on the course,
-their estimated final grade would be .62 + (.0048 \* 40), or around .82,
-or 82%. A pretty solid B-!
+-   `ds_predictors_4$final_grade` selects our outcome that we are
+    interested in predicting, in our case students' final course grades;
+-   `p =` specifies what proportion of the data we want to be in the
+    *training* partition; and,
+-   `times =` can be used to create *multiple* train and test sets,
+    something we will revisit later, but for now we'll just create 1
+    train and test set.
 
-#### How about interest in science?
+#### Index our predictors data set
 
-We can add additional predictor variables by separating variables with a
-plus symbol. Run the following code to add `int`, students'
-self-reported interest in science, to our linear model:
+\# We add a new variable to our dataset, temporarily:
+
+\# this will let us select our rows according to their row number
+
+\# we populate the rows with the numbers 1:464, in order
 
 ```{r}
-lm(proportion_earned ~ time_spent_hours + int, 
-   data = data_to_explore)
+ds_predictors_4 <- ds_predictors_4 %>% 
+  mutate(temp_id = 1:464)
 ```
 
-We can see that the intercept is now estimated at 0.44, which tells us
-that when students' time spent and interest are equal to zero, they are
-likely fail the course unsurprisingly. Note that that estimate for
-interest in science is .046, so for every one-unit increase in `int`, we
-should expect an 5 percentage point increase in their grade.
-
-We can save the output of the function to an object---let's say `m1`,
-standing for model 1. We can then use the `summary()` function built
-into R to view a much more feature-rich summary of the estimated model.
+Filter our training set
 
 ```{r}
-m1 <- lm(proportion_earned ~ time_spent_hours + int, data = data_to_explore)
-
-summary(m1)
+ds_train <- ds_predictors_4 %>% 
+    filter(temp_id %in% trainIndex)
 ```
-
-There is a lot to unpack in this output, but for now the most important
-values to look at are those in the Estimate column, which represent the
-intercept and slopes for your linear regression model.
-
-Note that the estimate for `time_spent_hours` is now 0.0042 and
-statistically significant. We see that `int`, interest in science, is
-also statistically significant.
-
-#### Do average students earn an average grade?
-
-Now let's consider the mean values for each of these predictors. Recall
-from our tutorials last week the `summarize()` function from the {dplyr}
-package used to create summary statistics such as the mean, standard
-deviation, or the minimum or maximum of a value. At its core, think of
-`summarize()` as a function that returns a single value (whether it's a
-mean, median, standard deviation---whichever!) that summarizes a single
-column.
-
-Let's use the summarize function to calculate the means for time spent
-and interest in science and add the argument `na.rm = TRUE` to tell R
-that it can ignore missing, or `NA` values, and to calculate the summary
-statistic using the non-missing values.
 
 ```{r}
-data_to_explore %>% 
-  summarize(mean_interest = mean(int, na.rm = TRUE),
-            mean_time = mean(time_spent_hours, na.rm = TRUE))
+
 ```
-
-The mean value for interest is quite high. If we multiply the estimate
-relationship between interest and proportion of points
-earned---0.046---by this, the mean interest across all of the
-students---we can determine that students' estimate final grade was
-0.046 X 4.3, or **0.197**. For hours spent spent, the average students'
-estimate final grade was 0.0042 X 30.48, or **0.128**.
-
-If we add both 0.197 and 0.128 to the intercept, 0.449, that equals
-0.774, or about 77%. In other words, a student with average interest in
-science who spent an average amount of time in the course earned a
-pretty average grade.
-
-Finally, similar to our APA formatted correlation table above, we can
-use the {apaTables} package to create a nice regression table that could
-be used for later publication:
-
-```{r}
-apa.reg.table(m1, filename = "lm-table.doc")
-```
-
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-Below, estimate different regression models with at least 2 variables,
-save as `m2`, and view a `summary()` of the results:
-
-```{r}
-m2 <- lm(proportion_earned ~ int + time_spent_hours + gender + val, data = data_to_explore)
-
-summary(m2)
-```
-
-Add a brief note or two interpreting the above model (`m2`):
-
--   
 
 ## 5. COMMUNICATE
 
