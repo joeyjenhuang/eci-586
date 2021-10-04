@@ -59,10 +59,7 @@ In addition to the {tidymodels} package, we'll also be using the
 the code chunk below to load these three packages:
 
 ```{r}
-library(tidymodels)
-library(tidyverse)
-library(skimr)
-library(here)
+
 ```
 
 ### b. Import & Inspect Data
@@ -81,7 +78,7 @@ assign the name `data_to_model`. Note, you may choose to use the {here}
 package or you may specify the file path directly:
 
 ```{r}
-data_to_model <- read_csv(here("unit-2", "data", "data-to-explore.csv"))
+data_to_model <- 
 ```
 
 As noted in Chapter 14 of Data Science in Education Using R, it's good
@@ -163,13 +160,13 @@ Complete the code chunk below to "select" (hint, hint)
 `proportioned_earned` for our outcome variable, as well as any variables
 from our `data_to_model` data frame that teachers would have access to
 at the start of the course (e.g. survey data, course info, student id
-and demographics, etc.). Save as a new data frame named `course_data`.
+and demographics, etc.). Save as a new data frame named `course_data`
+and inspect your data.
 
 ```{r}
 course_data <- data_to_model %>%
-  select(student_id, proportion_earned, subject, semester, section, enrollment_reason, gender, int, val, percomp, q1:q10, time_spent)
+  
 
-course_data
 ```
 
 ### **b. Preprocess Data**
@@ -250,20 +247,13 @@ to dropping empty values from `proportion_earned` and removing all
 incomplete cases.
 
 ```{r}
-course_data <- data_to_model %>%
-  select(student_id, proportion_earned, subject, semester, section, 
-         enrollment_reason, gender, int, val, percomp, q1:q10, time_spent) %>%
-  mutate(at_risk = if_else(proportion_earned >= .667, "no", "yes")) %>%
-  drop_na(proportion_earned) %>%
-  select(-proportion_earned) %>%
-  na.omit() %>% 
-  mutate_if(is.character, as.factor)
+
 ```
 
 Now inspect your data again and make sure it looks like expected:
 
 ```{r}
-course_data
+
 ```
 
 **Hint:** You should see a total of 532 observations and 21 variables
@@ -345,7 +335,7 @@ Type `course_split` into the code chunk below, run, and answer the
 question that follows?
 
 ```{r}
-course_split
+
 ```
 
 1.  How many observations should we expect to see in our training and
@@ -372,9 +362,7 @@ test_data  <- testing(course_split)
 First take a look at the training and testing sets we just created:
 
 ```{r}
-train_data
 
-train_data
 ```
 
 Next, recycle the code from above to check to see that the proportion of
@@ -382,13 +370,7 @@ at-risk students in our training and test data are close to those in our
 overall `course_data`:
 
 ```{r}
-train_data %>%
-  count(at_risk) %>%
-  mutate(proportion = n/sum(n))
 
-test_data %>%
-  count(at_risk) %>%
-  mutate(proportion = n/sum(n))
 ```
 
 Now answer the following questions:
@@ -670,7 +652,7 @@ Take a quick look at `lr_predictions` in the code chunk below and answer
 the question that follows?
 
 ```{r}
-lr_predictions
+
 ```
 
 Was our model successful at predicting any students who were at-risk?
@@ -741,41 +723,30 @@ character from above.
 ```{r, warning=FALSE}
 
 # create workflow
-lr_workflow <- 
-  workflow() %>% 
-  add_model(lr_mod) %>% 
-  add_recipe(lr_recipe_2)
 
 
 # set seeed
-set.seed(586)
+
 
 # fit model to workflow
-lr_fit <- 
-  lr_workflow %>% 
-  fit(data = train_data)
+
 
 # extract model estimates
-lr_fit %>% 
-  extract_fit_parsnip() %>% 
-  tidy()
+
 
 # get predictions 
-lr_predictions <- augment(lr_fit, test_data)
+
 
 # check overall accuracy 
-lr_predictions %>%
-  select(at_risk, .pred_class) %>%
-  accuracy(truth = at_risk, .pred_class)
+
 
 # create a confusion matrix
-lr_predictions %>%
-conf_mat(at_risk, .pred_class)
+
 ```
 
-Does this model perform any better? How do you know?
+1.  Does this model perform any better? How do you know?
 
--   
+    -   
 
 ### b. Fit a Random Forest Model
 
@@ -887,7 +858,7 @@ might be helpful for including in our model.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Try creating your own recipe and logistic regression or random forest
+Try creating your own recipe and a logistic regression or random forest
 model and see how it performs against the three that I created.
 
 Use the code chunk below to record your final model:
