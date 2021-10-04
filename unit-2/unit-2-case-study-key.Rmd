@@ -1,7 +1,7 @@
 ---
-title: 'Unit 2 Case Study: Predicting Student Achievement Part 2'
+title: 'Unit 2 Case Study: Identifying At-Risk Students'
 author: "Dr. Shaun Kellogg"
-date: "September 7, 2021 (updated: `r Sys.Date()`)"
+date: "Oct 1, 2021 (updated: `r Sys.Date()`)"
 output:
   html_document:
     toc: yes
@@ -22,183 +22,106 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. PREPARE
 
-Recall from Unit 1 that we focused on conducting an analysis that help
-identify predictors of student performance in these online courses. This
-case study is guided by a foundational study in Learning Analytics that
-illustrates how analyses like these can be used develop an early warning
-system to educators identify students at risk of failing and intervene
-before that happens. The Unit 1 case study will cover the following
-workflow topics:
+Recall from Unit 1 that we conducted an analysis to help identify data
+academic records, surveys, and learning management systems to could
+potentially be used develop an early warning system to identify students
+at risk of failing and intervene before that happens. In Unit 2, we pick
+up where we left off and learn to apply some basic machine learning
+techniques to help us understand how a predictive model used in these
+systems might actually be developed and tested.
 
-1.  **Prepare**: Prior to analysis, it's critical to understand the
-    context and data sources you're working with so you can formulate
-    useful and answerable questions. You'll also need to become familiar
-    with and load essential packages for analysis.
-2.  **Wrangle**: Wrangling data entails the work of manipulating,
-    cleaning, transforming, and merging data. In Part 2 we focus on
-    importing CSV files, tidying and joining our data.
-3.  **Explore**: In Part 3, we use basic data visualization and
-    calculate some summary statistics to explore our data and see what
-    insight it provides in response to our question.
-4.  **Model:** After identifying variable that may be related to student
-    performance through exploratory analysis, we'll look at correlations
-    and create some simple models of our data using linear regression.
-5.  **Communicate:** To wrap up our case study, we'll develop our first
-    "data product" and share our analyses and findings by creating our
-    first web page using R Markdown.
-6.  
+For this case study, our goal is a more immediate and practical
+application of modeling. Specifically, we will make a very crude first
+attempt at developing a model using machine learning techniques that can
+(we hope!) accurately predict whether a student is likely to pass or
+fail and online course. Unlike Unit 1, where we were interested in
+identifying factors from data collected throughout the course that might
+explaining why students earned the grade they did, we are instead
+interested identifying students who may be at risk before it is too late
+to intervene. Therefore we will only use information that is available
+at the start of the course.
 
-### 1a. Review the Literature
+### 1a. Load Libraries
 
-Our Unit 1 Case Study is guided by a well-cited publication from two
-authors that have made numerous contributions to the field of Learning
-Analytics over the years. Although this article is focused on "early
-warning systems" in higher education, and where adoption of learning
-management systems (LMS) like Moodle and Canvas gained a quicker
-foothold, this study is particularly relevant since COVID-19. Many
-districts across the county have incorporated a LMS into their remote
-instruction and have set up virtual academies likely to continue
-post-pandemic. In North Carolina specifically, student disengagement has
-become a particular concern among districtrs and the NC Department of
-Public Instruction has recently established the [Office of Learning
-Recovery &
-Acceleration](https://www.dpi.nc.gov/districts-schools/districts-schools-support/office-learning-recovery-acceleration)**.**
+#### tidymodels 📦
 
-[![](img/mining-lms-data.jpeg){width="40%"}](https://doi.org/10.1177/23328584211024261)
+[![](img/tidymodels.svg){width="20%"}](https://www.tidymodels.org)
 
-Macfadyen, L. P., & Dawson, S. (2010). [Mining LMS data to develop an
-"early warning system" for educators: A proof of
-concept.](https://www.sciencedirect.com/science/article/pii/S0360131509002486?via%3Dihub)
-*Computers & education*, *54*(2), 588-599.
+The [tidymodels](https://www.tidymodels.org) package is a "meta-package"
+for modeling and statistical analysis that share the underlying design
+philosophy, grammar, and data structures of the
+[tidyverse](https://www.tidyverse.org/). It includes a core set of
+packages that are loaded on startup and contains tools for:
 
-#### Abstract
-
-Earlier studies have suggested that higher education institutions could
-harness the predictive power of Learning Management System (LMS) data to
-develop reporting tools that identify at-risk students and allow for
-more timely pedagogical interventions. This paper confirms and extends
-this proposition by providing data from an international research
-project investigating **which student online activities accurately
-predict academic achievement.** Analysis of LMS tracking data from a
-Blackboard Vista-supported course identified 15 variables demonstrating
-a significant simple correlation with student final grade... Moreover,
-**network analysis of course discussion forums** afforded insight into
-the development of the student learning community by identifying
-disconnected students, patterns of student-to-student communication, and
-instructor positioning within the network. This study affirms that
-pedagogically meaningful information can be extracted from LMS-generated
-student tracking data, and discusses how these findings are informing
-the **development of a dashboard-like reporting tool for educators**
-that will extract and visualize real-time data on student engagement and
-likelihood of success.
-
-#### Data Sources & Analysis
-
-LIWC...
-
-#### **Summary of Key Findings**
-
-1.  Although 13 LMS variables for this course appear to show significant
-    correlation with student final grade, it would be erroneous to rely
-    too heavily on the predictive power of simple correlations.
-2.  Some students are making more effective strategic decisions about
-    time use within the virtual class- room that is not adequately
-    represented by simple correlations with time online.
-3.  Total number of discussion messages posted, total number of mail
-    messages sent, and total number of assessments completed were
-    significant contributors to students' final grades and indicated
-    that some 33% of the variability in student achievement in this
-    course can be explained by this combination of student online
-    activities within the course site.
-4.  One of the highest performing students established a complex network
-    that included a core group of high-performing peers, conversely a
-    lower performing student's network is primarily comprised of
-    low-performing peers.
+-   data splitting and pre-processing;
+-   model selection, tuning, and evaluation;
+-   feature selection and variable importance estimation;
+-   as well as other functionality.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Take a quick scan of Table 3 in the article linked above (and also
-located in your "lit" folder in the files pane) and in the space below,
-answer the following question: Of the 13 LMS variables correlated with
-student final grade, which 2-3 do you think will found to significantly
-predict final grades?
-
--   
-
-Now take a quick look at sections 3.2 Mutltiple Regression and 3.3
-Logistic Regression and asnwer the following questions: What factors in
-the model did ultimately predict final grades? How accurate was this
-model in identifying "at risk" students?
-
--   
-
-### 1b. Define Questions
-
-In this study, exploratory research was undertaken to identify the data
-variables that would inform the development of a data visualization tool
-for instructors. This involved the extraction of all LMS tracking
-variables for selected course sections at The University of British
-Columbia, Canada. In so doing, the study aimed to address the following
-research questions:
-
-1.  Which LMS tracking data variables correlate significantly with
-    student achievement?
-
-2.  How accurately can measures of student online activity in an online
-    course site predict student achievement in the course under study?
-
-3.  Can tracking data recording online student communication patterns
-    offer pedagogically meaningful insights into development of a
-    student learning community?
-
-For our case study, we'll adopt questions 1 & 2 wholesale to guide our
-exploratory analysis and modeling, with a special emphasis on time spent
-in the LMS. We'll also use analytical approaches and data similar to
-those used by @macfadyen2010mining to better understand how LMS,
-gradebook, and survey data might be predictive of student performance.
-
-### 1c. Load Libraries
-
-As noted in our Getting Started activity, R uses "packages" and add-ons
-that enhance its functionality. One of our first steps in any workflow
-is to load packages necessary for data wrangling, analysis, and
-reporting. We'll load packages in this section we are already familiar
-with from our tutorials and introduce new packages and corresponding
-functions throughout the case study.
-
-#### caret 📦
-
-The [`caret`](http://cran.r-project.org/web/packages/caret/index.html) package
-(short for **C**lassification **A**nd **RE**gression **T**raining) is a
-set of functions that attempt to streamline the process for creating
-predictive models. The package contains tools for:
-
--   data splitting
--   pre-processing
--   feature selection
--   model tuning using resampling
--   variable importance estimation
--   as well as other functionality.
-
-There are many different modeling functions in R. Some have different
-syntax for model training and/or prediction. The package started off as
-a way to provide a uniform interface the functions themselves, as well
-as a way to standardize common tasks (such parameter tuning and variable
-importance).
+In addition to the {tidymodels} package, we'll also be using the
+{tidyverse}, {skimr} and {here} packages we learned about in Unit 1. Use
+the code chunk below to load these three packages:
 
 ```{r}
-library(caret)
-```
-
-Don't worry if you saw a number of messages: those probably mean that
-the tidyverse loaded just fine. Any conflicts you may have seen mean
-that functions in these packages you loaded have the same name as
-functions in other packages and R will default to function from the last
-loaded package unless you specify otherwise.
-
-```{r}
+library(tidymodels)
 library(tidyverse)
+library(skimr)
+library(here)
 ```
+
+### b. Import & Inspect Data
+
+For this case study, we will again be working again data from the online
+course data introduced in Unit 1. Fortunately, our data has already been
+largely wrangled. This will save us quite a bit of time, which we'll
+need to help wrap our heads around some supervised machine learning
+basics.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+This data is located in the data folder and named `data-to-explore.csv`.
+and which we recently used for our Unit 2 exercises to compliment the
+RStudio Primers.
+
+Use the code chunk below to read this data into your R environment and
+assign the name `data_to_model`. Note, you may choose to use the {here}
+package or you may specify the file path directly:
+
+```{r}
+data_to_model <- read_csv(here("unit-2", "data", "data-to-explore.csv"))
+```
+
+As noted in Chapter 14 of Data Science in Education Using R:
+
+> It's a good practice to take a look at the data and make sure it looks
+> the way you expect it to look.
+
+Use the `glimpse()` function from the {dplyr} package that was loaded
+with {tidyverse} to quickly skim our data, then answer the questions
+that follow:
+
+```{r}
+glimpse(data_to_model)
+```
+
+1.  How many observations and variables are in our dataset?
+
+    -   
+
+2.  Since our goal is develop a model that predicts whether students are
+    likely to be at risk of failing, what variable might we use as our
+    outcome variable for our model?
+
+    -   
+
+3.  Based on your prior work with this data, and the descriptions of the
+    data in [Chapter 7 of DSIEUR](before it is too late to intervene.),
+    whar are some variables collected prior to the course that you think
+    might make good predictors of at risk students? Why?
+
+    -   
 
 ## 2. WRANGLE
 
@@ -209,274 +132,663 @@ involves the initial steps of going from raw data to a dataset that can
 be explored and modeled (Krumm et al, 2018). In Part 2, we focus on the
 the following workflow processes:
 
-a.  **Import Data**. In this section, we introduce the `read_csv()`
-    function for working with CSV files and revisit some key functions
-    for inspecting our data.
+a.  **Isolate Predictors**. In this section, we will narrow down our
+    data set to all potential predictors of interest.
 
-b.  **Remove NAs**. We introduce the `separate()` and `clean_names()`
-    functions for getting our data nice and tidy, and revisit the
-    `mutate()` for creating new variables.
+b.  **Preproces Data**. We create a binary variable outcome we are
+    interested in predicting, and remove quite a bit of cruft.
 
-c.  **Select Predictors**. We conclude our data wrangling by introducing
-    `join()` functions for merging our processed files into a single
-    data frame for analysis.
+c.  **Split Data**. We split our data into a training and test set that
+    will be used to develop a predictive model.
 
-### a. Import Data
+d.  **Create a Recipe**. Finally, we will test our a couple different
+    "recipes" for our predictive model and learn how to deal with
+    nominal data that we would like to use as predictors.
 
-To help us import our data, we'll be using two packages:
-{[readr](https://readr.tidyverse.org)} and
-{[here](https://here.r-lib.org)} . The {readr} package provides a "fast
-and friendly way" to read rectangular data stored in plain-text file
-formats like csv, tsv, and fwf. If you are new to readr, I highly
-recommend the [data import
-chapter](https://r4ds.had.co.nz/data-import.html) in R for data science.
-We don't need to load the {readr} package because it was already loaded
-as part of the tidyverse package we called earlier.
+### a. Isolate Predictors
 
-Let's use the `read_csv()` function from {readr} to import our
-`log-data.csv` file directly from our data folder and name this data set
-`time_spent`, to help us to quickly recollect what function it serves in
-this analysis:
+As you've probably noticed, there is a lot of great information in this
+dataset - but we won't need all of it. Estrellado et al. note in DSIEUR
+that for statistical reasons as a good general practice, it's better to
+select a few variables you are interested in and go from there:
+
+> At a certain point, adding more variables will *appear* to make your
+> analysis more accurate, but will in fact obscure the truth from you.
+
+Unlike Unit 1, we are not interested interested so much explaining why
+students earned the grade they did after the fact, or which variables
+might be significant predictors of their final grade. Instead we are
+interested in a more immediate and practical application of modeling,
+that is developing a model using machine learning techniques that can
+(we hope!) accurately predict whether a student is likely to pass or
+fail and online course using only information available prior to course.
+
+Our goal, therefore, is to identify students who may be at risk of
+failing using information that is available to teachers before it is too
+late to intervene.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Complete the code chunk below to "select" (hint, hint)
+`proportioned_earned` for our outcome variable, as well as any variables
+from our `data_to_model` data frame that teachers would have access to
+at the start of the course (e.g. survey data, course info, student id
+and demographics, etc.). Save as a new data frame named `course_data`.
 
 ```{r}
-sci_mo_with_text <- read_csv("data/sci-mo-with-text.csv")
+course_data <- data_to_model %>%
+  select(student_id, proportion_earned, subject, semester, section, enrollment_reason, gender, int, val, percomp, q1:q10, time_spent)
+
+course_data
+```
+
+### **b. Preprocess Data**
+
+Prior to developing a predictive model from our data, we have a little
+bit of data processing to do including, after which we will divide, or
+"split" our data set into two separate data frames, one for training our
+predictive model and one for testing our well our model performs.
+
+#### Create Outcome Variable
+
+Since we are interested in developing a model using machine learning
+techniques that can accurately predict whether a student is at risk of
+failing an online course, we actually need an outcome variable that
+let's us know if they have passed or failed.
+
+Let's combine the hopefully familiar `mutate()` function with the
+`if_else()` function also from the {dplyr} package to create a new
+variable called `at_risk` which has a value of "no" indicating they are
+not at risk of failing if students `proportioned_earned` is greater than
+or equal too 66.7% (NC State's cutoff for a D-) and "yes" if it is not.
+
+```{r}
+course_data <- course_data %>% 
+  mutate(at_risk = if_else(proportion_earned >= .667, "no", "yes")) 
+```
+
+#### Drop Data
+
+As you may have noticed from your inspection of the data earlier, some
+students do not have the course grade data. Let's use the `drop_na()`
+function also from {dplyr} to remove observations with not grade data
+and the select function again to remove the `proportion_earned` variable
+entirely so we're not tempted to cheat and use this as what would be a
+VERY good predictor of being "at risk":
+
+```{r}
+course_data <- course_data %>% 
+  drop_na(proportion_earned) %>%
+  select(-proportion_earned)
+```
+
+Let's also use the `na.omit()` function introduced previously to delete
+cases listwise (that is, an entire row is deleted if any single value is
+missing), since most models does not accept cases with missing data:
+
+```{r}
+course_data <- course_data %>%
+  na.omit()
+```
+
+#### Convert Characters to Factors
+
+While inspecting the data, you may have noticed that many of our
+predictors of interest are character variables. For creating models, it
+is better to have qualitative variable like `gender` encoded as factors
+instead of character strings. Factors store data as categorical
+variables, each with its own levels. Because categorical variables are
+used in statistical models differently than continuous variables,
+storing data as factors ensures that the modeling functions will treat
+them correctly.
+
+To do so, we introduce a variation of the `mutate()` function that will
+look for any variable that is a character and recode as a factor:
+
+```{r}
+course_data <- course_data %>%
+  mutate_if(is.character, as.factor)
+
+course_data
 ```
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Now use the code chunk below to take a look at the data you just
-imported using your preferred methods.
-
-```{r, eval=FALSE}
-sci_mo_with_text
-```
-
-Remember, if you use the view function to look at your data, your R
-Markdown file will not knit so you will need to set the code chunk to
-`eval=FALSE`
-
-In the space below, answer the following questions:
-
-1.  How many observations and variables are in this dataset?
-2.  What are some new variables that have been introduced from our
-    previous case study and what do they represent? **Hint:** Take a
-    look at the our Data Science in Ed course text.
-3.  Is there any observations missing data for one or more variables?
-    How do you know?
-4.  Thinking back on our case study from last week, which variables do
-    you think
-
-### b. Select Predictors
-
-As is the case with many datasets you'll work with in education
-contexts, there is lots of great information in this dataset - but we
-won't need all of it. Even if your dataset has many variables, for most
-analyses you will find that you are only interested in some of them.
-There are statistical reasons not to include twenty or more variables in
-a data analysis as well. At a certain point, adding more variables
-will *appear* to make your analysis more accurate, but will in fact
-obscure the truth from you. It's generally a good practice to select a
-few variables you are interested in and go from there. As we discussed
-above, the way to do this is to start with the research questions you
-are trying to answer.
-
-I'll use the same pre
+To reduce all the redundancy caused by demonstrating each step
+separately above, complete the following code below by using the pipe
+operator to repeat all of these steps starting from isolating predictors
+to dropping empty values from `proportion_earned` and removing all
+incomplete cases.
 
 ```{r}
-ds_predictors <- sci_mo_with_text %>%
-  select(int,
-        uv,
-        pc,
-        time_spent,
-        final_grade,
-        subject,
-        enrollment_reason,
-        semester,
-        enrollment_status,
-        cogproc,
-        social,
-        posemo,
-        negemo,
-        n
-)
+course_data <- data_to_model %>%
+  select(student_id, proportion_earned, subject, semester, section, 
+         enrollment_reason, gender, int, val, percomp, q1:q10, time_spent) %>%
+  mutate(at_risk = if_else(proportion_earned >= .667, "no", "yes")) %>%
+  drop_na(proportion_earned) %>%
+  select(-proportion_earned) %>%
+  na.omit() %>% 
+  mutate_if(is.character, as.factor)
+```
+
+Now inspect your data again and make sure it looks like expected:
+
+```{r}
+course_data
+```
+
+**Hint:** You should see a total of 532 observations and 21 variables
+including 1 outcome variable named `at_risk`, 1 student identifier named
+`student_id`, and 19 potential predictors.
+
+#### Count proportions
+
+One last step before splitting our data is to take a quick look at the
+proportion of students in our final data set that were identified as
+at-risk.
+
+To do so, first let's take a count of the number of students labeled
+"yes" or "no" of being at risk, and then create a new variable called
+proportion that take the number `n` of each and divides by the total
+number:
+
+```{r}
+course_data %>%
+  count(at_risk) %>%
+  mutate(proportion = n/sum(n))
+```
+
+As you can see, roughly 17% of students in our data set were identified
+as "yes" for being at risk.
+
+### c. Split Data
+
+It is common when beginning a modeling project to [separate the data
+set](https://bookdown.org/max/FES/data-splitting.html) into two
+partitions:
+
+-   The *training set* is used to estimate develop and compare models,
+    feature engineering techniques, tune models, etc.
+
+-   The *test set* is held in reserve until the end of the project, at
+    which point there should only be one or two models under serious
+    consideration. It is used as an unbiased source for measuring final
+    model performance.
+
+There are different ways to create these partitions of the data and
+there is no uniform guideline for determining how much data should be
+set aside for testing. The proportion of data can be driven by many
+factors, including the size of the original pool of samples and the
+total number of predictors. 
+
+After you decide how much to set aside, the most common approach for
+actually partitioning your data is to use a random sample. For our
+purposes, we'll us random sampling to select 25% for the test set and
+use the remainder for the training set, which are the defaults for the
+{[rsample](https://tidymodels.github.io/rsample/)} package we'll be
+using for this purpose.
+
+Additionally, since random sampling uses random numbers, it is important
+to set the random number seed. This ensures that the random numbers can
+be reproduced at a later time (if needed).
+
+The function `initial_split()` function from the {rsample} package takes
+the original data and saves the information on how to make the
+partitions.
+
+Run the following code to set the random number seed and make our
+initial data split:
+
+```{r}
+set.seed(586)
+
+course_split <- initial_split(course_data, 
+                              strata = at_risk)
+```
+
+Note that we used the `strata =` argument, which conducts a stratified
+split. This ensures that, despite the imbalance we noticed in
+our at_risk variable, our training and test data sets will keep roughly
+the same proportions of at-risk students as in the original data. 
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Type `course_split` into the code chunk below, run, and answer the
+question that follows?
+
+```{r}
+course_split
+```
+
+1.  How many observations should we expect to see in our training and
+    test sets respectively?
+
+    -   
+
+#### Create a training and test set
+
+The {rsample} package has two aptly named functions for created a
+training and testing data set called `training()` and `testing()`
+respectively.
+
+Run the following code to split the data into
+
+```{r}
+train_data <- training(course_split)
+
+test_data  <- testing(course_split)
 ```
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Now use the code chunk below to take a look at the data you just
-imported using your preferred methods.
+First take a look at the training and testing sets we just created:
 
 ```{r}
-my_predictors <- sci_mo_with_text %>%
-  select(int,
-        time_spent,
-        final_grade,
-        subject,
-        enrollment_reason,
-        semester,
-        enrollment_status,
-        cogproc,
-        social,
-        posemo,
-        negemo,
-        n
-)
+train_data
+
+train_data
 ```
 
-### c. Remove Missing Data
-
-Since the machine learning model we will be using later in this case
-study does not accept missing values
-
-#### `na_omit()`
-
-There are several different ways to remove missing values in R,
-including the built-in function `na.omit()` which will remove any
-observations, or cases, with missing values for any any of the
-variables.
-
-Run the code chunk below to see what happens if we try to remove missing
-values using our the entire dataset we originally imported.
+Next, recycle the code from to check to see that the proportion of
+at-risk students in our training and test data are close to those in our
+overall `course_data`:
 
 ```{r}
-df <-  na.omit(sci_mo_with_text)
+train_data %>%
+  count(at_risk) %>%
+  mutate(proportion = n/sum(n))
 
-df
+test_data %>%
+  count(at_risk) %>%
+  mutate(proportion = n/sum(n))
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+Now answer the following questions:
 
-1.  How many observations did this return? Why do you think that is?
+1.  Do the number of observations in each set match your expectations?
+    Why?
 
-#### drop_na() function
+    -   
 
-Another
+2.  Do the proportion of at-risk students in each set match your
+    expectations? Why?
+
+    -   
+
+### c. **Create a Recipe**
+
+In this section, we introduce another tidymodels package,
+[recipes](https://recipes.tidymodels.org/), which is designed to help
+you prepare your data *before* training your model. Recipes are built as
+a series of preprocessing steps, such as:
+
+-   converting qualitative predictors to indicator variables (also known
+    as dummy variables),
+
+-   transforming data to be on a different scale (e.g., taking the
+    logarithm of a variable),
+
+-   transforming whole groups of predictors together,
+
+-   extracting key features from raw variables (e.g., getting the day of
+    the week out of a date variable),
+
+and so on. If you are familiar with R's formula interface, a lot of this
+might sound familiar and like what a formula already does. Recipes can
+be used to do many of the same things, but they have a much wider range
+of possibilities.
+
+#### Add a formula
+
+To get started, let's create a recipe for a simple logistic regression
+model. Before training the model, we can use a recipe to create a few
+new predictors and conduct some preprocessing required by the model.
+
+The [`recipe()` function](https://recipes.tidymodels.org/reference/recipe.html) as
+we used it here has two arguments:
+
+-   A **formula**. Any variable on the left-hand side of the tilde (`~`)
+    is considered the model outcome (`at_risk` in our case). On the
+    right-hand side of the tilde are the predictors. Variables may be
+    listed by name, or you can use the dot (`.`) to indicate all other
+    variables as predictors.
+
+-   The **data**. A recipe is associated with the data set used to
+    create the model. This will typically be the *training* set,
+    so `data = train_data` here. Naming a data set doesn't actually
+    change the data itself; it is only used to catalog the names of the
+    variables and their types, like factors, integers, dates, etc.
+
+Let's create our very first recipe using `at_risk` as our outcome
+varriable; `int` and `gender` and `enrollment_reason` as predictors; and
+`train_data` as our data to train:
 
 ```{r}
-ds_predictors_2 <- drop_na(ds_predictors)
-
-ds_predictors_2
+lr_recipe_1 <- recipe(at_risk ~ int + gender + enrollment_reason,
+                      data = train_data)
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-Use the following code chunk to ...
+Now let's take a quick peek at our recipe and create a quick summary of
+our recipe using the `summary()` function:
 
 ```{r}
-my_predictors_complete <- drop_na(my_predictors)
+lr_recipe_1
 
-my_predictors_complete
+summary(lr_recipe_1)
 ```
 
-1.  How many observations did this return? Why do you think that is?
+You can see that our recipe has three predictors and 1 outcome, just as
+expected.
 
-## 3. EXPLORE
+#### Create Dummy Variables
 
-### a. Check Variance
+Because we'll be using a simple logistic regression model, variables
+like `gender` and `enrollment_reason` will need to be coded as [dummy
+variables](https://bookdown.org/max/FES/creating-dummy-variables-for-unordered-categories.html).
+Dummy coding means transforming a variable with multiple categories into
+new variables, where each binary variable indicates the presence and
+absence of each category. For example gender will be recoded to
+gender_f, where 1 indicates female and 0 indicates male.
 
-Since the machine learning model we will be using later in this case
-study does not accept missing values
+Unlike the standard model formula methods in R, a recipe **does not**
+automatically create these dummy variables for you; you'll need to tell
+your recipe to add this step. This is for two reasons. First, many
+models do not require [numeric
+predictors](https://bookdown.org/max/FES/categorical-trees.html), so
+dummy variables may not always be preferred. Second, recipes can also be
+used for purposes outside of modeling, where non-dummy versions of the
+variables may work better. For example, you may want to make a table or
+a plot with a variable as a single factor.
+
+For these reasons, you need to explicitly tell recipes to create dummy
+variables using `step_dummy()`. Let's add this to our recipe and include
+`all_nominal_predictors()` to tell our recipe to change all of our
+factor variables to dummy variables:
 
 ```{r}
-nearZeroVar(ds_predictors_2, saveMetrics = TRUE)
+lr_recipe_1 <- 
+  recipe(at_risk ~ int + gender + enrollment_reason,
+                      data = train_data) %>%
+  step_dummy(all_nominal_predictors())
+
+lr_recipe_1
+
+summary(lr_recipe_1)
 ```
 
-```{r}
-ds_predictors_3 <- ds_predictors_2 %>%
-  select(-enrollment_status)
-```
+#### Created a kitchen sink recipe
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+Before training our model, let's created a second recipe that includes
+all of our predictors by adding the `.` after the tilde as noted above.
 
-Now use the code chunk below to take a look at the data you just im
+In addition to our step for creating dummy variables, we'll also have to
+indicate that our `student_id` variable is not used for prediction but
+rather as a unique identifier for our students.
 
-```{r}
-nearZeroVar(my_predictors_complete, saveMetrics = TRUE)
-```
+To do so, we will have to add
+[roles](https://recipes.tidymodels.org/reference/roles.html) to this
+recipe using
+the [`update_role()` function](https://recipes.tidymodels.org/reference/roles.html)
+that let recipes know that `student_id`is a variables with a custom role
+that we called `"ID"` (a role can have any character value). Whereas our
+formula included all variables in the training set other
+than `at_risk` as predictors, this tells the recipe to keep these two
+variables but not use them as either outcomes or predictors.
 
-### b. Convert Characters to Factors
-
-Since the machine learning model we will be using later in this case
-study does not accept missing values
-
-Since the machine learning model we will be using later in this case
-study does not accept missing values
-
-```{r}
-ds_predictors_4 <- ds_predictors_3 %>% 
-    mutate_if(is.character, as.factor)
-```
+Run the following code to add `student_id` as a role to our model:
 
 ```{r}
+lr_recipe_2 <- 
+  recipe(at_risk ~ ., 
+         data = train_data) %>%
+  step_dummy(all_nominal_predictors()) %>%
+  update_role(student_id, new_role = "ID") 
 
-```
+lr_recipe_2
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-Now use the code chunk below to take a look at the data you just im
-
-```{r}
-
+summary(lr_recipe_2)
 ```
 
 ## 4. MODEL
 
-### a. Partition Data
+### a. Fit a Logistic Regression Model
 
-Intro
-
-#### Create an training index
-
-First, we set a seed to ensure the reproducibility of our data
-partition. we create a new object called trainIndex that will take 80
-percent of the data We add a new variable to our dataset, temporarily:
-
-\# this will let us select our rows according to their row number
-
-\# we populate the rows with the numbers 1:464, in order
+With tidymodels, we start building a model by specifying the *functional
+form* of the model that we want using the [[parsnip]
+package](https://tidymodels.github.io/parsnip/). Since our outcome is
+binary, the model type we will use is "[logistic
+regression](https://parsnip.tidymodels.org/reference/logistic_reg.html)".
+We can declare this with `logistic_reg()` and assign to an object we
+will later use in our workflow:
 
 ```{r}
-
-set.seed(2020)
-
-trainIndex <- createDataPartition(ds_predictors_4$final_grade,
-                                  p = .8,
-                                  list = FALSE,
-                                  times = 1)
+lr_mod <- logistic_reg()
 ```
 
-arguments:
+That is pretty underwhelming since, on its own, it doesn't really do
+much. However, now that the type of model has been specified, a method
+for *fitting* or training the model can be stated using the **engine**.
 
--   `ds_predictors_4$final_grade` selects our outcome that we are
-    interested in predicting, in our case students' final course grades;
--   `p =` specifies what proportion of the data we want to be in the
-    *training* partition; and,
--   `times =` can be used to create *multiple* train and test sets,
-    something we will revisit later, but for now we'll just create 1
-    train and test set.
+#### Start your engine
 
-#### Index our predictors data set
+The engine value is often a mash-up of the software that can be used to
+fit or train the model as well as the estimation method. For example, we
+will use "glm" a generalized linear model for binary outcomes.
 
-\# We add a new variable to our dataset, temporarily:
-
-\# this will let us select our rows according to their row number
-
-\# we populate the rows with the numbers 1:464, in order
+Run the following code to finish specifying our model:
 
 ```{r}
-ds_predictors_4 <- ds_predictors_4 %>% 
-  mutate(temp_id = 1:464)
+lr_mod <- 
+  logistic_reg() %>% 
+  set_engine("glm")
 ```
 
-Filter our training set
+#### Add to workflow
+
+We will want to use our recipes created earlier across several steps as
+we train and test our model. To simplify this process, we can use
+a *model workflow*, which pairs a model and recipe together.
+
+This is a straightforward approach because different recipes are often
+needed for different models, so when a model and recipe are bundled, it
+becomes easier to train and test *workflows*.
+
+We'll use the {[workflows](https://workflows.tidymodels.org/)} package
+from tidymodels to bundle our parsnip model (`lr_mod`) with our first
+recipe (lr_recipe_1).
 
 ```{r}
-ds_train <- ds_predictors_4 %>% 
-    filter(temp_id %in% trainIndex)
+lr_workflow <- 
+  workflow() %>% 
+  add_model(lr_mod) %>% 
+  add_recipe(lr_recipe_1)
+```
+
+#### Fit model to training set
+
+Now that we have a single workflow that can be used to prepare the
+recipe and train the model from the resulting predictors, we can use the
+`fit()` function to fit our model to our `train_data`. And again, we set
+a random number seed to ensure that if we run this same code again, we
+will get the same results in terms of the data partition:
+
+```{r}
+set.seed(586)
+
+lr_fit <- 
+  lr_workflow %>% 
+  fit(data = train_data)
+```
+
+This `lr_fit` object has the finalized recipe and fitted model objects
+inside. To extract the model fit from the workflow, we will use the
+helper functions `extract_fit_parsnip()`. Here we pull the fitted model
+object then use the `broom::tidy()` function to get a tidy tibble of
+model coefficients:
+
+```{r}
+lr_fit %>% 
+  extract_fit_parsnip() %>% 
+  tidy()
+```
+
+Among the predictors included in our model, `int` or interest in subject
+area score, seems to be the sole significant predictor of being
+identified as at-risk according to our definition. This doesn't bode too
+well for our model but let's proceed with testing anyways.
+
+#### Test the model
+
+Now that we've fit our model to our training data, we're FINALLY ready
+to test our model on the data we set aside in the beginning. Just to
+recap the steps that led to this moment, however, recall that we:
+
+1.  Built the model (`lr_mod`),
+
+2.  Created a preprocessing recipe (`lr_recipe_1`),
+
+3.  Bundled the model and recipe (`lr_workflow`), and
+
+4.  Trained our workflow using a single call to `fit()`.
+
+The next step is to use the trained workflow (`lr_fit`) to predict
+outcomes for our unseen test data, which we will do with the
+function `predict()`. The `predict()` method applies the recipe to the
+new data, then passes them to the fitted model.
+
+```{r}
+
+predict(lr_fit, test_data)
+```
+
+Because our outcome variable `at_risk` here is a factor, the output
+from `predict()` returns the predicted class: `no` versus `yes`. Not
+super useful to be honest.
+
+Fortunately there is an `augment()` function we can use with our
+`lr_fir` model and `test_data` to save them together:
+
+Let's use this function, save as `lr_predictions`, and take a quick
+look:
+
+```{r}
+lr_predictions <- augment(lr_fit, test_data)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Take a quick look at `lr_predictions` in the code chunk below and answer
+the question that follows?
+
+```{r}
+lr_predictions
+```
+
+Was our model successful at predicting any students who were at-risk?
+How do you know?
+
+-   
+
+#### Check model accuracy
+
+As you probably noticed, just looking at the `lr_predictions` object is
+not the easiet way to check for model accuracy.
+
+Fortunately, the {[yardstick}](https://tidymodels.github.io/yardstick/)
+package has an `accuracy()` function for looking at the overall
+classification accuracy, which uses the hard class predictions to
+measure performance. The hard class predictions tell us whether our
+model predicted `yes` or `no` for each student in the `.pred_class`
+column, as well as the estimating a probability. A simple 50%
+probability cutoff is used to categorize a student as at risk. For
+example, student `47448` had a `.pred_no` probability of 0.8854332 and
+`.pred_yes` probability of 0.11456677 and so was classified as `no` not
+for `at_risk`.
+
+```{r}
+lr_predictions %>%
+  select(at_risk, .pred_class) %>%
+  accuracy(truth = at_risk, .pred_class)
+```
+
+Overall it looks like our model was correct 82% of the time, which we'll
+see in a second is not very impressive.
+
+Another way to check model accuracy is with the `conf_mat()` function
+from {yardstick} for creating a confusion matrix. Recall from our course
+Text Learning Analytics Goes to School that a confusion matrix is simply
+a 2 × 2 table that lists the number of true-negatives, false-negatives,
+true-positives, and false-positives.
+
+Run the follow code to create a confusion matrix
+
+```{r}
+lr_predictions %>%
+conf_mat(at_risk, .pred_class)
+```
+
+### b. Fit a Random Forest Model
+
+```{r}
+rf_recipe_1 <- 
+  recipe(at_risk ~ int + gender + enrollment_reason,
+         data = train_data)
+rf_recipe_1
+
+summary(rf_recipe_1)
+
+
+rf_recipe_2 <- 
+  recipe(at_risk ~ ., 
+         data = train_data) %>%
+  update_role(student_id, new_role = "ID")
+
+rf_recipe_2
+
+summary(rf_recipe_2)
 ```
 
 ```{r}
+rf_mod <- 
+  rand_forest(trees = 1000) %>% 
+  set_engine("ranger", importance = "impurity") %>% 
+  set_mode("classification")
 
+
+```
+
+```{r}
+rf_workflow <- 
+  workflow() %>% 
+  add_model(rf_mod) %>% 
+  add_recipe(rf_recipe_2)
+```
+
+```{r}
+set.seed(586)
+
+rf_fit <- 
+  rf_workflow %>% 
+  fit(data = train_data)
+```
+
+```{r}
+predict(rf_fit, test_data)
+
+rf_predictions <- augment(rf_fit, test_data)
+
+rf_predictions
+
+rf_predictions %>%
+  select(at_risk, .pred_class) %>%
+  accuracy(truth = at_risk, .pred_class)
+
+rf_predictions %>%
+conf_mat(at_risk, .pred_class)
+```
+
+```{r}
+rf_flow <- extract_workflow(rf_workflow)
 ```
 
 ## 5. COMMUNICATE
