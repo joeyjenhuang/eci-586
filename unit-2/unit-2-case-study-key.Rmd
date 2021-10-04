@@ -720,33 +720,96 @@ Text Learning Analytics Goes to School that a confusion matrix is simply
 a 2 × 2 table that lists the number of true-negatives, false-negatives,
 true-positives, and false-positives.
 
-Run the follow code to create a confusion matrix
+Run the follow code to create a confusion matrix for our logistic
+regression predictions:
 
 ```{r}
 lr_predictions %>%
 conf_mat(at_risk, .pred_class)
 ```
 
+As you can see our model simply predicted all students as "no" for at
+risk, which is roughly 82% of our student overall, and so our model was
+82% accurate. If also failed to identify a single student of the 24 in
+our `test_data` that truly were at risk.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Recycle our code from above to
+
+```{r, warning=FALSE}
+lr_workflow <- 
+  workflow() %>% 
+  add_model(lr_mod) %>% 
+  add_recipe(lr_recipe_2)
+
+set.seed(586)
+
+lr_fit <- 
+  lr_workflow %>% 
+  fit(data = train_data)
+
+lr_fit %>% 
+  extract_fit_parsnip() %>% 
+  tidy()
+
+lr_predictions <- augment(lr_fit, test_data)
+
+lr_predictions %>%
+  select(at_risk, .pred_class) %>%
+  accuracy(truth = at_risk, .pred_class)
+
+lr_predictions %>%
+conf_mat(at_risk, .pred_class)
+```
+
+Does this model perform any better?
+
+-   
+
 ### b. Fit a Random Forest Model
 
+[Random forest models](https://en.wikipedia.org/wiki/Random_forest)
+are [ensembles](https://en.wikipedia.org/wiki/Ensemble_learning) of
+[decision trees](https://en.wikipedia.org/wiki/Decision_tree). Each of
+those terms is linked because there is a dense amount of information
+required to understand what each of those terms means For now, them main
+thing to now is that:
+
+> One of the benefits of a random forest model is that it is very low
+> maintenance; it requires very little preprocessing of the data and the
+> default parameters tend to give reasonable results.
+
+For that reason, we'll just create a very simpler recipe for
+our `course_data` data includes all our predictors and singles out our
+`student_id` role:
+
 ```{r}
-rf_recipe_1 <- 
-  recipe(at_risk ~ int + gender + enrollment_reason,
-         data = train_data)
-rf_recipe_1
-
-summary(rf_recipe_1)
-
-
-rf_recipe_2 <- 
+rf_recipe <- 
   recipe(at_risk ~ ., 
          data = train_data) %>%
   update_role(student_id, new_role = "ID")
 
-rf_recipe_2
+rf_recipe
 
-summary(rf_recipe_2)
+summary(rf_recipe)
 ```
+
+To fit a random forest model on the training set, we'll use
+the {[parsnip](https://tidymodels.github.io/parsnip/)} package again
+along with the
+[ranger](https://cran.r-project.org/web/packages/ranger/index.html)
+engine and use the `set_mode()` function to specify our model as
+"classification" rather than "regression."
+
+Recall from our course text that supervised learning, or predictive
+modeling, involves two broad approaches: classification and regression.
+Classification algorithms model categorical outcomes (e.g., yes or no
+outcomes like with our at risk data) Regression algorithms characterize
+continuous outcomes (e.g., test scores).
+
+Run the following code to create our random forest model for our
+training data:
 
 ```{r}
 rf_mod <- 
@@ -757,12 +820,17 @@ rf_mod <-
 
 ```
 
+Now let's combine our model and recipe to create our new random forest
+workflow:
+
 ```{r}
 rf_workflow <- 
   workflow() %>% 
   add_model(rf_mod) %>% 
-  add_recipe(rf_recipe_2)
+  add_recipe(rf_recipe)
 ```
+
+And fit our model and recipe to our training data:
 
 ```{r}
 set.seed(586)
@@ -772,13 +840,18 @@ rf_fit <-
   fit(data = train_data)
 ```
 
+Gather our random forest predictions:
+
 ```{r}
-predict(rf_fit, test_data)
 
 rf_predictions <- augment(rf_fit, test_data)
 
 rf_predictions
+```
 
+And check our model's accuracy:
+
+```{r}
 rf_predictions %>%
   select(at_risk, .pred_class) %>%
   accuracy(truth = at_risk, .pred_class)
@@ -787,50 +860,38 @@ rf_predictions %>%
 conf_mat(at_risk, .pred_class)
 ```
 
+Overall, our random forest model is slightly better at predicting
+students who were defined as "at risk", and definitely better at
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Try creating your own recipe and logistic regression or random forest
+model and see how it performs against the three that I created.
+
+Use the code chunk below to record your final model:
+
 ```{r}
-rf_flow <- extract_workflow(rf_workflow)
+
 ```
 
 ## 5. COMMUNICATE
 
-The final(ish) step in our workflow/process is sharing the results of
-analysis with wider audience. Krumm et al. (2018) have outline the
-following 3-step process for communicating with education stakeholders
-what you have learned through analysis:
+In this case study, we focused applying some basic machine learning
+techniques to help us understand how a predictive model used in early
+warning systems might actually be developed and tested. Specifically, we
+will made a very crude first attempt at developing a model using machine
+learning techniques that were not terribly great at accurately predict
+whether a student is likely to pass or fail and online course. Below,
+add a few notes in response to the following prompts:
 
-1.  **Select**. Communicating what one has learned involves selecting
-    among those analyses that are most important and most useful to an
-    intended audience, as well as selecting a form for displaying that
-    information, such as a graph or table in static or interactive form,
-    i.e. a "data product."
+1.  One thing I took away from this learning lab that I found especially
+    useful:
 
-2.  **Polish**. After creating initial versions of data products,
-    research teams often spend time refining or polishing them, by
-    adding or editing titles, labels, and notations and by working with
-    colors and shapes to highlight key points.
+2.  One thing I want to learn more about:
 
-3.  **Narrate**. Writing a narrative to accompany the data products
-    involves, at a minimum, pairing a data product with its related
-    research question, describing how best to interpret the data
-    product, and explaining the ways in which the data product helps
-    answer the research question.
-
-For Unit 1 we will keep it simple. In the code chunk below, select a
-chart, table or model created above (or create an entirely new one based
-a new analysis) that you think an education stakeholder might find
-interesting. Beneath the code chunk, write a very brief narrative to
-accompany your narrative.
-
-### My First Data Product (Change Me)
-
-```{r}
-
-```
+To "turn in" your work, you can click the "Knit" icon at the top of the
+file, or click the dropdown arrow next to it and select "Knit top HTML".
+This will create a report in your Files pane that serves as a record of
+your completed assignment and its output you can open or share.
 
 ### Congratulations!
-
-You've completed the first case study! To "turn in" your work, you can
-click the "Knit" icon at the top of the file, or click the dropdown
-arrow next to it and select "Knit top HTML". This will create a report
-in your Files pane that serves as a record of your completed assignment
-and its output you can open or share.
