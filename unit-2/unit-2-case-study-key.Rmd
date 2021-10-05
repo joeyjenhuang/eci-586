@@ -60,6 +60,7 @@ the code chunk below to load these three packages:
 
 ```{r}
 library(tidymodels)
+library(ranger)
 library(tidyverse)
 library(skimr)
 library(here)
@@ -167,7 +168,7 @@ and demographics, etc.). Save as a new data frame named `course_data`.
 
 ```{r}
 course_data <- data_to_model %>%
-  select(student_id, proportion_earned, subject, semester, section, enrollment_reason, gender, int, val, percomp, q1:q10, time_spent)
+  select(student_id, proportion_earned, subject, semester, section, enrollment_reason, gender, int, val, percomp, q1:q10)
 
 course_data
 ```
@@ -218,6 +219,8 @@ missing), since most models does not accept cases with missing data:
 ```{r}
 course_data <- course_data %>%
   na.omit()
+
+course_data
 ```
 
 #### Convert Characters to Factors
@@ -252,7 +255,7 @@ incomplete cases.
 ```{r}
 course_data <- data_to_model %>%
   select(student_id, proportion_earned, subject, semester, section, 
-         enrollment_reason, gender, int, val, percomp, q1:q10, time_spent) %>%
+         enrollment_reason, gender, int, val, percomp, q1:q10) %>%
   mutate(at_risk = if_else(proportion_earned >= .667, "no", "yes")) %>%
   drop_na(proportion_earned) %>%
   select(-proportion_earned) %>%
@@ -266,9 +269,9 @@ Now inspect your data again and make sure it looks like expected:
 course_data
 ```
 
-**Hint:** You should see a total of 532 observations and 21 variables
+**Hint:** You should see a total of 533 observations and 20 variables
 including 1 outcome variable named `at_risk`, 1 student identifier named
-`student_id`, and 19 potential predictors.
+`student_id`, and 18 potential predictors.
 
 #### Count proportions
 
@@ -874,10 +877,8 @@ rf_predictions %>%
 conf_mat(at_risk, .pred_class)
 ```
 
-Overall, our random forest model is slightly better at predicting
-students who were defined as "at risk", and definitely better at
-predicting students who were truly "at risk" according to our
-definition.
+Unfortunately, our random forest model wasn't any better at predicting
+students who were defined as "at risk."
 
 Unfortunately, if this had been a real-world situation, only 7 of the 24
 students would have received additional support. Clearly we'd need to
@@ -888,9 +889,17 @@ might be helpful for including in our model.
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 Try creating your own recipe and logistic regression or random forest
-model and see how it performs against the three that I created.
+model and see how it performs against the three that I created. Feel
+free to experiment with variables available to educators after the
+course. There is also a file in your data folder called
+`sci-mo-with-text.csv` that includes data about students participation
+in discussion forum, including the number of posts and psychometric
+properties about their language used. You can read more about that data
+in [Chapter 14 of
+DSIEUR](https://datascienceineducation.com/c14.html#data-sources-3).
 
-Use the code chunk below to record your final model:
+I recommend creating and using an R script to develop your model. Use
+the code chunk below to record your final model:
 
 ```{r}
 
