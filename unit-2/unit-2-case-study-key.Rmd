@@ -889,14 +889,14 @@ might be helpful for including in our model.
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 Try creating your own recipe and logistic regression or random forest
-model and see how it performs against the three that I created. Feel
-free to experiment with variables available to educators after the
-course. There is also a file in your data folder called
-`sci-mo-with-text.csv` that includes data about students participation
-in discussion forum, including the number of posts and psychometric
-properties about their language used. You can read more about that data
-in [Chapter 14 of
-DSIEUR](https://datascienceineducation.com/c14.html#data-sources-3).
+model and see how it performs against the three that we just created.
+Feel free to experiment with variables available to educators after the
+course, such as time_spent. There is also a file in your data folder
+called `sci-mo-with-text.csv` that includes data about students
+participation in discussion forum, including the number of posts and
+psychometric properties about their language used. You can read more
+about that data in [Chapter 14 of
+DSIEUR](https://datascienceineducation.com/c14.html#data-sources-3). 
 
 I recommend creating and using an R script to develop your model. Use
 the code chunk below to record your final model:
