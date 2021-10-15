@@ -220,4 +220,10 @@ test_predictions %>%                   # test set predictions
 
 
 
+data_to_viz %>%
+  select(subject, gender, proportion_earned) %>%
+  na.omit() %>%
+  group_by(subject, gender) %>%
+  summarise(mean = mean(proportion_earned)) 
+
 
