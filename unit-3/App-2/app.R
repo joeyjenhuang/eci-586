@@ -17,14 +17,14 @@ sci_classes <- read_csv("data/data-to-explore.csv")
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Time Spent in Online STEM Courses"),
 
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
             sliderInput("bins",
                         "Number of bins:",
-                        min = 1,
+                        min = 0,
                         max = 50,
                         value = 30)
         ),
@@ -41,14 +41,20 @@ server <- function(input, output) {
 
     output$distPlot <- renderPlot({
         # generate bins based on input$bins from ui.R
-        x    <- sci_classes$time_spent_hours
+        x    <- sci_classes$time_spent_hours %>%
+            na.omit()
         
         bins <- seq(min(x), max(x), length.out = input$bins + 1)
 
         # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+        hist(x, breaks = bins, 
+             col = 'darkgray', 
+             border = 'white', 
+             main = "Histogram for Hours Spent in Online Courses", 
+             xlab = "Hours", 
+             ylab = "Number of Students")
     })
 }
 
 # Run the application 
-shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server, )
