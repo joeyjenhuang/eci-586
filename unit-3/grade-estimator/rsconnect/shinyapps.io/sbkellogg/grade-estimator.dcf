@@ -1,0 +1,13 @@
+name: grade-estimator
+title: grade-estimator
+username:
+account: sbkellogg
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4892323
+bundleId: 5148292
+url: https://sbkellogg.shinyapps.io/grade-estimator/
+when: 1634519484.46174
+lastSyncTime: 1634519484.46175
+asMultiple: FALSE
+asStatic: FALSE

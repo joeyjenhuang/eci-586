@@ -1,0 +1,13 @@
+name: time-grades
+title: time-grades
+username:
+account: sbkellogg
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4886063
+bundleId: 5148225
+url: https://sbkellogg.shinyapps.io/time-grades/
+when: 1634517354.86662
+lastSyncTime: 1634517354.86662
+asMultiple: FALSE
+asStatic: FALSE
