@@ -1,13 +1,15 @@
 ---
-title: 'Tidy Text, Tokens, and Twitter'
-subtitle: 'Text Mining Learning Lab 1'
-author: "YOUR NAME HERE"
+title: 'Public Sentiment and the State Standards'
+subtitle: 'Unit 3 Case Study'
+author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
     toc: true
     toc_depth: 5
     toc_float: yes
+    code_folding: show
+    code_download: TRUE
 bibliography: lit/references.bib
 csl: lit/apa.csl
 ---
@@ -18,41 +20,33 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. PREPARE
 
-The transition to digital learning has made available new sources of data, providing researchers new opportunities for understanding and improving STEM learning. Data sources such as digital learning environments and administrative data systems, as well as data produced by social media websites and the mass digitization of academic and practitioner publications, hold enormous potential to address a range of pressing problems in STEM Education, but collecting and analyzing text-based data also presents unique challenges.
+Data sources such as digital learning environments and administrative data systems, as well as data produced by social media websites and the mass digitization of academic and practitioner publications, hold enormous potential to address a range of pressing problems in education, but collecting and analyzing text-based data also presents unique challenges. This week, our case study is guided by my colleague Josh Rosenberg's recent article, **Advancing new methods for understanding public sentiment about educational reforms: The case of Twitter and the Next Generation Science Standards.**
 
-**Text Mining (TM) Module 1: Public Sentiment and the State Standards** will help demonstrate how text mining can be applied in STEM education research and provide LASER Institute scholars hands-on experience with popular techniques for collecting, processing, and analyzing text-based data. Specifically, the three learning labs that make up this module address the following topics:
+We will focus on conducting a very simplistic "replication study" by comparing the sentiment of tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand public reaction to these two curriculum reform efforts. I highly recommend you watch the quick 3-minute overview of this work at [<https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x>](https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x){.uri}. Specifically, our Unit 3 case study will cover the following topics:
 
--   **Learning Lab 1: Tidy Text, Tokens, & Twitter.** We take a closer look at the literature guiding our analysis; wrangle our data into a one-token-per-row tidy text format; and use simple word counts to explore our tweets about the common core and next generation science standards.
-
--   **Learning Lab 2: Come to the Dark Side.** We focus on the use of lexicons in our third lab and introduce the {vader} package to compare the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts. 
-
--   **Learning Lab 3: A Tale of Two Standards.** We wrap our look at public sentiment around STEM state curriculum standards by selecting an analysis that provides some unique insight; refining and polishing a data product; and writing a brief narrative to communicate findings in response to our research questions.
-
--   **Learning Lab 4: rTweet & the Twitter API (Optional).** This supplemental learning lab will get you up and running with the Twitter API in case you are interested in using data from Twitter in your own research. This lab can only be completed by those who created a Twitter Developer account.
+1.  **Prepare**: We'll take a quick look at Dr. Rosenberg's study, load packages we'll need for analysis, and learn how to use Twitter's API to retrieve data for those that created a Twitter Developer account.
+2.  **Wrangle**: We focus on basic text mining processes such as text tokenization and stop word removal. Specifically, we will learn how to "tidy text" so we can perform some basic analyses such as retrieving word counts and term frequencies.
+3.  **Explore**: In order to see what insight our data provides into answering our research questions, we will calculate some basic simple summary statistics from our tidied text and use data visualization to highlight some of these insights.
+4.  **Model:** We learn about sentiment lexicons in our third lab and introduce the {vader} package to model the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts. 
+5.  
 
 ### 1a. Review the Literature
 
-Text Mining Module 1 is guided by a recent publication by [@rosenberg2021] *Understanding Public Sentiment About Educational Reforms: The Next Generation Science Standards on Twitter*. This study in turn builds on upon previous work by @wang2017 examining public opinion on the Common Core State Standards (CCSS) on Twitter. For Module 1, we will focus on analyzing tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand key words and phrases that emerge, as well as public sentiment towards these two curriculum reform efforts.
+The **Unit 3 Case Study: Public Sentiment and the State Standards** is guided by a recent publication by [@rosenberg2021] *Understanding Public Sentiment About Educational Reforms: The Next Generation Science Standards on Twitter*. This study in turn builds on upon previous work by @wang2017 examining public opinion on the Common Core State Standards (CCSS) on Twitter. For Module 1, we will focus on analyzing tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand key words and phrases that emerge, as well as public sentiment towards these two curriculum reform efforts.
 
-#### Twitter and the Next Generation Science Standards
-
-[![](images/aera-open-screen-shot.png){width="60%"}](https://doi.org/10.1177/23328584211024261)
+[![](img/rosenberg.jpg){width="50%"}](https://doi.org/10.1177/23328584211024261)
 
 [Full Paper (AERA Open)](https://journals.sagepub.com/doi/full/10.1177/23328584211024261)
 
-##### Abstract
+#### Abstract
 
 System-wide educational reforms are difficult to implement in the United States, but despite the difficulties, reforms can be successful, particularly when they are associated with broad public support. This study reports on the nature of the public sentiment expressed about a nationwide science education reform effort, the Next Generation Science Standards (NGSS). Through the use of data science techniques to measure the sentiment of posts on Twitter about the NGSS (*N* = 565,283), we found that public sentiment about the NGSS is positive, with only 11 negative posts for every 100 positive posts. In contrast to findings from past research and public opinion polling on the Common Core State Standards, sentiment about the NGSS has become more positive over time---and was especially positive for teachers. We discuss what this positive sentiment may indicate about the success of the NGSS in light of opposition to the Common Core State Standards.
 
-##### Data Sources
+#### Data Sources
 
 Similar to what we'll be learning in this lab, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the `rtweet` package in R. Specifically, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
-Data used in this lab was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive.
-
-For those that created a standard developer account, the [rtweet & the Twitter API](https://laser-institute.github.io/text-mining/keys/tm-learning-lab-4-key.html) supplemental learning lab will show you how to pull your own data from Twitter.
-
-Data for this lab includes all tweets from 2020 that included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Below is an example of the code used to retrieve data for this lab. It is set not to run and will not run if you try, but it does illustrate the search query used, variables selected, and time frame.
+Data used in this case was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive. Data for this case study includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will not run**, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn how to use your developer account later in this section to retrieve data from Twitter.
 
 ```{r, eval=FALSE}
 library(academictwitteR)
@@ -80,13 +74,13 @@ ccss_tweets <- bind_tweet_jsons(data_path = "ccss-data/") %>%
 write_csv(ccss_tweets, here("data", "ccss-tweets.csv"))
 ```
 
-##### Analysis
+#### Analysis
 
-Also similar to what we'll demonstrate in Lab 3, the authors determined Tweet sentiment using the Java version of SentiStrength to assign tweets to two 5-point scales of sentiment, one for positivity and one for negativity, because SentiStrength is a validated measure for sentiment in short informal texts (Thelwall et al., 2011). In addition, they used this tool because Wang and Fikis (2019) used it to explore the sentiment of CCSS-related posts. We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results.
+Similar to what we'll be doing in our Model Section later in this case study, the authors determined Tweet sentiment using the Java version of SentiStrength to assign tweets to two 5-point scales of sentiment, one for positivity and one for negativity, because SentiStrength is a validated measure for sentiment in short informal texts (Thelwall et al., 2011). In addition, they used this tool because Wang and Fikis (2019) used it to explore the sentiment of CCSS-related posts. We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results.
 
-The authors also used the `lme4` package in R to run a mixed effects model to determine if sentiment changes over time and differs between teachers and non-teacher. We won't look at the relationships between tweet sentiment, time and teachers in these labs, but we will take a look at the correlation between words within tweets in TM Learning Lab 2.
+The authors also used the `lme4` package in R to run a mixed effects model to determine if sentiment changes over time and differs between teachers and non-teachers, which we won't try to replicate in this study.
 
-**Summary of Key Findings**
+#### **Summary of Key Findings**
 
 1.  Contrasting with sentiment about CSSS, sentiment about the NGSS science education reform effort is overwhelmingly positive, with approximately 9 positive tweets for every negative tweet.
 2.  Teachers were more positive than non-teachers, and sentiment became substantially more positive over the ten years of NGSS-related posts.
@@ -97,7 +91,7 @@ Finally, you can watch Dr. Rosenberg provide a quick 3-minute overview of this w
 
 ### 1b. Define Questions
 
-One overarching question that Silge and Robinson (2018) identify as a central question to text mining and natural language processing, and that we'll explore throughout the text mining labs this year, is the question:
+One overarching question that Silge and Robinson (2018) identify as a central question to text mining and natural language processing, and that we'll explore later in this case study, is the question:
 
 > How do we to **quantify** what a document or collection of documents is about?
 
@@ -109,28 +103,12 @@ The questions guiding the Rosenberg et al. study attempt to quantify public sent
 4.  How does participation in \#NGSSchat relate to the public sentiment individuals express?
 5.  How does public sentiment vary over time?
 
-For our first lab on text mining in STEM education, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to guage public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in the next four learning lab we'll attempt to answer the following questions:
+For our text mining case study, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to guage public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in this case study we'll attempt to answer the following questions:
 
 1.  What are the most frequent words or phrases used in reference to tweets about the CCSS and NGSS?
-2.  What words and hashtags commonly occur together?
-3.  How does sentiment for NGSS compare to sentiment for CCSS?
+2.  How does sentiment for NGSS compare to sentiment for CCSS?
 
 ### 1c. Load Libraries
-
-#### tidyverse 📦
-
-![](images/tidyverse.png){width="20%"}
-
-As noted in our Getting Started activity, R uses "packages" and add-ons that enhance its functionality. One package that we'll be using extensively is {tidyverse}. The {tidyverse} package is actually a [collection of R packages](https://www.tidyverse.org/packages) designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures. This shared features are sometimes "tidy data principles."
-
-Click the green arrow in the right corner of the "code chunk" that follows to load the {tidyverse} library as well as the {here} package introduced in previous labs.
-
-```{r}
-library(tidyverse)
-library(here)
-```
-
-Again, don't worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package unless you specify otherwise.
 
 #### tidytext 📦
 
@@ -146,6 +124,15 @@ library(tidytext)
 
 For a more comprehensive introduction to the `tidytext` package, we cannot recommend enough the free online book, *Text Mining with R: A Tidy Approach* [@silge2017text]. If you're interested in pursuing text analysis using R post Summer Workshop, this will be a go to reference.
 
+Click the green arrow in the right corner of the "code chunk" that follows to load the {tidyverse} library as well as the {here} package introduced in previous labs.
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+Again, don't worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package unless you specify otherwise.
+
 ## 2. WRANGLE
 
 The importance of data wrangling, particularly when working with text, is difficult to overstate. Just as a refresher, wrangling involves the initial steps of going from raw data to a dataset that can be explored and modeled [@krumm2018]. Learning Lab 2 will have a heavy emphasis on preparing text for analysis and in particular we'll learn how to:
@@ -159,7 +146,7 @@ c.  **Tidy Text.** We introduce the {tidytext} package to "tidy" and tokenize ou
 First, let's use the by now familiar `read_csv()` and `here()` functions to import our `ccss_tweets.csv` file saved in our data folder:
 
 ```{r}
-ccss_tweets <- read_csv(here("data", "ccss-tweets.csv"), 
+ccss_tweets <- read_csv(here("unit-3", "data", "ccss-tweets.csv"), 
           col_types = cols(author_id = col_character(), 
                            id = col_character(),
                            conversation_id = col_character(), 

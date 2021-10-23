@@ -1,13 +1,14 @@
 ---
-title: 'Tidy Text, Tokens, and Twitter'
-subtitle: 'Text Mining Learning Lab 1'
-author: "YOUR NAME HERE"
+title: 'Public Sentiment and the State Standards'
+subtitle: 'Unit 3 Case Study'
+author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
     toc: true
     toc_depth: 5
     toc_float: yes
+    code_folding: show
 bibliography: lit/references.bib
 csl: lit/apa.csl
 ---
@@ -160,7 +161,7 @@ c.  **Tidy Text.** We introduce the {tidytext} package to "tidy" and tokenize ou
 First, let's use the by now familiar `read_csv()` and `here()` functions to import our `ccss_tweets.csv` file saved in our data folder:
 
 ```{r}
-ccss_tweets <- read_csv(here("data", "ccss-tweets.csv"), 
+ccss_tweets <- read_csv(here("unit-3", "data", "ccss-tweets.csv"), 
           col_types = cols(author_id = col_character(), 
                            id = col_character(),
                            conversation_id = col_character(), 
@@ -190,7 +191,7 @@ Try using the "Import Dataset" feature in the upper right environment pane to im
 The code generated should look something like this:
 
 ```{r}
-ngss_tweets <- read_csv(here("data", "ngss-tweets.csv"), 
+ngss_tweets <- read_csv(here("unit-3", "data", "ngss-tweets.csv"), 
           col_types = cols(author_id = col_character(), 
                            id = col_character(),
                            conversation_id = col_character(), 
