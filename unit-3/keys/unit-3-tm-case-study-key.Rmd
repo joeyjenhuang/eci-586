@@ -122,20 +122,35 @@ Let's go ahead and load the {tidytext} package:
 library(tidytext)
 ```
 
-For a more comprehensive introduction to the `tidytext` package, we cannot recommend enough the free online book, *Text Mining with R: A Tidy Approach* [@silge2017text]. If you're interested in pursuing text analysis using R post Summer Workshop, this will be a go to reference.
+For a more comprehensive introduction to the `tidytext` package, I cannot recommend enough the free and excellent online book, *Text Mining with R: A Tidy Approach* [@silge2017text]. If you're interested in pursuing text analysis using R post Summer Workshop, this will be a go to reference.
 
-Click the green arrow in the right corner of the "code chunk" that follows to load the {tidyverse} library as well as the {here} package introduced in previous labs.
+#### The vader Package 📦
+
+![](img/vader.jpeg){width="20%"}\
+
+The {vader} package is for the Valence Aware Dictionary for sEntiment Reasoning (VADER), a rule-based model for general sentiment analysis of social media text and specifically attuned to measuring sentiment in microblog-like contexts.
+
+To learn more about the {vader} package and its development, take a look at the article by Hutto and Gilbert (2014), [VADER: A Parsimonious Rule-based Model forSentiment Analysis of Social Media Text](http://comp.social.gatech.edu/papers/icwsm14.vader.hutto.pdf).
+
+Let's go ahead and load the VADER library:
+
+```{r}
+library(vader)
+```
+
+**Note:** The {vader} package can take quite some time to run on a large datasets like the one we'll be working with, so in our Model section we will examine just a small(ish) subset of tweets.
+
+Finally, there are a few other packages we'll need to get started. The first two should look familiar while third {wordcloud2} package is handy little package for creating interactive word clouds.
 
 ```{r}
 library(tidyverse)
 library(here)
+library(wordcloud2)
 ```
-
-Again, don't worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package unless you specify otherwise.
 
 ## 2. WRANGLE
 
-The importance of data wrangling, particularly when working with text, is difficult to overstate. Just as a refresher, wrangling involves the initial steps of going from raw data to a dataset that can be explored and modeled [@krumm2018]. Learning Lab 2 will have a heavy emphasis on preparing text for analysis and in particular we'll learn how to:
+The importance of data wrangling, particularly when working with text, is difficult to overstate. Just as a refresher, wrangling involves the initial steps of going from raw data to a dataset that can be explored and modeled [@krumm2018]. This case study will place a heavy emphasis on preparing text for analysis and in particular we'll learn how to:
 
 a.  **Import Data**. First we revisit the familiar `read_csv()` function for reading in our CCSS and NGSS tweets
 b.  **Restructure Data**. We focus on removing extraneous data using the `select()` and `filter()` functions from {dplyr}, and introduce two new functions for merging the data frames that we imported.
