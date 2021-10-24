@@ -27,8 +27,8 @@ We will focus on conducting a very simplistic "replication study" by comparing t
 1.  **Prepare**: We'll take a quick look at Dr. Rosenberg's study, load packages we'll need for analysis, and learn how to use Twitter's API to retrieve data for those that created a Twitter Developer account.
 2.  **Wrangle**: We focus on basic text mining processes such as text tokenization and stop word removal. Specifically, we will learn how to "tidy text" so we can perform some basic analyses such as retrieving word counts and term frequencies.
 3.  **Explore**: In order to see what insight our data provides into answering our research questions, we will calculate some basic simple summary statistics from our tidied text and use data visualization to highlight some of these insights.
-4.  **Model:** We learn about sentiment lexicons in our third lab and introduce the {vader} package to model the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts. 
-5.  
+4.  **Model:** We learn about sentiment lexicons in our third lab and introduce the {vader} package to model the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts.\
+    **Communicate:**
 
 ### 1a. Review the Literature
 
@@ -44,9 +44,9 @@ System-wide educational reforms are difficult to implement in the United States,
 
 #### Data Sources
 
-Similar to what we'll be learning in this lab, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the `rtweet` package in R. Specifically, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
+Similar to data we'll be using for this case study, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the {rtweet} package in R. Specifically, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
-Data used in this case was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive. Data for this case study includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will not run**, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn how to use your developer account later in this section to retrieve data from Twitter.
+Data used in this case was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the standard developer account. Data includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will not run**, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn how to use your developer account later in this section to retrieve data from Twitter.
 
 ```{r, eval=FALSE}
 library(academictwitteR)
@@ -76,9 +76,9 @@ write_csv(ccss_tweets, here("data", "ccss-tweets.csv"))
 
 #### Analysis
 
-Similar to what we'll be doing in our Model Section later in this case study, the authors determined Tweet sentiment using the Java version of SentiStrength to assign tweets to two 5-point scales of sentiment, one for positivity and one for negativity, because SentiStrength is a validated measure for sentiment in short informal texts (Thelwall et al., 2011). In addition, they used this tool because Wang and Fikis (2019) used it to explore the sentiment of CCSS-related posts. We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results.
+The authors determined Tweet sentiment using the Java version of SentiStrength to assign tweets to two 5-point scales of sentiment, one for positivity and one for negativity, because SentiStrength is a validated measure for sentiment in short informal texts (Thelwall et al., 2011). In addition, they used this tool because Wang and Fikis (2019) used it to explore the sentiment of CCSS-related posts. We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results. We will use a similar approach to label tweets as positive, negative, or neutral using the {Vader} package which greatly simplifies this process.
 
-The authors also used the `lme4` package in R to run a mixed effects model to determine if sentiment changes over time and differs between teachers and non-teachers, which we won't try to replicate in this study.
+The authors also used the `lme4` package in R to run a mixed effects model to determine if sentiment changes over time and differs between teachers and non-teachers. We won't try to replicate in this study, but we will take a look at some of their findings from this model in below.
 
 #### **Summary of Key Findings**
 
@@ -140,6 +140,26 @@ library(vader)
 
 **Note:** The {vader} package can take quite some time to run on a large datasets like the one we'll be working with, so in our Model section we will examine just a small(ish) subset of tweets.
 
+#### **rtweet 📦 (Optional)**
+
+![](img/rtweet.jpeg){width="20%"}
+
+The {rtweet} package provides users a range of functions designed to extract data from Twitter's REST and streaming APIs and has three main goals:
+
+1.  Formulate and send requests to Twitter's REST and stream APIs.
+
+2.  Retrieve and iterate over returned data.
+
+3.  Wrangling data into tidy structures.
+
+For those that created a Twitter Developer account, load the {rtweet} package that we'll be using to accomplish all three of the goals listed above:
+
+```{r}
+library(rtweet)
+```
+
+#### Other Packages
+
 Finally, there are a few other packages we'll need to get started. The first two should look familiar while third {wordcloud2} package is handy little package for creating interactive word clouds.
 
 ```{r}
@@ -152,11 +172,11 @@ library(wordcloud2)
 
 The importance of data wrangling, particularly when working with text, is difficult to overstate. Just as a refresher, wrangling involves the initial steps of going from raw data to a dataset that can be explored and modeled [@krumm2018]. This case study will place a heavy emphasis on preparing text for analysis and in particular we'll learn how to:
 
-a.  **Import Data**. First we revisit the familiar `read_csv()` function for reading in our CCSS and NGSS tweets
-b.  **Restructure Data**. We focus on removing extraneous data using the `select()` and `filter()` functions from {dplyr}, and introduce two new functions for merging the data frames that we imported.
-c.  **Tidy Text.** We introduce the {tidytext} package to "tidy" and tokenize our tweets in order to create our data frame for analysis revisit the concept of joins to remove "stop words" that don't add much value to our analysis.
+a.  **Import Tweets**. First we revisit the familiar `read_csv()` function for reading in our CCSS and NGSS tweets into R. For those of you who created a Twitter Developer Account, we'll also demonstrate the use of the {rtweet} package for downloading data directly from Twitter.
+b.  **Restructure Data**. We focus on removing extraneous data using the `select()` and `filter()` functions from {dplyr}, and revisit functions from the [Tidy Your Data Primer](https://rstudio.cloud/learn/primers/4.3) for merging data frames.
+c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and tokenize our tweets in order to create our data frame for analysis. We also introduce a new join function to remove "stop words" that don't add much value to our analysis.
 
-### 2a. Import and View Data
+### 2a. Part 1: Import Tweets from CSV
 
 First, let's use the by now familiar `read_csv()` and `here()` functions to import our `ccss_tweets.csv` file saved in our data folder:
 
@@ -182,16 +202,10 @@ Note the addition of the `col_types =` argument for changing some of the column 
 
 #### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
 
-**RStudio Tip:** Importing data and dealing with data types can be a bit tricky, especially for beginners. Fortunately, RStudio has an "Import Dataset" feature in the Environment Pane that can help you use the {readr} package and associated functions to greatly facilitate this process.
-
-![](images/import-data.png){width="80%"}
-
-Try using the "Import Dataset" feature in the upper right environment pane to import the NGSS tweets located in the data folder.
-
-The code generated should look something like this:
+Use the following code chunk to import the NGSS tweets located in the same data folder as our common core tweets. By default, R will treat numerical IDs in our dataset as numeric values but we will need to convert these to characters for the purposes of analysis since these unique identifiers:
 
 ```{r}
-ngss_tweets <- read_csv(here("data", "ngss-tweets.csv"), 
+ngss_tweets <- read_csv(here("unit-3", "data", "ngss-tweets.csv"), 
           col_types = cols(author_id = col_character(), 
                            id = col_character(),
                            conversation_id = col_character(), 
@@ -200,11 +214,184 @@ ngss_tweets <- read_csv(here("data", "ngss-tweets.csv"),
           )
 ```
 
-Use the following code chunk to inspect your tweets using a function you've learned so for for viewing your data:
+**RStudio Tip:** Importing data and dealing with data types can be a bit tricky, especially for beginners. Fortunately, RStudio has an "Import Dataset" feature in the Environment Pane that can help you use the {readr} package and associated functions to greatly facilitate this process. If you get stuck, you can copy the code generated from
+
+![](images/import-data.png){width="80%"}
+
+Now use the following code chunk to inspect your data and answer the questions that follow:
 
 ```{r}
-glimpse(ngss_tweets)
+ngss_tweets
+ccss_tweets
 ```
+
+1.  What do you notice about our data sets? Record a few observations that you think are relevant to our analysis or might be useful for future analyses.
+
+    -   
+
+2.  Based on a quick scan of the `text` column we'll be analyzing, what do these tweets seem to be about and which set of tweets do you think will expresses a more negative sentiment?
+
+    -   
+
+3.  What questions do you have about these data sets? What are you still curious about?
+
+    -   
+
+### 2a. Part 2: Import Tweets from API (Optional)
+
+This section is optional and for those those [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
+
+-   [`search_tweets()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Pulls up to 18,000 tweets from the last 6-9 days matching provided search terms. 
+-   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns data from **multiple** search queries. 
+-   [`get_timelines()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns up to 3,200 tweets of one or more specified Twitter users.
+
+#### Authorization methods
+
+Users can create their personal Twitter token in two different ways. Each method is outlined below.
+
+-   Navigate to [developer.twitter.com/en/apps](https://developer.twitter.com/en/apps) and select your Twitter app
+-   Click the tab labeled `Keys and tokens` to retrieve your keys.
+-   Locate the `Consumer API keys` (aka "API Secret").
+
+![](img/create-app-6.png)
+
+-   Scroll down to `Access token & access token secret` and click `Create`
+-   
+
+<img src="files/create-app-7.png" alt="create-app-7"/>
+
+</p>
+
+-   Copy and paste the four keys (along with the name of your app) into an R script file and pass them along to `create_token()`. Note, these keys are named secret for a reason. I recommend setting up your token in a separate R script than the one that you will eventually share.
+
+```{r, eval=FALSE}
+## store api keys (these are fake example values; replace with your own keys)
+app_name <- "Text Mining in Education"
+api_key <- "afYS4vbIlPAj096E60c4W1fiK"
+api_secret_key <- "bI91kqnqFoNCrZFbsjAWHD4gJ91LQAhdCJXCj3yscfuULtNkuu"
+access_token <- "9551451262-wK2EmA942kxZYIwa5LMKZoQA4Xc2uyIiEwu2YXL"
+access_token_secret <- "9vpiSGKg1fIPQtxc5d5ESiFlZQpfbknEN1f1m2xe5byw7"
+
+## authenticate via web browser
+token <- create_token(
+  app = app_name,
+  consumer_key = api_key,
+  consumer_secret = api_secret_key,
+  access_token = access_token,
+  access_secret = access_token_secret)
+```
+
+#### Authorization in future R sessions
+
+-   The `create_token()` function should automatically save your token as an environment variable for you. So next time you start an R session [on the same machine], rtweet should automatically find your token.
+-   To make sure it works, restart your R session, run the following code, and again check to make sure the app name and `api_key` match.
+
+```{r}
+## check to see if the token is loaded
+get_token()
+```
+
+That's it!
+
+#### Search Tweets
+
+Since one of our goals for this walkthrough is a very crude replication of the study by Rosenberg et al. (2021), let's begin by introducing the `search_tweets()` function to try reading into R 5,000 tweets containing the NGSS hashtag and store as a new data frame `ngss_all_tweets`.
+
+Type or copy the following code into your R script or console and run:
+
+`{r} ngss_all_tweets <- search_tweets(q = "#NGSSchat", n=5000)}`
+
+Note that the first argument `q =` that the `search_tweets()` function expects is the search term included in quotation marks and that `n =` specifies the maximum number of tweets
+
+#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+
+View your new `ngss_all_tweets`data frame using one of the previous view methods from Unit 1 Section 2a to help answer the following questions:
+
+1.  How many tweets did our query using the Twitter API actually return? How many variables?
+2.  Why do you think our query pulled in far less than 5,000 tweets requested?
+3.  Does our query also include retweets? How do you know?
+
+#### Remove Retweets
+
+While not explicitly mentioned in the paper, it's likely the authors removed retweets in their query since a retweet is simply someone else reposting someone else's tweet and would duplicate the exact same content of the original.
+
+Let's use the `include_rts =` argument to remove any retweets by setting it to `FALSE`:
+
+`{r} ngss_non_retweets <- search_tweets("#NGSSchat", n=5000, include_rts = FALSE)}`
+
+#### Using the OR Operator
+
+If you recall from [Section 1a], the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
+
+Let's modify our query using the `OR` operator to also include "ngss" so it will return tweets containing either \#NGSSchat or "ngss" and assign to `ngss_or_tweets`:
+
+`{r} ngss_or_tweets <- search_tweets(q = "#NGSSchat OR ngss", n=5000, include_rts = FALSE)}`
+
+#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+
+Try including both search terms but excluding the `OR` operator to answer the following question:
+
+1.  Does excluding the `OR` operator return more tweets, the same number of tweets, or fewer tweets? Why?
+2.  What other useful arguments does the `search_tweet()` function contain? Try adding one and see what happens.
+
+Hint: Use the `?search_tweets` help function to learn more about the `q` argument and other arguments for composing search queries.
+
+#### Use Multiple Queries
+
+Unfortunately, the `OR` operator will only get us so far. In order to include the additional search terms, we will need to use the `c()` function to combine our search terms into a single list.
+
+The `rtweets` package has an additional `search_tweets2()` function for using multiple queries in a search. To do this, either wrap single quotes around a search query using double quotes, e.g., `q = '"next gen science standard"'` or escape each internal double quote with a single backslash, e.g., `q = "\"next gen science standard\""`.
+
+Copy and past the following code to store the results of our query in `ngss_tweets`:
+
+`{r} ngss_tweets <- search_tweets2(c("#NGSSchat OR ngss", '"next generation science standard"', '"next generation science standards"', '"next gen science standard"', '"next gen science standards"' ), n=5000, include_rts = FALSE)}`
+
+#### Our First Dictionary
+
+Recall that for our research question we wanted to compare public sentiment about both the NGSS and CCSS state standards. Let's go ahead and create our very first "dictionary" for identifying tweets related to either set of standards, and then use that dictionary for our the `q =` query argument to pull tweets related to the state standards.
+
+To do so, we'll need to add some additional search terms to our list:
+
+`{r} ngss_dictionary <- c("#NGSSchat OR ngss", '"next generation science standard"', '"next generation science standards"', '"next gen science standard"', '"next gen science standards"') ngss_tweets <- search_tweets2(ngss_dictionary, n=5000, include_rts = FALSE)}`
+
+Now let's create a dictionary for the Common Core State Standards and pass that to our `search_tweets()` function to get the most recent tweets:
+
+`{r} ccss_dictionary <- c("#commoncore", '"common core"') ccss_tweets <- ccss_dictionary %>% search_tweets2(n=5000, include_rts = FALSE)}`
+
+Notice that you can use the pipe operator with the `search_tweets()` function just like you would other functions from the tidyverse.
+
+#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+
+1.  Use the `search_tweets` function to create you own custom query for a twitter hashtag or topic(s) of interest.
+
+#### Other Useful Queries
+
+For your independent analysis, you may be interest in exploring posts by specific users rather than topics, key words, or hashtags. Yes, there is a function for that too!
+
+For example, let's create another list containing the usernames of me and some of my colleagues at the Friday Institute using the `c()` function again and use the `get_timelines()` function to get the most recent tweets from each of those users:
+
+`{r} fi <- c("sbkellogg", "mjsamberg", "haspires", "tarheel93", "drcallie_tweets", "AlexDreier") fi_tweets <- fi %>% get_timelines(include_rts=FALSE)}`
+
+And let's use the `sample_n()` function from the `dplyr` package to pick 10 random tweets and use `select()` to select and view just the `screenname` and `text` columns that contains the user and the content of their post:
+
+`{r} sample_n(fi_tweets, 10) %>% select(screen_name, text)}`
+
+We've only scratched the surface of the number of functions available in the `rtweets` package for searching Twitter. Use the following function to
+
+```{r, eval=F} vignette("intro", package="rtweet")}
+```
+
+#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+
+To conclude Section 2a, try one of the following search functions from the `rtweet` vignette:
+
+1.  `get_timelines()` Get the most recent 3,200 tweets from users.
+2.  `stream_tweets()` Randomly sample (approximately 1%) from the live stream of all tweets.
+3.  `get_friends()` Retrieve a list of all the accounts a user follows.
+4.  `get_followers()` Retrieve a list of the accounts following a user.
+5.  `get_favorites()` Get the most recently favorited statuses by a user.
+6.  `get_trends()` Discover what's currently trending in a city.
+7.  `search_users()` Search for 1,000 users with the specific hashtag in their profile bios.
 
 ### 2b. Restructure Data
 
@@ -212,7 +399,7 @@ glimpse(ngss_tweets)
 
 As you may have noticed, we have more data than we need for our analysis and should probably pare it down to just what we'll use.
 
-Let's start with the First, since this is a family friendly learning lab, let's use the `filter()` function introduced in previous labs to filter out rows containing "possibly sensitive" language:
+Let's start with the CCSS tweets first. And since this is a family friendly case study, let's use the `filter()` function introduced in previous labs to filter out rows containing "possibly sensitive" language:
 
 ```{r, eval=TRUE}
 ccss_tweets_1 <- ccss_tweets %>% 
