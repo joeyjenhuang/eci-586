@@ -193,11 +193,11 @@ Users can create their personal Twitter token in two different ways. THe recomme
 -   Click the tab labeled `Keys and tokens` to retrieve your keys.
 -   Locate the `Consumer API keys` (aka "API Secret").
 
-![](img/create-app-6.png)
+![](img/create-app-6.png){width="100%"}
 
 -   Scroll down to `Access token & access token secret` and click `Create`
 
-![](images/create-app-7.png){width="80%"}
+![](images/create-app-7.png){width="100%"}
 
 -   Copy and paste the four keys (along with the name of your app) into an R script file and pass them along to `create_token()`. Note, these keys are named secret for a reason. I recommend setting up your token in a separate R script than the one that you will eventually share.
 
@@ -361,15 +361,22 @@ For your independent analysis, you may be interest in exploring posts by specifi
 
 For example, let's create another list containing the usernames of me and some of my colleagues at the Friday Institute using the `c()` function again and use the `get_timelines()` function to get the most recent tweets from each of those users:
 
-`{r} fi <- c("sbkellogg", "mjsamberg", "haspires", "tarheel93", "drcallie_tweets", "AlexDreier") fi_tweets <- fi %>% get_timelines(include_rts=FALSE)}`
+```{r}
+fi <- c("sbkellogg", "TooSweetGeek", "haspires", "tarheel93", "drcallie_tweets", "AlexDreier") 
+
+fi_tweets <- fi %>% get_timelines(include_rts=FALSE)
+```
 
 And let's use the `sample_n()` function from the `dplyr` package to pick 10 random tweets and use `select()` to select and view just the `screenname` and `text` columns that contains the user and the content of their post:
 
-`{r} sample_n(fi_tweets, 10) %>% select(screen_name, text)}`
+```{r}
+sample_n(fi_tweets, 10) %>% select(screen_name, text)
+```
 
-We've only scratched the surface of the number of functions available in the `rtweets` package for searching Twitter. Use the following function to
+We've only scratched the surface of the number of functions available in the `rtweets` package for searching Twitter. Use the following function to learn more about the {retwee} package:
 
-```{r, eval=F} vignette("intro", package="rtweet")}
+```{r, eval=F}
+vignette("intro", package="rtweet")
 ```
 
 #### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
@@ -823,23 +830,29 @@ Not surprisingly, our search terms appear in the top 50 but the word "math" also
 
 Word clouds are much maligned and sometimes referred to as the "pie charts of text analysis", but they can be useful for communicating simple summaries of qualitative data for education practitioners and are intuitive for them to interpret. Also, for better or worse, these are now included as a default visualization for open-ended survey items in online Qualtrics reports and you can even add your own stop words.
 
-The {wordclouds2} package is pretty dead simple tool for generating HTML based word clouds. By default, when you pass a data frame to the `wordcloud2()` function, it will look for a word column and a column with frequencies or counts, i.e., our column `n` that we created with the `count()` function.
+The {wordclouds2} package is pretty dead simple tool for generating HTML based interactive word clouds. By default, when you pass a data frame to the `wordcloud2()` function, it will look for a word column and a column with frequencies or counts, i.e., our column `n` that we created with the `count()` function.
 
-Let's load the {wordclouds2} library, and run the `wordcloud2()` function on our `ccss_top_tokens` data frame.
+Let's run the `wordcloud2()` function on our `ccss_top_tokens` data frame.
 
 ```{r}
-library(wordcloud2)
 
 wordcloud2(ccss_top_tokens)
 ```
 
 As you can see, "math" is a pretty common topic when discussing the common core on twitter but words like "core" and "common" -- which you can see better if you click the "show in a new window" button or run the code in you console -- are not very helpful since those were in our search terms when pulling data from Twitter.
 
-In fact, search terms like these
+In fact, search terms like these we might want to exclude from a final data product we share with with education partners or in a publication and instead include these these in a title or caption.
+
+```{r}
+
+ccss_top_tokens %>%
+  filter(word != "common" & word != "core") %>%
+  wordcloud2()
+```
 
 #### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
 
-In the code chunk below, filter, count and select the top 50 tokens to create a word cloud for the NGSS tweets. A gold star if you can can do it without using the assignment operator!
+In the code chunk below, filter, count and select the top 50 tokens to create a word cloud for the NGSS tweets. A gold star if you can can do it without using the assignment operator or looking at the code above!
 
 ```{r}
 ss_tidy_tweets %>%
@@ -849,17 +862,170 @@ ss_tidy_tweets %>%
   wordcloud2()
 ```
 
-Also, take a look at the help file for `wordclouds2` to see if there might be otherwise you could visually improve this visualization.
+Also, take a look at the help file for `wordclouds2` to see if there might be other ways you could improve the aesthetics of this visualization.
 
 ## 4. MODEL
 
-As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html) , the Model step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." The authors note that while descriptive statistics and data visualization during the Explore step can help us to identify patterns and relationships in our data, statistical models can be used to help us determine if relationships, patterns and trends are actually meaningful.
+Now that we have our tweets nice and tidy, we're almost ready to begin exploring public sentiment (at least for the past week due to Twitter API rate limits) around the CCSS and NGSS standards. For this part of our workflow we introduce two new functions from the [`tidytext`](https://github.com/juliasilge/tidytext) and `dplyr` packages respectively:
 
-In TM Learning Lab 3, we'll take a closer look at the study by @rosenberg2020 and how they used modeling to compare differences in sentiment between teachers and non-teachers discussing the common core.
+#### How do you "measure" sentiment?
+
+Sentiment analysis tries to evaluate words for their emotional association. In [Text Mining with R: A Tidy Approach](https://www.tidytextmining.com/sentiment.html), Silge aand Robinson point out that,
+
+> One way to analyze the sentiment of a text is to consider the text as a combination of its individual words and the sentiment content of the whole text as the sum of the sentiment content of the individual words.
+
+This isn't the only way to approach sentiment analysis, but it is an easier entry point into sentiment analysis and you'll find that is it often-used in publications that utilize sentiment analysis.
+
+The {tidytext} package provides access to several sentiment **lexicons,** [sometimes referred to as dictionaries](https://cbail.github.io/textasdata/dictionary-methods/rmarkdown/Dictionary-Based_Text_Analysis.html), based on unigrams, i.e., single words. These lexicons contain many English words and the words are assigned scores for positive/negative sentiment, and also possibly emotions like joy, anger, sadness, and so forth.
+
+The three general-purpose lexicons we'll focus on are:
+
+-   `AFINN` assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.
+
+-   `bing` categorizes words in a binary fashion into positive and negative categories.
+
+-   `nrc` categorizes words in a binary fashion ("yes"/"no") into categories of positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust.
+
+Note that **if this is your first time using the AFINN and NRC lexicons, you may prompted to download both** Respond yes to the prompt by entering "1" and the NRC and AFINN lexicons will download. You'll only have to do this the first time you use the NRC lexicon.
+
+Let's take a quick look at each of these lexicons using the `get_sentiments()` function and assign them to their respective names for later use:
+
+```{r}
+afinn <- get_sentiments("afinn")
+
+afinn
+```
+
+```{r}
+bing <- get_sentiments("bing")
+
+bing
+```
+
+```{r}
+nrc <- get_sentiments("nrc")
+
+nrc
+```
+
+And just out of curiosity, let's take a look at the `loughran` lexicon as well:
+
+```{r}
+loughran <- get_sentiments("loughran")
+
+loughran
+```
+
+##### ✅ Comprehension Check
+
+1.  How were these sentiment lexicons put together and validated? Hint: take a look at Chapter 2 from Text Mining with R.
+
+    -   
+
+2.  Why should we be cautious when using and interpreting them?
+
+    -   
+
+#### Come to the Dark Side
+
+![](img/dark-side.jpeg){width="80%"}
+
+As noted in the PERPARE section, the {vader} package is for the Valence Aware Dictionary for sEntiment Reasoning (VADER), a rule-based model for general sentiment analysis of social media text and specifically attuned to measuring sentiment in microblog-like contexts such as Twitter.
+
+The VADER assigns a number of different sentiment measures based on the context of the entire social-media post or in our case a tweet. Ultimately, however, these measures are based on a sentiment lexicon similar to those you just saw above. One benefit of using VADER rather than the approaches described by Silge and Robinson is that we use it with our tweets in their original format and skip the text preprocessing steps demonstrated above.
+
+One drawback to VADER is that it can take a little while to run since it's computationally intensive. Instead of analyzing tens of thousands of tweets, let's read in our original `ccss-tweets.csv` and take instead just a sample of 500 "untidu" CCSS tweets using the `sample_n()` function:
+
+```{r}
+ccss_sample <- read_csv(here("unit-3", "data", "ccss-tweets.csv")) %>%
+  sample_n(500)
+
+ccss_sample
+```
+
+Note above that we passed our `read_csv()` output directly to our `sample()` function rather than saving a new data frame object, passing that to `sample_n()`, and saving as another data frame object. The power of the `%>%` pipe!
+
+On to the Dark Side. The {vader} package basically has just one function, `vader_df()` that does one thing and expects just one column from one frame. He's very single minded! Let's give VADER our `ccss_sample` data frame and include the `$` operator to include only the `text` column containing our tweets.
+
+```{r}
+vader_ccss <- vader_df(ccss_sample$text)
+
+vader_ccss
+```
+
+Take a look at `vader_summary` data frame using the `View()` function in the console and sort by most positive and negative tweets.
+
+Does it generally seem accurately identify positive and negative tweets? Could you find any that you think were mislabeled?
+
+-   YOUR RESPONSE HERE
+
+Hutto, C. & Gilbert, E. (2014) provide an excellent summary of the VADER package on their [GitHub repository](scores) and I've copied and explanation of the scores below:
+
+-   The `compound` score is computed by summing the valence scores of each word in the lexicon, adjusted according to the rules, and then normalized to be between -1 (most extreme negative) and +1 (most extreme positive). This is the most useful metric if you want a single unidimensional measure of sentiment for a given sentence. Calling it a 'normalized, weighted composite score' is accurate.
+
+**NOTE:** The `compound` score is the one most commonly used for sentiment analysis by most researchers, including the authors.
+
+Let's take a look at the average compound score for our CCSS sample of tweets:
+
+```{r}
+mean(vader_ccss$compound)
+```
+
+Overall, does your CCSS tweets sample lean slightly negative or positive? Is this what you expected?
+
+What if we wanted to compare these results more easily to our other sentiment lexicons just to check if result are fairly consistent?
+
+The author's note that it is also useful for researchers who would like to set standardized thresholds for classifying sentences as either positive, neutral, or negative. Typical threshold values are:
+
+-   **positive sentiment**: `compound` score \>= 0.05
+
+-   **neutral sentiment**: (`compound` score \> -0.05) and (`compound` score \< 0.05)
+
+-   **negative sentiment**: `compound` score \<= -0.05
+
+Let's give that a try and see how things shake out:
+
+```{r}
+vader_ccss_summary <- vader_ccss %>% 
+  mutate(sentiment = ifelse(compound >= 0.05, "positive",
+                            ifelse(compound <= -0.05, "negative", "neutral"))) %>%
+  count(sentiment, sort = TRUE) %>% 
+  spread(sentiment, n) %>% 
+  relocate(positive) %>%
+  mutate(ratio = negative/positive)
+
+vader_ccss_summary
+```
+
+Not quite as bleak as we might have expected according to VADER! But then again, VADER brings an entirely different perspective coming from the dark side
+
+In a separate R script file, try using VADER to perform a sentiment analysis of the NGSS tweets and see how they compare. Post your working code in the chunk below.
+
+```{r}
+ngss_sample <- read_csv(here("unit-3", "data", "ngss-tweets.csv")) %>%
+  sample_n(500)
+
+vader_ngss <- vader_df(ngss_sample$text)
+
+vader_ngss_summary <- vader_ngss %>% 
+  mutate(sentiment = ifelse(compound >= 0.05, "positive",
+                            ifelse(compound <= -0.05, 
+                                   "negative", "neutral"))) %>%
+  count(sentiment, sort = TRUE) %>% 
+  spread(sentiment, n) %>% 
+  relocate(positive) %>%
+  mutate(ratio = negative/positive)
+
+vader_ngss_summary
+```
+
+How do our results compare to the CSSS sample of tweets?
+
+-   
 
 ## 5. COMMUNICATE
 
-In this learning lab, we focused on the literature guiding our analysis; wrangling our data into a one-token-per-row tidy text format; and using simple word counts and frequencies to compare common words used in tweets about the NGSS and CCSS curriculum standards. Below, add a few notes in response to the following prompts:
+In this case study, we focused on the literature guiding our analysis; wrangling our data into a one-token-per-row tidy text format; and using simple word counts and word clouds to compare common words used in tweets about the NGSS and CCSS curriculum standards. Below, add a few notes in response to the following prompts:
 
 1.  One thing I took away from this learning lab:
 
@@ -869,7 +1035,7 @@ In this learning lab, we focused on the literature guiding our analysis; wrangli
 
     -   
 
-Congratulations - you've completed the first text mining learning lab! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
+Congratulations - you've completed your first text mining case study! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
 
 If you wanted, you could save the processed data set to your data folder. The `write_csv()` function is useful for this. The following code is set to not run, as we wanted to ensure that everyone had the data set needed to begin the second learning lab, but if you're confident in your prepared data, you can save it with the following:
 
@@ -877,11 +1043,15 @@ If you wanted, you could save the processed data set to your data folder. The `w
 write_csv()
 ```
 
-## R-each (Optional)
+## Extra Credit (Optional)
 
-If you're using data that you brought to the institute or data that you pulled from Twitter, try tidying your data into a tidy text format and examining the top words in your dataset.
+Using your own text data or data that you you pulled from Twitter above, try tidying your data into a tidy text format, examining the top words in your dataset, and conducting sentiment analysis with VADER.
 
-If you'd like to use the data we've been working with for your reach, let's take a quick look at **bigrams**, or tokens consisting of two words.
+```{r}
+
+```
+
+If you'd like to use the data we've been working with for extra credit, let's take a quick look at text analysis using **bigrams**, or tokens consisting of two words.
 
 ### Bigrams
 
