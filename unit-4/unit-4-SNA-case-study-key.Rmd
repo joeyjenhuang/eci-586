@@ -27,15 +27,17 @@ who examined the intense debate surrounding the Common Core State
 Standards education reform as it played out on Twitter. As noted on
 their expansive and interactive website for the [\#COMMONCORE
 Project](https://www.hashtagcommoncore.com), the Common Core was a major
-education policy initiatives of the early 21st century that sought to
-strengthen education systems across the United States through a set of
-specific and challenging education standards. Although these standards
-once enjoyed bipartisan support, we'll see later in this walkthrough how
-these standards have become a political punching bag.
+education policy initiative of the early 21st century. A primary aim of
+the Common Core was to strengthen education systems across the United
+States through a set of specific and challenging education standards.
+Although these standards once enjoyed bipartisan support, we'll see
+later in this case study how these standards have become a political
+punching bag.
 
-In addition to investigating tweets around the these controversial state
-standards, our Unit 2 Walkthrough will cover the following topics
-pertaining to each data-intensive workflow process:
+In Unit 4, we continue our investigation of tweets around the these
+controversial state standards through social network analysis.
+Specifically, this case study will cover the following topics pertaining
+to each data-intensive workflow process:
 
 1.  **Prepare**: Prior to analysis, we'll take a look at the context
     from which our data came, formulate some research questions, and get
