@@ -1,6 +1,6 @@
 ---
-title: 'Public Sentiment and the State Standards'
-subtitle: 'Unit 3 Case Study'
+title: "Unit 3 Case Study: Public Sentiment and the State Standards"
+subtitle: "ECI 586 Introduction to Learning Analytics"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
