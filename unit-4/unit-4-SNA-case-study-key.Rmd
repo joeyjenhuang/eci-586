@@ -30,9 +30,9 @@ Project](https://www.hashtagcommoncore.com), the Common Core was a major
 education policy initiative of the early 21st century. A primary aim of
 the Common Core was to strengthen education systems across the United
 States through a set of specific and challenging education standards.
-Although these standards once enjoyed bipartisan support, we'll see
-later in this case study how these standards have become a political
-punching bag.
+Although these standards once enjoyed bipartisan support, we saw in our
+previous case study how these standards have become a political punching
+bag.
 
 In Unit 4, we continue our investigation of tweets around the these
 controversial state standards through social network analysis.
@@ -41,20 +41,20 @@ to each data-intensive workflow process:
 
 1.  **Prepare**: Prior to analysis, we'll take a look at the context
     from which our data came, formulate some research questions, and get
-    introduced the {rtweet} R package for using the Twitter API.
+    introduced the {tidygraph} and {ggraph} packages for analyzing
+    relational data.
 
-2.  **Wrangle**: Wrangling data entails the work of manipulating,
-    cleaning, transforming, and merging data. In section 2 we will learn
-    about the {tidygraph} package for creating network objects.
+2.  **Wrangle**: In the wrangling section of our case study, we will
+    learn some basic techniques for manipulating, cleaning,
+    transforming, and merging network data.
 
-3.  **Explore**: In section 3, we use the {tidygraph} package and the
-    companion {ggraph} package to calculate a range of centrality
-    measures and learn how to illustrate some of these stats through
-    network visualization.
+3.  **Explore**: With our network data cleaned and tidied, we learn to
+    calculate some key network measures and to illustrate some of these
+    stats through network visualization.
 
-4.  **Model**: We wrap up our analysis in Section 4 by introducing
-    community detection and sentiment analysis algorithms for
-    identifying groups and gauging sentiment about the common core.
+4.  **Model**: We conclude our analysis by introducing community
+    detection and sentiment analysis algorithms for identifying groups
+    and gauging sentiment about the common core.
 
 5.  **Communicate**: We briefly reflect on our walkthrough in
     preparation for our independent analysis next week.
@@ -82,8 +82,6 @@ examine next is an exemplary illustration of these four defining
 features of the social network perspective.
 
 ### The \#commoncore Project
-
-![](img/commoncore.jpeg){width="50%"}
 
 Supovitz, J., Daly, A.J., del Fresno, M., & Kolouch, C.
 (2017). *\#commoncore Project.* Retrieved from
