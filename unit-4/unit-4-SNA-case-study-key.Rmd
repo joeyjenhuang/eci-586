@@ -53,8 +53,8 @@ to each data-intensive workflow process:
     stats through network visualization.
 
 4.  **Model**: We conclude our analysis by introducing community
-    detection and sentiment analysis algorithms for identifying groups
-    and gauging sentiment about the common core.
+    detection algorithms for identifying groups and gauging sentiment
+    about the common core.
 
 5.  **Communicate**: We briefly reflect on our walkthrough in
     preparation for our independent analysis next week.
@@ -83,6 +83,8 @@ features of the social network perspective.
 
 ### The \#commoncore Project
 
+![](img/commoncore.jpeg){width="40%"}
+
 Supovitz, J., Daly, A.J., del Fresno, M., & Kolouch, C.
 (2017). *\#commoncore Project.* Retrieved from
 [http://www.hashtagcommoncore.com](http://www.hashtagcommoncore.com/).
@@ -100,7 +102,7 @@ participants.
 The central question guiding this investigation was:
 
 > How are social media-enabled social networks changing the discourse in
-> American politics that produces and sustains social policy?
+> American politics that produces and sustains education policy?
 
 #### Data Sources & Analyses
 
@@ -120,15 +122,15 @@ interact and communicate on Twitter.
 To collect data on keywords related to the Common Core, the project used
 a customized data collection tool developed by two of our co-authors,
 Miguel del Fresno and Alan J. Daly, called *Social Runner
-Lab^TM^*. Similar to an approach we'll use later in this walkthrough,
-the authors downloaded data in real time directly from Twitter's
-Application Programming Interface (API) based on tweets using specified
-keywords, keyphrases, or hashtags and then restricted their analysis to
-the following terms: *commoncore*, *ccss* and *stopcommoncore.* They
-also captured Twitter profile names, or user names, as well as the
-tweets, retweets, and mentions posted. Data included messages that are
-public on twitter, but not private messages between individuals, nor
-from accounts which users have made private or direct messages.
+Lab^TM^*. Similar to an approach we'll used in Unit 3, the authors
+downloaded data in real time directly from Twitter's Application
+Programming Interface (API) based on tweets using specified keywords,
+keyphrases, or hashtags and then restricted their analysis to the
+following terms: *commoncore*, *ccss* and *stopcommoncore.* They also
+captured Twitter profile names, or user names, as well as the tweets,
+retweets, and mentions posted. Data included messages that are public on
+twitter, but not private direct messages between individuals, nor from
+accounts which users have made private.
 
 #### Analyses
 
@@ -143,14 +145,15 @@ depicts the relations as networks and provides metrics for describing
 features of the network.
 
 In addition to data visualization and network descriptives, the authors
-examined group development and lexical tendencies among users. For the
-former, they used a community detection algorithm to identify and
-represent structural sub-communities, or factions (a "faction" in this
-sense is a group with more ties within than across group even those
-group boundaries are somewhat porous). For the latter, the authors used
-the Linguistic Inquiry and Word Count (LIWC) lexicons to determine
-psychological drive, monitor moods, diagnose their level of conviction,
-and make inferences about thinking styles.
+examined group development and lexical tendencies among users. For group
+development, they used a community detection algorithm to identify and
+represent structural sub-communities, or "factions", which they describe
+as a group with more ties within than across group even those group
+boundaries are somewhat porous). For lexical tendencies, the authors
+used the Linguistic Inquiry and Word Count (LIWC) lexicons to determine
+psychological drive, diagnose their level of conviction, make inferences
+about thinking styles, and even determine sentiment similar to what we
+examined in Unit 2.
 
 For a nice summary of the data used for the analysis, as well as the
 samples of actors and tweets, the keywords, and the methods that were
@@ -169,21 +172,21 @@ following:
     surrounding the Common Core, including: (1) supporters of the Common
     Core, (2) opponents of the standards from inside education, and (3)
     opponents from outside of education.
--   In **Act 2**, **Central Actors**, they noted that most of these
+-   In **Act 2**, **Central Actors**, they noted that most of these
     participants were casual contributors -- almost 95% of them made
     fewer than 10 tweets in any given six-month period. They also
     distinguished between two types of influence on
     Twitter: *Transmitters* who tweeted a lot, regardless of the extent
     of their followership; and *Transceivers*, those who gained their
     influence by being frequently retweeted and mentioned.
--   In **Act 3**, **Key Events,** the authors identified issues driving
+-   In **Act 3**, **Key Events,** the authors identified issues driving
     the major spikes in the conversation, like when Secretary of
     Education Duncan spoke about white suburban moms' opposition to the
     Common Core, or the debate over the authorization of the Every
     Student Succeeds Act in November 2015. They also offended evidence
     of manufactured controversies spurred by sensationalizing minor
     issues and outright fake news stories.
--   In **Act 4**, **Lexical Tendencies**, the authors examined the
+-   In **Act 4**, **Lexical Tendencies**, the authors examined the
     linguistic tendencies of the three major factions and found that
     Common Core supporters used the highest number of conviction words,
     tended to use more achievement-oriented language, and used more
@@ -204,30 +207,60 @@ following:
 ### **👉 Your Turn** **⤵**
 
 For our Unit 2 Walkthrough, we'll apply some of the same techniques used
-by this study including some quick attempts at applying community
-detection algorithms and automated text analysis using a few new
-packages in R.
-
-You are likely already familiar with some of the techniques and
-approaches used in this study, however. For example, take a quick look
-at the [*Explore the Networks*](https://www.hashtagcommoncore.com/#2-1)
+by this study including calculating some basic network measures. For
+example, take a quick look at the [*Explore the
+Networks*](https://www.hashtagcommoncore.com/#2-1){style="font-size: 10pt;"}
 section from Act 2: Central Actors and the Transmitters, Transceivers
-and Transcenders identified by their analysis.
+and Transcenders. In the space below, list a couple Twitter users
+identified by their analysis as.
 
-In the space below, type a brief response to the following questions:
+Visit
 
-1.  What network measures introduced in Unit 1 do think were used to
-    identify these three types of "central actors"?
+-   ***Transmitters*** .
 
-    -   YOUR RESPONSE HERE
+-   ***Transceivers*** are a different kind of elite influencer.
+    Transceivers are those actors who have what social network
+    researchers call high *indegree*. In our analyses, indegree is the
+    combination of the number of times an actor's messages were
+    retweeted, coupled with the number of times in which they are
+    mentioned in others' tweets within the specified keywords. Mentions
+    are signifiers of a different kind of influence in the \#commoncore
+    conversation.
 
-Now check your response by looking at the [methods
-page](https://www.hashtagcommoncore.com/project/methodology) of the
-\#COMMONCORE Project.
+-   ***Transcenders*** who have both high outdegree, defined as sending
+    the largest number of common core-related tweets to keywords of
+    interest, *as well as having* high indegree, defined as a
+    combination of being retweeted and mentioned in the highest number
+    of tweets. These individuals reflect those elite actors who possess
+    the highest relative levels of activity within the network and wield
+    a significant amount of social influence.
 
-1.  Were you correct?
+Now visit the methods In the space below, type
 
-    -   YOUR RESPONSE HERE
+-   ***Transmitters*** are individuals who send out a large number of
+    tweets using the keywords of interest. Social network researchers
+    call the activity of transmitters *outdegree*, which is a measure of
+    the number of tweets an individual sends over the period of time
+    under study. Outdegree is *not* related to the number of followers a
+    transmitter has, but is strictly a measure of how many tweets an
+    individual posts to the specified keywords.
+
+-   ***Transceivers*** are a different kind of elite influencer.
+    Transceivers are those actors who have what social network
+    researchers call high *indegree*. In our analyses, indegree is the
+    combination of the number of times an actor's messages were
+    retweeted, coupled with the number of times in which they are
+    mentioned in others' tweets within the specified keywords. Mentions
+    are signifiers of a different kind of influence in the \#commoncore
+    conversation.
+
+-   ***Transcenders*** who have both high outdegree, defined as sending
+    the largest number of common core-related tweets to keywords of
+    interest, *as well as having* high indegree, defined as a
+    combination of being retweeted and mentioned in the highest number
+    of tweets. These individuals reflect those elite actors who possess
+    the highest relative levels of activity within the network and wield
+    a significant amount of social influence.
 
 ## 1b. Identify a Question(s)
 
@@ -235,7 +268,7 @@ Recall from above that the central question guiding the \#COMMONCORE
 Project was:
 
 > How are social media-enabled social networks changing the discourse in
-> American politics that produces and sustains social policy?
+> American politics that produces and sustains education policy?
 
 For Unit 2, we are going to focus our questions on something a bit less
 ambitious but inspired by this work:
@@ -246,14 +279,13 @@ ambitious but inspired by this work:
 3.  Which actors in our network tend to be more opposed to the Common
     Core?
 
-To address the latter question, we'll introduce a common text mining
-technique in the Model section for gauging sentiment of social media
-posts.
+To address the latter question, we'll revisit our findings from our Unit
+3 VADER sentiment analysis results.
 
 ### **👉 Your Turn** **⤵**
 
 Based on what you know about networks and the context so far, what other
-research questions might ask we ask in this context that a social
+research question(s) might ask we ask in this context that a social
 network perspective might be able to answer?
 
 In the space below, type a brief response to the following questions:
@@ -283,146 +315,69 @@ see which packages have already been installed and loaded into RStudio
 Cloud by looking at the the Files, Plots, & Packages Pane in the lower
 right hand corner.
 
-Let's go ahead and load the packages from Unit 1 since we'll be using
-them again very soon:
+### **👉 Your Turn** **⤵**
+
+First, load the {tidyverse} since we'll be using several of these
+packages for to wrangling and explore our data later sections of the
+case study:
 
 ```{r}
 library(tidyverse)
-library(igraph)
 ```
 
-#### rtweet 📦
+### tidygraph 📦
 
-![](img/rtweet.png){width="20%"}
+![](img/tidygraph.png){width="20%"}
 
-Similar to approach used by @supovitz2017commoncore for downloading data
-in directly from Twitter's Application Programming Interface (API), we
-will be using {[rtweet](https://docs.ropensci.org/rtweet/)} package to
-search for and download tweets based on specified keywords.
+The {[tidygraph](https://tidygraph.data-imaginist.com)} package is a
+huge package that exports 280 different functions and methods, including
+access to almost all of the `dplyr` verbs plus a few more, developed for
+use with relational data. While network data itself is not tidy, it can
+be envisioned as two tidy tables, one for node data and one for edge
+data. The {tidygraph} package provides a way to switch between the two
+tables and uses `dplyr` verbs to manipulate them. Furthermore it
+provides access to a lot of graph algorithms with return values that
+facilitate their use in a tidy workflow.
 
-The `rtweet` package provides users a range of functions designed to
-extract data from Twitter's REST and streaming APIs and has three main
-goals:
-
-1.  Formulate and send requests to Twitter's REST and stream APIs.
-
-2.  Retrieve and iterate over returned data.
-
-3.  Wrangling data into tidy structures.
-
-Let's load the {rtweet} package that we'll be using in just a bit to
-accomplish all three of the goals listed above:
+Let's go ahead and load the {tidygraph} library:
 
 ```{r}
-library(rtweet)
+library(tidygraph)
 ```
 
-## 1c. AccessTwitter API
+### ggraph 📦
 
-Before you can begin downloading data using the Twitter API, you'll
-first need to create a Twitter App in your developer account. You are
-not required to set up developer account for this course, but if you are
-still interested in creating one, [these
-instructions](https://moodle-courses2122.wolfware.ncsu.edu/mod/forum/view.php?id=119499)
-outline the process and you can set one up in about 10 minutes.
+![](img/ggraph.png){width="20%"}
 
-If you are not interested in setting an account of your own, I have
-provided you with temporary keys and tokens to download data from
-Twitter and have also provided data for this walkthrough in the data
-folder.
+Created by the same developer as {tidygraph},
+{[ggraph](https://ggraph.data-imaginist.com/index.html)} -- pronounced
+gg-raph or g-giraffe hence the logo -- is an extension of
+{[ggplot](https://ggplot2.tidyverse.org)} aimed at supporting relational
+data structures such as networks, graphs, and trees. Both packages are
+more modern and widely adopted approaches data visualization in R.
 
-### **What is an API?**
+While ggraph builds upon the foundation of ggplot and its API, it comes
+with its own self-contained set of geoms, facets, etc., as well as
+adding the concept of *layouts* to the [grammar of
+graphics](https://ggplot2-book.org/introduction.html?q=grammar#what-is-the-grammar-of-graphics),
+i.e. the "gg" in ggplot and ggraph.
 
-For those new to the concept of an API, our very own Raleigh,
-NC-based [Red
-Hat](https://www.redhat.com/en/topics/api/what-are-application-programming-interfaces) describes
-an API as a means for one product or service communicate with other
-products and services:
+Let's go ahead and load the {ggraph} library:
 
-> APIs are sometimes thought of as contracts, with documentation that
-> represents an agreement between parties: If party 1 sends a remote
-> request structured a particular way, this is how party 2's software
-> will respond.
-
-As Duke University's Chris Bail notes, "APIs have become one of the most
-important ways to access and transfer data online--- and increasingly
-APIs can even analyze your data as well." Compared to screen-scraping
-data from web pages, APIs are considerably easier to work with than the
-HTML or XML data, ensure that data is collected legally, and with R
-packages like `rtweet`, are logistically easier to work with, as we'll
-soon see.
-
-For a more in-depth explanation of APIs, how they work, and a preview of
-some of the `rtweet` functions we'll be using this summer, I highly
-recommend reading through Chris Bail's [Application Programming
-Interfaces in
-R](https://sicss.io/2020/materials/day2-digital-trace-data/apis/rmarkdown/Application_Programming_interfaces.html) tutorial.
-
-### Authorize RStudio
-
-In order to authorize R to use your Twitter App to retrieve data, you'll
-need to create a personal Twitter token by completing the following
-steps:
-
-1.  Navigate to
-    [developer.twitter.com/en/apps](https://developer.twitter.com/en/apps)
-    and select your Twitter app
-2.  Click the tab labeled `Keys and tokens` to retrieve your keys.
-3.  Locate the `Consumer API keys` (aka "API Secret").
-
-![](img/create-app-6.png){width="80%"}
-
-3.  Scroll down to `Access token & access token secret` and click
-    `Create`
-
-![](img/create-app-7.png){width="80%"}
-
-4.  Locate the following code into the R Script file named
-    `twitter-auth.R` located in files pane, replace the four fake keys
-    with your own, and pass them along to `create_token()` function.
-
-```{r api-keys, eval=FALSE}
-## store api keys (these are fake example values; replace with your own keys)
-app_name <- "Text Mining in Education"
-api_key <- "afYS4vbIlPAj096E60c4W1fiK"
-api_secret_key <- "bI91kqnqFoNCrZFbsjAWHD4gJ91LQAhdCJXCj3yscfuULtNkuu"
-access_token <- "9551451262-wK2EmA942kxZYIwa5LMKZoQA4Xc2uyIiEwu2YXL"
-access_token_secret <- "9vpiSGKg1fIPQtxc5d5ESiFlZQpfbknEN1f1m2xe5byw7"
-
-## authenticate via web browser
-token <- create_token(
-  app = app_name,
-  consumer_key = api_key,
-  consumer_secret = api_secret_key,
-  access_token = access_token,
-  access_secret = access_token_secret)
+```{r}
+library(ggraph)
 ```
 
-**Note**: these keys are named secret for a reason. We store these up in
-a separate R script file rather than in a R Markdown file that you will
-eventually share. If you do not have your own keys, temporary keys have
-been provided for you in the `twitter-auth.r` file in your Files pane.
+### Import Data
 
-#### Check Authorization
+Finally, use the `read_csv()` function from the {readr} package to read
+the `ccss-tweets.csv` file from Unit 2 and saved in our data folder:
 
-The `create_token()` function should automatically save your token as an
-environment variable. So next time you start an R session -- on the same
-machine -- rtweet should 🤞 automatically find your token.
-
-5.  To make sure it works, you can run the following code and check to
-    make sure the app name and `api_key` match those on your dev
-    account.
-
-```{r get-token}
-## check to see if the token is loaded
-get_token()
+```{r}
+ccss_tweets <- read_csv("data/ccss-tweets.csv")
 ```
 
-That's it! You're ready ready to start wrangling some tweets!!!
-
-------------------------------------------------------------------------
-
-# 2. WRANGLE
+## 2. WRANGLE
 
 In general, data wrangling involves some combination of cleaning,
 reshaping, transforming, and merging data [@wickham2016r]. The
@@ -447,288 +402,59 @@ c.  **Simplify Network**. Finally, we'll learn about a handy
     `simplify()` function in the {igraph} package for collapsing
     multiple ties between actors and removing "self-loops."
 
-## 2a. Import Tweets
-
-The Import Tweets section introduces the following functions from the
-`rtweet` package for reading Twitter data into R:
-
--   [`search_tweets()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets)
-    Pulls up to 18,000 tweets from the last 6-9 days matching provided
-    search terms.
--   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets)
-    Returns data from **multiple** search queries.
--   [`get_timelines()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets)
-    Returns up to 3,200 tweets of one or more specified Twitter users.
-
-### Search Tweets
-
-Since one of our goals for this walkthrough is a very crude replication
-of the study by @supovitz2017commoncore, let's begin by introducing the
-`search_tweets()` function to try reading into R 5,000 tweets containing
-the commoncore hashtag and store as a new data frame `ngss_all_tweets`.
-
-Type or copy the following code into your R script or console and run:
-
-```{r}
-ccss_tweets <- search_tweets(q = "#commoncore", n=5000)
-```
-
-You likely saw in the output or console a download message like the one
-below that stopped well short of 100%. That is pretty typical and just
-indicates the API returned fewer tweets than requested.
-
-Note also that the first argument `q =` that the `search_tweets()`
-function expects is the search term included in quotation marks and that
-`n =` specifies the maximum number of tweets
-
-### **👉 Your Turn** **⤵**
-
-Use the code chunk below to view your new `ccss_tweets` data frame using
-one of the [various view
-methods](https://cmdlinetips.com/2020/06/get-a-peek-at-dataframe-in-r/)
-for looking at your data in R:
-
-```{r}
-#YOUR CODE HERE
-```
-
-1.  How many tweets did our query using the Twitter API actually return?
-    How many variables?
-
-    -   YOUR RESPONSE HERE
-
-2.  Why do you think our query pulled in far less than 5,000 tweets
-    requested? **Hint:** Type `?search_tweets` in your console to see
-    the support documentation for this function.
-
-    -   YOUR RESPONSE HERE
-
-3.  Does our query also include retweets? How do you know?
-
-    -   YOUR RESPONSE HERE
-
-### Remove Retweets
-
-While the authors explicitly mentioned including retweets when
-constructing their network, `search_tweets()` function has an argument
-that includes retweets by default, but can be changed to exclude
-retweets if desired.
-
-Even though we will want to include retweets to construct our final
-network, let's test out the `include_rts =` argument and set it to
-`FALSE` to remove any retweets:
-
-```{r}
-ccss_tweets_1 <- search_tweets("#commoncore", 
-                                   n=500, 
-                                   include_rts = FALSE)
-```
-
-Take a look at your environment pane and see how many tweets were
-excluded by adding this argument.
-
-### Using the OR Operator
-
-If you recall from the Prepare section, the authors accessed tweets and
-user information from using multiple search terms, including:
-*commoncore*, *ccss* and *stopcommoncore.*
-
-Let's modify our query using the `OR` operator to also include "ccss"
-and "stopcommoncore" so it will return tweets containing either any of
-these three terms. And since we've included additional search terms
-let's also increase the number of requested tweets to 5,000.
-
-```{r}
-ccss_tweets_2 <- search_tweets(q = "#commoncore OR #stopcommoncore OR #ccss",
-                               n=5000)
-```
-
-Wow, those additional search terms dramatically increased the number of
-tweets downloaded!
-
-### **👉 Your Turn** **⤵**
-
-Try including both search terms but excluding the `OR` operator to
-answer the following question:
-
-1.  Does excluding the `OR` operator return more tweets, the same number
-    of tweets, or fewer tweets? Why?
-
-    -   YOUR RESPONSE HERE
-
-2.  What other useful arguments does the `search_tweet()` function
-    contain? Try adding one and see what happens.
-
-    -   YOUR RESPONSE HERE
-
-**Hint:** Use the `?search_tweets` help function to learn more about the
-`q` argument and other arguments for composing search queries.
-
-### Filter for English Tweets
-
-If you haven't already done so, take a look at the tweets in our
-`ccss_tweets_2` data frame. You probably noticed that many of these
-tweets were in Spanish, as indicated by the "es" in the `lang` column of
-our data frame.
-
-Let's take a quick count of the number of tweets in each language of our
-data frame by sending our `ccss_tweets_2` data frame to the `count()`
-function using the `%>%` operator, specifying `lang` as the column whose
-values we want to count and sorting from high to low:
-
-```{r}
-ccss_tweets_2 %>%
-  count(lang, sort = TRUE)
-```
-
-Surprisingly, the majority of these tweets are in Spanish. For the
-purpose of both limiting the size of our network for this analysis and
-also because we are interested in doing some quick sentiment analysis
-towards the end of our walkthrough, let's limit our tweets to just those
-in the English language.
-
-To download only English tweets, we will need include the `lang =`
-argument and set it to "en":
-
-```{r}
-ccss_tweets_3 <- search_tweets(q = "#commoncore OR #stopcommoncore OR #ccss",
-                               n=5000,
-                               lang = "en")
-```
-
-#### Save Tweets to File
-
-Finally, let's save our tweet files to use in later exercises since
-tweets have a tendency to change every minute.
-
-```{r, eval=FALSE}
-write_csv(ccss_tweets_3, "data/ccss-tweets.csv")
-```
-
-Uh oh! We received an error because data stored in the `hashtags` column
-is not stored as typical character, number, logical, or date data type,
-but rather it is stored as a "list."
-
-Use the `glimpse()` function to see which other columns store data as
-lists:
-
-```{r}
-glimpse(ccss_tweets_3)
-```
-
-Since columns containing lists can not be stored in flat files like
-.csv, we'll need to "flatten" our data in these columns using the aptly
-named `flatten()` function from the {rtweets} package:
-
-```{r}
-ccss_tweets_4 <- rtweet::flatten(ccss_tweets_3)
-```
-
-Note that we included the package name followed by a double colon
-`rtweet::` when calling our function to avoid confusion with other
-functions using the same name.
-
-Now we can use the `read_csv()` function to save our data frame to our
-folder.
-
-```{r}
-write_csv(ccss_tweets_4, "data/ccss-tweets.csv")
-```
-
-Check your data folder to make sure this file has been save. You will
-also see a `ccss-tweets-5.csv` file which I have save earlier and which
-we will use in the next section to ensure we all have the same results.
-
-### **👉 Your Turn** **⤵**
-
-Use the `search_tweets` function to create your own custom query for a
-twitter hashtag or topic(s) of interest and save as a .csv file in the
-data folder.
-
-```{r}
-#YOUR CODE HERE
-```
-
-**Note:** You may want to use this data for your independent analysis
-next week.
-
-#### Other Useful Queries
-
-For your independent analysis, you may be interest in exploring posts by
-specific users rather than topics, key words, or hashtags. Yes, there is
-a function for that too!
-
-For example, let's create another list containing the usernames of me
-and some of my colleagues at the Friday Institute using the `c()`
-function again and use the `get_timelines()` function to get the most
-recent tweets from each of those users:
-
-```{r}
-fi <- c("sbkellogg", "toosweetgeek", "haspires", "tarheel93", "drcallie_tweets", "AlexDreier")
-
-fi_tweets <- fi %>%
-  get_timelines(include_rts=FALSE)
-```
-
-And let's use the `sample_n()` function from the `dplyr` package to pick
-10 random tweets and use `select()` to select and view just the
-`screenname` and `text` columns that contains the user and the content
-of their post:
-
-```{r}
-sample_n(fi_tweets, 10) %>%
-  select(screen_name, text)
-```
-
-We've only scratched the surface of the number of functions available in
-the `rtweets` package for searching Twitter. Use the following function
-to take a look at other ways you can query data using the Twitter API:
-
-```{r, eval=F}
-vignette("intro", package="rtweet")
-```
-
-### **👉 Your Turn** **⤵**
-
-To conclude Section 2a, try one of the following search functions from
-the `rtweet` vignette:
-
-1.  `get_timelines()` Get the most recent 3,200 tweets from users.
-2.  `stream_tweets()` Randomly sample (approximately 1%) from the live
-    stream of all tweets.
-3.  `get_friends()` Retrieve a list of all the accounts a user follows.
-4.  `get_followers()` Retrieve a list of the accounts following a user.
-5.  `get_favorites()` Get the most recently favorited statuses by a
-    user.
-6.  `get_trends()` Discover what's currently trending in a city.
-7.  `search_users()` Search for 1,000 users with the specific hashtag in
-    their profile bios.
-
-```{r}
-#YOUR CODE HERE
-```
-
 ## 2b. Create Edgelist from Tweets
+
+Recall from Chapter 1 of @carolan2014 that ties, our relations, are what
+connect actors to one another. These ties are often referred to as
+"edges" when working with network data and range of edge types in a
+network can be extensive. Some of the more common ties, or edges, used
+to denote connections among actors in educational research include:
+
+-   Behavioral interaction (e.g., talking to each other or sending
+    messages)
+
+-   Physical connection (e.g., sitting together at lunch, living in the
+    same neighborhood)
+
+-   Association or affiliation (e.g., taking the same courses, belonging
+    to the same peer group)
+
+-   Evaluation of one person by another (e.g., considering someone a
+    friend or enemy)
+
+-   Formal relations (e.g., knowing who has authority over whom)
+
+-   Moving between places or status (e.g., school choice preferences,
+    dating patterns among adolescents)
+
+The ties on which you focus are driven by theoretical and/or empirical
+interest. But defining what constitutes a tie is a thorny methodological
+issue discussed in Chapter 3.
+
+As its name implies, the first file `dlt1-edgelist.csv` is an edge-list
+that contains information about each tie, or relation between two actors
+in a network. In this context, a "tie" is a reply by one participant in
+the discussion forum to the post of another participant -- or in some
+cases to their own post! These ties between a single actor are called
+"self-loops" and as we'll see later in this section, igraph has a
+special function to remove these self loops from a sociogram, or network
+visualization.
+
+The edge-list format is slightly different than other formats you have
+likely worked with before in that the values in the first two columns
+each row represent a dyad, or tie between two nodes in a network. An
+edge-list can also contain other information regarding the strength,
+duration, or frequency of the relationship, sometime called "weight", in
+addition to other "edge attributes."
 
 Recall from Unit 1 that an edge-list that contains information about
 each tie, or relation between two actors in a network. In our previous
 walkthrough, a "tie" is a reply by one participant in the discussion
 forum to the post of another participant -- or in some cases to their
 own post. For our analysis of tweets, we'll use the same approach used
-by @supovitz2017commoncore. Specifically, each node is an individual
+by \@supovitz2017commoncore. Specifically, each node is an individual
 Twitter user (person, group, institution, etc.) and the connection
 between each node is the tweet, retweet, or mention/reply.
-
-### Import Saved Tweets
-
-Before we proceed, let's first use the `read_csv()` function from the
-{readr} package introduced in the Getting Started walkthrough to read
-the `ccss-tweets-5.csv` file saved in or data folder so we are all
-working with the same data:
-
-```{r}
-ccss_tweets_5 <- read_csv("data/ccss-tweets-5.csv")
-```
 
 ### **👉 Your Turn** **⤵**
 
@@ -906,27 +632,6 @@ packages. In this walkthrough we won't recreate all the processes like
 simplifying graphs and adding edge weights, but will demonstrate some
 features similar to and in addition to those found in the {igraph}
 package.
-
-### tidygraph 📦
-
-![](img/tidygraph.png){width="20%"}
-
-The {[tidygraph](https://tidygraph.data-imaginist.com)} package is a
-huge package that exports 280 different functions and methods. It more
-or less wraps the full functionality of `igraph` in a tidy API giving
-you access to almost all of the `dplyr` verbs plus a few more, developed
-for use with relational data. While network data itself is not tidy, it
-can be envisioned as two tidy tables, one for node data and one for edge
-data. The {tidygraph} package provides a way to switch between the two
-tables and `dplyr` verbs to manipulate them. Furthermore it provides
-access to a lot of graph algorithms with return values that facilitate
-their use in a tidy workflow.
-
-Let's go ahead and load the {tidygraph} library:
-
-```{r}
-library(tidygraph)
-```
 
 ### Combine Edges & Nodes
 
@@ -1132,29 +837,6 @@ who are most central to the network, such as those with higher node
 degrees, are usually placed in the center of the sociogram and their
 ties are placed near them. In this section, we'll briefly introduce the
 {ggraph} package for creating attractive network visualizations.
-
-### ggraph 📦
-
-![](img/ggraph.png){width="20%"}
-
-Created by the same developer as {tidygraph},
-{[ggraph](https://ggraph.data-imaginist.com/index.html)} -- pronounced
-gg-raph or g-giraffe hence the logo -- is an extension of
-{[ggplot](https://ggplot2.tidyverse.org)} aimed at supporting relational
-data structures such as networks, graphs, and trees. Both packages are
-more modern and widely adopted approaches data visualization in R.
-
-While ggraph builds upon the foundation of ggplot and its API, it comes
-with its own self-contained set of geoms, facets, etc., as well as
-adding the concept of *layouts* to the [grammar of
-graphics](https://ggplot2-book.org/introduction.html?q=grammar#what-is-the-grammar-of-graphics),
-i.e. the "gg" in ggplot and ggraph.
-
-Let's go ahead and load the {ggraph} library:
-
-```{r}
-library(ggraph)
-```
 
 ### A Simple Sociogram
 
