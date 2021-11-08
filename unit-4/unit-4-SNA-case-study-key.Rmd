@@ -83,7 +83,7 @@ features of the social network perspective.
 
 ### The \#commoncore Project
 
-![](img/commoncore.jpeg){width="40%"}
+![](img/commoncore.jpeg){width="50%"}
 
 Supovitz, J., Daly, A.J., del Fresno, M., & Kolouch, C.
 (2017). *\#commoncore Project.* Retrieved from
@@ -208,59 +208,33 @@ following:
 
 For our Unit 2 Walkthrough, we'll apply some of the same techniques used
 by this study including calculating some basic network measures. For
-example, take a quick look at the [*Explore the
+example, take a look at the [*Explore the
 Networks*](https://www.hashtagcommoncore.com/#2-1){style="font-size: 10pt;"}
 section from Act 2: Central Actors and the Transmitters, Transceivers
-and Transcenders. In the space below, list a couple Twitter users
-identified by their analysis as.
+and Transcenders.
 
-Visit
+Click on each of the boxes for a select time period and in the space
+below list a couple Twitter users identified by their analysis as the
+following:
 
--   ***Transmitters*** .
+-   **Transmitters:**
 
--   ***Transceivers*** are a different kind of elite influencer.
-    Transceivers are those actors who have what social network
-    researchers call high *indegree*. In our analyses, indegree is the
-    combination of the number of times an actor's messages were
-    retweeted, coupled with the number of times in which they are
-    mentioned in others' tweets within the specified keywords. Mentions
-    are signifiers of a different kind of influence in the \#commoncore
-    conversation.
+-   **Transceivers:**
 
--   ***Transcenders*** who have both high outdegree, defined as sending
-    the largest number of common core-related tweets to keywords of
-    interest, *as well as having* high indegree, defined as a
-    combination of being retweeted and mentioned in the highest number
-    of tweets. These individuals reflect those elite actors who possess
-    the highest relative levels of activity within the network and wield
-    a significant amount of social influence.
+-   **Transcenders:**
 
-Now visit the methods In the space below, type
+Now visit Act 2 of the methods section and In the space below, identify
+the network measure used for the first two central actors (hint: it's
+italicized) and copy their definition used. Note, Transenders has been
+completed for you.
 
--   ***Transmitters*** are individuals who send out a large number of
-    tweets using the keywords of interest. Social network researchers
-    call the activity of transmitters *outdegree*, which is a measure of
-    the number of tweets an individual sends over the period of time
-    under study. Outdegree is *not* related to the number of followers a
-    transmitter has, but is strictly a measure of how many tweets an
-    individual posts to the specified keywords.
+-   ***Transmitters***
 
--   ***Transceivers*** are a different kind of elite influencer.
-    Transceivers are those actors who have what social network
-    researchers call high *indegree*. In our analyses, indegree is the
-    combination of the number of times an actor's messages were
-    retweeted, coupled with the number of times in which they are
-    mentioned in others' tweets within the specified keywords. Mentions
-    are signifiers of a different kind of influence in the \#commoncore
-    conversation.
+-   ***Transceivers***
 
--   ***Transcenders*** who have both high outdegree, defined as sending
-    the largest number of common core-related tweets to keywords of
-    interest, *as well as having* high indegree, defined as a
-    combination of being retweeted and mentioned in the highest number
-    of tweets. These individuals reflect those elite actors who possess
-    the highest relative levels of activity within the network and wield
-    a significant amount of social influence.
+-   ***Transcenders***is measured by *degree* and consists of actors
+    (i.e. Twitter uers) who have both high out-degree, as well as
+    having high in-degree.
 
 ## 1b. Identify a Question(s)
 
@@ -325,6 +299,30 @@ case study:
 library(tidyverse)
 ```
 
+Next, we will introduce a few packages
+
+### igraph Package **📦**
+
+![](img/igraph.png){width="20%"}
+
+For our Unit 1 Walkthrough, we will rely heavily on the [igraph network
+analysis package](https://igraph.org). The main goals of the igraph
+package and the collection of network analysis tools it contains are to
+provide a set of data types and functions for:
+
+1.  pain-free implementation of graph algorithms,
+
+2.  fast handling of large graphs, with millions of vertices (i.e.,
+    actors or nodes) and edges,
+
+3.  allowing rapid prototyping via high level languages like R.
+
+Run the code chunk below to load the {igraph} library:
+
+```{r}
+library(igraph)
+```
+
 ### tidygraph 📦
 
 ![](img/tidygraph.png){width="20%"}
@@ -370,43 +368,50 @@ library(ggraph)
 
 ### Import Data
 
-Finally, use the `read_csv()` function from the {readr} package to read
-the `ccss-tweets.csv` file from Unit 2 and saved in our data folder:
+Finally, we'll be using a fresh data download from twitter that only
+includes relatively small set of tweets from the past week to help keep
+things simple. Use the `read_csv()` function from the {readr} package to
+read the `ccss-tweets-fresh.csv` file from Unit 2 and saved in our data
+folder:
 
 ```{r}
-ccss_tweets <- read_csv("data/ccss-tweets.csv")
+ccss_tweets <- read_csv("data/ccss-tweets-fresh.csv")
 ```
+
+If you'd like to learn more about the process for how these tweets were
+retrieved, visit the short tutorial on using [rtweet & the Twitter
+API](https://laser-institute.github.io/text-mining/keys/tm-learning-lab-4-key.html#1_PREPARE).
 
 ## 2. WRANGLE
 
 In general, data wrangling involves some combination of cleaning,
-reshaping, transforming, and merging data [@wickham2016r]. The
-importance of data wrangling is difficult to overstate, as it involves
-the initial steps of going from the raw data to a dataset that can be
-explored and modeled [@krumm2018].
+reshaping, transforming, and merging data [@wickham2016r]. As
+highlighted in @estrellado2020e, wrangling network data can be even more
+challenging than other data sources since network data often includes
+variables about both individuals and their relationships.
 
 For our data wrangling this week, we're keeping it simple since working
-with network data is a bit of a departure from our working with
+with relational data is a bit of a departure from our working with
 rectangular data frames. Our primary goals for Unit 1 are learning how
 to:
 
-a.  **Import Tweets**. In this section, we introduce
-    the `rtweet` package and some key functions to search for tweets or
-    users of interest.
+a.  **Create an Edgelist**. In this section, we introduce a new tidy
+    data format call the "edgelist" which contains information about
+    each edge (i.e. connections or ties between actors) in our network.
 
 b.  **Create a Network Object**. Before performing network analyses,
-    we'll need to convert our data frames into special data format for
-    working with relational data.
+    we'll need to convert our data frames into special data format, an R
+    network object, for working with relational data.
 
-c.  **Simplify Network**. Finally, we'll learn about a handy
-    `simplify()` function in the {igraph} package for collapsing
-    multiple ties between actors and removing "self-loops."
+c.  **Simplify Network**. Finally, we'll pare down our network and learn
+    about a handy `simplify()` function in the {igraph} package for
+    collapsing multiple ties between actors and removing "self-loops."
 
 ## 2b. Create Edgelist from Tweets
 
-Recall from Chapter 1 of @carolan2014 that ties, our relations, are what
+Recall from Chapter 1 of @carolan2014 that ties, or relations, are what
 connect actors to one another. These ties are often referred to as
-"edges" when working with network data and range of edge types in a
+"edges" when working with network data and the range of ties in a
 network can be extensive. Some of the more common ties, or edges, used
 to denote connections among actors in educational research include:
 
@@ -427,45 +432,27 @@ to denote connections among actors in educational research include:
 -   Moving between places or status (e.g., school choice preferences,
     dating patterns among adolescents)
 
-The ties on which you focus are driven by theoretical and/or empirical
-interest. But defining what constitutes a tie is a thorny methodological
-issue discussed in Chapter 3.
+The **edgelist** format is slightly different than other formats you
+have likely worked with before in that the values in the first two
+columns of each row represent a dyad, or tie between two nodes in a
+network. An edge-list can also contain other information regarding the
+strength, duration, or frequency of the relationship, sometime called
+"weight", in addition to other "edge attributes."
 
-As its name implies, the first file `dlt1-edgelist.csv` is an edge-list
-that contains information about each tie, or relation between two actors
-in a network. In this context, a "tie" is a reply by one participant in
-the discussion forum to the post of another participant -- or in some
-cases to their own post! These ties between a single actor are called
-"self-loops" and as we'll see later in this section, igraph has a
-special function to remove these self loops from a sociogram, or network
-visualization.
-
-The edge-list format is slightly different than other formats you have
-likely worked with before in that the values in the first two columns
-each row represent a dyad, or tie between two nodes in a network. An
-edge-list can also contain other information regarding the strength,
-duration, or frequency of the relationship, sometime called "weight", in
-addition to other "edge attributes."
-
-Recall from Unit 1 that an edge-list that contains information about
-each tie, or relation between two actors in a network. In our previous
-walkthrough, a "tie" is a reply by one participant in the discussion
-forum to the post of another participant -- or in some cases to their
-own post. For our analysis of tweets, we'll use the same approach used
-by \@supovitz2017commoncore. Specifically, each node is an individual
-Twitter user (person, group, institution, etc.) and the connection
-between each node is the tweet, retweet, or mention/reply.
+For our analysis of tweets in this case study, we'll use an approach
+similar to that used by @supovitz2017commoncore. Specifically, each node
+is an individual Twitter user (person, group, institution, etc.) and the
+connection between each node is the tweet, retweet, or mention/reply.
 
 ### **👉 Your Turn** **⤵**
 
-As highlighted in @estrellado2020e, cleaning and tidying network data
-can be even more challenging than for other data sources, network data
-often includes variables about both individuals and their relationships.
-This is especially true of our data downloaded using the Twitter API.
+Use the code below to look at the data we just imported using one of
+your favorite methods for inspecting data. In the space below, identify
+the columns you think could be used to construct an edge list.
 
-Take a look at the data we just imported using one of your favorite
-methods for inspecting data and in the space below, identify the columns
-you think could be used to construct an edge list.
+```{r, eval=FALSE}
+view(ccss_tweets)
+```
 
 -   YOUR RESPONSE HERE
 
@@ -473,18 +460,19 @@ you think could be used to construct an edge list.
 
 If one of the columns you indicated in your response above included
 `screen_name` nice work! You may also have noticed that the
-`mentions_screen_name` column also includes the names of those in the
-reply column.
+`mentions_screen_name` column includes the names of those in the reply
+column, as well as those "mentioned" in each tweet, i.e. whose username
+was included in a post.
 
 #### Create Edgelist
 
-Recall from Unit 1 that the first two columns in an edgelist should
-include the nodes that make up a tie or dyad. Since the only two columns
-we need to construct our edgelist is the `screen_name` of the tweet
-author and the screen names of those included in the mentions, let's
-`relocate()` and rename those columns and then `select()` those columns
-along with any attributes that we think might be useful for analysis
-later on, like the timestamp or content of the tweet, i.e. `text`.
+As noted above, an edgelist include the nodes that make up a tie or
+dyad. Since the only two columns we need to construct our edgelist is
+the `screen_name` of the tweet author and the screen names of those
+included in the mentions, let's `relocate()` and rename those columns
+and then `select()` those columns along with any attributes that we
+think might be useful for analysis later on, like the timestamp or
+content of the tweet, i.e. `text`.
 
 ```{r}
 ties_1 <-  ccss_tweets_5 %>%
