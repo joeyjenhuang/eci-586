@@ -48,16 +48,16 @@ to each data-intensive workflow process:
     learn some basic techniques for manipulating, cleaning,
     transforming, and merging network data.
 
-3.  **Explore**: With our network data cleaned and tidied, we learn to
-    calculate some key network measures and to illustrate some of these
-    stats through network visualization.
+3.  **Explore**: With our network data tidied, we learn to calculate
+    some key network measures and to illustrate some of these stats
+    through network visualization.
 
 4.  **Model**: We conclude our analysis by introducing community
-    detection algorithms for identifying groups and gauging sentiment
+    detection algorithms for identifying groups and revisiting sentiment
     about the common core.
 
-5.  **Communicate**: We briefly reflect on our walkthrough in
-    preparation for our independent analysis next week.
+5.  **Communicate**: We briefly reflect on our walkthrough in and what
+    we learned from our analysis.
 
 ## 1a. Review the Research
 
@@ -122,7 +122,7 @@ interact and communicate on Twitter.
 To collect data on keywords related to the Common Core, the project used
 a customized data collection tool developed by two of our co-authors,
 Miguel del Fresno and Alan J. Daly, called *Social Runner
-Lab^TM^*. Similar to an approach we'll used in Unit 3, the authors
+Lab^TM^*. Similar to an approach we used in Unit 3, the authors
 downloaded data in real time directly from Twitter's Application
 Programming Interface (API) based on tweets using specified keywords,
 keyphrases, or hashtags and then restricted their analysis to the
@@ -206,9 +206,9 @@ following:
 
 ### **👉 Your Turn** **⤵**
 
-For our Unit 2 Walkthrough, we'll apply some of the same techniques used
-by this study including calculating some basic network measures. For
-example, take a look at the [*Explore the
+For our Unit 4 Walkthrough, we'll apply some of the same techniques used
+by this study including calculating some basic network measures of
+centrality. For example, take a look at the [*Explore the
 Networks*](https://www.hashtagcommoncore.com/#2-1){style="font-size: 10pt;"}
 section from Act 2: Central Actors and the Transmitters, Transceivers
 and Transcenders.
@@ -244,7 +244,7 @@ Project was:
 > How are social media-enabled social networks changing the discourse in
 > American politics that produces and sustains education policy?
 
-For Unit 2, we are going to focus our questions on something a bit less
+For Unit 4, we are going to focus our questions on something a bit less
 ambitious but inspired by this work:
 
 1.  Who are the transmitters, transceivers, and transcenders in our
@@ -253,8 +253,8 @@ ambitious but inspired by this work:
 3.  Which actors in our network tend to be more opposed to the Common
     Core?
 
-To address the latter question, we'll revisit our findings from our Unit
-3 VADER sentiment analysis results.
+To address the last question, we'll revisit our techniques we learned
+from our Unit 3 VADER sentiment analysis.
 
 ### **👉 Your Turn** **⤵**
 
@@ -277,8 +277,8 @@ RStudio. Recall that:
 > code that are used in any given project
 
 Since we are working in RStudio Cloud, a Project has already been set up
-for you as indicated by the `eci-589.Rproj` file in your main directory
-in the Files pane.
+for you as indicated by the `.Rproj` file in your main directory in the
+Files pane.
 
 ### Load Libraries
 
@@ -291,9 +291,9 @@ right hand corner.
 
 ### **👉 Your Turn** **⤵**
 
-First, load the {tidyverse} and {tidytext} packages since we'll be using
-several of these packages to wrangling and explore our data later
-sections of this case study:
+First, load the {tidyverse}, {tidytext} and {vader} packages from
+previous case studies. We'll be using several of these packages to
+wrangling and explore our data later sections:
 
 ```{r}
 library(tidyverse)
@@ -303,28 +303,6 @@ library(vader)
 
 Next, we will introduce a few new packages that will help us with our
 social network analyses.
-
-### igraph Package **📦**
-
-![](img/igraph.png){width="20%"}
-
-For our Unit 1 Walkthrough, we will rely heavily on the [igraph network
-analysis package](https://igraph.org). The main goals of the igraph
-package and the collection of network analysis tools it contains are to
-provide a set of data types and functions for:
-
-1.  pain-free implementation of graph algorithms,
-
-2.  fast handling of large graphs, with millions of vertices (i.e.,
-    actors or nodes) and edges,
-
-3.  allowing rapid prototyping via high level languages like R.
-
-Run the code chunk below to load the {igraph} library:
-
-```{r}
-library(igraph)
-```
 
 ### tidygraph 📦
 
@@ -369,21 +347,47 @@ Let's go ahead and load the {ggraph} library:
 library(ggraph)
 ```
 
+### igraph Package **📦**
+
+![](img/igraph.png){width="20%"}
+
+Both {tidygraph} and {ggraph} depend heavily [igraph network analysis
+package](https://igraph.org). The main goals of the igraph package and
+the collection of network analysis tools it contains are to provide a
+set of data types and functions for:
+
+1.  pain-free implementation of graph algorithms,
+
+2.  fast handling of large graphs, with millions of vertices (i.e.,
+    actors or nodes) and edges,
+
+3.  allowing rapid prototyping via high level languages like R.
+
+Run the code chunk below to load the {igraph} library:
+
+```{r}
+library(igraph)
+```
+
 ### Import Data
 
 Finally, we'll be using a fresh data download from twitter that only
 includes relatively small set of tweets from the past week to help keep
-things simple. Use the `read_csv()` function from the {readr} package to
-read the `ccss-tweets-fresh.csv` file from Unit 2 and saved in our data
-folder:
+things simple. Network graphs can quickly get unwieldy as the nodes in
+your network grow. The \#commoncore project does an excellent job
+visualizing large networks using advanced techniques. We'll focus on a
+relatively small network since we'll be introduce some very basic
+techniques for visualization.
+
+### **👉 Your Turn** **⤵**
+
+Use the `read_csv()` function from the {readr} package to read the
+`ccss-tweets-fresh.csv` file from the data folder and assign to a new
+data frame named `ccss_tweets`:
 
 ```{r}
 ccss_tweets <- read_csv("data/ccss-tweets-fresh.csv")
 ```
-
-If you'd like to learn more about the process for how these tweets were
-retrieved, visit the short tutorial on using [rtweet & the Twitter
-API](https://laser-institute.github.io/text-mining/keys/tm-learning-lab-4-key.html#1_PREPARE).
 
 ## 2. WRANGLE
 
@@ -402,13 +406,12 @@ a.  **Create an Edgelist**. In this section, we introduce a new tidy
     data format call the "edgelist" which contains information about
     each edge (i.e. connections or ties between actors) in our network.
 
-b.  **Create a Network Object**. Before performing network analyses,
-    we'll need to convert our data frames into special data format, an R
-    network object, for working with relational data.
+b.  **Format Network Data**. We learn to shape our data files into two
+    common formats for storing network data: edgelists and nodelists.
 
-c.  **Simplify Network**. Finally, we'll pare down our network and learn
-    about a handy `simplify()` function in the {igraph} package for
-    collapsing multiple ties between actors and removing "self-loops."
+c.  **Create a Network Object**. Finally, we'll need to convert our data
+    frames into special data format, an R network object, for working
+    with relational data.
 
 ## 2b. Format Network Data
 
@@ -438,11 +441,11 @@ used to denote connections among actors in educational research include:
 ### Create Edgelist
 
 The **edgelist** format is slightly different than other formats you
-have likely worked with before in that the values in the first two
-columns of each row represent a dyad, or tie between two nodes in a
-network. An edge-list can also contain other information regarding the
-strength, duration, or frequency of the relationship, sometime called
-weight, in addition to other "edge attributes."
+have likely worked with in that the values in the first two columns of
+each row represent a dyad, or tie between two nodes in a network. An
+edge-list can also contain other information regarding the strength,
+duration, or frequency of the relationship, sometime called weight, in
+addition to other "edge attributes."
 
 For our analysis of tweets in this case study, we'll use an approach
 similar to that used by @supovitz2017commoncore. Specifically, each node
@@ -451,9 +454,9 @@ connection between each node is the tweet, retweet, or mention/reply.
 
 ### **👉 Your Turn** **⤵**
 
-Use the code below to look at the data we just imported using one of
-your favorite methods for inspecting data. In the space below, identify
-the columns you think could be used to construct an edge list.
+Use the code chunk below to look at the data we just imported using one
+of your favorite methods for inspecting data. In the space that follows,
+identify the columns you think could be used to construct an edge list.
 
 ```{r, eval=FALSE}
 view(ccss_tweets)
@@ -469,13 +472,19 @@ If one of the columns you indicated in your response above included
 column, as well as those "mentioned" in each tweet, i.e. whose username
 was included in a post.
 
-As noted above, an edgelist include the nodes that make up a tie or
+As noted above, an edgelist includes the nodes that make up a tie or
 dyad. Since the only two columns we need to construct our edgelist is
 the `screen_name` of the tweet author and the screen names of those
-included in the mentions, let's `relocate()` and rename those columns,
-then `select()` those columns along with any attributes that we think
-might be useful for analysis later on, like the timestamp or content of
-the tweet, i.e. `text`.
+included in the mentions, let's:
+
+1.  `relocate()` and rename those columns to `sender` and `target` to
+    indicate the "direction" of the tweet;
+
+2.  `select()` those columns along with any attributes that we think
+    might be useful for analysis later on, like the timestamp or content
+    of the tweet, i.e. `text`;
+
+3.   assign our new data frame to `ties_1`.
 
 ```{r}
 ties_1 <-  ccss_tweets %>%
@@ -804,9 +813,8 @@ following types of central actors identified:
 
 -   **Transcenders:**
 
-```{=html}
 <!-- -->
-```
+
 -   YOUR RESPONSE HERE
 
 ## 3b. Make a Sociogram
