@@ -267,7 +267,7 @@ In the space below, type a brief response to the following questions:
 
 -   YOUR RESPONSE HERE
 
-## **1c. Set Up Project**
+## 1c. Set Up Project
 
 As highlighted in [Chapter 6 of Data Science in Education Using
 R](https://datascienceineducation.com/c06.html) (DSIEUR), one of the
