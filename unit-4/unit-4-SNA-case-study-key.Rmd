@@ -563,10 +563,7 @@ ties
 
 2.  What do these ties/edges/connections represent?
 
-```{=html}
-<!-- -->
-```
-    -    YOUR RESPONSE HERE
+    -   YOUR RESPONSE HERE
 
 3.  When do they start and end?
 
