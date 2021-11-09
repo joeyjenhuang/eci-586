@@ -291,15 +291,18 @@ right hand corner.
 
 ### **👉 Your Turn** **⤵**
 
-First, load the {tidyverse} since we'll be using several of these
-packages for to wrangling and explore our data later sections of the
-case study:
+First, load the {tidyverse} and {tidytext} packages since we'll be using
+several of these packages to wrangling and explore our data later
+sections of this case study:
 
 ```{r}
 library(tidyverse)
+library(tidytext)
+library(vader)
 ```
 
-Next, we will introduce a few packages
+Next, we will introduce a few new packages that will help us with our
+social network analyses.
 
 ### igraph Package **📦**
 
@@ -407,13 +410,13 @@ c.  **Simplify Network**. Finally, we'll pare down our network and learn
     about a handy `simplify()` function in the {igraph} package for
     collapsing multiple ties between actors and removing "self-loops."
 
-## 2b. Create Edgelist from Tweets
+## 2b. Format Network Data
 
 Recall from Chapter 1 of @carolan2014 that ties, or relations, are what
 connect actors to one another. These ties are often referred to as
-"edges" when working with network data and the range of ties in a
-network can be extensive. Some of the more common ties, or edges, used
-to denote connections among actors in educational research include:
+"edges" when formatting and graphing network data and the range of ties
+in a network can be extensive. Some of the more common ties, or edges,
+used to denote connections among actors in educational research include:
 
 -   Behavioral interaction (e.g., talking to each other or sending
     messages)
@@ -432,12 +435,14 @@ to denote connections among actors in educational research include:
 -   Moving between places or status (e.g., school choice preferences,
     dating patterns among adolescents)
 
+### Create Edgelist
+
 The **edgelist** format is slightly different than other formats you
 have likely worked with before in that the values in the first two
 columns of each row represent a dyad, or tie between two nodes in a
 network. An edge-list can also contain other information regarding the
 strength, duration, or frequency of the relationship, sometime called
-"weight", in addition to other "edge attributes."
+weight, in addition to other "edge attributes."
 
 For our analysis of tweets in this case study, we'll use an approach
 similar to that used by @supovitz2017commoncore. Specifically, each node
@@ -456,7 +461,7 @@ view(ccss_tweets)
 
 -   YOUR RESPONSE HERE
 
-### Extract Edges and Nodes
+#### Extract Edges and Nodes
 
 If one of the columns you indicated in your response above included
 `screen_name` nice work! You may also have noticed that the
@@ -464,27 +469,27 @@ If one of the columns you indicated in your response above included
 column, as well as those "mentioned" in each tweet, i.e. whose username
 was included in a post.
 
-#### Create Edgelist
-
 As noted above, an edgelist include the nodes that make up a tie or
 dyad. Since the only two columns we need to construct our edgelist is
 the `screen_name` of the tweet author and the screen names of those
-included in the mentions, let's `relocate()` and rename those columns
-and then `select()` those columns along with any attributes that we
-think might be useful for analysis later on, like the timestamp or
-content of the tweet, i.e. `text`.
+included in the mentions, let's `relocate()` and rename those columns,
+then `select()` those columns along with any attributes that we think
+might be useful for analysis later on, like the timestamp or content of
+the tweet, i.e. `text`.
 
 ```{r}
-ties_1 <-  ccss_tweets_5 %>%
+ties_1 <-  ccss_tweets %>%
   relocate(sender = screen_name, # rename scree_name to sender
            target = mentions_screen_name) %>% # rename to receiver
   select(sender,
          target,
          created_at,
          text)
+
+ties_1
 ```
 
-Our edgelist with attributes is almost ready, but we have a couple
+Our edgelist with attributes is almost ready, but we have a couple of
 issues we still need to deal with.
 
 As you may have noticed, our receiver column contains the names of
@@ -495,30 +500,12 @@ or nodes.
 
 In order to place each target user in a separate row that corresponds
 with each sender of the tweet, we will need to "unnest" these names
-using a package that those who took the ECI 588 Text Mining course will
-be very familiar with.
+using the {tidytext} package from Unit 3.
 
-#### tidytext 📦
-
-![](img/tidytext.png){width="20%"}
-
-The {tidytext} package helps to convert text into data frames of
-individual words, making it easy to to manipulate, summarize, and
-visualize text using using familiar functions form the {tidyverse}
-collection of packages.
-
-Let's go ahead and load the {tidytext} package:
-
-```{r}
-library(tidytext)
-```
-
-For a more comprehensive introduction to the `tidytext` package, we
-cannot recommend enough the free online book, *Text Mining with R: A
-Tidy Approach* [@silge2017text]. If you're interested in pursuing text
-analysis beyond this walkthrough, this will be a go to reference.
-
-Let's go ahead and apply the \`un
+Before we used the `unnest_tokens()` function to extract individual
+words from tweets. This time we'll use it to place each username
+mentioned into separate rows corresponding to the user that mentioned or
+replied too these users:
 
 ```{r}
 ties_2 <- ties_1 %>%
@@ -526,20 +513,9 @@ ties_2 <- ties_1 %>%
                 output = receiver,
                 to_lower = FALSE) %>%
   relocate(sender, receiver)
+
+ties_2
 ```
-
-There is A LOT to unpack with this function. First notice
-that `unnest_tokens` expects a data frame as the first argument, which
-we supplied using teh %\>% operator, followed by two column names. The
-first is an input column that the text comes from, `target` in this
-case, which we want to "unnest" into separate rows. Also notice:
-
--   Other columns, such as `sender` and `text`, are retained.
-
--   By default, words are changed to lowercase, which makes them easier
-    to compare or combine with other datasets. However, we can set
-    the `to_lower = FALSE` argument to turn off this behavior since
-    capitalization is important for our user names.
 
 Finally, we'll introduce the `drop_na()` function to remove the rows
 with missing values from our `receiver` column since they are incomplete
@@ -556,80 +532,84 @@ ties <- ties_2 %>%
 
 ### **👉 Your Turn** **⤵**
 
-Take a quick look at our final edgelist and answer the following
-question:
+Use the code chunk below to take a quick look at our final edgelist and
+answer the questions that follow:
 
-How many edges our in our CCSS network?
+```{r, eval=FALSE}
+ties
+```
+
+How many edges are in our CCSS network and what do these
+ties/edges/connections represent?
 
 -   YOUR RESPONSE HERE
 
-Using the tweets you downloaded with your own custom query from above,
-create an edgelist with any desired edge attributes.
-
-```{r}
-# YOUR CODE HERE
-```
-
-### Node Attributes
+### Create Nodelist
 
 The second file we need to create is a data frame that contains all the
-nodes or actors in our network.
+nodes, often referred to as actors, in our network. This list sometimes
+includes attributes that we might want to examine as part of our
+analysis as well, like the number of Twitter followers, demographic
+group, country, gender, etc. This file or data frame is sometimes
+referred to as a **nodelist** or node attribute file.
 
-Regardless, let's read in our node attribute file and take a look at the
-`actors` and their attributes included in our dataset:
+To construct our basic nodelist, we will use tthe `pivot_longer()`
+function from the {dplyr} package, an updated version of the `gather()`
+function introduced in the [RStudio Reshape Data
+Primer](https://rstudio.cloud/learn/primers/4.1).
+
+Run the following code to select the usernames form our `ties` data
+frame, merge our sender and receiver columns into a single column, and
+take a quick look at our new data frame.
 
 ```{r}
-actors_1 <- ties_2 %>%
-  pivot_longer(cols = sender:receiver, 
-               names_to = "nodes",
-               values_to = "screen_name")
+actors_1 <- ties %>%
+  select(sender, receiver) %>%
+  pivot_longer(cols = c(sender,receiver))
+
+actors_1
 ```
 
-Since
+As you can see, our sender and receiver usernames have been combined
+into a single column called `value` with a new column indicating whether
+they were a sender or receiver called `name` by default.
+
+Since we're only interested in usernames for our nodelist, and since we
+have a number of duplicate names, let's select just the `value` column,
+rename it to actors, and use the `distinct()` function from {dplyr} to
+keep only unique names and remove duplicates:
 
 ```{r}
 actors <- actors_1 %>%
-  select(screen_name) %>%
-  distinct() %>%
-  drop_na()
+  select(value) %>%
+  rename(actors = value) %>% 
+  distinct()
 ```
 
 ### **👉 Your Turn** **⤵**
 
-Take a quick look at our final `actors` data frame and answer the
-following question:
+Use the code chunk below to take a quick look at our final `actors` data
+frame and answer question that follows:
 
-How many nodes our in our CCSS network?
+```{r, eval=FALSE}
+actors
+```
+
+How many nodes are in our CCSS network?
 
 -   YOUR RESPONSE HERE
 
-Using the tweets you downloaded with your own custom query from above,
-create an nodelist containing all the unique actors in your network.
-
-```{r}
-# YOUR CODE HERE
-```
-
 ## 2c. Create Network Object
 
-In Unit 1 we learned about the {igraph} package for preparing network
-objects for analysis. In this section we introduce a new package that
-builds upon the "the well-oiled machinery of igraph" but allows us to
-use some of the familiar functions and syntax from other {tidyverse}
-packages. In this walkthrough we won't recreate all the processes like
-simplifying graphs and adding edge weights, but will demonstrate some
-features similar to and in addition to those found in the {igraph}
-package.
+Before we can begin using many of the functions from the {tidygraph} and
+{ggraph} packages for summarizing and visualizing our Common Core
+Twitter network, we first need to convert our node and edge lists into
+network object.
 
 ### Combine Edges & Nodes
 
-Before we can begin using many of the functions from the {tidygraph}
-package for preparing and summarizing our Twitter network, we first need
-to convert the data frames that we imported into a network object,
-similar to what we did in Unit 1.
-
-To do that, we will use the `tbl_graph()` function and include the
-following arguments:
+The {tidygraph} package contains a `tbl_graph()` function that includes
+the following arguments:
 
 -   `edges =` expects a data frame, in our case `ties`, containing
     information about the edges in the graph. The nodes of each edge
@@ -642,23 +622,32 @@ following arguments:
     matched to the column named according to `node_key` in nodes, if it
     exists, or matched to the first column in the node list.
 
--   `directed =` specifies whether the constructed graph be directed and
-    defaults to `TRUE` so we did not included it since our network is
-    directed.
+-   `directed =` specifies whether the constructed graph should be
+    directed, i.e. include information about whether each node is the
+    sender or target of a connection.
 
 Let's go ahead and create our network graph, name it `network` and print
 the output:
 
 ```{r}
-network <- tbl_graph(edges = ties, 
-                     nodes = actors)
+ccss_network_1 <- tbl_graph(edges = ties, 
+                          nodes = actors, 
+                          directed = TRUE)
 
-network
+ccss_network_1
 ```
+
+A quick note about "directed" networks. A directed network indicates
+that a connection or tie is not necessarily reciprocated or mutual. For
+example, our network is directed because even though a user may follow,
+mention or reply to someone else, they may not necessarily receive a
+follow, mention or reply back. A facebook friendship network is
+undirected, however, since somene can not "friend" someone on Facebook
+without them also indicating a "friend" relationship.
 
 ### **👉 Your Turn** **⤵**
 
-Take a look at the output for our simple graph now and answer the
+Take a look at the output for our simple graph above and answer the
 following questions:
 
 1.  Are the numbers and names of nodes and actors consistent with our
@@ -671,8 +660,6 @@ following questions:
     [@carolan2014].
 
     -   YOUR RESPONSE HERE
-
-### 🧶 Knit & Check ✅
 
 Congrats! You made it to the end of data wrangling section and are ready
 to start analysis! Before proceeding further, knit your document and
@@ -705,20 +692,25 @@ b.  **Make a Sociogram**. Finally, we wrap up the explore phases by
 
 ## 3a. Examine Basic Descriptives
 
-As we noted in Unit 1, many analyses of social networks are primarily
-descriptive and aim to either represent the network's underlying social
-structure through data-reduction techniques or to characterize network
-properties through network measures.
+Many analyses of social networks are primarily descriptive. As Carolyn
+(2013) notes that these descriptive studies aim either to represent the
+network's underlying social structure through data-reduction techniques
+or to characterize network properties through network measures.
 
 ### Centrality
 
-#### Node Degree
-
-Recall from Unit 1 that:
+A key structural property of networks is the concept of centralization.
+A network that is highly centralized is one in which relations are
+focused on a small number of actors or even a single actor in a network,
+whereas ties in a decentralized network are diffuse and spread over a
+number of actors. One of the most common descriptives reported in
+network studies and a primary measure of centralization is **degree**.
 
 > **Degree** is the number of ties to and from an ego. In a directed
 > network, in-degree is the number of ties received, whereas out-degree
 > is the number of ties sent.
+
+#### Node Degree
 
 The {tidygraph} package has an unique function called `activate()` that
 allows us to treat the nodes in our network object as if they were a
@@ -733,13 +725,12 @@ Run the following code to add degree measures to each of our nodes and
 print the output:
 
 ```{r}
-network_1 <- network %>%
+ccss_network_2 <- ccss_network_1 %>%
   activate(nodes) %>%
   mutate(degree = centrality_degree(mode = "all")) %>%
-  mutate(in_degree = centrality_degree(mode = "in")) %>%
-  mutate(out_degree = centrality_degree(mode = "out"))
+  mutate(in_degree = centrality_degree(mode = "in"))
 
-network_1
+ccss_network_2
 ```
 
 We now see that these simple measures of centrality have been added to
@@ -751,18 +742,45 @@ frame so we inspect our nodes individually and create some summary
 statistics using the handy `summary()` function.
 
 ```{r}
-node_measures <- network_1 %>% 
+node_measures <- ccss_network_2 %>% 
   activate(nodes) %>%
   data.frame()
 
 summary(node_measures)
 ```
 
-Despite a dramatic size difference from our network in Unit 1, we see
-that typical nodes in this network also have relatively few connections,
-though there are a few exceptions.
+We see that typical nodes in this network are connected on average with
+3 other Twitter users and have received on average mentions or replies
+from 1.5 users.
 
 ### **👉 Your Turn** **⤵**
+
+As you may have noted above, we forgot to include out-degree in our
+measures of centrality. Complete the code chunk below to add an
+out-degree measure to each node and print the output:
+
+```{r}
+ccss_network <- ccss_network_1 %>%
+  activate(nodes) %>%
+  mutate(degree = centrality_degree(mode = "all")) %>%
+  mutate(in_degree = centrality_degree(mode = "in")) %>%
+  mutate(out_degree = centrality_degree(mode = "out"))
+
+ccss_network
+```
+
+Now create a new `node_measures` data frame like with did above using
+the `ccss_network` data frame you just made, then create a `summary()`
+of your node measures like above, and print the output of
+`node_measures`:
+
+```{r}
+node_measures <- ccss_network %>% 
+  activate(nodes) %>%
+  data.frame()
+
+summary(node_measures)
+```
 
 Recall from the Prepare section that one of our questions guiding this
 analysis was:
@@ -770,119 +788,171 @@ analysis was:
 > Who are the transmitters, transceivers, and transcenders in our Common
 > Core Twitter network?
 
-Use the code chunk below to inspect our `node_measures` data frame and
-answer the questions above in the space below:
+Use the code chunk below to `view()` your `node_measures` data frame and
+answer the questions that follow:
 
-```{r}
-#YOUR CODE HERE
+```{r, eval=FALSE}
+view(node_measures)
 ```
 
+Identify the Twitter user with the highest value for each of the
+following types of central actors identified:
+
+-   **Transmitters:**
+
+-   **Transceivers:**
+
+-   **Transcenders:**
+
+```{=html}
+<!-- -->
+```
 -   YOUR RESPONSE HERE
-
-#### Other Centrality Measures
-
-In Chapter 7 of @carolan2014, noted that degree centrality does not take
-into account indirect ties among all the alters in an ego's network. We
-were also introduced to a few other measures of centrality commonly used
-in network analysis and applied to educational contexts:
-
--   **Closeness** includes data about the relation between each pair of
-    ego's named alters and is intuitively appealing in that being
-    "close" to others and may indicate how quickly an actor can exchange
-    something with others or be the first to receive information.
-
--   **Betweenness** captures how actors control or mediate the relations
-    between pairs of actors that are not directly connected and is an
-    important indicator of control over information exchange or resource
-    flows within a network.
-
-Carolyn also notes that in addition to these three common centrality
-measures, many others have been developed and can be calculated in most
-common social network-analysis software applications. In fact,
-{tidygraph} includes many of these measures and includes various
-`centrality_` functions for calculating node and edge centrality. Type
-`?centrality` in your console below and hit enter to view them all.
-
-### **👉 Your Turn** **⤵**
-
-Use the code chunk below to add these closeness and betweenness measures
-to our `network_1` data frame and save as `network_2`. I've included
-some basic code to get your started.
-
-```{r}
-network_2 <- network_1
-  #YOUR CODE HERE
-  
-```
 
 ## 3b. Make a Sociogram
 
-If you recall from Unit 1, network visualization can be used for a
-variety of purposes, ranging from highlighting key actors to even
-serving as works of art. These visual representations of the actors and
-their relations, i.e. the network, are called a **sociogram**. Actors
-who are most central to the network, such as those with higher node
-degrees, are usually placed in the center of the sociogram and their
-ties are placed near them. In this section, we'll briefly introduce the
-{ggraph} package for creating attractive network visualizations.
+If you recall from our [1a. Review the Research] section, one of the
+defining characteristics of the social network perspective is its use of
+graphic imagery to represent actors and their relations with one
+another. To emphasize this point, Carolyn (2013) reported that:
 
-### A Simple Sociogram
+> The visualization of social networks has been a core practice since
+> its foundation more than 90 years ago and remains a hallmark of
+> contemporary social network analysis. 
 
-Very similar to how functions in the tidyverse use the `%>%` operator to
-"pipe" functions together and progressively wrangle data, ggraph and
-ggrplot use the `+` operator to "layer" functions together to
-progressively build graphs.
+Network visualization can be used for a variety of purposes, ranging
+from highlighting key actors to even serving as works of art. This
+excellent figure from Katya Ognyanova's also excellent tutorial on
+[Static and Dynamic Network Visualization with
+R](https://kateto.net/network-visualization/) helps illustrate the
+variety of goals a good network visualization can accomplish:
 
-Let's start with the first and simplest function `ggraph` and supply our
-network graph:
+![](img/viz-goals.jpeg){width="80%"}
+
+These visual representations of the actors and their relations, i.e. the
+network, are called a sociogram. Actors who are most central to the
+network, such as those with higher node degrees, are usually placed in
+the center of the sociogram and their ties are placed near them. As
+we'll see in just a bit, those two actors with hundreds of ties will be
+placed by most graph layout algorithms in the center of the graph.
+
+### **👉 Your Turn** **⤵**
+
+The `plot()` function from R's built in {graphics} package can be used
+to make a simple sociogram, but as you'll see, it's a bit lacking.
+
+In the code chunk below, use the `plot()` function with your
+`ccss_network` object to see what the basic plot function produces:
 
 ```{r}
-ggraph(network_1)
+plot(ccss_network)
+
 ```
 
-As you can see, this didn't produce much. All this function does is take
-care of setting up the network object to plot along with creating the
-layout for the plot based on the graph and the specified layout passed
-in.
+If this had been a smaller network like one generated from a teacher
+professional development workshop, this might have been a little more
+useful, but for larger networks like our Twitter data, this doesn't
+communicate much. In fact, it's visualizations like these that give
+sociograms the unflattering nickname of "hair ball" plots!
 
-#### Add Layout
+Fortunately, the {ggraph} package includes a plethora of plotting
+parameters for graph
+[layouts](https://ggraph.data-imaginist.com/articles/Layouts.html),
+[edges](https://ggraph.data-imaginist.com/articles/Edges.html) and
+[nodes](https://ggraph.data-imaginist.com/articles/Nodes.html) to
+improve the visual design of network graphs.
 
-Let's go ahead and include the layout argument, which in addition to
-including its own unique layouts, can incorporate layouts form {igraph}
-like `fr`.
+For the remainder of this section, we're going to focus on creating a
+sociogram that highlights the main "transmitters" in our network.
+
+### Build a network
+
+One thing to keep in mind when building a network viz with {ggraph}, is
+that just like it's `ggplot()` counterpart, the `ggraph()` function
+takes care of setting up the plot object along with creating the layout
+for the plot based on the network object and the layout specification
+provided.
+
+Let's first pass our `ccss_network` object to ggraph and see what
+happens.
 
 ```{r}
-ggraph(network_1, layout = "fr")
+ggraph(ccss_network)
 ```
+
+As you can see, this didn't produce much. Just like our corresponding
+`ggplot()` function, all that `ggraph()` does is set up the network
+object to make a sociogram, and create a layout, in this case the
+default "stress" layout, for our network.
 
 #### Add Nodes
 
-Still nothing but that is because we haven't added the nodes yet. Let's
-do that:
+Very similar to how `ggplot()` use the `+` operator to "layer" functions
+together to progressively build graphs, functions in the tidyverse use
+the `%>%` operator to "pipe" functions together and progressively
+wrangle data, `ggraph` use the `+` operator progressively build a
+sociogram.
+
+To add our nodes, we'll added the `geom_node_point()` function. Again,
+just like with {ggplot2}, the "geom" in the `geom_non_point()` functions
+stands for "Geometric elements", or geoms for short, and represents what
+you actually see in the plot.
+
+### **👉 Your Turn** **⤵**
+
+Now "add" the `geom_node_point()` function to our code using the `+`
+operator:
 
 ```{r}
-ggraph(network_1, layout = "fr") + 
-geom_node_point() 
+ggraph(ccss_network) + 
+  geom_node_point() 
 ```
 
-Well, at least we have our nodes now!
+Well, at least we have our nodes now! But the default "stress" layout
+for our sociogram is not too great. Let's fix that.
 
-The "geom" in the `geom_non_point()` functions stands for "Geometric
-elements", or geoms for short, and represent what you actually see in
-the plot.
+#### Add Layout
 
-These geoms can include aesthetics, or aes for short, such as `alpha`
-for transparency, as well as `colour`, `shape` and `size`.
+One of the major advances in visualization since the first hand-drawn
+sociograms developed by Jacob Moreno (1934) to represent relations among
+children in school is the use of software and algorithms to
+automatically layout networks on a grid.
 
-Let's now add some "aesthetics" to our points by including the `aes()`
-function and arguments such as `size =` which we can set to our
-`in_degree` measures:
+There are may different [layout
+methods](https://en.wikipedia.org/wiki/Graph_drawing#Layout_methods),
+but we'll start with the Fruchterman-Reingold (FR) layout, which is one
+of the most used layout algorithms for network visualization. These
+types of force-directed algorithms generally work well with large
+networks and try to layout graphs in "an aesthetically-pleasing way" by
+making edges roughly equal in length and minimizing overlap.
+
+Let's go ahead and include the layout argument, which in addition to
+including its own unique layouts, can incorporate layouts form {igraph}
+package like `fr` for the Fruchterman-Reingold (FR) layout:
 
 ```{r}
-ggraph(network_1, layout = "fr") + 
-geom_node_point(aes(size = in_degree, 
-                    alpha = out_degree, 
-                    colour = degree))
+ggraph(ccss_network, layout = "fr") +
+  geom_node_point()
+```
+
+That's a little better. We can start to make our our separate network
+"components" as distinct groups, with one larger connected group in the
+center.
+
+#### Tweak Nodes
+
+Also like {ggplot2}, geoms can include aesthetics, or aes for short,
+such as `alpha` for transparency, as well as `colour`, `shape` and
+`size`.
+
+Let's now add some "aesthetics" to our points by including the `aes()`
+function and arguments such as `size =` and color, which we can set to
+our `in_degree` measures:
+
+```{r}
+ggraph(ccss_network, layout = "fr") + 
+geom_node_point(aes(size = out_degree,
+                    color = out_degree))
 ```
 
 And let's add some node text and labels while were at it since this is
@@ -891,38 +961,38 @@ can apply aesthetics to them as well. Let's also include the `repel =`
 argument that when set to `TRUE` will avoid overlapping text.
 
 ```{r}
-ggraph(network_1, layout = "fr") + 
-  geom_node_point(aes(size = in_degree, 
-                      alpha = out_degree, 
-                      colour = degree)) +
-  geom_node_text(aes(label = screen_name, 
-                     size = in_degree/2,
-                     alpha = degree),
+ggraph(ccss_network, layout = "fr") + 
+  geom_node_point(aes(size = out_degree,
+                      color = out_degree)) +
+  geom_node_text(aes(label = actors,
+                     size = out_degree/2,
+                     color = out_degree),
                  repel=TRUE)
 ```
 
-Much better! Even without the edges, using size and opacity has helped
-to illustrate some of the "transmitters," "trancievers" and
-"transcenders."
+Much better! Even without the edges, using size and color have helped to
+highlight some of the main "transmitters" in our network.
 
 #### Add Edges
 
-Now, let's connect the dots and add some edges that include some arrows
-1mm in length as well as an end cap to keep them from overlapping the
-nodes:
+Now, let's connect the dots and add some edges using the
+`geom_edge_link()` function. We'll also include some arguments like
+`arrow =` to include some arrows 1mm in length, and `end_cap =` to keep
+arrows from overlapping the nodes, and finally set the transparency of
+our edges to `alpha = .2` so they fade more into the background and help
+keep the focus on our nodes:
 
 ```{r}
-ggraph(network_1, layout = "fr") + 
-  geom_node_point(aes(size = in_degree, 
-                      alpha = out_degree, 
-                      colour = degree)) +
-  geom_node_text(aes(label = screen_name, 
-                     size = degree/2,
-                     alpha = degree), 
-                     repel=TRUE) +
+ggraph(ccss_network, layout = "fr") + 
+  geom_node_point(aes(size = out_degree,
+                      color = out_degree)) +
+  geom_node_text(aes(label = actors,
+                     size = out_degree/2,
+                     color = out_degree),
+                 repel=TRUE) +
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
-                 alpha = .3)
+                 alpha = .2)
 ```
 
 #### Add a Theme
@@ -934,20 +1004,22 @@ function removes redundant elements in order to put focus on the data
 and if you type `?theme_graph` in the console you will get a sense of
 the level of fine tuning you can do if desired.
 
-Let's add `theme_graph()` to our sociogram and call it good for now:
+Let's add `theme_graph()` to our sociogram, remove the legends, and call
+it good for now:
 
 ```{r}
-ggraph(network_1, layout = "fr") + 
-  geom_node_point(aes(size = in_degree, 
-                      alpha = out_degree, 
-                      colour = degree)) +
-  geom_node_text(aes(label = screen_name, 
-                     size = degree/2,
-                     alpha = degree), 
-                     repel=TRUE) +
+ggraph(ccss_network, layout = "fr") + 
+  geom_node_point(aes(size = out_degree,
+                      color = out_degree),
+                  show.legend = FALSE) +
+  geom_node_text(aes(label = actors,
+                     size = out_degree/2,
+                     color = out_degree),
+                 repel=TRUE,
+                 show.legend = FALSE) +
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
-                 alpha = .3) + 
+                 alpha = .2) + 
   theme_graph()
 ```
 
@@ -957,29 +1029,29 @@ Try modifying the code below by tweaking the included function/arguments
 or adding new ones for
 [layouts](https://ggraph.data-imaginist.com/articles/Layouts.html),
 [nodes](https://ggraph.data-imaginist.com/articles/Nodes.html), and
-[edges](https://ggraph.data-imaginist.com/articles/Edges.html) to make
-our plot either more "aesthetically pleasing" or more purposeful in what
-it's trying to communicate.
+[edges](https://ggraph.data-imaginist.com/articles/Edges.html) to
+highlight the main "transenders" or "tranceivers" in our network. See if
+you can also make your plot either more "aesthetically pleasing" and/or
+more purposeful in what it's trying to communicate.
 
 There are no right or wrong answers, just have some fun trying out
 different approaches!
 
 ```{r}
-ggraph(network_1, layout = "kk") + 
-  geom_node_point(aes(size = in_degree, 
-                      alpha = out_degree, 
-                      colour = degree)) +
-  geom_node_text(aes(label = screen_name, 
-                     size = degree/2,
-                     alpha = degree), 
-                     repel=TRUE) +
+ggraph(ccss_network, layout = "fr") + 
+  geom_node_point(aes(size = out_degree,
+                      color = out_degree),
+                  show.legend = FALSE) +
+  geom_node_text(aes(label = actors,
+                     size = out_degree/2,
+                     color = out_degree),
+                 repel=TRUE,
+                 show.legend = FALSE) +
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
-                 alpha = .3) + 
+                 alpha = .2) + 
   theme_graph()
 ```
-
-### 🧶 Knit & Check ✅
 
 Congrats! You made it to the end of the Explore section and are ready to
 learn a little about network modeling! Before proceeding further, knit
@@ -994,9 +1066,9 @@ to complex, to understand trends and patterns in the data."
 
 ## 4a. Identify Groups
 
-In Chapter 6: Groups and Positions in Complete Networks of SNA and
-Education [@carolan2014] we were introduced to both "bottom up" and "top
-down" approaches for identifying groups in a network, as well as why
+Chapter 6: Groups and Positions in Complete Networks of SNA and
+Education [@carolan2014] introduces both "bottom up" and "top down"
+approaches for identifying groups in a network, as well as why
 researchers may be interested in exploring these groups. He also notes
 that:
 
@@ -1012,132 +1084,98 @@ algorithms.
 
 Similar to the range of functions included for calculating node and edge
 centrality, the {tidygraph} package includes various clustering
-functions provided by the {igraph} package introduced in Unit 1.
+functions provided by the {igraph} package. Some of these algorithms are
+designed for directed graphs, while others are for undirected graphs.
 
 Also similar to calculating centrality measures, we need to `activate()`
 our nodes first before applying these community detection algorithms to
 assign our nodes to groups.
 
-Run the following code and take a print our new network graph to the
-console to take a quick look
+For the sake of simplicity, and because there seem to be some obvious
+groups based on network components, let's group our nodes using the
+`group_components()` along with the `mutate()` function from {dplyr} to
+create a new `group` variable to our nodelist that provides a value
+based on the component to which each node belongs.
+
+Run the following code to group our nodes and print our new
+`cccss_network_groups` object and take a quick look:
 
 ```{r}
-network_3 <- network_2 %>%
+ccss_network_groups <- ccss_network %>%
   activate(nodes) %>%
-  mutate(group = group_infomap())
+  mutate(group = group_components())
   
-network_3
+ccss_network_groups
 ```
 
-**Note:** Some of these algorithms are designed for directed graphs,
-while others are for undirected graphs.
-
-Now that we've assigned our nodes to a group, let's modify our sociogram
-from above to color our nodes by group assignment and remove the
-`alpha =` argument to make them a little easier to see.
+Now that we've assigned our nodes to a group, let's add one more layer
+to our sociogram from above by using the `geom_node_voronoi()` function
+to color our nodes by group assignment and changing our group numbers to
+factors so each group is a distinct color:
 
 ```{r}
-network_3 %>%
-  ggraph(layout = "kk") + 
-  geom_node_point(aes(size = in_degree, 
-                      colour = group)) +
-  geom_node_text(aes(label = screen_name, 
-                     size = degree/2,
-                     alpha = degree), 
-                     repel=TRUE) +
+ccss_network_groups %>%
+  ggraph(layout = "fr") + 
+  geom_node_point(aes(size = out_degree, 
+                      color = out_degree),
+                  show.legend = FALSE) +
+  geom_node_text(aes(label = actors, 
+                     color = out_degree,
+                     size = out_degree), 
+                     repel=TRUE,
+                 show.legend = FALSE) +
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
-                 alpha = .3) + 
-  theme_graph()
+                 alpha = .2) + 
+  theme_graph() + 
+  geom_node_voronoi(aes(fill = factor(group),
+                         alpha = .05), 
+                    max.radius = .5,
+                    show.legend = FALSE) 
 ```
-
-### **👉 Your Turn** **⤵**
-
-Recall from the Prepare section that the second question guiding this
-analysis was:
-
-> What subgroups, or factions, exist in our network?
-
-Use the code chunk below to extract the group assignment data frame and
-answer the question above in the space below:
-
-```{r}
-#YOUR CODE HERE
-```
-
--   YOUR RESPONSE HERE
 
 ## 4b. Identify Sentiment
 
-Sentiment analysis (also known as opinion mining) is a text mining
-technique used to "systematically identify, extract, quantify, and study
-affective states and subjective information." In this section, we'll
-introduce and apply the {vader} package to gain some insight into the
-"lexical tendencies" of our tweets.
+Recall from the Prepare section that the final question guiding this
+analysis was:
 
-#### The vader Package 📦
+> Which actors in our network tend to be more opposed to the Common
+> Core?
 
-![](img/vader.jpeg){width="20%"}\
-
-The {vader} package is for the Valence Aware Dictionary for sEntiment
-Reasoning (VADER), a rule-based model for general sentiment analysis of
-social media text and specifically attuned to measuring sentiment in
-microblog-like contexts.
-
-To learn more about the {vader} package and its development, take a look
-at the article by Hutto and Gilbert (2014), [VADER: A Parsimonious
-Rule-based Model forSentiment Analysis of Social Media
-Text](http://comp.social.gatech.edu/papers/icwsm14.vader.hutto.pdf).
-
-Let's go ahead and load the vader library:
+In this section, we'll use the {vader} package for sentiment analysis
+introduce in Unit 3 to help answer this question. Let's give VADER
+`ties` data frame that we created earlier and include the `$` operator
+to select for analysis our `text` column containing our tweets.
 
 ```{r}
-library(vader)
-```
-
-The {vader} package basically has just one function, `vader_df()` that
-does one thing and expects just one column from a data frame. Let's give
-VADER the our `ccss_tweets_6` data frame that we created earlier and
-include the `$` operator to select for analysis our `text` column
-containing our tweets.
-
-```{r}
-summary_vader <- vader_df(ties$text)
+summary_vader <- vader_df(ccss_tweets$text)
 
 summary_vader
 ```
 
-Hutto, C. & Gilbert, E. (2014) provide an excellent summary of the VADER
-package on their [GitHub repository](scores) and I've copied and
-explanation of the scores below:
-
--   The `compound` score is computed by summing the valence scores of
-    each word in the lexicon, adjusted according to the rules, and then
-    normalized to be between -1 (most extreme negative) and +1 (most
-    extreme positive). This is the most useful metric if you want a
-    single unidimensional measure of sentiment for a given sentence.
-    Calling it a 'normalized, weighted composite score' is accurate.
-
-**NOTE:** The `compound` score is the one most commonly used for
-sentiment analysis by most researchers, including the authors.
+Recall that the `compound` score is the one most commonly used for
+sentiment analysis by most researchers, and is computed by summing the
+valence scores of each word in the lexicon, adjusted according to the
+rules, and then normalized to be between -1 (most extreme negative) and
++1 (most extreme positive).
 
 Let's use the `inner_join()` function to add these sentiment scores
 values back to our `ties` data frame and take a quick look:
 
 ```{r}
 tweet_sentiment <-inner_join(summary_vader, 
-                             ties,
+                             ccss_tweets,
                              by = "text")
 
 tweet_sentiment
 ```
 
-Now that we have these joined, we can take a quick look at the sentiment
-.
+Now that we have these joined, we can take a quick look at the
+sentiment.
 
 ```{r}
 user_sentiment <- tweet_sentiment %>%
-  group_by(sender) %>%
+  group_by(screen_name) %>%
   summarise(sentiment = mean(compound))
 
 user_sentiment
@@ -1158,7 +1196,7 @@ analysis was:
 Use the code chunk below to inspect our data frame and answer the
 question above in the space below:
 
-```{r}
+```{r, eval=FALSE}
 #YOUR CODE HERE
 ```
 
@@ -1168,49 +1206,43 @@ question above in the space below:
 
 # 5. COMMUNICATE
 
-For your Independent Analysis assignment for Unit 2 next week, you'll
-create either a simple report or slide deck using an R Markdown document
-just like this to share out some key findings from your analysis.
-Regardless of whether you plan to talk us through your analysis and
-findings with a presentation or walk us through with a brief written
-report, your presentation or report should address the following
-questions:
+In this case study, we focused on the literature guiding our analysis;
+wrangling our data into a network object; examining basic network
+centrality measures; and identifying groups and sentiment in tweets
+about the CCSS curriculum standards.
 
-1.  **Purpose**. What question or questions are guiding your analysis?
-    What did you hope to learn by answering these questions and why
-    should your audience care about your findings?
+In response to the following research questions driving this analysis,
+write a 2-3 sentences summarizing our findings:
 
-2.  **Methods**. What data did you selected for analysis? What steps did
-    you take took to prepare your data for analysis and what techniques
-    you used to analyze your data? These should be fairly explicit with
-    your embedded code.
+1.  Who are the transmitters, transceivers, and transcenders in our
+    Common Core Twitter network?
 
-3.  **Findings**. What did you ultimately find? How do your "data
-    products" help to illustrate these findings? What conclusions can
-    you draw from your analysis?
+    -   
 
-4.  **Discussion**. What were some of the strengths and weaknesses of
-    your analysis? How might your audience use this information? How
-    might you revisit or improve upon this analysis in the future?
+2.  What subgroups, or factions, existed in our network?
 
-### **👉 Your Turn** **⤵**
+    -   
 
-Now that you've become more familiar with this dataset and the social
-network perspective, what other aspects of this dataset, or a dataset
-you are interested in exploring, could you investigate?
+3.  Which actors in our network tended to be more opposed to the Common
+    Core?
 
--   YOUR RESPONSE HERE
+    -   
 
-What specific research questions might you ask that would be helpful for
-being understanding and improving learning, or the context in which the
-data is collected? How could other approaches like sentiment analysis
+Finally, add 1-2 sentences in response to the following prompts:
 
--   YOUR RESPONSE HERE
+1.  One important thing I took away from this unit about network network
+    analysis:
+
+    -   
+
+2.  One thing about network analysis I want to learn more about:
+
+    -   
 
 ### 🧶 Knit & Check ✅
 
-Congrats! You've finished the Unit 2 Guided Walkthrough and are ready
-for some independent analysis next week!
-
-To complete this assignment, knit your document and send me an email at
-sbkellog\@ncsu.edu letting me know you're all set.
+Congratulations - you've completed your first text mining case study! To
+complete your work, you can click the drop down arrow at the top of the
+file, then select "Knit top HTML". This will create a report in your
+Files pane that serves as a record of your code and its output you can
+open or share.
