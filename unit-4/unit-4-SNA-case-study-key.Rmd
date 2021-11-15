@@ -84,7 +84,7 @@ features of the social network perspective.
 
 ### The \#commoncore Project
 
-![](img/commoncore.jpeg){width="50%"}
+![](img/commoncore.jpeg){width="60%"}
 
 Supovitz, J., Daly, A.J., del Fresno, M., & Kolouch, C.
 (2017). *\#commoncore Project.* Retrieved from
