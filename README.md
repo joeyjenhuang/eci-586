@@ -20,7 +20,7 @@ Students must have Internet access and access to a Web browser (e.g., Safari, Fi
 
 ## Instructor Information
 
-**Name:** [Dr. Shaun Kellogg](https://www.fi.ncsu.edu/people/sbkellog/)  
+**Name:** [Dr. Shaun Kellogg](https://www.fi.ncsu.edu/people/sbkellog)  
 **Email:** [shaun.kellogg\@ncsu.edu](shaun.kellogg@ncsu.edu)  
 **Office:** [Friday Institute for Educational Innovation](https://www.fi.ncsu.edu)  
 **Phone:** (919) 513-8563  
