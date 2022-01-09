@@ -25,7 +25,7 @@ Our Unit 4 Case Study: Hashtag Common Core is inspired by the work of
 Jonathan Supovitz, Alan Daly, Miguel del Fresno and Christian Kolouch
 who examined the intense debate surrounding the Common Core State
 Standards education reform as it played out on Twitter. As noted on
-their expansive and interactive website for the [\#COMMONCORE
+their expansive and interactive website for the [#COMMONCORE
 Project](https://www.hashtagcommoncore.com), the Common Core was a major
 education policy initiative of the early 21st century. A primary aim of
 the Common Core was to strengthen education systems across the United
@@ -77,23 +77,23 @@ that Carolyn (2013) cited the following four features used by Freeman
 4.  It **relies** **on** **mathematical and/or computational models** to
     succinctly represent the complexity of social life.
 
-The [\#COMMONCORE Project](https://www.hashtagcommoncore.com) that we'll
+The [#COMMONCORE Project](https://www.hashtagcommoncore.com) that we'll
 examine next is an exemplary illustration of these four defining
 features of the social network perspective.
 
-### The \#commoncore Project
+### The #commoncore Project
 
 ![](img/commoncore.jpeg){width="50%"}
 
 Supovitz, J., Daly, A.J., del Fresno, M., & Kolouch, C.
-(2017). *\#commoncore Project.* Retrieved from
+(2017). *#commoncore Project.* Retrieved from
 [http://www.hashtagcommoncore.com](http://www.hashtagcommoncore.com/).
 
 #### Prologue
 
 As noted by @supovitz2017commoncore, the Common Core State Standards
 have been a "persistent flashpoint in the debate over the direction of
-American education." The \#commoncore Project explores the Common Core
+American education." The #commoncore Project explores the Common Core
 debate on Twitter using a combination of social network analyses and
 psychological investigations which help to reveal both the underlying
 social structure of the conversation and the motivations of the
@@ -108,8 +108,8 @@ The central question guiding this investigation was:
 
 The [methods
 page](https://www.hashtagcommoncore.com/project/methodology) of the
-\#COMMONCORE Project provides a detailed discussion of the data and
-analyses used to arrive at the conclusions in *\#commoncore: How social
+#COMMONCORE Project provides a detailed discussion of the data and
+analyses used to arrive at the conclusions in *#commoncore: How social
 media is changing the politics of education*. Provided below is a
 summary of how authors retrieved data from Twitter and the analyses
 applied for each of the five acts in the website. I highly encourage you
@@ -159,11 +159,11 @@ For a nice summary of the data used for the analysis, as well as the
 samples of actors and tweets, the keywords, and the methods that were
 utilized, see [Table 1. Data and Method for Each
 Act](https://www.hashtagcommoncore.com/project/methodology) in the
-Methods section of the \#commoncore website.
+Methods section of the #commoncore website.
 
 #### Key Findings
 
-In the \#commoncore Project, analyses of almost 1 million tweets sent by
+In the #commoncore Project, analyses of almost 1 million tweets sent by
 about 190,000 distinct actors over a period of 32 months revealed the
 following:
 
@@ -238,7 +238,7 @@ completed for you.
 
 ## 1b. Identify a Question(s)
 
-Recall from above that the central question guiding the \#COMMONCORE
+Recall from above that the central question guiding the #COMMONCORE
 Project was:
 
 > How are social media-enabled social networks changing the discourse in
@@ -374,7 +374,7 @@ library(igraph)
 Finally, we'll be using a fresh data download from twitter that only
 includes relatively small set of tweets from the past week to help keep
 things simple. Network graphs can quickly get unwieldy as the nodes in
-your network grow. The \#commoncore project does an excellent job
+your network grow. The #commoncore project does an excellent job
 visualizing large networks using advanced techniques. We'll focus on a
 relatively small network since we'll be introduce some very basic
 techniques for visualization.
@@ -484,7 +484,7 @@ included in the mentions, let's:
     might be useful for analysis later on, like the timestamp or content
     of the tweet, i.e. `text`;
 
-3.   assign our new data frame to `ties_1`.
+3.  assign our new data frame to `ties_1`.
 
 ```{r}
 ties_1 <-  ccss_tweets %>%
