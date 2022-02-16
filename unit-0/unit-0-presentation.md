@@ -1,6 +1,6 @@
 The R Toolkit
 ========================================================
-date: August 15, 2021
+date: February 16, 2022
 author: ECI 586: Intro to Learning Analytics
 autosize: false
 transition: linear
