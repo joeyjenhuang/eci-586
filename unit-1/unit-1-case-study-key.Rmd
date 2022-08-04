@@ -37,8 +37,9 @@ state-wide online virtual school and conduct an analysis that help
 product students' performance in these online courses. This case study
 is guided by a foundational study in Learning Analytics that illustrates
 how analyses like these can be used develop an early warning system to
-educators identify students at risk of failing and intervene before that
-happens. The Unit 1 case study will cover the following workflow topics:
+help educators identify students at risk of failing and intervene before
+that happens. The Unit 1 case study will cover the following workflow
+topics:
 
 1.  **Prepare**: Prior to analysis, it's critical to understand the
     context and data sources you're working with so you can formulate
@@ -613,8 +614,8 @@ assigning the output back to the name of the data frame, after which you
 can proceed to the next step.
 
 There are a lot of other functions like separate that help you to solve
-specific problems, and we'll introduce many over the two-week institute
-- and will point you to resources that describe many more.
+specific problems, and we'll introduce many over the two-week
+institute - and will point you to resources that describe many more.
 
 There are also functions that can serve as general purpose tools that
 can solve many problems; one of the most useful is `` mutate()` ``, a
@@ -1151,7 +1152,7 @@ table, but we'll also discuss ways later on to create tables that are
 ready--or nearly-ready--to be added directly to manuscripts.
 
 If you are curious about doing more with {skimr}, check out:
-[\<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
+[\<https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html\>](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html){.uri}
 
 ### b. Data Visualization
 
@@ -1404,7 +1405,7 @@ or two of these noticings or wonderings below:
 -   
 
 If you are interested in learning more about the {corrr} package, visit:
-[\<https://corrr.tidymodels.org>](https://corrr.tidymodels.org){.uri}
+[\<https://corrr.tidymodels.org\>](https://corrr.tidymodels.org){.uri}
 
 #### APA Formatted Tables
 
