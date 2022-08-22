@@ -37,8 +37,9 @@ state-wide online virtual school and conduct an analysis that help
 product students' performance in these online courses. This case study
 is guided by a foundational study in Learning Analytics that illustrates
 how analyses like these can be used develop an early warning system to
-educators identify students at risk of failing and intervene before that
-happens. The Unit 1 case study will cover the following workflow topics:
+help educators identify students at risk of failing and intervene before
+that happens. The Unit 1 case study will cover the following workflow
+topics:
 
 1.  **Prepare**: Prior to analysis, it's critical to understand the
     context and data sources you're working with so you can formulate
@@ -258,7 +259,7 @@ Science](Tidyverse%20Skills%20for%20Data%20Science), Wright et al.
 > open these files. CSVs are flexible files and are thus the preferred
 > storage method for tabular data for many data scientists .
 
-#### Data Source \#1: Log Data
+#### Data Source #1: Log Data
 
 *Log-trace data* is data generated from our interactions with digital
 technologies, such as archived data from social media postings. In
@@ -336,7 +337,7 @@ point to add another) on your observations and/or questions here:
 
 -   
 
-#### Data Source \#2: Academic Achievement Data
+#### Data Source #2: Academic Achievement Data
 
 Academic achievement data is (obviously) is a very common form of data
 in education. In this case study, we'll use both the sum of the points
@@ -354,7 +355,7 @@ gradebook <- read_csv(here("unit-1", "data", "gradebook-summary.csv"))
 gradebook
 ```
 
-#### Data Source \#3: Self-Report Survey
+#### Data Source #3: Self-Report Survey
 
 The third data source is a self-report survey. This was data collected
 before the start of the course. The survey included ten items, each
@@ -518,8 +519,8 @@ semester and the course are encoded within the same variable. The
 1.  the variable you want to separate
 2.  the names of the new variables to create
 
-Below, see using `course_var` for \#1, and `c("Semester", "Course")` for
-\#2, can be used to separate the semester and course data into two
+Below, see using `course_var` for #1, and `c("Semester", "Course")` for
+#2, can be used to separate the semester and course data into two
 separate variable
 
 ```{r}
@@ -613,8 +614,8 @@ assigning the output back to the name of the data frame, after which you
 can proceed to the next step.
 
 There are a lot of other functions like separate that help you to solve
-specific problems, and we'll introduce many over the two-week institute
-- and will point you to resources that describe many more.
+specific problems, and we'll introduce many over the two-week
+institute - and will point you to resources that describe many more.
 
 There are also functions that can serve as general purpose tools that
 can solve many problems; one of the most useful is `` mutate()` ``, a
