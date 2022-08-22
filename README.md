@@ -20,11 +20,11 @@ Students must have Internet access and access to a Web browser (e.g., Safari, Fi
 
 ## Instructor Information
 
-**Name:** [Dr. Shaun Kellogg](https://www.fi.ncsu.edu/people/sbkellog)  
-**Email:** [shaun.kellogg\@ncsu.edu](shaun.kellogg@ncsu.edu)  
-**Office:** [Friday Institute for Educational Innovation](https://www.fi.ncsu.edu) (Room 223)  
-**Phone:** (919) 513-8563  
-**Hours:** Appointments by [Calendly](https://calendly.com/sbkellogg/analytics) Monday-Friday 8:00-4:00  
+**Name:** [Dr. Shaun Kellogg](https://www.fi.ncsu.edu/people/sbkellog)\
+**Email:** [shaun.kellogg\@ncsu.edu](shaun.kellogg@ncsu.edu)\
+**Office:** [Friday Institute for Educational Innovation](https://www.fi.ncsu.edu) (Room 223)\
+**Phone:** (919) 513-8563\
+**Hours:** Appointments by [Calendly](https://calendly.com/sbkellogg/analytics) Monday-Friday 8:00-4:00\
 **Social:** [Twitter](https://twitter.com/sbkellogg) \| [GitHub](https://github.com/settings/profile) \| [LinkedIn](https://www.linkedin.com/in/shaunbkellogg/)
 
 ## Course Texts
@@ -73,7 +73,7 @@ This course requires R and R Studio, which will be used to provide hands-on expe
 
 2.  **Data Camp** (<https://www.datacamp.com>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our DataCamp site, full catalogue of courses and resources for 6 months.
 
-3.  **LinkedIn Learning** (<https://www.linkedin.com/learning)> offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
+3.  **LinkedIn Learning** ([https://www.linkedin.com/learning)](https://www.linkedin.com/learning)){.uri} offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
 
 4.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
 
