@@ -1,13 +1,12 @@
 ---
-title: 'Unit 0: Getting Started Walkthrough'
+title: 'Unit 0: Getting Started Case Study'
 subtitle: 'ECI 586 Intro to Learning Analytics'
-author: "Dr. Shaun Kellogg"
+author: "YOUR NAME HERE"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
-output:
-  html_document:
-    toc: yes
-    toc_depth: '5'
-    toc_float: yes
+format:
+  html:
+    toc: true
+    toc-location: right
 name: ''
 editor_options:
   markdown:
@@ -23,14 +22,13 @@ knitr::opts_chunk$set(echo = TRUE, error = FALSE)
 ### Background
 
 Welcome to using **ECI 586: An Introduction to Learning Analytics**!
-During the third week of each unit, we'll "walk through" a basic
-research workflow, or data analysis process, that will focus on a basic
-analysis using Learning Analytics methods annd techniques. This getting
-started task is designed to orient you to both our data analysis
-assignments and to R, RStudio, and/or RMarkdown, which we'll be using to
-complete those assignments.
+During the third week of each unit, we'll complete a basic research
+workflow, or data analysis process, modeled after an actual learning
+analytics study. This getting started task is designed to orient you to
+both our data analysis assignments and to R, RStudio, and/or RMarkdown,
+which we'll be using to complete those assignments.
 
-I'll be using RStudio Cloud, which has all of the functionality of the
+We'll be using RStudio Cloud, which has all of the functionality of the
 desktop version of RStudio, and some additional benefits for the those
 new to R, such as the installation of packages and the simplification of
 file directories. If you're new to R, I highly recommend it.
@@ -80,13 +78,14 @@ knitr::include_graphics("img/laser-cycle.png")
 
 ### How to use this document
 
-This is an R Notebook. There are two keys to your use of it:
+This documents is an Quarto Markdown (.qmd) file that can be used to run
+code and generate a wide range of file format outputs. There are two
+keys to your use of it:
 
 1.  First, be sure that you are viewing the document in the "Visual
-    Editor" mode. You can use this mode by clicking the symbol that
-    appears like a letter A (or the tip of a pencil!) in the top right
-    of this window.
-2.  Second, click "Preview" at the top of this screen to preview the
+    Editor" mode. You can use this mode by clicking the "Visual" button
+    that appears in the top left of toolbar above.
+2.  Second, click "Render" at the top of this screen to preview the
     document as you work through it. This will allow you to see your
     code and the input in a rendered - easy-to-read - document.
 
@@ -95,12 +94,12 @@ Let's get started!
 ## 1. PREPARE
 
 By preparing, we refer to developing a question or purpose for the
-analysis, which you likely know from your research can be difficult!
-This part of the process also involves developing an understanding of
-the data and what you may need to analyze the data. Often this involves
-looking at the data and its documentation. For now, we'll focus on just
-a few parts of this process, diving in much more deeply over the coming
-weeks.
+analysis, which can be surprisingly difficult when considering its
+utility for helping educators improve teaching and learning! This part
+of the process also involves developing an understanding of the data and
+what you may need to analyze the data. Often this involves looking at
+the data and its documentation. For now, we'll focus on just a few parts
+of this process, diving in much more deeply over the coming weeks.
 
 ### Packages 📦
 
@@ -161,7 +160,7 @@ file? Why quotation marks?
 
 Add your responses after the dashes below:
 
-\-
+-   YOUR RESPONSE HERE
 
 Hint: check the files pane in the lower right corner of RStudio.
 
@@ -181,7 +180,7 @@ d
 What do you notice about this dataset? What do you wonder? Add one or
 two thoughts after the dash below:
 
-\-
+-   YOUR RESPONSE HERE
 
 There are other ways to inspect your data; the `glimpse()` function
 provides one such way. Run the code below to take a glimpse at your
@@ -203,13 +202,11 @@ and/or research.
 
 How many "cases" or observations are in this data set?
 
-\-
+-   YOUR RESPONSE HERE
 
 Pick two columns (or more) and write what you think it represents:
 
-\-
-
-\-
+-   YOUR RESPONSE HERE
 
 Next, we'll use a few functions that are handy for preparing data in
 table form.
@@ -281,9 +278,9 @@ d %>%
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-In the next code chunk, change the cut-off from 70% to some other value
-- larger or smaller (maybe much larger or smaller - feel free to play
-around with the code a bit!).
+In the next code chunk, change the cut-off from 70% to some other
+value - larger or smaller (maybe much larger or smaller - feel free to
+play around with the code a bit!).
 
 ```{r}
 d %>% 
@@ -293,7 +290,7 @@ d %>%
 What happens when you change the cut-off from 70 to something else? Add
 a thought (or more):
 
-\-
+-   YOUR RESPONSE HERE
 
 ### Arrange
 
@@ -339,9 +336,9 @@ filter(), and arrange functions? Recall that you can "pipe" the output
 from one function to the next as when we used select() and arrange()
 together in the code chunk above.
 
-*This reach is not required/necessary to complete; it's just for those
-who wish to do a bit more with these functions at this time (we'll do
-more in class, too!)*
+*This optional activity is not required/necessary to complete; it's just
+for those who wish to do a bit more with these functions at this time
+(we'll do more in class, too!)*
 
 ```{r}
 
@@ -455,7 +452,7 @@ summary(m2)
 What do you notice about the results? We're going to dive into this
 *much* more: if you have many questions now, you're in the right spot!
 
-\-
+-   YOUR RESPONSE HERE
 
 ## 5. COMMUNICATE
 
@@ -463,8 +460,8 @@ Great job! Once you've finished your work, click the arrow beside the
 button you used to "Preview" your document to see what it will look like
 when you share it with others.
 
-When everything looks good, click "Knit to HTML" at the top to render a
-report that you can be viewed using a web browser and shared online.
+When everything looks good, click "Render" at the top to render a report
+that you can be viewed using a web browser and shared online.
 
-Congratulations on getting started, you're ready for our Unit 1 guided
-walkthrough next week!
+Congratulations on getting started, you're ready for our unit Case
+Studies that we will complete during the third week of each unit!

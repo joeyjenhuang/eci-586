@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="YOUR NAME HERE">
+<meta name="dcterms.date" content="2022-08-23">
+
+<title>Unit 0: Getting Started Case Study</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="unit-0-case-study_files/libs/clipboard/clipboard.min.js"></script>
+<script src="unit-0-case-study_files/libs/quarto-html/quarto.js"></script>
+<script src="unit-0-case-study_files/libs/quarto-html/popper.min.js"></script>
+<script src="unit-0-case-study_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="unit-0-case-study_files/libs/quarto-html/anchor.min.js"></script>
+<link href="unit-0-case-study_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="unit-0-case-study_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="unit-0-case-study_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="unit-0-case-study_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="unit-0-case-study_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">0. INTRODUCTION</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#organization" id="toc-organization" class="nav-link" data-scroll-target="#organization">Organization</a></li>
+  <li><a href="#how-to-use-this-document" id="toc-how-to-use-this-document" class="nav-link" data-scroll-target="#how-to-use-this-document">How to use this document</a></li>
+  </ul></li>
+  <li><a href="#prepare" id="toc-prepare" class="nav-link" data-scroll-target="#prepare">1. PREPARE</a>
+  <ul class="collapse">
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages 📦</a></li>
+  <li><a href="#loading-or-reading-in-data" id="toc-loading-or-reading-in-data" class="nav-link" data-scroll-target="#loading-or-reading-in-data">Loading (or reading in) data</a></li>
+  </ul></li>
+  <li><a href="#wrangle" id="toc-wrangle" class="nav-link" data-scroll-target="#wrangle">2. WRANGLE</a>
+  <ul class="collapse">
+  <li><a href="#selecting-variables" id="toc-selecting-variables" class="nav-link" data-scroll-target="#selecting-variables">Selecting variables</a></li>
+  <li><a href="#filtering-variables" id="toc-filtering-variables" class="nav-link" data-scroll-target="#filtering-variables">Filtering variables</a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange">Arrange</a></li>
+  </ul></li>
+  <li><a href="#explore" id="toc-explore" class="nav-link" data-scroll-target="#explore">3. EXPLORE</a>
+  <ul class="collapse">
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#changing-colors" id="toc-changing-colors" class="nav-link" data-scroll-target="#changing-colors">Changing colors</a></li>
+  </ul></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a></li>
+  <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Unit 0: Getting Started Case Study</h1>
+<p class="subtitle lead">ECI 586 Intro to Learning Analytics</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>YOUR NAME HERE </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">0. INTRODUCTION</h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>Welcome to using <strong>ECI 586: An Introduction to Learning Analytics</strong>! During the third week of each unit, we’ll complete a basic research workflow, or data analysis process, modeled after an actual learning analytics study. This getting started task is designed to orient you to both our data analysis assignments and to R, RStudio, and/or RMarkdown, which we’ll be using to complete those assignments.</p>
+<p>We’ll be using RStudio Cloud, which has all of the functionality of the desktop version of RStudio, and some additional benefits for the those new to R, such as the installation of packages and the simplification of file directories. If you’re new to R, I highly recommend it.</p>
+<p>You are also welcome to use RStudio desktop, and you can download this project on our course workspace by clicking the “Export” button shown in the following screenshot:</p>
+<p><img src="img/project-export.png" class="img-fluid" style="width:80.0%"></p>
+</section>
+<section id="organization" class="level3">
+<h3 class="anchored" data-anchor-id="organization">Organization</h3>
+<p>This independent practice is really a warm-up. It is a chance to become familiar with how RStudio works. In the context of doing so, we’ll focus on three things:</p>
+<ol type="1">
+<li>Reading data into R (in the <strong>Prepare</strong> section)</li>
+<li>Preparing and “wrangling” data in table (think spreadsheet!) format (in the <strong>Wrangle</strong> section)</li>
+<li>Creating some plots (in the <strong>Explore</strong> section)</li>
+<li>Running a model - specifically, a regression model (in the <strong>Model</strong> section)</li>
+<li>Finally, creating a reproducible report of your work you can share with others (in the <strong>Communicate</strong> section)</li>
+</ol>
+<p>You may be wondering what these bolded terms refer to; what’s so special about preparing, wrangling, exploring, and modeling data - and communicating results? We’re using these terms as a part of a framework, or workflow, that comes from the work of Krumm et al.’s <a href="https://www.routledge.com/Learning-Analytics-Goes-to-School-A-Collaborative-Approach-to-Improving/Krumm-Means-Bienkowski/p/book/9781138121836"><em>Learning Analytics Goes to School</em></a><em>.</em></p>
+<p>You can check that out (literally, it’s <a href="https://catalog.lib.ncsu.edu/catalog/NCSU4862134">available online through the NCSU Library</a>), but don’t feel any need to dive deep for now - we’ll be spending more time on this process throughout the course. For now, know that this document is organized around these five components of the Data Intensive Research Workflow.</p>
+<p>Click the arrow to the right of the code chunk below to view the image (more on that process of clicking the green arrow and what it does, too, in a moment)!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"img/laser-cycle.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="img/laser-cycle.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="how-to-use-this-document" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-use-this-document">How to use this document</h3>
+<p>This documents is an Quarto Markdown (.qmd) file that can be used to run code and generate a wide range of file format outputs. There are two keys to your use of it:</p>
+<ol type="1">
+<li>First, be sure that you are viewing the document in the “Visual Editor” mode. You can use this mode by clicking the “Visual” button that appears in the top left of toolbar above.</li>
+<li>Second, click “Render” at the top of this screen to preview the document as you work through it. This will allow you to see your code and the input in a rendered - easy-to-read - document.</li>
+</ol>
+<p>Let’s get started!</p>
+</section>
+</section>
+<section id="prepare" class="level2">
+<h2 class="anchored" data-anchor-id="prepare">1. PREPARE</h2>
+<p>By preparing, we refer to developing a question or purpose for the analysis, which can be surprisingly difficult when considering its utility for helping educators improve teaching and learning! This part of the process also involves developing an understanding of the data and what you may need to analyze the data. Often this involves looking at the data and its documentation. For now, we’ll focus on just a few parts of this process, diving in much more deeply over the coming weeks.</p>
+<section id="packages" class="level3">
+<h3 class="anchored" data-anchor-id="packages">Packages 📦</h3>
+<p>R uses “packages,” add-ons that enhance its functionality. One package that we’ll be using is the tidyverse. The {tidyverse} package is actually a <a href="https://www.tidyverse.org/packages">collection of R</a> packages designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures.</p>
+<p>Before we can begin using these packages, we will need to install them using the <code>install.packages()</code> function built into R.</p>
+<p>Click the green arrow in the right corner of the block-or “chunk”-of code that follows and see if you can identify which packages have been installed in the console below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once these packages have been installed, we will need to load them in order to use the handy functions they contain.</p>
+<p>To load the tidyverse, click the green arrow in the right corner of the block-or “chunk”-of code that follows. Notice that we do not need to use the quotation marks again because the {tidyverse} package and packages it contains are now a part of our package library!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+</div>
+<p>Please do not worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. If you see an error, though, try to interpret or search via your search engine the contents of the error, or reach out to us for assistance.</p>
+</section>
+<section id="loading-or-reading-in-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-or-reading-in-data">Loading (or reading in) data</h3>
+<p>Next, we’ll load data - specifically, a CSV file, the kind that you can export from Microsoft Excel or Google Sheets - into R, using the <code>read_csv()</code> function in the next chunk.</p>
+<p>Clicking the green arrow runs the code; do that next.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sci-online-classes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 603 Columns: 30
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (6): course_id, subject, semester, section, Gradebook_Item, Gender
+dbl (23): student_id, total_points_possible, total_points_earned, percentage...
+lgl  (1): Grade_Category
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>Notice that we “assigned” our data set to a new object in R named <code>d</code> that will now be saved in your environment pane in the upper right corner of RStudio. Go ahead and take a look to make sure it’s there.</p>
+<section id="your-turn" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Why do you think we included <code>data/</code> before our <code>sci-online-classes.csv</code> file? Why quotation marks?</p>
+<p>Add your responses after the dashes below:</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+<p>Hint: check the files pane in the lower right corner of RStudio.</p>
+</section>
+<section id="viewing-or-inspecting-data" class="level4">
+<h4 class="anchored" data-anchor-id="viewing-or-inspecting-data">Viewing or inspecting data</h4>
+<p>Last, let’s check that the code worked as we intended; run the next chunk and look at the results, tabbing left or right with the arrows, or scanning through the rows by clicking the numbers at the bottom of the pane with the print-out of the data you loaded:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 603 × 30
+   student_id course_id  total…¹ total…² perce…³ subject semes…⁴ section Grade…⁵
+        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+ 1      43146 FrScA-S21…    3280    2220   0.677 FrScA   S216    02      POINTS…
+ 2      44638 OcnA-S116…    3531    2672   0.757 OcnA    S116    01      ATTEMP…
+ 3      47448 FrScA-S21…    2870    1897   0.661 FrScA   S216    01      POINTS…
+ 4      47979 OcnA-S216…    4562    3090   0.677 OcnA    S216    01      POINTS…
+ 5      48797 PhysA-S11…    2207    1910   0.865 PhysA   S116    01      POINTS…
+ 6      51943 FrScA-S21…    4208    3596   0.855 FrScA   S216    03      POINTS…
+ 7      52326 AnPhA-S21…    4325    2255   0.521 AnPhA   S216    01      POINTS…
+ 8      52446 PhysA-S11…    2086    1719   0.824 PhysA   S116    01      POINTS…
+ 9      53447 FrScA-S11…    4655    3149   0.676 FrScA   S116    01      POINTS…
+10      53475 FrScA-S11…    1710    1402   0.820 FrScA   S116    02      POINTS…
+# … with 593 more rows, 21 more variables: Grade_Category &lt;lgl&gt;,
+#   FinalGradeCEMS &lt;dbl&gt;, Points_Possible &lt;dbl&gt;, Points_Earned &lt;dbl&gt;,
+#   Gender &lt;chr&gt;, q1 &lt;dbl&gt;, q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
+#   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, TimeSpent &lt;dbl&gt;,
+#   TimeSpent_hours &lt;dbl&gt;, TimeSpent_std &lt;dbl&gt;, int &lt;dbl&gt;, pc &lt;dbl&gt;, uv &lt;dbl&gt;,
+#   and abbreviated variable names ¹​total_points_possible,
+#   ²​total_points_earned, ³​percentage_earned, ⁴​semester, ⁵​Gradebook_Item
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="your-turn-1" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>What do you notice about this dataset? What do you wonder? Add one or two thoughts after the dash below:</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+<p>There are other ways to inspect your data; the <code>glimpse()</code> function provides one such way. Run the code below to take a glimpse at your data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 603
+Columns: 30
+$ student_id            &lt;dbl&gt; 43146, 44638, 47448, 47979, 48797, 51943, 52326,…
+$ course_id             &lt;chr&gt; "FrScA-S216-02", "OcnA-S116-01", "FrScA-S216-01"…
+$ total_points_possible &lt;dbl&gt; 3280, 3531, 2870, 4562, 2207, 4208, 4325, 2086, …
+$ total_points_earned   &lt;dbl&gt; 2220, 2672, 1897, 3090, 1910, 3596, 2255, 1719, …
+$ percentage_earned     &lt;dbl&gt; 0.6768293, 0.7567261, 0.6609756, 0.6773345, 0.86…
+$ subject               &lt;chr&gt; "FrScA", "OcnA", "FrScA", "OcnA", "PhysA", "FrSc…
+$ semester              &lt;chr&gt; "S216", "S116", "S216", "S216", "S116", "S216", …
+$ section               &lt;chr&gt; "02", "01", "01", "01", "01", "03", "01", "01", …
+$ Gradebook_Item        &lt;chr&gt; "POINTS EARNED &amp; TOTAL COURSE POINTS", "ATTEMPTE…
+$ Grade_Category        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ FinalGradeCEMS        &lt;dbl&gt; 93.45372, 81.70184, 88.48758, 81.85260, 84.00000…
+$ Points_Possible       &lt;dbl&gt; 5, 10, 10, 5, 438, 5, 10, 10, 443, 5, 12, 10, 5,…
+$ Points_Earned         &lt;dbl&gt; NA, 10.00, NA, 4.00, 399.00, NA, NA, 10.00, 425.…
+$ Gender                &lt;chr&gt; "M", "F", "M", "M", "F", "F", "M", "F", "F", "M"…
+$ q1                    &lt;dbl&gt; 5, 4, 5, 5, 4, NA, 5, 3, 4, NA, NA, 4, 3, 5, NA,…
+$ q2                    &lt;dbl&gt; 4, 4, 4, 5, 3, NA, 5, 3, 3, NA, NA, 5, 3, 3, NA,…
+$ q3                    &lt;dbl&gt; 4, 3, 4, 3, 3, NA, 3, 3, 3, NA, NA, 3, 3, 5, NA,…
+$ q4                    &lt;dbl&gt; 5, 4, 5, 5, 4, NA, 5, 3, 4, NA, NA, 5, 3, 5, NA,…
+$ q5                    &lt;dbl&gt; 5, 4, 5, 5, 4, NA, 5, 3, 4, NA, NA, 5, 4, 5, NA,…
+$ q6                    &lt;dbl&gt; 5, 4, 4, 5, 4, NA, 5, 4, 3, NA, NA, 5, 3, 5, NA,…
+$ q7                    &lt;dbl&gt; 5, 4, 4, 4, 4, NA, 4, 3, 3, NA, NA, 5, 3, 5, NA,…
+$ q8                    &lt;dbl&gt; 5, 5, 5, 5, 4, NA, 5, 3, 4, NA, NA, 4, 3, 5, NA,…
+$ q9                    &lt;dbl&gt; 4, 4, 3, 5, NA, NA, 5, 3, 2, NA, NA, 5, 2, 2, NA…
+$ q10                   &lt;dbl&gt; 5, 4, 5, 5, 3, NA, 5, 3, 5, NA, NA, 4, 4, 5, NA,…
+$ TimeSpent             &lt;dbl&gt; 1555.1667, 1382.7001, 860.4335, 1598.6166, 1481.…
+$ TimeSpent_hours       &lt;dbl&gt; 25.91944500, 23.04500167, 14.34055833, 26.643610…
+$ TimeSpent_std         &lt;dbl&gt; -0.18051496, -0.30780313, -0.69325954, -0.148446…
+$ int                   &lt;dbl&gt; 5.0, 4.2, 5.0, 5.0, 3.8, 4.6, 5.0, 3.0, 4.2, NA,…
+$ pc                    &lt;dbl&gt; 4.50, 3.50, 4.00, 3.50, 3.50, 4.00, 3.50, 3.00, …
+$ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.500000…</code></pre>
+</div>
+</div>
+<p>Generally, rows typically represent “cases,” the units that we measure, or the units on which we collect data. What counts as a “case” (and therefore what is represented as a row) varies by (and within) fields. There may be multiple types or levels of units studied in your field; listing more than one is fine! Also, please consider what columns - which usually represent variables - represent in your area of work and/or research.</p>
+</section>
+<section id="your-turn-2" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>How many “cases” or observations are in this data set?</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+<p>Pick two columns (or more) and write what you think it represents:</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+<p>Next, we’ll use a few functions that are handy for preparing data in table form.</p>
+</section>
+</section>
+</section>
+<section id="wrangle" class="level2">
+<h2 class="anchored" data-anchor-id="wrangle">2. WRANGLE</h2>
+<p>By wrangle, we refer to the process of cleaning and processing data, and, in cases, merging (or joining) data from multiple sources. Often, this part of the process is very (surprisingly) time-intensive. Wrangling your data into shape can itself be an important accomplishment! There are great tools in R to do this, especially through the use of the {dplyr} R package.</p>
+<section id="selecting-variables" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-variables">Selecting variables</h3>
+<p>Let’s select only a few variables by typing our dataset <code>d</code> and “passing” that using the <code>%&gt;%</code> operator to the <code>select()</code> function from the {dplyr} package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, total_points_possible,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>         total_points_earned, TimeSpent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 603 × 4
+   student_id total_points_possible total_points_earned TimeSpent
+        &lt;dbl&gt;                 &lt;dbl&gt;               &lt;dbl&gt;     &lt;dbl&gt;
+ 1      43146                  3280                2220   1555.  
+ 2      44638                  3531                2672   1383.  
+ 3      47448                  2870                1897    860.  
+ 4      47979                  4562                3090   1599.  
+ 5      48797                  2207                1910   1482.  
+ 6      51943                  4208                3596      3.45
+ 7      52326                  4325                2255   1322.  
+ 8      52446                  2086                1719   1390.  
+ 9      53447                  4655                3149   1479.  
+10      53475                  1710                1402     NA   
+# … with 593 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+<p>Notice how the number of columns (variables) is now different.</p>
+<p>Let’s <em>include one additional variable</em> in your select function.</p>
+<p>First, we need to figure out what variables exist in our dataset (or be reminded of this - it’s very common in R to be continually checking and inspecting your data)!</p>
+<p>In addition to <code>glimpse()</code> function, you can use a function named <code>View()</code> to do this. Try it out and see what happens!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="your-turn-3" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>In the code chunk below, add a new variable to the code, being careful to type the new variable name as it appears in the data. I’ve added some code to get you started. Consider how the names of the other variables are separated as you think about how to add an additional variable to this code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, total_points_possible,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         total_points_earned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 603 × 3
+   student_id total_points_possible total_points_earned
+        &lt;dbl&gt;                 &lt;dbl&gt;               &lt;dbl&gt;
+ 1      43146                  3280                2220
+ 2      44638                  3531                2672
+ 3      47448                  2870                1897
+ 4      47979                  4562                3090
+ 5      48797                  2207                1910
+ 6      51943                  4208                3596
+ 7      52326                  4325                2255
+ 8      52446                  2086                1719
+ 9      53447                  4655                3149
+10      53475                  1710                1402
+# … with 593 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+<p>Once added, the output should be different than in the code above - there should now be an additional variable included in the print-out.</p>
+</section>
+</section>
+<section id="filtering-variables" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-variables">Filtering variables</h3>
+<p>Next, let’s explore filtering variables. Check out and run the next chunk of code, imagining that we wish to filter our data to view only the rows associated with students who earned a final grade (as a percentage) of 70 - 70% - or higher.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(FinalGradeCEMS <span class="sc">&gt;</span> <span class="dv">70</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 438 × 30
+   student_id course_id  total…¹ total…² perce…³ subject semes…⁴ section Grade…⁵
+        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+ 1      43146 FrScA-S21…    3280    2220   0.677 FrScA   S216    02      POINTS…
+ 2      44638 OcnA-S116…    3531    2672   0.757 OcnA    S116    01      ATTEMP…
+ 3      47448 FrScA-S21…    2870    1897   0.661 FrScA   S216    01      POINTS…
+ 4      47979 OcnA-S216…    4562    3090   0.677 OcnA    S216    01      POINTS…
+ 5      48797 PhysA-S11…    2207    1910   0.865 PhysA   S116    01      POINTS…
+ 6      52326 AnPhA-S21…    4325    2255   0.521 AnPhA   S216    01      POINTS…
+ 7      52446 PhysA-S11…    2086    1719   0.824 PhysA   S116    01      POINTS…
+ 8      53447 FrScA-S11…    4655    3149   0.676 FrScA   S116    01      POINTS…
+ 9      53475 FrScA-S21…    1209     977   0.808 FrScA   S216    01      POINTS…
+10      54066 OcnA-S116…    4641    3429   0.739 OcnA    S116    01      ATTEMP…
+# … with 428 more rows, 21 more variables: Grade_Category &lt;lgl&gt;,
+#   FinalGradeCEMS &lt;dbl&gt;, Points_Possible &lt;dbl&gt;, Points_Earned &lt;dbl&gt;,
+#   Gender &lt;chr&gt;, q1 &lt;dbl&gt;, q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
+#   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, TimeSpent &lt;dbl&gt;,
+#   TimeSpent_hours &lt;dbl&gt;, TimeSpent_std &lt;dbl&gt;, int &lt;dbl&gt;, pc &lt;dbl&gt;, uv &lt;dbl&gt;,
+#   and abbreviated variable names ¹​total_points_possible,
+#   ²​total_points_earned, ³​percentage_earned, ⁴​semester, ⁵​Gradebook_Item
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+<section id="your-turn-4" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>In the next code chunk, change the cut-off from 70% to some other value - larger or smaller (maybe much larger or smaller - feel free to play around with the code a bit!).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(FinalGradeCEMS <span class="sc">&gt;</span> <span class="dv">70</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 438 × 30
+   student_id course_id  total…¹ total…² perce…³ subject semes…⁴ section Grade…⁵
+        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+ 1      43146 FrScA-S21…    3280    2220   0.677 FrScA   S216    02      POINTS…
+ 2      44638 OcnA-S116…    3531    2672   0.757 OcnA    S116    01      ATTEMP…
+ 3      47448 FrScA-S21…    2870    1897   0.661 FrScA   S216    01      POINTS…
+ 4      47979 OcnA-S216…    4562    3090   0.677 OcnA    S216    01      POINTS…
+ 5      48797 PhysA-S11…    2207    1910   0.865 PhysA   S116    01      POINTS…
+ 6      52326 AnPhA-S21…    4325    2255   0.521 AnPhA   S216    01      POINTS…
+ 7      52446 PhysA-S11…    2086    1719   0.824 PhysA   S116    01      POINTS…
+ 8      53447 FrScA-S11…    4655    3149   0.676 FrScA   S116    01      POINTS…
+ 9      53475 FrScA-S21…    1209     977   0.808 FrScA   S216    01      POINTS…
+10      54066 OcnA-S116…    4641    3429   0.739 OcnA    S116    01      ATTEMP…
+# … with 428 more rows, 21 more variables: Grade_Category &lt;lgl&gt;,
+#   FinalGradeCEMS &lt;dbl&gt;, Points_Possible &lt;dbl&gt;, Points_Earned &lt;dbl&gt;,
+#   Gender &lt;chr&gt;, q1 &lt;dbl&gt;, q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
+#   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, TimeSpent &lt;dbl&gt;,
+#   TimeSpent_hours &lt;dbl&gt;, TimeSpent_std &lt;dbl&gt;, int &lt;dbl&gt;, pc &lt;dbl&gt;, uv &lt;dbl&gt;,
+#   and abbreviated variable names ¹​total_points_possible,
+#   ²​total_points_earned, ³​percentage_earned, ⁴​semester, ⁵​Gradebook_Item
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+<p>What happens when you change the cut-off from 70 to something else? Add a thought (or more):</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+</section>
+</section>
+<section id="arrange" class="level3">
+<h3 class="anchored" data-anchor-id="arrange">Arrange</h3>
+<p>The last function we’ll use for preparing tables is arrange.</p>
+<p>We’ll combine this arrange() function with a function we used already - select(). We do this so we can view only the student ID and their final grade.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, FinalGradeCEMS) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(FinalGradeCEMS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 603 × 2
+   student_id FinalGradeCEMS
+        &lt;dbl&gt;          &lt;dbl&gt;
+ 1      90995          0    
+ 2      92606          0.535
+ 3      95684          0.903
+ 4      90996          1.80 
+ 5      94876          2.93 
+ 6      92633          3.01 
+ 7      85390          3.06 
+ 8      94630          3.43 
+ 9      90995          5.04 
+10      96677          5.2  
+# … with 593 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+<p>Note that arrange works by sorting values in ascending order (from lowest to highest); you can change this by using the desc() function with arrange, like the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, FinalGradeCEMS) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(FinalGradeCEMS))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 603 × 2
+   student_id FinalGradeCEMS
+        &lt;dbl&gt;          &lt;dbl&gt;
+ 1      85650          100  
+ 2      91067           99.8
+ 3      66740           99.3
+ 4      86792           99.1
+ 5      78153           99.0
+ 6      66689           98.6
+ 7      88261           98.6
+ 8      92740           98.6
+ 9      92726           98.2
+10      92741           98.2
+# … with 593 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+<section id="your-turn-5" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>In the code chunk below, replace FinalGradeCEMS that is used with both the select() and arrange() functions with a different variable in the data set. Consider returning to the code chunk above in which you glimpsed at the names of all of the variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, FinalGradeCEMS) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(FinalGradeCEMS))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 603 × 2
+   student_id FinalGradeCEMS
+        &lt;dbl&gt;          &lt;dbl&gt;
+ 1      85650          100  
+ 2      91067           99.8
+ 3      66740           99.3
+ 4      86792           99.1
+ 5      78153           99.0
+ 6      66689           98.6
+ 7      88261           98.6
+ 8      92740           98.6
+ 9      92726           98.2
+10      92741           98.2
+# … with 593 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="optional" class="level4">
+<h4 class="anchored" data-anchor-id="optional">Optional</h4>
+<p>Can you compose a series of functions that include the select(), filter(), and arrange functions? Recall that you can “pipe” the output from one function to the next as when we used select() and arrange() together in the code chunk above.</p>
+<p><em>This optional activity is not required/necessary to complete; it’s just for those who wish to do a bit more with these functions at this time (we’ll do more in class, too!)</em></p>
+<div class="cell">
+
+</div>
+</section>
+</section>
+</section>
+<section id="explore" class="level2">
+<h2 class="anchored" data-anchor-id="explore">3. EXPLORE</h2>
+<p>Exploratory data analysis, or exploring your data, involves processes of <em>describing</em> your data (such as by calculating the means and standard deviations of numeric variables, or counting the frequency of categorical variables) and, often, visualizing your data prior to modeling. In this section, we’ll create a few plots to explore our data.</p>
+<section id="histogram" class="level3">
+<h3 class="anchored" data-anchor-id="histogram">Histogram</h3>
+<p>The code below creates a histogram, or a distribution of the values, in this case for students’ final grades.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> FinalGradeCEMS)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="unit-0-case-study_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You can change the color of the histogram bars by specifying a color as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> FinalGradeCEMS)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="unit-0-case-study_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="changing-colors" class="level3">
+<h3 class="anchored" data-anchor-id="changing-colors">Changing colors</h3>
+<section id="your-turn-6" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>In the code chunk below, change the color to one of your choosing; consider this list of valid color names here: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> FinalGradeCEMS)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="unit-0-case-study_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Finally, we’ll make one more change; visualize the distribution of another variable in the data - one other than FinalGradeCEMS. You can do so by swapping out the name for another variable with FinalGradeCEMS. Also, change the color to one other than blue.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> FinalGradeCEMS)) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="unit-0-case-study_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="optional-1" class="level4">
+<h4 class="anchored" data-anchor-id="optional-1">Optional</h4>
+<p>Completed the above? Nice job! Try for a “reach” by creating a scatter plot for the relationship between two variables. You will need to pass the names of two variables to the code below for what is now simply XXX (a placeholder).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> XXX, <span class="at">y =</span> XXX)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  geom_point<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="model" class="level2">
+<h2 class="anchored" data-anchor-id="model">4. MODEL</h2>
+<p>“Model” is one of those terms that has many different meanings. For our purpose, we refer to the process of simplifying and summarizing our data. Thus, models can take many forms; calculating means represents a legitimate form of modeling data, as does estimating more complex models, including linear regressions, and models and algorithms associated with machine learning tasks. For now, we’ll run a linear regression to predict students’ final grades.</p>
+<p>Below, we predict students’ final grades <code>FinalGradeCEMS</code>, which is on a 0-100 point scale, on the basis of the time they spent on the course (measured through their learning management system in minutes, <code>TimeSpent</code>, and the <code>subject</code> (one of five) of their specific course.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FinalGradeCEMS <span class="sc">~</span> TimeSpent_hours <span class="sc">+</span> subject, <span class="at">data =</span> d)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = FinalGradeCEMS ~ TimeSpent_hours + subject, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.378  -8.836   4.816  12.855  36.047 
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     57.39317    2.33822  24.546  &lt; 2e-16 ***
+TimeSpent_hours  0.42659    0.03909  10.912  &lt; 2e-16 ***
+subjectBioA     -1.55965    3.60531  -0.433    0.665    
+subjectFrScA    11.73065    2.21438   5.297 1.68e-07 ***
+subjectOcnA      1.09745    2.57715   0.426    0.670    
+subjectPhysA    16.03572    3.07129   5.221 2.50e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 19.8 on 567 degrees of freedom
+  (30 observations deleted due to missingness)
+Multiple R-squared:  0.213, Adjusted R-squared:  0.2061 
+F-statistic: 30.69 on 5 and 567 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>There is a lot to unpack in this output, but for now the most important values to look at are those in the Estimate column, which represent the intercept and slopes for your linear regression model.</p>
+<p>Note that the estimate for <code>TimeSpent</code> is 0.46 and statistically significant. We can interpret this as telling us that for every additional hour students spend on the course, the estimated value for their final grade will be 0.42 (on a 0-100 scale) greater than the intercept, which is around 57. So if a student spent, for instance, 40 hours on the course, their estimated final grade would be 57 + (.42 * 40), or around 74.</p>
+<section id="your-turn-7" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Notice how above the variables are separated by a + symbol. Below, add <em>another</em> - a third - variable to the regression model. Specifically, add a variable for students’ initial, self-reported interest in science, <code>int</code> - and any other variable(s) you like!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FinalGradeCEMS <span class="sc">~</span> TimeSpent <span class="sc">+</span> subject, <span class="at">data =</span> d)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = FinalGradeCEMS ~ TimeSpent + subject, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.378  -8.836   4.816  12.855  36.047 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  57.3931739  2.3382193  24.546  &lt; 2e-16 ***
+TimeSpent     0.0071098  0.0006516  10.912  &lt; 2e-16 ***
+subjectBioA  -1.5596482  3.6053075  -0.433    0.665    
+subjectFrScA 11.7306546  2.2143847   5.297 1.68e-07 ***
+subjectOcnA   1.0974545  2.5771474   0.426    0.670    
+subjectPhysA 16.0357213  3.0712923   5.221 2.50e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 19.8 on 567 degrees of freedom
+  (30 observations deleted due to missingness)
+Multiple R-squared:  0.213, Adjusted R-squared:  0.2061 
+F-statistic: 30.69 on 5 and 567 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>What do you notice about the results? We’re going to dive into this <em>much</em> more: if you have many questions now, you’re in the right spot!</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+</section>
+</section>
+<section id="communicate" class="level2">
+<h2 class="anchored" data-anchor-id="communicate">5. COMMUNICATE</h2>
+<p>Great job! Once you’ve finished your work, click the arrow beside the button you used to “Preview” your document to see what it will look like when you share it with others.</p>
+<p>When everything looks good, click “Render” at the top to render a report that you can be viewed using a web browser and shared online.</p>
+<p>Congratulations on getting started, you’re ready for our unit Case Studies that we will complete during the third week of each unit!</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
