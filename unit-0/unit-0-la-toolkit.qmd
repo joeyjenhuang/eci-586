@@ -1,0 +1,85 @@
+---
+title: "Learning Analytics Toolkit"
+subtitle: "ECI 586 Intro to Learning Analytics"
+author: "Dr. Shaun Kellogg"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+format:
+  html:
+    toc: true
+theme: journal
+editor: visual
+---
+
+Your final task this week is to prepare your Learning Analytics Toolkit by setting up and getting familiar with the texts, software, and supplementary learning resources for this course. This forum will also serve as our go to place for general software troubleshooting over the semester.
+
+## **Course Texts**
+
+There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided at no cost through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>.
+
+### **Required**
+
+Course readings will draw heavily from the following resources:  
+
+1.  Krumm, A., Means, B., & Bienkowski, M. (2018). [*Learning analytics goes to school: A collaborative approach to improving education.*](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) Routledge.
+
+2.  Estrellado, R. A., Freer, E. A., Mostipak, J., Rosenberg, J. M., & Velásquez, I. C. (2020). [*Data science in education using R*.](https://datascienceineducation.com/) Routledge.
+
+3.  Lang, C., Siemens, G., Wise, A., & Gasevic, D. (Eds.). (2017). [*Handbook of learning analytics (1st Edition)*.](https://www.solaresearch.org/publications/hla-17/) New York, NY, USA: SoLAR, Society for Learning Analytics and Research.
+
+4.  Lang, C., Siemens, G., Wise, A., & Gasevic, D., Merceron, A. (Eds.). (2022). [*Handbook of learning analytics (2nd. ed.)*.](https://www.solaresearch.org/publications/hla-22/ "https://www.solaresearch.org/publications/hla-22/") Vancouver, BC. SoLAR, Society for Learning Analytics and Research. DOI: 10.18608/hla22
+
+5.  Carolan, B. V. (2013). [*Social network analysis and education: Theory, methods & applications*.](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) Sage Publications.
+
+## **Course Software & Resources**
+
+### **Required**
+
+This course requires R and R Studio, which will be used to provide hands-on experience with the concepts and skills addressed in course readings.
+
+1.  **R** ([https://www.r-project.org](https://www.r-project.org/)) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network, <http://cran.r-project.org/>. 
+
+2.  **RStudio** ([https://www.rstudio.com](https://www.rstudio.com/)) is an integrated development environment (IDE) for R which includes an R console, syntax-highlighting editor, and tools for plotting, packages, and workspace management. This course will be using a shared workspace hosted on RStudio Cloud ([https://rstudio.cloud](https://rstudio.cloud/)). The optional RStudio Desktop application can be downloaded from <https://www.rstudio.com/products/RStudio/#Desktop>. 
+
+#### **Getting Started with RStudio Cloud**
+
+To help get you started with R, I've created a brief Getting Started Activity for you to work through. The activity is designed to orient you to our data analysis assignments and to R, RStudio, and/or RMarkdown, which we'll be using to complete those assignments.
+
+For now, your only requirement is to sign-up for an RStudio Cloud account and make sure you can access our [ECI 586 Intro to Learning Analytics RStudio Cloud workspace](https://rstudio.cloud/spaces/271329/join?access_code=qi94WAWMp1GGjl6-OT7Np4nSDEVm7Ot-ScCHEKKU "https://rstudio.cloud/spaces/271329/join?access_code=qi94WAWMp1GGjl6-OT7Np4nSDEVm7Ot-ScCHEKKU").
+
+Once you have accessed the workspace, click on the assignment labeled Unit 0 - Getting Started, which will create a copy of the R Project for your individual use as well a record on my end indicating that you have accessed the assignment. 
+
+![](img/getting-started.png){alt="" fig-align="center"}
+
+Next, click on the unit-0-case-study.qmd file located in the Files tab of your R Studio cloud project to open the Unit 0: Getting Started Case Study assignment. 
+
+![](img/files-pane.png){fig-align="center"}
+
+Finally, click on the Visual button in the toolbar of the file you just opened and follow the direction to complete the assignment. 
+
+![](img/visual-editor.png){fig-align="center"}
+
+After completing the unit-0-case-study.qmd assignment, I highly recommend getting a head start on the [The Basics](https://rstudio.cloud/learn/primers/1) tutorial built into RStudio Cloud, which will be due in a few weeks. You can access these tutorials along with many other excellent primers by clicking on the Primers link in the sidebar:
+
+![](img/primers.png){fig-align="center"}
+
+I\'d also encourage you to read and/or work though the following chapters from Data Science in Education Using R, especially if you are interested in using the RStudio Desktop app at some point in the future: 
+
+1.  [Getting Started with R and RStudio](https://datascienceineducation.com/c05.html) covers downloading R and RStudio, RStudio layout and customization, and writing and running code in RStudio.
+
+2.  [Foundational Skills](https://datascienceineducation.com/c06.html) introduces RStudio Projects and key building blocks of the R language including packages, functions, data, objects, and operators. 
+
+## **Troubleshooting**
+
+Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. Even experienced R developers like Hadley Wickham [get frustrated](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/):
+
+> "It\'s easy when you start out programming to get really frustrated and think, 'Oh it\'s me, I\'m really stupid,' or, 'I\'m not made out to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It\'s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don\'t blame yourself. Just take a break, do something fun, and then come back and try again later."
+
+When feeling stuck or like banging your head against your desk, there are several options for seeking out help within and beyond this course:
+
+1.  **Course Forums & Email**: Including this general software troubleshooting forum, we will have forums for each assignment. You\'ll likely have similar questions as your peers, and you\'ll likely be able to answer other peoples\' questions too so I encourage you to use these forums. Unlike most of my apps and social media accounts, I actually have notifications enabled. Also, do not hesitate to email me directly as well. 
+
+2.  **NCSU Library Services**: The [Data & Visualization](https://www.lib.ncsu.edu/services/data-visualization) group is an incredible asset for NC State students. Though the library's website, you can access and enroll in workshops, find resources, and chat or schedule a Zoom appointment to get R help. 
+
+3.  **Social Media**: If you use Twitter, you can also post R-related questions and content with the [#rstats](https://twitter.com/search?q=%23rstats&src=typed_query) hashtag. One of the things I most value about the R in general is that the R community is exceptionally helpful.
+
+4.  **The Interwebs**: Aside from Google of course, [StackOverflow](https://stackoverflow.com/) and the [RStudio Community](https://community.rstudio.com/) will likely become tried and true tools in your text mining toolkit. In fact, I'd wager that the majority of Google searcher will likely direct you to one of these two sites. Note that when search Google, it sometimes helps to include "rstats" in your query. 
