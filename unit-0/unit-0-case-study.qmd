@@ -7,13 +7,11 @@ format:
   html:
     toc: true
     toc-location: right
-theme: journal
+theme:
+  light: simplex
+  dark: cyborg
 editor: visual
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, error = FALSE)
-```
 
 ## 0. INTRODUCTION
 
