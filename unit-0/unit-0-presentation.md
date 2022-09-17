@@ -1,6 +1,6 @@
 The R Toolkit
 ========================================================
-date: August 28, 2022
+date: September  8, 2022
 author: ECI 586: Intro to Learning Analytics
 autosize: false
 transition: linear
@@ -492,7 +492,7 @@ DSIEUR Walkthrough
 ========================================================
 type: section
 
-![Caption](img/dsieur.jpg)
+![Caption](img/dsieur-cover-routledge.jpg)
 
 ---
 Link:
@@ -707,10 +707,13 @@ type: section
 Required:  
 [Chapters 5 & 6 of DSIEUR](https://datascienceineducation.com)
 
+[RStudio Primers: Basics & Work With Data](https://rstudio.cloud/learn/primers)
+
 
 Recommended:  
-Swirl  
 [LinkedIn Learning](https://www.linkedin.com/learning/)
+
+[Data Quest](https://www.dataquest.io/course/intro-to-r-rewrite/)
 
 
 <!--
