@@ -1,5 +1,5 @@
 ---
-title: "Unit 2 Readings: Methods Used & Responsibile Use"
+title: "Unit 2 Readings: Methods Used & Responsible Use"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
@@ -62,12 +62,11 @@ Reflecting on the course text and your self-selected reading, answer one or more
 
 Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
 
--   What is one **major concern** arising from the proliferation of educational data and what laws or ethical principles have been developed to address it?
--   How might a legal or ethical issue associated with data-intensive research be associated with specific steps of the data-intensive research workflow?
--   What are challenges typically faced with these types of data? What challenges or opportunities do you anticipate for yourself?
--   How might learning analytics be used to better understand a dataset or educational context of personal or professional interest to you?
--   How is the data intensive workflow similar to or different than other data analysis processes you may have come across before?
--   What questions do you still have about data used in data-intensive research like learning analytics?
+-   What is one **potential harm** arising from the proliferation of educational data and what laws and/or ethical principles have been developed to address it?
+-   What are some of the similarities and differences between **laws and ethical guidelines** that have emerged to address issues surrounding student data?
+-   During what step of the **data-intensive research workflow** might you need to address a legal or ethical issue associated with student data?
+-   What is an example of **algorithmic bias** that might emerge in a learning context and how might education researchers address it?
+-   What **questions** do you still have about data used in data-intensive research like learning analytics?
 
 #### Self-Selected Resource
 
@@ -87,7 +86,7 @@ Provide a brief overview of your self-selected resource that includes the follow
 
 Grading for this week is fairly lenient, provided that it's clear from your posts that you've done the required readings. Readings and discussion for each unit are worth 6 points and judged based on quantity and quality of your posts.
 
-In term of **quantity** (3 points), you'll be expected to add at least 3 posts in addition to an overview of your the Selected Resource. Your initial post should be shared by Friday to help facilitate discussion.
+In term of **quantity** (3 points), you'll be expected to add at least 3 posts in addition to an overview of your Selected Resource. Your initial post should be shared by Friday to help facilitate discussion.
 
 In terms of **quality** (3 points), your posts over the next week should provide new or insightful contributions to the division questions or topics. There is no requisite for the length of each posting, and I strongly recommend taking a look at Table 1 of [Gao's productive online discussion model](https://github.com/sbkellogg/eci-586/blob/main/unit-1/lit/Gao-productive-discussion.pdf) (summarized below) for ways to contribute to the conversation.
 
