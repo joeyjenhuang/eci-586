@@ -13,13 +13,17 @@ theme:
 editor: visual
 ---
 
-## **Assignment** 
+## **Assignment**
 
-For Unit 2, we'll take a deeper dive into exploring and tidying our data. The assigned Visualize Data primer and corresponding exercises are designed to increase your comfort level with the {ggplot} package and useful chart types for examining single variables of interest and relationships between variables. In the tutorials that follow, you will learn how to make each type of plot show below, as well as how to use best practices and advanced skills when visualizing data. These skills we'll put to immediate use to create our first "data product" to help inform educators and/or students.
+For Unit 2, we'll take a deeper dive into exploring and tidying our data. The assigned Visualize Data primer and corresponding exercises are designed to increase your comfort level with the {ggplot} package and useful chart types for examining single variables (variation) of interest and relationships between variables (covariant ion).
+
+![](img/viz-matrix.jpeg){fig-align="center" width="500"}
+
+In the R primers that follow, you will learn how to make each type of plot show above, as well as how to use R markdown to create a "data product" for communicating your findings.
 
 ### **Primers**
 
-For Week 6, you have two required primers to complete before we dig into our Unit 3 case study:
+This week you have two required primers to complete before we dig into our Unit 3 case study:
 
 1.  [**Visualize Data**](https://rstudio.cloud/learn/primers/3)**:** For our third primer, we'll learn some new ggplot2 "grammar" for making new types of plots and best practices for visualizing patterns within values and relationships between variables. This primer is critical for completing your exercises and "data product" for this week so do not skip.
 
