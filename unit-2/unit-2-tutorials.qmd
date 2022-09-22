@@ -15,11 +15,9 @@ editor: visual
 
 ## **Assignment**
 
-For Unit 2, we'll take a deeper dive into exploring and tidying our data. The assigned Visualize Data primer and corresponding exercises are designed to increase your comfort level with the {ggplot} package and useful chart types for examining single variables (variation) of interest and relationships between variables (covariant ion).
+For Unit 2, we'll take a deeper dive into exploring and tidying our data. The assigned Visualize Data primer and corresponding exercises are designed to increase your comfort level with the {ggplot} package and useful chart types for examining single variables (variation) and relationships between variables (covariation). In the R primers that follow, you will learn how to make each type of plot below, as well as how to use R markdown to create a "data product" for communicating your findings.
 
 ![](img/viz-matrix.jpeg){fig-align="center" width="500"}
-
-In the R primers that follow, you will learn how to make each type of plot show above, as well as how to use R markdown to create a "data product" for communicating your findings.
 
 ### **Primers**
 
@@ -35,20 +33,24 @@ This week you have two required primers to complete before we dig into our Unit 
 
 We're keeping things pretty light this week on the exercise front. There is just one file to work through and five relatively simple exercises to complete, the first of which has been done for you. The final exercise in this set will be slightly more intensive and necessary to complete your data product for this week. 
 
-1.  [**Week 6 Exercises**](https://rstudio.cloud/spaces/161268/join?access_code=24%2F%2BWGo98hxbbXotQF4UVc3dmxEZv3AjPjnRcoQu)**:** Navigate to our ECI 586 - Intro to LA RStudio Cloud workspace and complete the unit-2-visualize-exercises.R file located in the Unit 2 - Week 6 Exercises project. For the final exercise, you will be asked to create a new R Markdown file
+1.  **Week 6 Exercises:** Navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://rstudio.cloud/spaces/271329/content/all?sort=name_asc) and complete the unit-2-visualize-exercises.R file located in the Unit 2 - Week 6 Exercises project. For the final exercise, you will be asked to create a new R Markdown file
 
 ### **Data Product (3 points)**
 
-As highlighted in our course reading from Learning Analytics Goes to school, the Communicate step in the data-intensive research workflow is sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
+As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
-1.  **Select**. Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form (i.e. a "data product") and a format for communicating your results (e.g. a presentation, document, or dashboard).  
+-   **Select**. Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form (i.e. a "data product") and a format for communicating your results (e.g. a presentation, document, or dashboard).  
 
-2.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
+-   **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
 
-3.  **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
+-   **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
 
-For exercise 6, you will be asked to select and polish a data visualization and provided instructions to create an R Markdown file that you will use to share your data product. You may use the data-product-example.Rmd located in your project files pane as a template and you can find and example of the final knitted document here: <https://sbkellogg.github.io/eci-586/unit-2/data-product-example.html>\
-\
-When you are finished knitting your document, create a new forum post below to share your data product. You may use [RPubs](https://rpubs.com/about/getting-started) (recommended for beginners) or another service like GitHub (see above link) to publish your final knitted .html file to the web. From there you can copy the link to include in your forum post for others to access. See example post.
+For exercise 6, you will create a new R Markdown file that you will use to make and share your own data visualization. You may use the `data-product-example.Rmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
 
-If you have questions about the tutorials or exercises, I encourage you to post to the forum troubleshooting post below, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the exercises independently before reaching out for support.
+-   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-2/data-product-example.html>
+
+-   **RPubs** - <http://rpubs.com/sbkellogg/grades-time>
+
+When you are finished knitting your HTML document, create a new post in the Week 6 forum to share your data product. You may use [RPubs](https://rpubs.com/about/getting-started) (recommended for beginners) or another service like [GitHub Pages](https://pages.github.com/) (advanced) to publish your final knitted .html file to the web. From there you can copy the link to include in your forum post for others to access. An example post has been provided.
+
+If you have questions about the tutorials or exercises, I encourage you to reply to the Questions and Troubleshooting post, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the exercises independently before reaching out for support.
