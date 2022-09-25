@@ -60,6 +60,8 @@ By preparing, we refer to developing a question or purpose for the analysis, whi
 
 ### Packages 📦
 
+![](img/tidyverse.png){width="40%"}
+
 R uses "packages," add-ons that enhance its functionality. One package that we'll be using is the tidyverse. The {tidyverse} package is actually a [collection of R](https://www.tidyverse.org/packages) packages designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures.
 
 Before we can begin using these packages, we will need to install them using the `install.packages()` function built into R.
