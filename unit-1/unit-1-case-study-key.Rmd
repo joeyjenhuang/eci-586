@@ -25,7 +25,7 @@ illustrate how Learning Analytics methods and techniques can be applied
 to address research questions of interest, create useful data products,
 and conduct reproducible research. Each case study is structured around
 a basic research workflow modeled after the Data-Intensive Research
-Workflow from [Learning Analytics Goes to
+Workflow from [Learning Analytics Goes to
 School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm et al.,
 2018):
 
@@ -69,9 +69,9 @@ foothold, this study is particularly relevant since COVID-19. Many
 districts across the county have incorporated a LMS into their remote
 instruction and have set up virtual academies likely to continue
 post-pandemic. In North Carolina specifically, student disengagement has
-become a particular concern among districtrs and the NC Department of
-Public Instruction has recently established the [Office of Learning
-Recovery &
+become a particular concern among districts and in response the NC
+Department of Public Instruction has recently established the [Office of
+Learning Recovery &
 Acceleration](https://www.dpi.nc.gov/districts-schools/districts-schools-support/office-learning-recovery-acceleration)**.**
 
 [![](img/mining-lms-data.jpeg){width="40%"}](https://doi.org/10.1177/23328584211024261)
@@ -128,14 +128,14 @@ was the continuous dependent variable.
     correlation with student final grade, it would be erroneous to rely
     too heavily on the predictive power of simple correlations.
 2.  Some students are making more effective strategic decisions about
-    time use within the virtual class- room that is not adequately
+    time use within the virtual classroom that is not adequately
     represented by simple correlations with time online.
 3.  Total number of discussion messages posted, total number of mail
-    messages sent, and total number of assessments completed were
-    allstatistically significant contributors to students' final grades
-    and indicated that some 33% of the variability in student
-    achievement in this course can be explained by this combination of
-    student online activities within the course site.
+    messages sent, and total number of assessments completed were all
+    statistically significant contributors to students' final grades and
+    indicated that some 33% of the variability in student achievement in
+    this course can be explained by this combination of student online
+    activities within the course site.
 4.  One of the highest performing students established a complex network
     that included a core group of high-performing peers, conversely a
     lower performing student's network is primarily comprised of
@@ -152,7 +152,7 @@ predict final grades?
 -   
 
 Now take a quick look at sections 3.2 Mutltiple Regression and 3.3
-Logistic Regression and asnwer the following questions: What factors in
+Logistic Regression and answer the following questions: What factors in
 the model did ultimately predict final grades? How accurate was this
 model in identifying "at risk" students?
 
@@ -200,12 +200,12 @@ One package that we'll be using extensively is {tidyverse}. Recall from
 earlier tutorials that the {tidyverse} package is actually a [collection
 of R packages](https://www.tidyverse.org/packages) designed for reading,
 wrangling, and exploring data and which all share an underlying design
-philosophy, grammar, and data structures. This shared features are
+philosophy, grammar, and data structures. These shared features are
 sometimes "tidy data principles."
 
 Click the green arrow in the right corner of the "code chunk" that
 follows to load the {tidyverse} library as well as the {here} package
-introduced in previous labs.
+introduced in our Getting Started case study.
 
 ```{r}
 library(tidyverse)
@@ -223,8 +223,9 @@ In general, data wrangling involves some combination of cleaning,
 reshaping, transforming, and merging data (Wickham & Grolemund, 2017).
 The importance of data wrangling is difficult to overstate, as it
 involves the initial steps of going from raw data to a dataset that can
-be explored and modeled (Krumm et al, 2018). In Part 2, we focus on the
-the following workflow processes:
+be explored and modeled (Krumm et al, 2018) and often comprises a large
+share of time spent on data-intensive research workflows. In Part 2, we
+focus on the the following workflow processes:
 
 a.  **Import Data**. In this section, we introduce the `read_csv()`
     function for working with CSV files and revisit some key functions
@@ -232,10 +233,11 @@ a.  **Import Data**. In this section, we introduce the `read_csv()`
 
 b.  **Tidy Data**. We introduce the `separate()` and `clean_names()`
     functions for getting our data nice and tidy, and revisit the
-    `mutate()` for creating new variables.
+    `mutate()` function for creating new variables and feature
+    engineering.
 
 c.  **Join Data**. We conclude our data wrangling by introducing
-    `join()` functions for merging our processed files into a single
+    `join()` functions for merging our processed files into a single
     data frame for analysis.
 
 ### a. Import Data
@@ -243,21 +245,21 @@ c.  **Join Data**. We conclude our data wrangling by introducing
 Education data are stored in all sorts of different file formats and
 structures. In this course, we'll discuss several of these common
 formats, how to import your data into R, and how to transform you data
-into other data formats such as network objects required for social
+into other data structures such as network objects required for social
 network analysis in Unit 3. In this case study, we'll focus on working
-with **Comma-separated values (CSV)** files.
+with **comma-separated values (CSV)** files.
 
-Similar to spreadsheet formats Excel and Google Sheets, CSVs allow us to
-store rectangular data frames, but in a much simpler plain-text format,
-where all the important information in the file is represented by text.
-Note that "text" here refers to numbers, letters, and symbols you can
-type on your keyboard. In [Tidyverse Skills for Data
+Similar to spreadsheet formats like Excel and Google Sheets, CSVs allow
+us to store rectangular data frames, but in a much simpler plain-text
+format, where all the important information in the file is represented
+by text. Note that "text" here refers to numbers, letters, and symbols
+you can type on your keyboard. In [Tidyverse Skills for Data
 Science](Tidyverse%20Skills%20for%20Data%20Science), Wright et al.
-(2021) note that the advantage of CSVs is that
+(2021) note that the advantage of a .csv files is that:
 
-> ... that there are no workbooks or metadata making it difficult to
-> open these files. CSVs are flexible files and are thus the preferred
-> storage method for tabular data for many data scientists .
+> ... there are no workbooks or metadata making it difficult to open
+> these files. CSVs are flexible files and are thus the preferred
+> storage method for tabular data for many data scientists.
 
 #### Data Source #1: Log Data
 
@@ -273,11 +275,10 @@ straightforward, there are even more complex sources of log-trace data
 out there (e.g., time stamps associated with when students started and
 stopped accessing the course).
 
-To help us import our data, we'll be using two packages:
-{[readr](https://readr.tidyverse.org)} and
-{[here](https://here.r-lib.org)} . The {readr} package provides a "fast
+To help us import our data, we'll be using the
+{[readr](https://readr.tidyverse.org)} package, which provides a "fast
 and friendly way" to read rectangular data stored in plain-text file
-formats like csv, tsv, and fwf. If you are new to readr, I highly
+formats like csv, tsv, and fwf. If you are new to {readr}, I highly
 recommend the [data import
 chapter](https://r4ds.had.co.nz/data-import.html) in R for data science.
 We don't need to load the {readr} package because it was already loaded
@@ -296,32 +297,11 @@ Note that we had to specify the file path in our argument, but this may
 not consistently work depending on the type of operating system you are
 using and where your R Project is located. The message also indicated
 that four of the columns were specified as "character" data types and
-two of the columns `student_id` and `time_spent` as numeric. The student
-id as numeric is problematic and something we will have to deal with
-later.
+two of the columns `student_id` and `time_spent` as double or numeric
+types. The student id as numeric is problematic and something we will
+have to deal with later.
 
-##### here package
-
-The goal of the {here} package is to enable easy file referencing
-in [project-oriented
-workflows](https://rstats.wtf/project-oriented-workflow.html). In
-contrast to depending on working directories and file paths for
-projects, which are a fragile and dependent on the way you organize your
-files, {here} uses the top-level directory of a project to easily build
-paths to files.
-
-To use the {here} package, we simply insert the `here()` function as our
-first argument for `read_csv()` and include the location of your file by
-typing the folder or folders where your data is stored along with the
-file name.
-
-Give it try:
-
-```{r}
-library(here)
-
-time_spent <- read_csv(here("unit-1", "data", "log-data.csv"))
-```
+#### [**Your Turn**]{style="color: green;"} **⤵**
 
 Let's take a look at this data in a couple ways. First, type
 `time_spent` into the console (below this window) and then hit
@@ -350,7 +330,7 @@ We'll load the data in the same way as earlier but take a quick peek but
 including the name of our data frame in the code chunk as well:
 
 ```{r}
-gradebook <- read_csv(here("unit-1", "data", "gradebook-summary.csv"))
+gradebook <- read_csv("data/gradebook-summary.csv")
 
 gradebook
 ```
@@ -360,27 +340,33 @@ gradebook
 The third data source is a self-report survey. This was data collected
 before the start of the course. The survey included ten items, each
 corresponding to one of three motivation measures: interest, utility
-value, and perceived competence. These were chosen for their alignment
-with one way to think about students' motivation, to what extent they
-expect to do well (corresponding to their perceived competence) and
-their value for what they are learning (corresponding to their interest
-and utility value). We'll use this in the third learning lab.
+value, and perceived competence. The three motivation measures we
+explore here come from Expectancy-Value Theory, which states that
+students are motivated to learn when they both believe that they can
+achieve something (expectancy, also known as "perceived competence") and
+believe that the concept they are trying to learn is important (value)
+([Wigfield & Eccles,
+2000](https://datascienceineducation.com/references.html#ref-wigfield2000)).
+For a more information about this survey, including the specific items
+included, see [Chapter 7 of Data Science in Education Using
+R](https://datascienceineducation.com/c07.html#data-sources)
+[@estrellado2020data].
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-In the code below, read the `survey.csv` file located in the data
+In the code below, read into R the `survey.csv` file located in the data
 folder. You can use the code above as a template. Assign the output from
 the `read_csv()` function to a new object named `survey`.
 
 ```{r}
-survey <- read_csv(here("unit-1", "data", "survey.csv"))
+survey <- read_csv("data/survey.csv")
 
 survey
 ```
 
 **Hint**: By asking you to "assign the output from the `read_csv()`
-function the name `survey`, consider how in the code chunk above this
-"Your Turn" code chunk, we assigned the output from the `read_csv()`
+function the name `survey`, consider how in the code chunk above
+this"Your Turn" code chunk, we assigned the output from the `read_csv()`
 function to the name `gradebook`.
 
 After reading the data, let's continue the practice of looking at our
@@ -521,7 +507,7 @@ semester and the course are encoded within the same variable. The
 
 Below, see using `course_var` for #1, and `c("Semester", "Course")` for
 #2, can be used to separate the semester and course data into two
-separate variable
+separate variables:
 
 ```{r}
 df %>% 
@@ -589,6 +575,8 @@ you wrote above, but assign the output back to `time_spent`.
 time_spent <- time_spent %>%
   separate(course_id,
            c("subject", "semester", "section"))
+
+time_spent
 ```
 
 We have made a habit of continually looking at our data after running
@@ -618,7 +606,7 @@ specific problems, and we'll introduce many over the two-week
 institute - and will point you to resources that describe many more.
 
 There are also functions that can serve as general purpose tools that
-can solve many problems; one of the most useful is `` mutate()` ``, a
+can solve many problems; one of the most useful is `mutate()`, a
 function to create new variables in a data set. Specifically, we'll use
 `mutate()` to create a new variable for the percentage of points each
 student earned; keep in mind as you work through these steps how so many
@@ -777,6 +765,8 @@ similar problems to give yourself a head start.
 ```{r}
 gradebook <- gradebook %>% 
   mutate(proportion_earned = total_points_earned / total_points_possible)
+
+gradebook
 ```
 
 Once the above step is complete, take another look at `gradebook` by
@@ -786,7 +776,7 @@ seventh variable you've "mutated."
 
 #### Process Survey Data
 
-Finally, let's process our survey data that we imported earlier . First
+Finally, let's process our survey data that we imported earlier. First
 though, take a quick look again by typing `survey` into the console or
 using a preferred viewing method to take a look at the data.
 
@@ -819,6 +809,8 @@ names in both data frames so they are consistent:
 library(janitor)
 
 survey <- clean_names(survey)
+
+survey
 ```
 
 Let's take one more look at the data by typing its name into the console
@@ -1501,7 +1493,7 @@ lm(proportion_earned ~ time_spent_hours,
 
 Let's take a look at the output.
 
-We can see that the intercept is estimated at 0.53. This tells us that
+We can see that the intercept is estimated at 0.62. This tells us that
 when students' time spent in the online course is equal to zero, their
 predicted proportion of points earned is 0.62---not such a great grade,
 but also not surprising! But, for every one-unit, or hour, increase in
@@ -1521,7 +1513,7 @@ lm(proportion_earned ~ time_spent_hours + int,
    data = data_to_explore)
 ```
 
-We can see that the intercept is now estimated at 0.44, which tells us
+We can see that the intercept is now estimated at 0.449, which tells us
 that when students' time spent and interest are equal to zero, they are
 likely fail the course unsurprisingly. Note that that estimate for
 interest in science is .046, so for every one-unit increase in `int`, we

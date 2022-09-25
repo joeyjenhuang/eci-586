@@ -27,13 +27,12 @@ machine learning techniques to help us understand how a predictive model
 might be developed and tested as part of an early warning system to
 identify students at risk of failing. Specifically, we will make a very
 crude first attempt at developing a testing a logistic regression and a
-random first model that can (we hope!) accurately predict whether a
+random forest model that can (we hope!) accurately predict whether a
 student is likely to pass or fail and online course. Unlike Unit 1,
 where we were interested in identifying factors from data collected
 throughout the course that might help explain why students earned the
 grade they did, we are instead interested identifying students who may
-be at risk before it is too late to intervene. Therefore we will only
-use information that is available at the start of the course.
+be at risk before it is too late to intervene.
 
 ### 1a. Load Libraries
 
@@ -42,7 +41,7 @@ use information that is available at the start of the course.
 [![](img/tidymodels.svg){width="20%"}](https://www.tidymodels.org)
 
 The [tidymodels](https://www.tidymodels.org) package is a "meta-package"
-for modeling and statistical analysis that share the underlying design
+for modeling and statistical analysis that shares the underlying design
 philosophy, grammar, and data structures of the
 [tidyverse](https://www.tidyverse.org/). It includes a core set of
 packages that are loaded on startup and contains tools for:
@@ -55,8 +54,8 @@ packages that are loaded on startup and contains tools for:
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 In addition to the {tidymodels} package, we'll also be using the
-{tidyverse}, {skimr} and {here} packages we learned about in Unit 1. Use
-the code chunk below to load these three packages:
+{tidyverse}, and {skimr} packages we learned about in Unit 1. Use the
+code chunk below to load these three packages:
 
 ```{r}
 
