@@ -199,12 +199,12 @@ throughout the case study.
 Recall from earlier tutorials that the {tidyverse} package is actually a
 [collection of R packages](https://www.tidyverse.org/packages) designed
 for reading, wrangling, and exploring data and which all share an
-underlying design philosophy, grammar, and data structures. This shared
+underlying design philosophy, grammar, and data structures. These shared
 features are sometimes "tidy data principles."
 
 Click the green arrow in the right corner of the "code chunk" that
-follows to load the {tidyverse} library as well as the {here} package
-introduced in previous labs.
+follows to load the {tidyverse} library introduced in our Getting
+Started case study.
 
 ```{r}
 library(tidyverse)
@@ -222,8 +222,9 @@ In general, data wrangling involves some combination of cleaning,
 reshaping, transforming, and merging data (Wickham & Grolemund, 2017).
 The importance of data wrangling is difficult to overstate, as it
 involves the initial steps of going from raw data to a dataset that can
-be explored and modeled (Krumm et al, 2018). In Part 2, we focus on the
-the following workflow processes:
+be explored and modeled (Krumm et al, 2018) and often comprises a large
+share of time spent on data-intensive research workflows. In Part 2, we
+focus on the the following workflow processes:
 
 a.  **Import Data**. In this section, we introduce the `read_csv()`
     function for working with CSV files and revisit some key functions
@@ -231,7 +232,8 @@ a.  **Import Data**. In this section, we introduce the `read_csv()`
 
 b.  **Tidy Data**. We introduce the `separate()` and `clean_names()`
     functions for getting our data nice and tidy, and revisit the
-    `mutate()` for creating new variables.
+    `mutate()` function for creating new variables and feature
+    engineering.
 
 c.  **Join Data**. We conclude our data wrangling by introducing
     `join()` functions for merging our processed files into a single
@@ -242,9 +244,9 @@ c.  **Join Data**. We conclude our data wrangling by introducing
 Education data are stored in all sorts of different file formats and
 structures. In this course, we'll discuss several of these common
 formats, how to import your data into R, and how to transform you data
-into other data formats such as network objects required for social
+into other data structures such as network objects required for social
 network analysis in Unit 3. In this case study, we'll focus on working
-with **Comma-separated values (CSV)** files.
+with **comma-separated values (CSV)** files.
 
 Similar to spreadsheet formats like Excel and Google Sheets, CSVs allow
 us to store rectangular data frames but in a much simpler plain-text
@@ -252,13 +254,13 @@ format, where all the important information in the file is represented
 by text. Note that "text" here refers to numbers, letters, and symbols
 you can type on your keyboard. In [Tidyverse Skills for Data
 Science](Tidyverse%20Skills%20for%20Data%20Science), Wright et al.
-(2021) note that the advantage of CSVs is that:
+(2021) note that the advantage of a .csv files is that:
 
 > ... there are no workbooks or metadata making it difficult to open
 > these files. CSVs are flexible files and are thus the preferred
-> storage method for tabular data for many data scientists .
+> storage method for tabular data for many data scientists.
 
-#### Data Source \#1: Log Data
+#### Data Source #1: Log Data
 
 *Log-trace data* is data generated from our interactions with digital
 technologies, such as archived data from social media postings. In
@@ -272,9 +274,8 @@ straightforward, there are even more complex sources of log-trace data
 out there (e.g., time stamps associated with when students started and
 stopped accessing the course).
 
-To help us import our data, we'll be using two packages:
-{[readr](https://readr.tidyverse.org)} and
-{[here](https://here.r-lib.org)} . The {readr} package provides a "fast
+To help us import our data, we'll be using the
+{[readr](https://readr.tidyverse.org)} package, which provides a "fast
 and friendly way" to read rectangular data stored in plain-text file
 formats like csv, tsv, and fwf. If you are new to readr, I highly
 recommend the [data import
@@ -299,28 +300,7 @@ two of the columns `student_id` and `time_spent` as numeric. The student
 id as numeric is problematic and something we will have to deal with
 later.
 
-##### here package
-
-The goal of the {here} package is to enable easy file referencing in
-[project-oriented
-workflows](https://rstats.wtf/project-oriented-workflow.html). In
-contrast to depending on working directories and file paths for projects
-like above, which are a fragile and dependent on the way you organize
-your files, {here} uses the top-level directory of a project to easily
-build paths to files.
-
-To use the {here} package, we simply insert the `here()` function as our
-first argument for `read_csv()` and include the location of our file by
-typing the folder or folders where your data is stored along with the
-file name.
-
-Give it try:
-
-```{r}
-library(here)
-
-time_spent <- read_csv(here("unit-1", "data", "log-data.csv"))
-```
+#### [**Your Turn**]{style="color: green;"} **⤵**
 
 Let's take a look at this data in a couple ways. First, type
 `time_spent` into the console (below this window) and then hit
@@ -336,7 +316,7 @@ point to add another) on your observations and/or questions here:
 
 -   
 
-#### Data Source \#2: Academic Achievement Data
+#### Data Source #2: Academic Achievement Data
 
 Academic achievement data is (obviously) is a very common form of data
 in education. In this case study, we'll use both the sum of the points
@@ -349,25 +329,31 @@ We'll load the data in the same way as earlier but take a quick peek by
 including the name of our data frame in the code chunk as well:
 
 ```{r}
-gradebook <- read_csv(here("unit-1", "data", "gradebook-summary.csv"))
+gradebook <- read_csv("data/gradebook-summary.csv")
 
 gradebook
 ```
 
-#### Data Source \#3: Self-Report Survey
+#### Data Source #3: Self-Report Survey
 
 The third data source is a self-report survey. This was data collected
 before the start of the course. The survey included ten items, each
 corresponding to one of three motivation measures: interest, utility
-value, and perceived competence. These were chosen for their alignment
-with one way to think about students' motivation, to what extent they
-expect to do well (corresponding to their perceived competence) and
-their value for what they are learning (corresponding to their interest
-and utility value). We'll use this in the third learning lab.
+value, and perceived competence. The three motivation measures we
+explore here come from Expectancy-Value Theory, which states that
+students are motivated to learn when they both believe that they can
+achieve something (expectancy, also known as "perceived competence") and
+believe that the concept they are trying to learn is important (value)
+([Wigfield & Eccles,
+2000](https://datascienceineducation.com/references.html#ref-wigfield2000)).
+For a more information about this survey, including the specific items
+included, see [Chapter 7 of Data Science in Education Using
+R](https://datascienceineducation.com/c07.html#data-sources)
+[@estrellado2020data].
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-In the code below, import the `survey.csv` file located in the data
+In the code below, readin to R the `survey.csv` file located in the data
 folder. You can use the code above as a template. Assign the output from
 the `read_csv()` function to a new object named `survey`.
 
@@ -376,8 +362,8 @@ the `read_csv()` function to a new object named `survey`.
 ```
 
 **Hint**: By asking you to "assign the output from the `read_csv()`
-function the name `survey`, consider how in the code chunk above this
-"Your Turn" code chunk, we assigned the output from the `read_csv()`
+function the name `survey`, consider how in the code chunk above
+this"Your Turn" code chunk, we assigned the output from the `read_csv()`
 function to the name `gradebook`.
 
 After reading the data, let's continue the practice of looking at our
@@ -516,8 +502,8 @@ semester and the course are encoded within the same variable. The
 1.  the variable you want to separate
 2.  the names of the new variables to create
 
-Below, see using `course_var` for \#1, and `c("Semester", "Course")` for
-\#2, can be used to separate the semester and course data into two
+Below, see using `course_var` for #1, and `c("Semester", "Course")` for
+#2, can be used to separate the semester and course data into two
 separate variable
 
 ```{r}
@@ -1497,7 +1483,7 @@ lm(proportion_earned ~ time_spent_hours,
 
 Let's take a look at the output.
 
-We can see that the intercept is estimated at 0.53. This tells us that
+We can see that the intercept is estimated at 0.62. This tells us that
 when students' time spent in the online course is equal to zero, their
 predicted proportion of points earned is 0.62---not such a great grade,
 but also not surprising! But, for every one-unit, or hour, increase in
@@ -1517,7 +1503,7 @@ lm(proportion_earned ~ time_spent_hours + int,
    data = data_to_explore)
 ```
 
-We can see that the intercept is now estimated at 0.44, which tells us
+We can see that the intercept is now estimated at 0.449, which tells us
 that when students' time spent and interest are equal to zero, they are
 likely fail the course. Note that that estimate for interest in science
 is .046, so for every one-unit increase in `int`, we should expect an 5

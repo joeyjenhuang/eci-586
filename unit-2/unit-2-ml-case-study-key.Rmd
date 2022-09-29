@@ -27,13 +27,12 @@ machine learning techniques to help us understand how a predictive model
 might be developed and tested as part of an early warning system to
 identify students at risk of failing. Specifically, we will make a very
 crude first attempt at developing a testing a logistic regression and a
-random first model that can (we hope!) accurately predict whether a
+random forest model that can (we hope!) accurately predict whether a
 student is likely to pass or fail and online course. Unlike Unit 1,
 where we were interested in identifying factors from data collected
 throughout the course that might help explain why students earned the
 grade they did, we are instead interested identifying students who may
-be at risk before it is too late to intervene. Therefore we will only
-use information that is available at the start of the course.
+be at risk before it is too late to intervene.
 
 ### 1a. Load Libraries
 
@@ -42,7 +41,7 @@ use information that is available at the start of the course.
 [![](img/tidymodels.svg){width="20%"}](https://www.tidymodels.org)
 
 The [tidymodels](https://www.tidymodels.org) package is a "meta-package"
-for modeling and statistical analysis that share the underlying design
+for modeling and statistical analysis that shares the underlying design
 philosophy, grammar, and data structures of the
 [tidyverse](https://www.tidyverse.org/). It includes a core set of
 packages that are loaded on startup and contains tools for:
@@ -55,15 +54,13 @@ packages that are loaded on startup and contains tools for:
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 In addition to the {tidymodels} package, we'll also be using the
-{tidyverse}, {skimr} and {here} packages we learned about in Unit 1. Use
-the code chunk below to load these three packages:
+{tidyverse}, and {skimr} packages we learned about in Unit 1. Use the
+code chunk below to load these three packages:
 
 ```{r}
 library(tidymodels)
-library(ranger)
 library(tidyverse)
 library(skimr)
-library(here)
 ```
 
 ### b. Import & Inspect Data
@@ -82,7 +79,7 @@ assign the name `data_to_model`. Note, you may choose to use the {here}
 package or you may specify the file path directly:
 
 ```{r}
-data_to_model <- read_csv(here("unit-2", "data", "data-to-explore.csv"))
+data_to_model <- read_csv("data/data-to-explore.csv")
 ```
 
 As noted in Chapter 14 of Data Science in Education Using R, it's good
@@ -108,7 +105,7 @@ glimpse(data_to_model)
 
 3.  Based on your prior work with this data, and the descriptions of the
     data in [Chapter 7 of
-    DSIEUR](before%20it%20is%20too%20late%20to%20intervene.), whar are
+    DSIEUR](before%20it%20is%20too%20late%20to%20intervene.), what are
     some variables collected prior to the course that you think might
     make good predictors of at risk students? Why?
 
@@ -146,17 +143,13 @@ to select a few variables you are interested in and go from there:
 > At a certain point, adding more variables will *appear* to make your
 > analysis more accurate, but will in fact obscure the truth from you.
 
-Unlike Unit 1, we are not interested interested so much explaining why
-students earned the grade they did after the fact, or which variables
-might be significant predictors of their final grade. Instead we are
+Unlike Unit 1, we are not interested interested in explaining why
+students earned the grade they did after the fact. Instead we are
 interested in a more immediate and practical application of modeling,
 that is developing a model using machine learning techniques that can
-accurately predict whether a student is likely to pass or fail and
-online course using only information available prior to course.
-
-Our goal, therefore, is to identify students who may be at risk of
-failing using information that is available to teachers before it is too
-late to intervene.
+accurately predict whether a student is likely to pass or fail an online
+course using information that is available about student before it is
+too late to intervene.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
@@ -295,8 +288,20 @@ as "yes" for being at risk.
 
 ### c. Split Data
 
-It is common when beginning a modeling project to [separate the data
-set](https://bookdown.org/max/FES/data-splitting.html) into two
+The authors of Data Science in Education Using R @estrellado2020data
+remind us that:
+
+> At its core, machine learning is the process of \"showing\" your
+> statistical model only some of the data at once and training the model
+> to predict accurately on that training dataset (this is the
+> \"learning\" part of machine learning). Then, the model as developed
+> on the training data is shown new data - data you had all along, but
+> hid from your computer initially - and you see how well the model that
+> you developed on the training data performs on this new testing data.
+> Eventually, you might use the model on entirely new data.
+
+It is therefore common when beginning a modeling project to [separate
+the data set](https://bookdown.org/max/FES/data-splitting.html) into two
 partitions:
 
 -   The *training set* is used to estimate develop and compare models,
