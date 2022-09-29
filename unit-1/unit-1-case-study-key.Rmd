@@ -379,8 +379,8 @@ survey
 ```
 
 **Hint**: By asking you to "assign the output from the `read_csv()`
-function the name `survey`, consider how in the code chunk above this
-"Your Turn" code chunk, we assigned the output from the `read_csv()`
+function the name `survey`, consider how in the code chunk above
+this"Your Turn" code chunk, we assigned the output from the `read_csv()`
 function to the name `gradebook`.
 
 After reading the data, let's continue the practice of looking at our
