@@ -60,9 +60,8 @@ package we'll be using for our random forest model in Part 4.
 Use the code chunk below to load these three packages:
 
 ```{r}
-library(tidymodels)
-library(tidyverse)
-library(ranger)
+# YOUR CODE HERE
+
 ```
 
 ### b. Import & Inspect Data
