@@ -1,0 +1,56 @@
+---
+title: "Final Project: Case Study Planning"
+subtitle: "ECI 586 Intro to Learning Analytics"
+author: "Dr. Shaun Kellogg"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+---
+
+## **Overview**
+
+Throughout this course, we've completed several case studies modeled after the Data-Intensive Research Workflow from Learning Analytics Goes to School (Krumm et al., 2018). For your final course project, you'll be asked to prepare your own small scale "case study" that brings together some of the workflow approaches we've learned this semester to help answer a research question you have about a dataset of your own choosing.
+
+## Assignment
+
+Week 13, provides some space to plan and conceptualize your final course project. More details about the actual content and format of your case study are provided in Week 14, but in general, I recommend that you loosely model your write-up after one of the case studies from prior units, minus the literature review and Your Turns. While your case studies are meant to be informative rather than instructional, I would love to use your analyses in future sections of ECI 586 as models for other students.
+
+To help plan for your final project, your assignment is to create a forum post that addresses the questions below and to provide some constructive feedback on proposed final course projects for at least two of your peers.
+
+### **Prepare**
+
+1.  What research articles, if any, inspired your case study and what **data source(s)**, will you be using for your analysis?
+
+2.  Why are you interested in this data/context and what **research question(s)** are you hoping to answer with your analysis?
+
+3.  Who would most benefit from your analysis and why? How might your **target audience** use this information to take action?
+
+### **Wrangle**
+
+4.  What **data cleaning** steps do you anticipate taking to prepare your data for analysis and why are they necessary? 
+
+5.  What other **variables/features** (e.g. student grades, schools, dates, tweets, chapter numbers, demographics, etc.) might you need to include to address your research questions?
+
+### **Explore & Model (Analysis)**
+
+6.  What **metrics** (e.g., percents, counts, p-values, sentiment values, degree, density, etc.) will you calculate and examine? And at what stage of your analysis?
+
+7.  What **tables or charts** (e.g. text networks, word clouds, etc?) might you include to help readers understand and interpret your findings?
+
+8.  While not required, what modeling **techniques** (e.g., logistic regression, random forests, sentiment analysis, community detection, etc.), if any, will you use to analyze your data and how do you anticipate these techniques will help you address your research questions?
+
+### **Communicate**
+
+9.  What **key insights** do you anticipate finding as a result of your analysis? Why would they be useful and what actions might they result in by your target audience? 
+
+10. What **ethical/legal issues,** if any, need to be taken into consideration?
+
+## Assessment
+
+Your response to the questions above is due Sunday, December 4th, and accounts for half of your final project grade (12 points planning, 12 points case study). For this specific assignment, each question response is worth 1 point (10 points total) and each post providing constructive feedback to two of your peers is worth 1 point each (2 points total).

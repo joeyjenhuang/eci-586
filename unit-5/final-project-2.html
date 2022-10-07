@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.179">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Shaun Kellogg">
+<meta name="dcterms.date" content="2022-10-07">
+
+<title>Final Project: A Case Study in LA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="final-project-2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="final-project-2_files/libs/quarto-html/quarto.js"></script>
+<script src="final-project-2_files/libs/quarto-html/popper.min.js"></script>
+<script src="final-project-2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="final-project-2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="final-project-2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="final-project-2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="final-project-2_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="final-project-2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="final-project-2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="final-project-2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="final-project-2_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#grading-criteria" id="toc-grading-criteria" class="nav-link" data-scroll-target="#grading-criteria">Grading Criteria</a>
+  <ul class="collapse">
+  <li><a href="#prepare-3-points-total-1-points-each" id="toc-prepare-3-points-total-1-points-each" class="nav-link" data-scroll-target="#prepare-3-points-total-1-points-each"><strong>Prepare (3 points total; 1 points each)</strong></a></li>
+  <li><a href="#wrangle-3-points-total-1-points-each" id="toc-wrangle-3-points-total-1-points-each" class="nav-link" data-scroll-target="#wrangle-3-points-total-1-points-each"><strong>Wrangle&nbsp;(3 points total; 1 points each)</strong></a></li>
+  <li><a href="#analyze-3-points-total-1-points-each" id="toc-analyze-3-points-total-1-points-each" class="nav-link" data-scroll-target="#analyze-3-points-total-1-points-each"><strong>Analyze (3 points total; 1 points each)</strong></a></li>
+  <li><a href="#communication-3-points-total-1-points-each" id="toc-communication-3-points-total-1-points-each" class="nav-link" data-scroll-target="#communication-3-points-total-1-points-each"><strong>Communication&nbsp;(3 points total; 1 points each)</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final Project: A Case Study in LA</h1>
+<p class="subtitle lead">ECI 586 Intro to Learning Analytics</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Shaun Kellogg </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 7, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview"><strong>Overview</strong></h2>
+<p>For the end-of-course project, you’ll be applying the knowledge and skills gained throughout this semester to create your “case study” proposed in during&nbsp;Week 13. Similar to the case studies provided in this course, your case study should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. Also, similar to our Unit 1-4 case studies, you’ll be expected to use R Markdown to create a sharable web page ( or if preferred, a PDF or Word document), which includes the code used during each step of your analysis so it can be reproduced by others.</p>
+<p>When you are ready to share your final case study, please click “Add a new discussion topic” to create a new forum post. In your post, include a link to your knitted html case study file (or attach your Word or PDF file), and if you worked in RStudio desktop, also attach or link to your associated R markdown file use to create you case study. If your data is sensitive or proprietary and not suitable for including in your post, please let me know.&nbsp;</p>
+</section>
+<section id="grading-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="grading-criteria">Grading Criteria</h2>
+<p>Grading criteria for your final project is guided by the&nbsp;Data-Intensive Research Workflow&nbsp;from&nbsp;<a href="https://catalog.lib.ncsu.edu/catalog/NCSU4862134">Learning analytics goes to school: A collaborative approach to improving education</a> (Krumm, Means, &amp; Bienkowski, 2018).</p>
+<section id="prepare-3-points-total-1-points-each" class="level3">
+<h3 class="anchored" data-anchor-id="prepare-3-points-total-1-points-each"><strong>Prepare (3 points total; 1 points each)</strong></h3>
+<p>Your case study should demonstrate your ability to formulate clear, actionable research questions relevant to a targeted audience. Specifically, your case study should include an <strong>introduction</strong> that:</p>
+<ol type="1">
+<li><p>Clearly describes the&nbsp;<strong>purpose</strong>&nbsp;of your case study, including the&nbsp;research&nbsp;question(s)&nbsp;guiding your analyses.</p></li>
+<li><p>Provides information about the&nbsp;<strong>data sources</strong>, including the context&nbsp;in which the data was collected and&nbsp;variables&nbsp;used to address your research questions.</p></li>
+<li><p>Includes a description of the&nbsp;<strong>target audience</strong>&nbsp;that would most benefit from your analysis and why.</p></li>
+</ol>
+</section>
+<section id="wrangle-3-points-total-1-points-each" class="level3">
+<h3 class="anchored" data-anchor-id="wrangle-3-points-total-1-points-each"><strong>Wrangle&nbsp;(3 points total; 1 points each)</strong></h3>
+<p>Your data project should demonstrate your ability to use R to manipulate, clean, transform, and/or merging data in order to prepare your text for analysis. Specifically, your case study should clearly describe:</p>
+<ol type="1">
+<li><p><strong>Data preprocessing</strong>&nbsp;steps (e.g., renaming variables, filtering, tokenization, stemming, stop words removal, etc.) taken to clean and prepare your text for analysis and why are they necessary, as well as any steps will excluded and why.</p></li>
+<li><p>Any <strong>new variables or&nbsp;features</strong>&nbsp;you created (e.g., indices, tf-idf measures, etc.) to address your research questions.&nbsp;</p></li>
+<li><p>Data <strong>transformations</strong> you made required&nbsp;for the types of analyses or packages used (e.g.&nbsp;reshaping, merging, joining etc.).</p></li>
+</ol>
+</section>
+<section id="analyze-3-points-total-1-points-each" class="level3">
+<h3 class="anchored" data-anchor-id="analyze-3-points-total-1-points-each"><strong>Analyze (3 points total; 1 points each)</strong></h3>
+<p>Your data project should demonstrate your ability to use R to apply text mining techniques appropriate to your research questions and data sources. Specifically, your case study shouldclearly include:</p>
+<ol type="1">
+<li><p>Clear descriptions of the <strong>techniques</strong>&nbsp;(e.g., descriptive statistics , network analysis, sentiment analysis, etc.) you applied to analyze your data.</p></li>
+<li><p>Interpretations/meanings of specific&nbsp;<strong>metrics</strong>&nbsp;(e.g., counts, means, proportions, sentiment values, centrality measures, etc.) that your analysis generated.&nbsp;</p></li>
+<li><p>Data&nbsp;<strong>visualizations</strong>&nbsp;that are attractive and easy to interpret, and include text or narrative for aiding their Interpretation by others.</p></li>
+</ol>
+</section>
+<section id="communication-3-points-total-1-points-each" class="level3">
+<h3 class="anchored" data-anchor-id="communication-3-points-total-1-points-each"><strong>Communication&nbsp;(3 points total; 1 points each)</strong></h3>
+<p>Your case study should demonstrate your ability to clearly and effectively communicate the most important and most useful findings. Specifically, your case study should:</p>
+<ol type="1">
+<li><p>Highlights&nbsp;<strong>key finding and insights</strong>&nbsp;in response to your research questions.&nbsp;</p></li>
+<li><p>Suggests potential&nbsp;<strong>action</strong>&nbsp;that you and/or your target audience to better understand and improve the context in which your data product is intended to inform. &nbsp;</p></li>
+<li><p>Discusses the&nbsp;<strong>limitations</strong>&nbsp;and any&nbsp;ethical/legal issues&nbsp;taken&nbsp;into consideration, including acknowledgments&nbsp;any reference materials used.</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
