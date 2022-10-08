@@ -23,7 +23,7 @@ When you are ready to share your final case study, please click "Add a new discu
 
 Grading criteria for your final project is guided by the Data-Intensive Research Workflow from [Learning analytics goes to school: A collaborative approach to improving education](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm, Means, & Bienkowski, 2018).
 
-### **Prepare (3 points total; 1 points each)**
+### **Prepare (3 points total; 1 point each)**
 
 Your case study should demonstrate your ability to formulate clear, actionable research questions relevant to a targeted audience. Specifically, your case study should include an **introduction** that:
 
@@ -33,7 +33,7 @@ Your case study should demonstrate your ability to formulate clear, actionable r
 
 3.  Includes a description of the **target audience** that would most benefit from your analysis and why.
 
-### **Wrangle (3 points total; 1 points each)**
+### **Wrangle (3 points total; 1 point each)**
 
 Your data project should demonstrate your ability to use R to manipulate, clean, transform, and/or merging data in order to prepare your text for analysis. Specifically, your case study should clearly describe:
 
@@ -43,9 +43,9 @@ Your data project should demonstrate your ability to use R to manipulate, clean,
 
 3.  Data **transformations** you made required for the types of analyses or packages used (e.g. reshaping, merging, joining etc.).
 
-### **Analyze (3 points total; 1 points each)**
+### **Analyze (3 points total; 1 point each)**
 
-Your data project should demonstrate your ability to use R to apply text mining techniques appropriate to your research questions and data sources. Specifically, your case study shouldclearly include:
+Your data project should demonstrate your ability to use R to apply text mining techniques appropriate to your research questions and data sources. Specifically, your case study should clearly include:
 
 1.  Clear descriptions of the **techniques** (e.g., descriptive statistics , network analysis, sentiment analysis, etc.) you applied to analyze your data.
 
@@ -53,7 +53,7 @@ Your data project should demonstrate your ability to use R to apply text mining 
 
 3.  Data **visualizations** that are attractive and easy to interpret, and include text or narrative for aiding their Interpretation by others.
 
-### **Communication (3 points total; 1 points each)**
+### **Communication (3 points total; 1 point each)**
 
 Your case study should demonstrate your ability to clearly and effectively communicate the most important and most useful findings. Specifically, your case study should:
 
