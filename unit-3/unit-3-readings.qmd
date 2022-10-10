@@ -15,11 +15,11 @@ editor: visual
 
 ## OVERVIEW
 
-In Unit 3 we examine the foundations of the collaborative data-intensive improvement (CDI) model and a gentle introduction to working with documents and text as data. The required and self-selected readings for this week focus on three major influences on the collaborative data-intensive improvement (CDI) model and also provide a survey of general overview of text mining in education. In data driven decision making, emerging models of how researchers and education practitioners can engage in collaborative research, and the rapidly expanding fields of educational data mining and learning analytics.
+In Unit 3 we examine the foundations of the collaborative data-intensive improvement (CDI) model and a gentle introduction to working with documents and text as data. The required and self-selected readings for this week focus on three major influences on the CDI model and also provide a survey of general overview of text mining in education. In addition, we'll take a look a three broad approaches to analyzing text as data including lexical-based methods, supervised and unsupervised machine learning.
 
 ## READINGS
 
-In addition to watching the Unit 2 Intro video, this week you'll be required to read two chapters from [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) and find one additional journal article, conference presentation, or scholarly resource to help address our discussion questions for the week.
+In addition to watching the Unit 3 Intro video, this week you'll be required to read chapter 5 from [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134), an article introducing text mining methods in education, and one self-selected journal article, conference presentation, or scholarly resource to help address our discussion questions for the week.
 
 ### Required
 
