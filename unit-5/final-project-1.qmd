@@ -13,7 +13,7 @@ theme:
 editor: visual
 ---
 
-## **Overview**
+## Overview
 
 Throughout this course, we've completed several case studies modeled after the Data-Intensive Research Workflow from Learning Analytics Goes to School (Krumm et al., 2018). For your final course project, you'll be asked to prepare your own small scale "case study" that brings together some of the workflow approaches we've learned this semester to help answer a research question you have about a dataset of your own choosing.
 
@@ -23,7 +23,7 @@ Week 13, provides some space to plan and conceptualize your final course project
 
 To help plan for your final project, your assignment is to create a forum post that addresses the questions below and to provide some constructive feedback on proposed final course projects for at least two of your peers.
 
-### **Prepare**
+### Prepare
 
 1.  What research articles, if any, inspired your case study and what **data source(s)**, will you be using for your analysis?
 
@@ -31,13 +31,13 @@ To help plan for your final project, your assignment is to create a forum post t
 
 3.  Who would most benefit from your analysis and why? How might your **target audience** use this information to take action?
 
-### **Wrangle**
+### Wrangle
 
 4.  What **data cleaning** steps do you anticipate taking to prepare your data for analysis and why are they necessary? 
 
 5.  What other **variables/features** (e.g. student grades, schools, dates, tweets, chapter numbers, demographics, etc.) might you need to include to address your research questions?
 
-### **Explore & Model (Analysis)**
+### Explore & Model (Analysis)
 
 6.  What **metrics** (e.g., percents, counts, p-values, sentiment values, degree, density, etc.) will you calculate and examine? And at what stage of your analysis?
 
@@ -45,7 +45,7 @@ To help plan for your final project, your assignment is to create a forum post t
 
 8.  While not required, what modeling **techniques** (e.g., logistic regression, random forests, sentiment analysis, community detection, etc.), if any, will you use to analyze your data and how do you anticipate these techniques will help you address your research questions?
 
-### **Communicate**
+### Communicate
 
 9.  What **key insights** do you anticipate finding as a result of your analysis? Why would they be useful and what actions might they result in by your target audience? 
 
