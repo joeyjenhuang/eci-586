@@ -30,12 +30,13 @@ In addition to watching the Unit 2 Intro video, this week you'll be required to 
 
 Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a journal article, presentation, website or other scholarly resource that addresses a topic of interest and includes one or more of the following terms or related terms:
 
--   data-driven decision making
--   research-practice partnerships
--   improvement science
 -   text mining
 -   sentiment analysis
 -   topic modeling
+-   text classification
+-   lexical- or dictionary-based methods
+-   text networks
+-   term frequency - inverse document frequency
 
 Your selection should also address one or more of the discussion topics/questions provided below. In addition, you are welcome to find less formal resources such as videos or shorter online articles to share with the class and that help us better understand this week's topics for discussion.
 
@@ -49,15 +50,11 @@ With the exception of the self-selected resource, you are not required to post t
 
 #### Foundations of Collaborative Applications of Learning Analytics
 
-Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
+Consider an educational context you might be interested in studying an answer one or more of the following questions:
 
--   What exactly does it mean to **prepare** for collaborative, data-intensive research?
--   What are some common techniques used to **wrangle** data add what do they entail?
--   What exactly is meant by exploratory data analysis (EDA) and how why might researchers **explore** data as part of workflow?
--   What are some common approaches used in data-intensive to **model** data and what do they entail?
--   What exactly is involved in the **communicate** step of the data-intensive workflow and what makes a "good" data product used to communicate findings?
--   What are some of the **challenges** of working with big data and data-intensive research in particular?
--   How, and to what extent, might education practitioners **collaborate** on these steps?
+-   What real or hypothetical context educational context are you interested in better understanding or improving through collaborative data-intensive improvement?
+-   How might one the foundational approaches described described in Chapter 5 be applied to understand or improve this context?
+-   What specific characteristics, processes, and/or tools of this approach might you utilize and for what purpose?
 
 #### Text as Data: Methods for Education Research
 
@@ -67,8 +64,14 @@ Reflecting on the course text and your self-selected reading, answer one or more
     -   expand the types of research questions that researchers can ask?
     -   improve the external validity and representativeness of research?
     -   reduce the cost of research?
--   
--   
+-   Think about text-based data source you might be interested in analyzing.
+    -   What would be considered a "document" or a single observation of text (e.g., one essay, one text message, one tweet, or one discussion board post) in the data set that you would construct and/or analyze?
+    -   What research question(s) might you address through automated text analysis methods?
+    -   Which of the three methods would you use to answer your question?
+    -   What might you have to do to prepare your text for analysis?
+    -   What do you anticipate you might find from your analysis?
+-   What is one limitation of automated text analysis and how might a researcher addresses it?
+-   How do researchers using these methods produce valid and/or reliable results?
 
 #### Self-Selected Resource
 
@@ -77,10 +80,11 @@ Provide a brief overview of your self-selected resource that includes the follow
 -   APA Citation (note: this can be easily [retrieved via Google Scholar](https://libanswers.ucmerced.edu/faq/95935))
 -   What was the **purpose** of your article?
 -   What **data source(s),** if any, were analyzed or discussed?
--   What data-intensive research **workflows** steps, if any, were described by your selection?
+-   What collaborated data-intensive research **methods or influences**, if any, were described by your selection?
+-   What specific text mining **techniques(s)** were applied or discussed in your selection?
+-   If a research article, what were the key **findings** of the study?
 -   Who were the intended **beneficiaries** of the work and what "change ideas" might the result imply for them?
--   How, if at all, did your resource touch upon the **application(s)** of these methods and phases to "understand and improve learning and the contexts in which learning occurs?"
--   Did your selection address any **ethical or legal considerations** of LA?
+-   Did your selection discuss any **limitations or ethical considerations** of text mining?
 
 ## ASSESSMENT
 
@@ -96,7 +100,7 @@ At minimum, your collective posts should also help us interpret or elaborate on
 
 ### Productive Online Discussion Model
 
-#### **Disposition 1: Discuss to Comprehend**
+#### Disposition 1: Discuss to Comprehend
 
 Actively engage in such cognitive processes as interpretation, elaboration, **making connections to** prior knowledge.
 
@@ -104,7 +108,7 @@ Actively engage in such cognitive processes as interpretation, elaboration, **ma
 -   Interpreting or elaborating the ideas by making connection to **personal experience**
 -   Interpreting or elaborating the ideas by making connection to other **ideas, sources, or references**
 
-#### **Disposition 2: Discuss to Critique**
+#### Disposition 2: Discuss to Critique
 
 Carefully **examine other people's views**, and be sensitive and analytical to conflicting views.
 
@@ -112,7 +116,7 @@ Carefully **examine other people's views**, and be sensitive and analytical to c
 -   **Challenging ideas** in the texts
 -   Challenging ideas in others' posts
 
-#### **Disposition 3: Discuss to Construct Knowledge**
+#### Disposition 3: Discuss to Construct Knowledge
 
 Actively **negotiate meanings**, and be ready to reconsider, refine and sometimes revise their thinking.
 
@@ -120,7 +124,7 @@ Actively **negotiate meanings**, and be ready to reconsider, refine and sometime
 -   Facilitating thinking and discussions by **raising questions**
 -   Refining and **revising one's own view** based on the texts or others' posts
 
-#### **Disposition 4: Discuss to Share Improved Understanding**
+#### Disposition 4: Discuss to Share Improved Understanding
 
 Actively **synthesize knowledge** and explicitly express improved understanding based on a review of previous discussions.
 
