@@ -1,0 +1,112 @@
+---
+title: "Will spending more time in an online course land me a better grade?"
+output:
+  flexdashboard::flex_dashboard:
+    theme: 
+      version: 4
+      bootswatch: pulse
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+course_text <- read_csv("data/course-text.csv")
+data_to_explore <- read_csv("data/data-to-explore.csv")
+data_to_viz <- data_to_explore  %>% 
+  select(subject, 
+         gender,
+         section, 
+         time_spent_hours, 
+         proportion_earned) %>%
+  mutate(subject = recode(subject, 
+                          "AnPhA" = "Anatomy",
+                          "BioA" = "Biology", 
+                          "FrScA" = "Forensics", 
+                          "OcnA" =  "Oceanography", 
+                          "PhysA" = "Physics")) %>%
+  mutate(grade = proportion_earned * 100)
+```
+
+## Inputs {.sidebar}
+
+Test
+
+## Column {data-width="650"}
+
+### Time Spent vs Grade Earned
+
+```{r}
+data_to_viz  %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = time_spent_hours, 
+                       y = grade,
+                       color = subject),
+             alpha = .25) +
+  geom_smooth(mapping = aes(x = time_spent_hours, 
+                            y = grade,
+                            color = subject,
+                            weight = .5),
+              method = loess,
+              se = FALSE) +
+  ylim(0, 100) + 
+  xlim(0, 100) +
+  facet_wrap(~subject, ncol = 3) +
+  labs(
+    #title = "Will spending more time in an online course land me a better grade?",
+       y = "% of Total Points",
+       x = "Hours Logged into Online Course",
+       # subtitle = "Spoiler Alert... Yes, to an extent.",
+       # caption = "Fine print: Time spent online does not necessarly account for all time students spent on the course, e.g, studying offline."
+       ) +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_color_brewer(palette = "Set1",
+                     name = "Subject")
+```
+
+## Column {data-width="350"}
+
+### Time Spent
+
+```{r}
+data_to_viz  %>% 
+  ggplot() +
+  geom_boxplot(mapping = aes(y = subject, 
+                       x = time_spent_hours,
+                       color = subject),
+             alpha = .25) +
+  #facet_wrap(~subject, ncol = 3) +
+  labs(# title = "Will spending more time in an online course land me a better grade?",
+       y = "Course Subject",
+       x = "Hours Logged into Online Course",
+     #  subtitle = "Spoiler Alert... Yes, to an extent.",
+     #  caption = "Fine print: Time spent online does not necessarly account for all time students spent on the course, e.g, studying offline."
+     ) +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_color_brewer(palette = "Set1",
+                     name = "Subject")
+```
+
+### Grade Earned
+
+```{r}
+data_to_viz %>%
+  ggplot() +
+  geom_density(mapping = aes(
+                       x = grade,
+                       color = subject),
+             alpha = .25) +
+  #facet_wrap(~subject, ncol = 3) +
+  labs(# title = "Will spending more time in an online course land me a better grade?",
+       y = "Course Subject",
+       x = "Hours Logged into Online Course",
+     #  subtitle = "Spoiler Alert... Yes, to an extent.",
+     #  caption = "Fine print: Time spent online does not necessarly account for all time students spent on the course, e.g, studying offline."
+     ) +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_color_brewer(palette = "Set1",
+                     name = "Subject")
+```
