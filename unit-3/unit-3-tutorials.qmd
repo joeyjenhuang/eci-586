@@ -1,5 +1,5 @@
 ---
-title: "Unit 2 Tutorials: Data Viz & Data Products"
+title: "Unit 3 Tutorials: Tidy Data & Dashboards"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
@@ -15,27 +15,21 @@ editor: visual
 
 ## **Assignment**
 
-For Unit 2, we'll take a deeper dive into exploring and tidying our data. The assigned Visualize Data primer and corresponding exercises are designed to increase your comfort level with the {ggplot} package and useful chart types for examining single variables (variation) and relationships between variables (covariation). In the R primers that follow, you will learn how to make each type of plot below, as well as how to use R markdown to create a "data product" for communicating your findings.
+For Unit 3 we'll learn how to make and use "tidy data" and how to present that data with a simple dashboard. The assigned Tidy Data primers further explore data wrangling techniques introduced in previous case studies such as reshaping and joining data sets. We'll also gain hands-on experience with Flexdashboard package, which can be used to create interactive dashboards for R, using R Markdown. This week you'll be required to make your second data product by using R Markdown to create a simple dashboard that you will export to an HTML webpage.
 
-![](img/viz-matrix.jpeg){fig-align="center" width="500"}
+![](img/flexdashboard.png){fig-align="left"}
 
 ### **Primers**
 
-This week you have two required primers to complete before we dig into our Unit 2 case study:
+This week you have two required primers to complete before we dig into our Unit 3 case study:
 
-1.  [**Visualize Data**](https://rstudio.cloud/learn/primers/3)**:** For our third primer, we'll learn some new ggplot2 "grammar" for making new types of plots and best practices for visualizing patterns within values and relationships between variables. This primer is critical for completing your exercises and "data product" for this week so do not skip.
+1.  [**Tidy Your Data**](https://rstudio.cloud/learn/primers/4)**:** In the three tutorials included in this primer, you'll learn how to reshape the layout of any data set, separate a column into multiple columns and to reverse the process, and how to augment data sets with information from related data sets.
 
-2.  [**Report Reproducibility**](https://rmarkdown.rstudio.com/lesson-1.html)**:** This week you'll be asked to make your first "data product" (see below) by creating a R Markdown document that you will export to an HTML webpage. Read through each of the brief sections of this primer and feel free to explore some of the external links and examples shown. Later in the course, we will be introduced to markdown with Quarto, an open-source scientific and technical publishing system and a likely successor to R markdown.
+2.  [**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/index.html)**:** Read through the Getting Started, Examples, and Sample Layouts pages to learn how Rmarkdown can be used to create a simple dashboard. Later in the course we will learn how to add interactivity to this dashboard that allows the dashboard to change dynamically based on user input.
 
 ## Assessment
 
-### **Exercises (3 points)**
-
-We're keeping things pretty light this week on the exercise front. There is just one file to work through and five relatively simple exercises to complete, the first of which has been done for you. The final exercise in this set will be slightly more intensive and necessary to complete your data product for this week. 
-
-1.  **Week 6 Exercises:** Navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://rstudio.cloud/spaces/271329/content/all?sort=name_asc) and complete the unit-2-visualize-exercises.R file located in the Unit 2 - Week 6 Exercises project. For the final exercise, you will be asked to create a new R Markdown file
-
-### **Data Product (3 points)**
+### **Data Product (6 points)**
 
 As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
