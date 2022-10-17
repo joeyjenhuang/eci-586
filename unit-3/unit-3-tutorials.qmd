@@ -27,7 +27,7 @@ This week you have two required primers to complete before we dig into our Unit 
 
 2.  [**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/index.html)**:** Read through the Getting Started, Examples, and Sample Layouts pages to learn how Rmarkdown can be used to create a simple dashboard. Later in the course we will learn how to add interactivity to this dashboard that allows the dashboard to change dynamically based on user input.
 
-## Assessment
+### **Data Product**
 
 As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
@@ -37,13 +37,15 @@ As highlighted in *Learning Analytics Goes to School*, the Communicate step in t
 
 -   **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
 
-### **Data Product (3 points)**
-
 For your assignment, you will create a new R Markdown file using the flexdashboard template to make a simple data dashboard. You may use the `unit-3-data-product-example.Rmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
 
 -   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-3/unit-3-data-product-example.html>
 
 -   **RPubs** - <https://rpubs.com/sbkellogg/dashboard-example>
+
+## Assessment
+
+### Dashboard
 
 Your data product will scored 1 point for each of the the following three components:
 

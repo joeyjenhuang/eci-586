@@ -1,5 +1,5 @@
 ---
-title: "Do students who spend more time online earn higher grades?"
+title: "Do students who spend more course time online earn higher grades?"
 output:
   flexdashboard::flex_dashboard:
     theme: 
