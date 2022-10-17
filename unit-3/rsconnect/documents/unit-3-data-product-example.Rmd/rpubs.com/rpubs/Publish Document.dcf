@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/956887/cdcfda676a8b4fab954390c404e22486
+bundleId: https://api.rpubs.com/api/v1/document/956887/cdcfda676a8b4fab954390c404e22486
+url: http://rpubs.com/sbkellogg/956887
+when: 1666011248.70001
+lastSyncTime: 1666011248.70002

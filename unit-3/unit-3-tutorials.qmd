@@ -15,9 +15,9 @@ editor: visual
 
 ## **Assignment**
 
-For Unit 3 we'll learn how to make and use "tidy data" and how to present that data with a simple dashboard. The assigned Tidy Data primers further explore data wrangling techniques introduced in previous case studies such as reshaping and joining data sets. We'll also gain hands-on experience with Flexdashboard package, which can be used to create interactive dashboards for R, using R Markdown. This week you'll be required to make your second data product by using R Markdown to create a simple dashboard that you will export to an HTML webpage.
+![](img/flexdashboard.png){fig-align="left" width="20%"}
 
-![](img/flexdashboard.png){fig-align="left"}
+For Unit 3 we'll learn how to make and use "tidy data" and how to present that data with a simple dashboard. The assigned Tidy Data primers further explore data wrangling techniques introduced in previous case studies such as reshaping and joining data sets. We'll also gain hands-on experience with Flexdashboard package, which can be used to create interactive dashboards for R, using R Markdown. This week you'll be required to make your second data product by using R Markdown to create a simple dashboard that you will export to an HTML webpage.
 
 ### **Primers**
 
@@ -29,8 +29,6 @@ This week you have two required primers to complete before we dig into our Unit 
 
 ## Assessment
 
-### **Data Product (6 points)**
-
 As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
 -   **Select**. Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form (i.e. a "data product") and a format for communicating your results (e.g. a presentation, document, or dashboard).  
@@ -39,12 +37,24 @@ As highlighted in *Learning Analytics Goes to School*, the Communicate step in t
 
 -   **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
 
-For exercise 6, you will create a new R Markdown file that you will use to make and share your own data visualization. You may use the `data-product-example.Rmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
+### **Data Product (3 points)**
 
--   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-2/data-product-example.html>
+For your assignment, you will create a new R Markdown file using the flexdashboard template to make a simple data dashboard. You may use the `unit-3-data-product-example.Rmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
 
--   **RPubs** - <http://rpubs.com/sbkellogg/grades-time>
+-   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-3/unit-3-data-product-example.html>
+
+-   **RPubs** - <https://rpubs.com/sbkellogg/dashboard-example>
+
+Your data product will scored 1 point for each of the the following three components:
+
+1.  **Wrangling**: Similar to your data product for Unit 2, your first code chunk will be named "setup" and will run the code necessary for importing and wrangling your data for visualization. There are two data sets that you will need to import and join together.
+
+2.  **Visualization**:
+
+3.  **Communication**:
 
 When you are finished knitting your HTML document, create a new post in the Week 6 forum to share your data product. You may use [RPubs](https://rpubs.com/about/getting-started) (recommended for beginners) or another service like [GitHub Pages](https://pages.github.com/) (advanced) to publish your final knitted .html file to the web. From there you can copy the link to include in your forum post for others to access. An example post has been provided.
+
+### **Peer Feedback (3 points)**
 
 If you have questions about the tutorials or exercises, I encourage you to reply to the Questions and Troubleshooting post, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the exercises independently before reaching out for support.
