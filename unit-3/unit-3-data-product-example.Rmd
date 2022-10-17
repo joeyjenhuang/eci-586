@@ -41,7 +41,7 @@ The boxplot and histogram in the two smaller boxes show distributions of hours l
 
 Note: Time spent online does not necessarily account for all time students spent on the course, e.g, studying offline.
 
-## Column {data-width="650"}
+## Column {data-width="600"}
 
 ### Relationship Between Hours Online and Final Grade
 
@@ -78,7 +78,7 @@ data_to_viz  %>%
   scale_y_continuous(breaks = seq(0, 100, by = 10))
 ```
 
-## Column {data-width="350"}
+## Column {data-width="400"}
 
 ### Quartiles, Median, and Outliers for Hours Online
 
