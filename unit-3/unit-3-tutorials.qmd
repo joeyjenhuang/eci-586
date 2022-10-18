@@ -13,13 +13,13 @@ theme:
 editor: visual
 ---
 
-## **Assignment**
+## Assignment
 
 ![](img/flexdashboard.png){fig-align="left" width="20%"}
 
 For Unit 3 we'll learn how to make and use "tidy data" and how to present that data with a simple dashboard. The assigned Tidy Data primers further explore data wrangling techniques introduced in previous case studies such as reshaping and joining data sets. We'll also gain hands-on experience with Flexdashboard package, which can be used to create interactive dashboards for R, using R Markdown. This week you'll be required to make your second data product by using R Markdown to create a simple dashboard that you will export to an HTML webpage.
 
-### **Primers**
+### Primers
 
 This week you have two required primers to complete before we dig into our Unit 3 case study:
 
@@ -27,7 +27,7 @@ This week you have two required primers to complete before we dig into our Unit 
 
 2.  [**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/index.html)**:** Read through the Getting Started, Examples, and Sample Layouts pages to learn how Rmarkdown can be used to create a simple dashboard. Later in the course we will learn how to add interactivity to this dashboard that allows the dashboard to change dynamically based on user input.
 
-### **Data Product**
+### Data Product
 
 As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
@@ -57,7 +57,7 @@ You will earn 1 point for each of the the following three dashboard components:
 
 3.  **Communicate**: Your dashboard should also include a title and a brief narrative summary explaining the purpose of your analysis and 1-2 key findings that might be of interest to educators. When you are finished, knit your RMarkdown file to an HTML document and create a new post in the Week 9 forum to share your data product. You may use [RPubs](https://rpubs.com/about/getting-started) (recommended for beginners) or another service like [GitHub Pages](https://pages.github.com/) (advanced) to publish your final knitted .html file to the web. From there you can copy the link to include in your forum post for others to access. An example post has been provided.
 
-### **Peer Feedback (3 points)**
+### Peer Feedback (3 points)
 
 Finally, provide some brief but constructive feedback (2-3 sentences) on the data products of 3 of your peers (1 point each). Your feedback should include one thing you liked about their data product and why as well as one suggestion for potential improvement or extension of the analysis.
 

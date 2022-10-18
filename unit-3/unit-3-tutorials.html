@@ -2,21 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.1.179">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2022-10-17">
+<meta name="dcterms.date" content="2022-10-18">
 
 <title>Unit 3 Tutorials: Tidy Data &amp; Dashboards</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -40,19 +45,19 @@ ul.task-list{list-style: none;}
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc">
+  <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link active" data-scroll-target="#assignment"><strong>Assignment</strong></a>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link active" data-scroll-target="#assignment">Assignment</a>
   <ul class="collapse">
-  <li><a href="#primers" id="toc-primers" class="nav-link" data-scroll-target="#primers"><strong>Primers</strong></a></li>
-  <li><a href="#data-product" id="toc-data-product" class="nav-link" data-scroll-target="#data-product"><strong>Data Product</strong></a></li>
+  <li><a href="#primers" id="toc-primers" class="nav-link" data-scroll-target="#primers">Primers</a></li>
+  <li><a href="#data-product" id="toc-data-product" class="nav-link" data-scroll-target="#data-product">Data Product</a></li>
   </ul></li>
   <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a>
   <ul class="collapse">
   <li><a href="#dashboard-3-points" id="toc-dashboard-3-points" class="nav-link" data-scroll-target="#dashboard-3-points">Dashboard (3 points)</a></li>
-  <li><a href="#peer-feedback-3-points" id="toc-peer-feedback-3-points" class="nav-link" data-scroll-target="#peer-feedback-3-points"><strong>Peer Feedback (3 points)</strong></a></li>
+  <li><a href="#peer-feedback-3-points" id="toc-peer-feedback-3-points" class="nav-link" data-scroll-target="#peer-feedback-3-points">Peer Feedback (3 points)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -79,7 +84,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 17, 2022</p>
+      <p class="date">October 18, 2022</p>
     </div>
   </div>
     
@@ -89,7 +94,7 @@ ul.task-list{list-style: none;}
 </header>
 
 <section id="assignment" class="level2">
-<h2 class="anchored" data-anchor-id="assignment"><strong>Assignment</strong></h2>
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="img/flexdashboard.png" class="img-fluid figure-img" style="width:20.0%"></p>
@@ -97,7 +102,7 @@ ul.task-list{list-style: none;}
 </div>
 <p>For Unit 3 we’ll learn how to make and use “tidy data” and how to present that data with a simple dashboard. The assigned Tidy Data primers further explore data wrangling techniques introduced in previous case studies such as reshaping and joining data sets. We’ll also gain hands-on experience with Flexdashboard package, which can be used to create interactive dashboards for R, using R Markdown. This week you’ll be required to make your second data product by using R Markdown to create a simple dashboard that you will export to an HTML webpage.</p>
 <section id="primers" class="level3">
-<h3 class="anchored" data-anchor-id="primers"><strong>Primers</strong></h3>
+<h3 class="anchored" data-anchor-id="primers">Primers</h3>
 <p>This week you have two required primers to complete before we dig into our Unit 3 case study:</p>
 <ol type="1">
 <li><p><a href="https://rstudio.cloud/learn/primers/4"><strong>Tidy Your Data</strong></a><strong>:</strong> In the three tutorials included in this primer, you’ll learn how to reshape the layout of any data set, separate a column into multiple columns and to reverse the process, and how to augment data sets with information from related data sets.</p></li>
@@ -105,7 +110,7 @@ ul.task-list{list-style: none;}
 </ol>
 </section>
 <section id="data-product" class="level3">
-<h3 class="anchored" data-anchor-id="data-product"><strong>Data Product</strong></h3>
+<h3 class="anchored" data-anchor-id="data-product">Data Product</h3>
 <p>As highlighted in <em>Learning Analytics Goes to School</em>, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al.&nbsp;(2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:</p>
 <ul>
 <li><p><strong>Select</strong>. Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form (i.e., a “data product”) and a format for communicating your results (e.g.&nbsp;a presentation, document, or dashboard). &nbsp;</p></li>
@@ -132,7 +137,7 @@ ul.task-list{list-style: none;}
 </ol>
 </section>
 <section id="peer-feedback-3-points" class="level3">
-<h3 class="anchored" data-anchor-id="peer-feedback-3-points"><strong>Peer Feedback (3 points)</strong></h3>
+<h3 class="anchored" data-anchor-id="peer-feedback-3-points">Peer Feedback (3 points)</h3>
 <p>Finally, provide some brief but constructive feedback (2-3 sentences) on the data products of 3 of your peers (1 point each). Your feedback should include one thing you liked about their data product and why as well as one suggestion for potential improvement or extension of the analysis.</p>
 <p>If you have questions about the primers or dashboard, I encourage you to reply to the Questions and Troubleshooting post, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the exercises independently before reaching out for support.</p>
 </section>
@@ -210,6 +215,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           toggle.classList.remove("alternate");
         }
       }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
     }
   }
   const isFileUrl = () => { 
@@ -312,7 +327,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
