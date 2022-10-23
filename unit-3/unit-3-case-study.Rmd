@@ -1145,7 +1145,7 @@ tidy_bigrams %>%
   count(bigram, sort = TRUE)
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ 
+#### [Your Turn]{style="color: green;"} ⤵
 
 Use the code chunk below to tidy and count our bigrams for the CCSS tweets:
 
