@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. PREPARE
 
-Data sources such as digital learning environments and administrative data systems, as well as data produced by social media websites and the mass digitization of academic and practitioner publications, hold enormous potential to address a range of pressing problems in education, but collecting and analyzing text-based data also presents unique challenges. This week, our case study is guided by my colleague Josh Rosenberg's recent article, **Advancing new methods for understanding public sentiment about educational reforms: The case of Twitter and the Next Generation Science Standards.**
+Data sources such as digital learning environments and administrative data systems, as well as data produced by social media websites and the mass digitization of academic and practitioner publications, hold enormous potential to address a range of pressing problems in education, but collecting and analyzing text-based data also presents unique challenges. This week, our case study is guided by my colleague Josh Rosenberg's study, *Advancing new methods for understanding public sentiment about educational reforms: The case of Twitter and the Next Generation Science Standards***.**
 
 We will focus on conducting a very simplistic "replication study" by comparing the sentiment of tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand public reaction to these two curriculum reform efforts. Specifically, our Unit 3 case study will cover the following topics:
 
@@ -48,7 +48,7 @@ Similar to data we'll be using for this case study, Rosenberg et al. used public
 
 Data used in this case was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the standard developer account. Data includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`.
 
-Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will not run**, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn how to use your developer account later in this section to retrieve data from Twitter.
+Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will NOT run** without your developer credentials installed, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn later in this section how to retrieve data from Twitter using the {rtweet} package.
 
 ```{r, eval=FALSE}
 library(academictwitteR)
@@ -89,7 +89,7 @@ The authors also used the `lme4` package in R to run a mixed effects model to de
 3.  Differences between the context of the tweets were small, but those that did not include the #NGSSchat hashtag became more positive over time than those posts that did not include the hashtag.
 4.  Individuals posted more tweets during #NGSSchat chats, the sentiment of their posts was more positive, suggesting that while the context of individual tweets has a small effect (with posts not including the hashtag becoming more positive over time), the effect upon individuals of being involved in the #NGSSchat was positive.
 
-Finally, you can watch Dr. Rosenberg provide a quick 3-minute overview of this work at [\<https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x\>](https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x){.uri}
+Finally, you can watch Dr. Rosenberg provide a quick 3-minute overview of this work at <https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x>
 
 ### 1b. Define Questions
 
@@ -178,9 +178,9 @@ a.  **Import Tweets**. First we revisit the familiar `read_csv()` function for r
 b.  **Restructure Data**. We focus on removing extraneous data using the `select()` and `filter()` functions from {dplyr}, and revisit functions from the [Tidy Your Data Primer](https://rstudio.cloud/learn/primers/4.3) for merging data frames.
 c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and tokenize our tweets in order to create our data frame for analysis. We also introduce a new join function to remove "stop words" that don't add much value to our analysis.
 
-### 2a. Part 1: Import Tweets from API (Optional)
+### 2a. Import Tweets from API (Optional)
 
-This section is optional and for those those [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
+This section is optional and only for those those [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
 
 -   [`create_token()`](https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html) Sends request to generate authorization tokens for use of the Twitter API.
 -   [`search_tweets()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Pulls up to 18,000 tweets from the last 6-9 days matching provided search terms. 
@@ -391,18 +391,24 @@ To conclude Section 2a, try one of the following search functions from the `rtw
 6.  `get_trends()` Discover what's currently trending in a city.
 7.  `search_users()` Search for 1,000 users with the specific hashtag in their profile bios.
 
-### 2a. Part 2: Import Tweets from CSV
+### 2b. Import Tweets from CSV
 
-First, let's use the by now familiar `read_csv()` and `here()` functions to import our `ccss_tweets.csv` file saved in our data folder:
+As noted above, data used in this case study was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the {rtweet} package, which limits the number of tweets and the length of time from which you can pull tweets.
+
+Data for this case study includes all tweets from January through May of 2020 and includes the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Since we'll be working with some computational intensive functions later in this case study that can take some time to run, I restricted the time frame for my search to only a handful of month. Even so, we'll be working with over 30,000 tweets and nearly 1,000,000 words for our analysis!
+
+Let's use the by now familiar `read_csv()` function to import our `ccss_tweets.csv` file saved in our data folder:
 
 ```{r}
-ccss_tweets <- read_csv(here("unit-3", "data", "ccss-tweets.csv"), 
+ccss_tweets <- read_csv("data/ccss-tweets.csv", 
           col_types = cols(author_id = col_character(), 
                            id = col_character(),
                            conversation_id = col_character(), 
                            in_reply_to_user_id = col_character()
                            )
           )
+
+ccss_tweets
 ```
 
 Note the addition of the `col_types =` argument for changing some of the column types to character strings because the numbers for those particular columns actually indicate identifiers for authors and tweets:
@@ -415,7 +421,7 @@ Note the addition of the `col_types =` argument for changing some of the column 
 
 -   `in_reply_to_user_id` = the author of the tweet being replied to
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 Use the following code chunk to import the NGSS tweets located in the same data folder as our common core tweets. By default, R will treat numerical IDs in our dataset as numeric values but we will need to convert these to characters like demonstrated above for the purpose of analysis:
 
@@ -467,7 +473,7 @@ Use the code chunk below to take a sample of the NGSS tweets. Try to do it witho
 
     -   
 
-### 2b. Restructure Data
+### 2c. Restructure Data
 
 #### Subset Tweets
 
@@ -606,7 +612,7 @@ Finally, let's take a quick look at both the `head()` and the `tail()` of this n
 
 ```
 
-### 2c. Tidy Text
+### 2d. Tidy Text
 
 Text data by it's very nature is ESPECIALLY untidy and is sometimes referred to as "unstructured" data. In this section we learn some very useful functions from the {tidytext} package to convert text to and from tidy formats. Having our text in a tidy format will allow us to switch seamlessly between tidy tools and existing text mining packages, while also making it easier to visualize text summaries in other data analysis tools like Tableau.
 
@@ -680,7 +686,7 @@ Rewrite the code above (**you can check answer below**) to include the token arg
 
 ```
 
-1.  How many observations were our original `ss_tweets` data frame?
+1.  How many observations were in our original `ss_tweets` data frame?
 
     -   
 
@@ -728,7 +734,11 @@ ss_tokens_2 <- anti_join(ss_tokens_1,
 head(ss_tokens_2)
 ```
 
-Notice that we've specified the `by =` argument to look for matching words in the `word` column for both data sets and remove any rows from the `tweet_tokens` dataset that match the `stop_words` dataset. Remember when we first tokenized our dataset I conveniently chose `output = word` as the column name because it matches the column name `word` in the `stop_words` dataset contained in the `tidytext` package. This makes our call to `anti_join()`simpler because `anti_join()` knows to look for the column named `word` in each dataset. However this wasn't really necessary since `word` is the only matching column name in both datasets and it would have matched those columns by default.
+Notice that we've specified the `by =` argument to look for matching words in the `word` column for both data sets and remove any rows from the `tweet_tokens` dataset that match the `stop_words` dataset.
+
+When we first tokenized our dataset I conveniently chose `output = word` as the column name because it matches the column name `word` in the `stop_words` dataset contained in the `tidytext` package. This makes our call to `anti_join()`simpler because `anti_join()` knows to look for the column named `word` in each dataset.
+
+However the `by =` argument wasn't really necessary since `word` is the only matching column name in both datasets and it would have matched those columns by default.
 
 #### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
 
@@ -844,7 +854,7 @@ Now that we have our tweets nice and tidy, we're almost ready to begin exploring
 
 #### How do you "measure" sentiment?
 
-Sentiment analysis tries to evaluate words for their emotional association. In [Text Mining with R: A Tidy Approach](https://www.tidytextmining.com/sentiment.html), Silge aand Robinson point out that,
+Sentiment analysis tries to evaluate words for their emotional association. In [Text Mining with R: A Tidy Approach](https://www.tidytextmining.com/sentiment.html), Silge and Robinson point out that,
 
 > One way to analyze the sentiment of a text is to consider the text as a combination of its individual words and the sentiment content of the whole text as the sum of the sentiment content of the individual words.
 
