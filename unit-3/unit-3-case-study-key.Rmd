@@ -185,16 +185,14 @@ c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and to
 This section is optional and only for those who have either a Twitter account or have [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
 
 -   [`search_tweets()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Pulls up to 18,000 tweets from the last 6-9 days matching provided search terms. 
--   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns data from **multiple** search queries. 
+-   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns data from **multiple** search queries. 
 -   [`get_timelines()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns up to 3,200 tweets of one or more specified Twitter users.
 
 #### Authentication
 
 **User (Twitter Account Required)**
 
-By default the {rtweet} package uses a common app for all the users that only requires you to log into Twitter and authorize the rtweet app to use your account to request data from Twitter. Using the default authentication might cause problems while using rtweet, however, since you are sharing the same resource with many people!
-
-If you use rtweet for more than a day or want to learn how to use the package, it is recommended that you apply for your own developer account and set up your own authentication.
+By default the {rtweet} package uses a common app for all the users that only requires you to log into Twitter and authorize the rtweet app to use your account to request data from Twitter. Although default authentication doesn't require you to have a developer account, using the default authentication might cause problems while using rtweet since you are sharing the same resource with many people!
 
 If you just want to test out the {rtweet} package and you don't want to set up a developer account and app, however, you can use `auth_setup_default()` function. It will call `rtweet_user()` to use your current logged account on your default browser as the authentication used by `rtweet` and save it as "default" for the session (See [Saving and loading](https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html#save)).
 
@@ -202,26 +200,28 @@ If you just want to test out the {rtweet} package and you don't want to set up a
 auth_setup_default()
 ```
 
+If you use rtweet for more than a day or want to learn how to use the package, it is recommended that you apply for your own developer account and set up your own authentication.
+
 **Apps (Developer Account Required)**
 
-Now that you have an app registered on twitter.com, you have to tell rtweet about it. You'll use either `rtweet_app()` or `rtweet_bot()` depending on whether you want app-style authentication or bot-style authentication as described above.
+If you have twitter developer account and you have [set up a twitter app](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Create_a_Twitter_App), you still have to tell {rtweet} about it.
 
-To use app based authentication, run this code:
+To use app based authentication, run the following code to run the `rtweet_app()` function, then enter the *bearer token* that you saved earlier when prompted, and assign your authentication to an object named `auth`:
 
 ```{r, eval=FALSE}
 auth <- rtweet_app()
 ```
 
-This will prompt you to enter the *bearer token* that you recorded earlier.
-
-It's good practice to only provide secrets interactively, because that makes it harder to accidentally share them in either your `.Rhistory` or an `.R` file.
+**Note:** It's good practice to only provide secrets interactively as we've done here, because that makes it harder to accidentally share them in either your `.Rhistory` or an `.R` file.
 
 **Check Authentication**
 
 Now you have an `auth` object that you can provide to the `token` argument of any rtweet function:
 
 ```{r, eval=FALSE}
-df <- search_tweets("#rstats", token = auth)
+test_tweets <- search_tweets("#ngss", token = auth)
+
+test_tweets
 ```
 
 It's a good idea to do this once to check that you've entered all the app data correctly, but it'd be annoying if you had to pass this object around every single time. Instead, you can call `auth_as()` to set this as the default for the remainder of the session:
@@ -417,6 +417,10 @@ To conclude Section 2a, try one of the following search functions from the `rtw
 5.  `get_favorites()` Get the most recently favorited statuses by a user.
 6.  `get_trends()` Discover what's currently trending in a city.
 7.  `search_users()` Search for 1,000 users with the specific hashtag in their profile bios.
+
+```{r}
+
+```
 
 ### 2b. Import Tweets from CSV
 
@@ -839,7 +843,7 @@ Before we move any further, let's save our tidied tweets as a new data frame for
 ```{r}
 ss_tidy_tweets <- ss_tokens_3
 
-write_csv(ss_tokens_3, here("unit-3", "data", "ss_tidy_tweets.csv"))
+write_csv(ss_tokens_3, "data/ss_tidy_tweets.csv")
 ```
 
 ## 3. EXPLORE
@@ -891,7 +895,7 @@ ccss_top_tokens |>
   wordcloud2()
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 In the code chunk below, filter, count and select the top 50 tokens to create a word cloud for the NGSS tweets. A gold star if you can can do it without using the assignment operator or looking at the code above!
 
@@ -1167,7 +1171,7 @@ tidy_bigrams |>
   count(bigram, sort = TRUE)
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 Use the code chunk below to tidy and count our bigrams for the CCSS tweets:
 

@@ -180,129 +180,149 @@ c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and to
 
 ### 2a. Import Tweets from API (Optional)
 
-This section is optional and only for those those [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
+This section is optional and only for those who have either a Twitter account or have [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
 
--   [`create_token()`](https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html) Sends request to generate authorization tokens for use of the Twitter API.
 -   [`search_tweets()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Pulls up to 18,000 tweets from the last 6-9 days matching provided search terms. 
--   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns data from **multiple** search queries. 
+-   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns data from **multiple** search queries. 
 -   [`get_timelines()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns up to 3,200 tweets of one or more specified Twitter users.
 
-#### Authorization methods
+#### Authentication
 
-Users can create their personal Twitter token in two different ways. THe recommend method is outlined below.
+**User (Twitter Account Required)**
 
--   Navigate to [developer.twitter.com/en/apps](https://developer.twitter.com/en/apps) and select your Twitter app
--   Click the tab labeled `Keys and tokens` to retrieve your keys.
--   Locate the `Consumer API keys` (aka "API Secret").
+By default the {rtweet} package uses a common app for all the users that only requires you to log into Twitter and authorize the rtweet app to use your account to request data from Twitter. Although default authentication doesn't require you to have a developer account, using the default authentication might cause problems while using rtweet since you are sharing the same resource with many people!
 
-![](img/create-app-6.png){width="100%"}
-
--   Scroll down to `Access token & access token secret` and click `Create`
-
-![](img/create-app-7.png){width="100%"}
-
--   Copy and paste the four keys (along with the name of your app) into an R script file and pass them along to `create_token()`. Note, these keys are named secret for a reason. I recommend setting up your token in a separate R script than the one that you will eventually share.
+If you just want to test out the {rtweet} package and you don't want to set up a developer account and app, however, you can use `auth_setup_default()` function. It will call `rtweet_user()` to use your current logged account on your default browser as the authentication used by `rtweet` and save it as "default" for the session (See [Saving and loading](https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html#save)).
 
 ```{r, eval=FALSE}
-## store api keys (these are fake example values; replace with your own keys)
-app_name <- "Text Mining in Education"
-api_key <- "afYS4vbIlPAj096E60c4W1fiK"
-api_secret_key <- "bI91kqnqFoNCrZFbsjAWHD4gJ91LQAhdCJXCj3yscfuULtNkuu"
-access_token <- "9551451262-wK2EmA942kxZYIwa5LMKZoQA4Xc2uyIiEwu2YXL"
-access_token_secret <- "9vpiSGKg1fIPQtxc5d5ESiFlZQpfbknEN1f1m2xe5byw7"
-
-## authenticate via web browser
-token <- create_token(
-  app = app_name,
-  consumer_key = api_key,
-  consumer_secret = api_secret_key,
-  access_token = access_token,
-  access_secret = access_token_secret)
+auth_setup_default()
 ```
 
-#### Authorization in future R sessions
+If you use rtweet for more than a day or want to learn how to use the package, it is recommended that you apply for your own developer account and set up your own authentication.
 
--   The `create_token()` function should automatically save your token as an environment variable for you. So next time you start an R session [on the same machine], rtweet should automatically find your token.
--   To make sure it works, restart your R session, run the following code, and again check to make sure the app name and `api_key` match.
+**Apps (Developer Account Required)**
 
-```{r}
-## check to see if the token is loaded
-get_token()
+If you have twitter developer account and you have [set up a twitter app](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Create_a_Twitter_App), you still have to tell {rtweet} about it.
+
+To use app based authentication, run the following code to run the `rtweet_app()` function, then enter the *bearer token* that you saved earlier when prompted, and assign your authentication to an object named `auth`:
+
+```{r, eval=FALSE}
+auth <- rtweet_app()
 ```
 
-That's it!
+**Note:** It's good practice to only provide secrets interactively as we've done here, because that makes it harder to accidentally share them in either your `.Rhistory` or an `.R` file.
+
+**Check Authentication**
+
+Now you have an `auth` object that you can provide to the `token` argument of any rtweet function:
+
+```{r, eval=FALSE}
+test_tweets <- search_tweets("#ngss", token = auth)
+
+test_tweets
+```
+
+It's a good idea to do this once to check that you've entered all the app data correctly, but it'd be annoying if you had to pass this object around every single time. Instead, you can call `auth_as()` to set this as the default for the remainder of the session:
+
+```{r, eval=FALSE}
+auth_as(auth)
+```
+
+**Saving and loading**
+
+`auth_as()` only lasts for a single session; if you close and re-open R, you'd need to repeat the whole process (generate the tokens and pass them to `rtweet_user()`, `rtweet_app()` or `rtweet_bot()`). This would be annoying (!) so rtweet also provides a way to save and reload authentications across sessions:
+
+```{r, eval=FALSE}
+auth_save(auth, "some-name")
+```
+
+The second argument to `auth_save()` can be any string. It just needs to be meaningful to you so that you remember exactly what you're loading when you use it a future session:
+
+```{r, eval=FALSE}
+auth_as("some-name")
+```
+
+Run the following code to launch the authorization vignette to learn more about Twitter API authorization using the {retweet} package:
+
+```{r, eval=FALSE}
+vignette("auth", package="rtweet")
+```
 
 #### Search Tweets
 
-Since one of our goals for this walkthrough is a very crude replication of the study by Rosenberg et al. (2021), let's begin by introducing the `search_tweets()` function to try reading into R 5,000 tweets containing the NGSS hashtag and store as a new data frame `ngss_all_tweets`.
+Since one of our goals for this case study is a very crude replication of the study by Rosenberg et al. (2021), let's begin by introducing the `search_tweets()` function and try reading into R 5,000 tweets containing the "NGSSchat" hashtag and store as a new data frame `ngss_all_tweets`.
 
 Type or copy the following code into your R script or console and run:
 
-```{r}
+```{r, eval=FALSE}
 ngss_all_tweets <- search_tweets(q = "#NGSSchat", n=5000)
 ```
 
 Note that the first argument `q =` that the `search_tweets()` function expects is the search term included in quotation marks and that `n =` specifies the maximum number of tweets
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 View your new `ngss_all_tweets`data frame using the code chunk below and answer the following questions:
 
-```{r}
+```{r, eval=FALSE}
+# YOUR CODE HERE
 
 ```
 
 1.  How many tweets did our query using the Twitter API actually return? How many variables?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  Why do you think our query pulled in far less than 5,000 tweets requested?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 3.  Does our query also include retweets? How do you know?
 
-    -   
+    -   YOUR RESPONSE HERE
 
-#### Remove Retweets
+#### **Remove Retweets**
 
 While not explicitly mentioned in the paper, it's likely the authors removed retweets in their query since a retweet is simply someone else reposting someone else's tweet and would duplicate the exact same content of the original.
 
 Let's use the `include_rts =` argument to remove any retweets by setting it to `FALSE`:
 
-```{r}
+```{r, eval=FALSE}
 ngss_non_retweets <- search_tweets("#NGSSchat", 
                                    n=5000, 
                                    include_rts = FALSE)
+
+ngss_non_retweets
 ```
 
-#### Using the OR Operator
+#### **Using the OR Operator**
 
 If you recall from the [Data Sources] section above, the authors accessed tweets and user information from the hashtag-based #NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
 Let's modify our query using the `OR` operator to also include "ngss" so it will return tweets containing either #NGSSchat or "ngss" and assign to `ngss_or_tweets`:
 
-```{r}
+```{r, eval=FALSE}
 ngss_or_tweets <- search_tweets(q = "#NGSSchat OR ngss", 
                                 n=5000, 
                                 include_rts = FALSE)
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 Try including both search terms but excluding the `OR` operator to answer the following question:
 
-```{r}
+```{r, eval=FALSE}
+# YOUR CODE HERE
 
 ```
 
 1.  Does excluding the `OR` operator return more tweets, the same number of tweets, or fewer tweets? Why?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  What other useful arguments does the `search_tweet()` function contain? Try adding one and see what happens.
 
-    -   
+    -   YOUR RESPONSE HERE
 
 **Hint:** Use the `?search_tweets` help function to learn more about the `q` argument and other arguments for composing search queries.
 
@@ -314,7 +334,7 @@ The `rtweets` package has an additional `search_tweets2()` function for usin
 
 Copy and past the following code to store the results of our query in `ngss_tweets`:
 
-```{r}
+```{r, eval=FALSE}
 ngss_tweets <- search_tweets2(c("#NGSSchat OR ngss", 
                                 '"next generation science standard"', 
                                 '"next generation science standards"', 
@@ -330,7 +350,7 @@ Recall that for our research question we wanted to compare public sentiment abou
 
 To do so, we'll need to add some additional search terms to our list:
 
-```{r}
+```{r, eval=FALSE}
 ngss_dictionary <- c("#NGSSchat OR ngss", 
                      '"next generation science standard"', 
                      '"next generation science standards"', 
@@ -340,46 +360,51 @@ ngss_dictionary <- c("#NGSSchat OR ngss",
 ngss_tweets <- search_tweets2(ngss_dictionary, n=5000, include_rts = FALSE)
 ```
 
-Now let's create a dictionary for the Common Core State Standards and pass that to our `search_tweets()` function to get the most recent tweets:
+Now let's create a dictionary for the Common Core State Standards and pass that to our `search_tweets()` function to get the most recent tweets:
 
-```{r}
+```{r, eval=FALSE}
 ccss_dictionary <- c("#commoncore", '"common core"') 
 ccss_tweets <- 
-  ccss_dictionary %>% 
+  ccss_dictionary |> 
   search_tweets2(n=5000, include_rts = FALSE)
 ```
 
-Notice that you can use the pipe operator with the `search_tweets()` function just like you would other functions from the tidyverse.
+Notice that you can use the pipe operator with the `search_tweets()` function just like you would other functions from the tidyverse.
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
-1.  Use the `search_tweets` function to create you own custom query for a twitter hashtag or topic(s) of interest.
+1.  Use the `search_tweets` function to create you own custom query for a twitter hashtag or topic(s) of interest.
+
+```{r, eval=FALSE}
+#YOUR CODE HERE
+
+```
 
 #### Other Useful Queries
 
 For your independent analysis, you may be interest in exploring posts by specific users rather than topics, key words, or hashtags. Yes, there is a function for that too!
 
-For example, let's create another list containing the usernames of me and some of my colleagues at the Friday Institute using the `c()` function again and use the `get_timelines()` function to get the most recent tweets from each of those users:
+For example, let's create another list containing the usernames of me and some of my colleagues at the Friday Institute using the `c()` function again and use the `get_timeline()` function to get the most recent tweets from each of those users:
 
-```{r}
-fi <- c("sbkellogg", "TooSweetGeek", "haspires", "tarheel93", "drcallie_tweets", "AlexDreier") 
+```{r, eval=FALSE}
+fi <- c("sbkellogg", "tarheel93", "drcallie_tweets") 
 
-fi_tweets <- fi %>% get_timelines(include_rts=FALSE)
+fi_tweets <- fi |> get_timeline(include_rts=FALSE)
 ```
 
 And let's use the `sample_n()` function from the `dplyr` package to pick 10 random tweets and use `select()` to select and view just the `screenname` and `text` columns that contains the user and the content of their post:
 
-```{r}
-sample_n(fi_tweets, 10) %>% select(screen_name, text)
+```{r, eval=FALSE}
+sample_n(fi_tweets, 10) |> select(id, text)
 ```
 
-We've only scratched the surface of the number of functions available in the `rtweets` package for searching Twitter. Use the following function to learn more about the {rtweet} package:
+We've only scratched the surface of the number of functions available in the `rtweets` package for searching Twitter. Use the following function to learn more about the {retweet} package:
 
-```{r, eval=F}
-vignette("intro", package="rtweet")
+```{r, eval=FALSE}
+vignette("rtweet", package="rtweet")
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 To conclude Section 2a, try one of the following search functions from the `rtweet` vignette:
 
@@ -390,6 +415,11 @@ To conclude Section 2a, try one of the following search functions from the `rtw
 5.  `get_favorites()` Get the most recently favorited statuses by a user.
 6.  `get_trends()` Discover what's currently trending in a city.
 7.  `search_users()` Search for 1,000 users with the specific hashtag in their profile bios.
+
+```{r}
+# YOUR CODE HERE
+
+```
 
 ### 2b. Import Tweets from CSV
 
@@ -426,6 +456,7 @@ Note the addition of the `col_types =` argument for changing some of the column 
 Use the following code chunk to import the NGSS tweets located in the same data folder as our common core tweets. By default, R will treat numerical IDs in our dataset as numeric values but we will need to convert these to characters like demonstrated above for the purpose of analysis:
 
 ```{r}
+# YOUR CODE HERE
 
 ```
 
@@ -457,21 +488,21 @@ ccss_tweets %>%
 Use the code chunk below to take a sample of the NGSS tweets. Try to do it without looking at the code above first:
 
 ```{r}
-
+# YOUR CODE HERE
 
 ```
 
 1.  Still of the same opinion?
 
-    -   Yes, these appear much less negative.
+    -   YOUR RESPONSE HERE
 
 2.  What else you notice about our data sets? Record a few observations that you think are relevant to our analysis or might be useful for future analyses.
 
-    -   
+    -   YOUR RESPONSE HERE
 
 3.  What questions do you have about these data sets? What are you still curious about?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 ### 2c. Restructure Data
 
@@ -503,7 +534,7 @@ ccss_tweets_2 <- ccss_tweets_1 %>%
          id)
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 **Note:** The `select()` function will also reorder your columns based on the order in which you list them.
 
@@ -675,7 +706,7 @@ ss_tokens <- ss_tweets %>%
 ss_tokens
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 The `unnest_tokens()` function also has a specialized `“tweets”` tokenizer in the `tokens =` argument that is very useful for dealing with Twitter text. It retains hashtags and mentions of usernames with the \@ symbol as illustrated by our \@catturd2 friend who featured prominently in our the first CCSS tweet.
 
@@ -740,23 +771,24 @@ When we first tokenized our dataset I conveniently chose `output = word` as th
 
 However the `by =` argument wasn't really necessary since `word` is the only matching column name in both datasets and it would have matched those columns by default.
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 Use the code chunk below to take a quick count of the most common tokens in our `ss_tweets_2` data frame to see if the results are a little more meaningful, then answer the questions that follow.
 
 ```{r}
+# YOUR CODE HERE
 
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 1.  How many unique tokens are in our data tidied text?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  How many times does the word "math" occur in our set of tweets?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 #### Custom Stop Words
 
@@ -838,11 +870,12 @@ ccss_top_tokens %>%
   wordcloud2()
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 In the code chunk below, filter, count and select the top 50 tokens to create a word cloud for the NGSS tweets. A gold star if you can can do it without using the assignment operator or looking at the code above!
 
 ```{r}
+# YOUR CODE HERE
 
 ```
 
@@ -900,15 +933,15 @@ loughran <- get_sentiments("loughran")
 loughran
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 1.  How were these sentiment lexicons put together and validated? Hint: take a look at Chapter 2 from Text Mining with R.
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  Why should we be cautious when using and interpreting them?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 #### Come to the Dark Side
 
@@ -983,22 +1016,22 @@ vader_ccss_summary
 
 Not quite as bleak as we might have expected according to VADER! But then again, VADER brings an entirely different perspective coming from the dark side
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 In a separate R script file, try using VADER to perform a sentiment analysis of the NGSS tweets and see how they compare. Post your working code in the chunk below and answer the questions that follow:
 
 ```{r}
-
+# YOUR CODE HERE
 
 ```
 
 1.  How do our results compare to the CSSS sample of tweets?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  How do these result compare to those found by Rosenberg et al. (2021)?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 ## 5. COMMUNICATE
 
@@ -1008,21 +1041,21 @@ In response to the following research questions driving this analysis, write a 2
 
 1.  What are the most frequent words or phrases used in reference to tweets about the CCSS and NGSS?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  How does sentiment for NGSS compare to sentiment for CCSS?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 Finally, add 1-2 sentences in response to the following prompts:
 
 1.  One important thing I took away from this case study about text mining :
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  One thing about text mining I want to learn more about:
 
-    -   
+    -   YOUR RESPONSE HERE
 
 Congratulations - you've completed your first text mining case study! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
 
@@ -1033,6 +1066,7 @@ Congratulations - you've completed your first text mining case study! To complet
 In a separate R script file, and using your own text data or data that you you pulled from Twitter above, try tidying your data into a tidy text format, examining the top words in your dataset, and conducting sentiment analysis with VADER. Post your final code here:
 
 ```{r}
+# YOUR CODE HERE
 
 ```
 
@@ -1111,12 +1145,12 @@ tidy_bigrams %>%
   count(bigram, sort = TRUE)
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵ 
 
 Use the code chunk below to tidy and count our bigrams for the CCSS tweets:
 
 ```{r}
-
+# YOUR CDE HERE
 
 ```
 
