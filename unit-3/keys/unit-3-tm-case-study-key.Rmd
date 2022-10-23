@@ -44,7 +44,7 @@ System-wide educational reforms are difficult to implement in the United States,
 
 #### Data Sources
 
-Similar to data we'll be using for this case study, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the {rtweet} package in R. Specifically, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
+Similar to data we'll be using for this case study, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the {rtweet} package in R. Specifically, the authors accessed tweets and user information from the hashtag-based #NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
 Data used in this case was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the standard developer account. Data includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will not run**, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn how to use your developer account later in this section to retrieve data from Twitter.
 
@@ -84,8 +84,8 @@ The authors also used the `lme4` package in R to run a mixed effects model to de
 
 1.  Contrasting with sentiment about CSSS, sentiment about the NGSS science education reform effort is overwhelmingly positive, with approximately 9 positive tweets for every negative tweet.
 2.  Teachers were more positive than non-teachers, and sentiment became substantially more positive over the ten years of NGSS-related posts.
-3.  Differences between the context of the tweets were small, but those that did not include the \#NGSSchat hashtag became more positive over time than those posts that did not include the hashtag.
-4.  Individuals posted more tweets during \#NGSSchat chats, the sentiment of their posts was more positive, suggesting that while the context of individual tweets has a small effect (with posts not including the hashtag becoming more positive over time), the effect upon individuals of being involved in the \#NGSSchat was positive.
+3.  Differences between the context of the tweets were small, but those that did not include the #NGSSchat hashtag became more positive over time than those posts that did not include the hashtag.
+4.  Individuals posted more tweets during #NGSSchat chats, the sentiment of their posts was more positive, suggesting that while the context of individual tweets has a small effect (with posts not including the hashtag becoming more positive over time), the effect upon individuals of being involved in the #NGSSchat was positive.
 
 Finally, you can watch Dr. Rosenberg provide a quick 3-minute overview of this work at [\<https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x\>](https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x){.uri}
 
@@ -99,8 +99,8 @@ The questions guiding the Rosenberg et al. study attempt to quantify public sent
 
 1.  What is the public sentiment expressed toward the NGSS?
 2.  How does sentiment for teachers differ from non-teachers?
-3.  How do tweets posted to \#NGSSchat differ from those without the hashtag?
-4.  How does participation in \#NGSSchat relate to the public sentiment individuals express?
+3.  How do tweets posted to #NGSSchat differ from those without the hashtag?
+4.  How does participation in #NGSSchat relate to the public sentiment individuals express?
 5.  How does public sentiment vary over time?
 
 For our text mining case study, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to guage public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in this case study we'll attempt to answer the following questions:
@@ -276,9 +276,9 @@ ngss_non_retweets <- search_tweets("#NGSSchat",
 
 #### Using the OR Operator
 
-If you recall from the [Data Sources] section above, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
+If you recall from the [Data Sources] section above, the authors accessed tweets and user information from the hashtag-based #NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
-Let's modify our query using the `OR` operator to also include "ngss" so it will return tweets containing either \#NGSSchat or "ngss" and assign to `ngss_or_tweets`:
+Let's modify our query using the `OR` operator to also include "ngss" so it will return tweets containing either #NGSSchat or "ngss" and assign to `ngss_or_tweets`:
 
 ```{r}
 ngss_or_tweets <- search_tweets(q = "#NGSSchat OR ngss", 
