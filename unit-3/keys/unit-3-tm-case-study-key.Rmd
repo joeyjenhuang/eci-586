@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. PREPARE
 
-Data sources such as digital learning environments and administrative data systems, as well as data produced by social media websites and the mass digitization of academic and practitioner publications, hold enormous potential to address a range of pressing problems in education, but collecting and analyzing text-based data also presents unique challenges. This week, our case study is guided by my colleague Josh Rosenberg's recent article, **Advancing new methods for understanding public sentiment about educational reforms: The case of Twitter and the Next Generation Science Standards.**
+Data sources such as digital learning environments and administrative data systems, as well as data produced by social media websites and the mass digitization of academic and practitioner publications, hold enormous potential to address a range of pressing problems in education, but collecting and analyzing text-based data also presents unique challenges. This week, our case study is guided by my colleague Josh Rosenberg's study, *Advancing new methods for understanding public sentiment about educational reforms: The case of Twitter and the Next Generation Science Standards***.**
 
 We will focus on conducting a very simplistic "replication study" by comparing the sentiment of tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand public reaction to these two curriculum reform efforts. Specifically, our Unit 3 case study will cover the following topics:
 
@@ -44,9 +44,11 @@ System-wide educational reforms are difficult to implement in the United States,
 
 #### Data Sources
 
-Similar to data we'll be using for this case study, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the {rtweet} package in R. Specifically, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
+Similar to data we'll be using for this case study, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the {rtweet} package in R. Specifically, the authors accessed tweets and user information from the hashtag-based #NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
-Data used in this case was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the standard developer account. Data includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will not run**, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn how to use your developer account later in this section to retrieve data from Twitter.
+Data used in this case was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the standard developer account. Data includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`.
+
+Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will NOT run** without your developer credentials installed, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn later in this section how to retrieve data from Twitter using the {rtweet} package.
 
 ```{r, eval=FALSE}
 library(academictwitteR)
@@ -60,7 +62,7 @@ ccss_tweets_2021 <-
                  data_path = "ccss-data/",
                  bind_tweets = FALSE)
 
-ccss_tweets <- bind_tweet_jsons(data_path = "ccss-data/") %>%
+ccss_tweets <- bind_tweet_jsons(data_path = "ccss-data/") |>
   select(text,
          created_at,
          author_id,
@@ -76,7 +78,9 @@ write_csv(ccss_tweets, here("data", "ccss-tweets.csv"))
 
 #### Analysis
 
-The authors determined Tweet sentiment using the Java version of SentiStrength to assign tweets to two 5-point scales of sentiment, one for positivity and one for negativity, because SentiStrength is a validated measure for sentiment in short informal texts (Thelwall et al., 2011). In addition, they used this tool because Wang and Fikis (2019) used it to explore the sentiment of CCSS-related posts. We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results. We will use a similar approach to label tweets as positive, negative, or neutral using the {Vader} package which greatly simplifies this process.
+The authors determined Tweet sentiment using the Java version of SentiStrength to assign tweets to two 5-point scales of sentiment, one for positivity and one for negativity, because SentiStrength is a validated measure for sentiment in short informal texts (Thelwall et al., 2011). In addition, they used this tool because Wang and Fikis (2019) used it to explore the sentiment of CCSS-related posts.
+
+We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results. We will use a similar approach to label tweets as positive, negative, or neutral using the {Vader} package which greatly simplifies this process.
 
 The authors also used the `lme4` package in R to run a mixed effects model to determine if sentiment changes over time and differs between teachers and non-teachers. We won't try to replicate in this study, but we will take a look at some of their findings from this model in below.
 
@@ -84,10 +88,10 @@ The authors also used the `lme4` package in R to run a mixed effects model to de
 
 1.  Contrasting with sentiment about CSSS, sentiment about the NGSS science education reform effort is overwhelmingly positive, with approximately 9 positive tweets for every negative tweet.
 2.  Teachers were more positive than non-teachers, and sentiment became substantially more positive over the ten years of NGSS-related posts.
-3.  Differences between the context of the tweets were small, but those that did not include the \#NGSSchat hashtag became more positive over time than those posts that did not include the hashtag.
-4.  Individuals posted more tweets during \#NGSSchat chats, the sentiment of their posts was more positive, suggesting that while the context of individual tweets has a small effect (with posts not including the hashtag becoming more positive over time), the effect upon individuals of being involved in the \#NGSSchat was positive.
+3.  Differences between the context of the tweets were small, but those that did not include the #NGSSchat hashtag became more positive over time than those posts that did not include the hashtag.
+4.  Individuals posted more tweets during #NGSSchat chats, the sentiment of their posts was more positive, suggesting that while the context of individual tweets has a small effect (with posts not including the hashtag becoming more positive over time), the effect upon individuals of being involved in the #NGSSchat was positive.
 
-Finally, you can watch Dr. Rosenberg provide a quick 3-minute overview of this work at [\<https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x\>](https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x){.uri}
+Finally, you can watch Dr. Rosenberg provide a quick 3-minute overview of this work at <https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x>
 
 ### 1b. Define Questions
 
@@ -99,8 +103,8 @@ The questions guiding the Rosenberg et al. study attempt to quantify public sent
 
 1.  What is the public sentiment expressed toward the NGSS?
 2.  How does sentiment for teachers differ from non-teachers?
-3.  How do tweets posted to \#NGSSchat differ from those without the hashtag?
-4.  How does participation in \#NGSSchat relate to the public sentiment individuals express?
+3.  How do tweets posted to #NGSSchat differ from those without the hashtag?
+4.  How does participation in #NGSSchat relate to the public sentiment individuals express?
 5.  How does public sentiment vary over time?
 
 For our text mining case study, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to guage public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in this case study we'll attempt to answer the following questions:
@@ -178,75 +182,91 @@ c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and to
 
 ### 2a. Part 1: Import Tweets from API (Optional)
 
-This section is optional and for those those [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
+This section is optional and only for those who have either a Twitter account or have [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
 
--   [`create_token()`](https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html) Sends request to generate authorization tokens for use of the Twitter API.
 -   [`search_tweets()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Pulls up to 18,000 tweets from the last 6-9 days matching provided search terms. 
 -   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns data from **multiple** search queries. 
 -   [`get_timelines()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns up to 3,200 tweets of one or more specified Twitter users.
 
-#### Authorization methods
+#### Authentication
 
-Users can create their personal Twitter token in two different ways. THe recommend method is outlined below.
+**User (Twitter Account Required)**
 
--   Navigate to [developer.twitter.com/en/apps](https://developer.twitter.com/en/apps) and select your Twitter app
--   Click the tab labeled `Keys and tokens` to retrieve your keys.
--   Locate the `Consumer API keys` (aka "API Secret").
+By default the {rtweet} package uses a common app for all the users that only requires you to log into Twitter and authorize the rtweet app to use your account to request data from Twitter. Using the default authentication might cause problems while using rtweet, however, since you are sharing the same resource with many people!
 
-![](img/create-app-6.png){width="100%"}
+If you use rtweet for more than a day or want to learn how to use the package, it is recommended that you apply for your own developer account and set up your own authentication.
 
--   Scroll down to `Access token & access token secret` and click `Create`
-
-![](images/create-app-7.png){width="100%"}
-
--   Copy and paste the four keys (along with the name of your app) into an R script file and pass them along to `create_token()`. Note, these keys are named secret for a reason. I recommend setting up your token in a separate R script than the one that you will eventually share.
+If you just want to test out the {rtweet} package and you don't want to set up a developer account and app, however, you can use `auth_setup_default()` function. It will call `rtweet_user()` to use your current logged account on your default browser as the authentication used by `rtweet` and save it as "default" for the session (See [Saving and loading](https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html#save)).
 
 ```{r, eval=FALSE}
-## store api keys (these are fake example values; replace with your own keys)
-app_name <- "Text Mining in Education"
-api_key <- "afYS4vbIlPAj096E60c4W1fiK"
-api_secret_key <- "bI91kqnqFoNCrZFbsjAWHD4gJ91LQAhdCJXCj3yscfuULtNkuu"
-access_token <- "9551451262-wK2EmA942kxZYIwa5LMKZoQA4Xc2uyIiEwu2YXL"
-access_token_secret <- "9vpiSGKg1fIPQtxc5d5ESiFlZQpfbknEN1f1m2xe5byw7"
-
-## authenticate via web browser
-token <- create_token(
-  app = app_name,
-  consumer_key = api_key,
-  consumer_secret = api_secret_key,
-  access_token = access_token,
-  access_secret = access_token_secret)
+auth_setup_default()
 ```
 
-#### Authorization in future R sessions
+**Apps (Developer Account Required)**
 
--   The `create_token()` function should automatically save your token as an environment variable for you. So next time you start an R session [on the same machine], rtweet should automatically find your token.
--   To make sure it works, restart your R session, run the following code, and again check to make sure the app name and `api_key` match.
+Now that you have an app registered on twitter.com, you have to tell rtweet about it. You'll use either `rtweet_app()` or `rtweet_bot()` depending on whether you want app-style authentication or bot-style authentication as described above.
 
-```{r}
-## check to see if the token is loaded
-get_token()
+To use app based authentication, run this code:
+
+```{r, eval=FALSE}
+auth <- rtweet_app()
 ```
 
-That's it!
+This will prompt you to enter the *bearer token* that you recorded earlier.
+
+It's good practice to only provide secrets interactively, because that makes it harder to accidentally share them in either your `.Rhistory` or an `.R` file.
+
+**Check Authentication**
+
+Now you have an `auth` object that you can provide to the `token` argument of any rtweet function:
+
+```{r, eval=FALSE}
+df <- search_tweets("#rstats", token = auth)
+```
+
+It's a good idea to do this once to check that you've entered all the app data correctly, but it'd be annoying if you had to pass this object around every single time. Instead, you can call `auth_as()` to set this as the default for the remainder of the session:
+
+```{r, eval=FALSE}
+auth_as(auth)
+```
+
+**Saving and loading**
+
+`auth_as()` only lasts for a single session; if you close and re-open R, you'd need to repeat the whole process (generate the tokens and pass them to `rtweet_user()`, `rtweet_app()` or `rtweet_bot()`). This would be annoying (!) so rtweet also provides a way to save and reload authentications across sessions:
+
+```{r, eval=FALSE}
+auth_save(auth, "some-name")
+```
+
+The second argument to `auth_save()` can be any string. It just needs to be meaningful to you so that you remember exactly what you're loading when you use it a future session:
+
+```{r, eval=FALSE}
+auth_as("some-name")
+```
+
+Run the following code to launch the authorization vignette to learn more about Twitter API authorization using the {retweet} package:
+
+```{r, eval=FALSE}
+vignette("auth", package="rtweet")
+```
 
 #### Search Tweets
 
-Since one of our goals for this walkthrough is a very crude replication of the study by Rosenberg et al. (2021), let's begin by introducing the `search_tweets()` function to try reading into R 5,000 tweets containing the NGSS hashtag and store as a new data frame `ngss_all_tweets`.
+Since one of our goals for this case study is a very crude replication of the study by Rosenberg et al. (2021), let's begin by introducing the `search_tweets()` function and try reading into R 5,000 tweets containing the "NGSSchat" hashtag and store as a new data frame `ngss_all_tweets`.
 
 Type or copy the following code into your R script or console and run:
 
-```{r}
+```{r, eval=FALSE}
 ngss_all_tweets <- search_tweets(q = "#NGSSchat", n=5000)
 ```
 
 Note that the first argument `q =` that the `search_tweets()` function expects is the search term included in quotation marks and that `n =` specifies the maximum number of tweets
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 View your new `ngss_all_tweets`data frame using the code chunk below and answer the following questions:
 
-```{r}
+```{r, eval=FALSE}
 ngss_all_tweets
 ```
 
@@ -262,35 +282,37 @@ ngss_all_tweets
 
     -   
 
-#### Remove Retweets
+#### **Remove Retweets**
 
 While not explicitly mentioned in the paper, it's likely the authors removed retweets in their query since a retweet is simply someone else reposting someone else's tweet and would duplicate the exact same content of the original.
 
 Let's use the `include_rts =` argument to remove any retweets by setting it to `FALSE`:
 
-```{r}
+```{r, eval=FALSE}
 ngss_non_retweets <- search_tweets("#NGSSchat", 
                                    n=5000, 
                                    include_rts = FALSE)
+
+ngss_non_retweets
 ```
 
-#### Using the OR Operator
+#### **Using the OR Operator**
 
-If you recall from the [Data Sources] section above, the authors accessed tweets and user information from the hashtag-based \#NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
+If you recall from the [Data Sources] section above, the authors accessed tweets and user information from the hashtag-based #NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
-Let's modify our query using the `OR` operator to also include "ngss" so it will return tweets containing either \#NGSSchat or "ngss" and assign to `ngss_or_tweets`:
+Let's modify our query using the `OR` operator to also include "ngss" so it will return tweets containing either #NGSSchat or "ngss" and assign to `ngss_or_tweets`:
 
-```{r}
+```{r, eval=FALSE}
 ngss_or_tweets <- search_tweets(q = "#NGSSchat OR ngss", 
                                 n=5000, 
                                 include_rts = FALSE)
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 Try including both search terms but excluding the `OR` operator to answer the following question:
 
-```{r}
+```{r, eval=FALSE}
 ngss_both_tweets <- search_tweets(q = "#NGSSchat ngss", 
                                 n=5000, 
                                 include_rts = FALSE)
@@ -314,7 +336,7 @@ The `rtweets` package has an additional `search_tweets2()` function for usin
 
 Copy and past the following code to store the results of our query in `ngss_tweets`:
 
-```{r}
+```{r, eval=FALSE}
 ngss_tweets <- search_tweets2(c("#NGSSchat OR ngss", 
                                 '"next generation science standard"', 
                                 '"next generation science standards"', 
@@ -330,7 +352,7 @@ Recall that for our research question we wanted to compare public sentiment abou
 
 To do so, we'll need to add some additional search terms to our list:
 
-```{r}
+```{r, eval=FALSE}
 ngss_dictionary <- c("#NGSSchat OR ngss", 
                      '"next generation science standard"', 
                      '"next generation science standards"', 
@@ -340,46 +362,51 @@ ngss_dictionary <- c("#NGSSchat OR ngss",
 ngss_tweets <- search_tweets2(ngss_dictionary, n=5000, include_rts = FALSE)
 ```
 
-Now let's create a dictionary for the Common Core State Standards and pass that to our `search_tweets()` function to get the most recent tweets:
+Now let's create a dictionary for the Common Core State Standards and pass that to our `search_tweets()` function to get the most recent tweets:
 
-```{r}
+```{r, eval=FALSE}
 ccss_dictionary <- c("#commoncore", '"common core"') 
 ccss_tweets <- 
-  ccss_dictionary %>% 
+  ccss_dictionary |> 
   search_tweets2(n=5000, include_rts = FALSE)
 ```
 
-Notice that you can use the pipe operator with the `search_tweets()` function just like you would other functions from the tidyverse.
+Notice that you can use the pipe operator with the `search_tweets()` function just like you would other functions from the tidyverse.
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
-1.  Use the `search_tweets` function to create you own custom query for a twitter hashtag or topic(s) of interest.
+1.  Use the `search_tweets` function to create you own custom query for a twitter hashtag or topic(s) of interest.
+
+```{r, eval=FALSE}
+
+#YOUR CODE HERE
+```
 
 #### Other Useful Queries
 
 For your independent analysis, you may be interest in exploring posts by specific users rather than topics, key words, or hashtags. Yes, there is a function for that too!
 
-For example, let's create another list containing the usernames of me and some of my colleagues at the Friday Institute using the `c()` function again and use the `get_timelines()` function to get the most recent tweets from each of those users:
+For example, let's create another list containing the usernames of me and some of my colleagues at the Friday Institute using the `c()` function again and use the `get_timeline()` function to get the most recent tweets from each of those users:
 
-```{r}
+```{r, eval=FALSE}
 fi <- c("sbkellogg", "TooSweetGeek", "haspires", "tarheel93", "drcallie_tweets", "AlexDreier") 
 
-fi_tweets <- fi %>% get_timelines(include_rts=FALSE)
+fi_tweets <- fi |> get_timeline(include_rts=FALSE)
 ```
 
 And let's use the `sample_n()` function from the `dplyr` package to pick 10 random tweets and use `select()` to select and view just the `screenname` and `text` columns that contains the user and the content of their post:
 
-```{r}
-sample_n(fi_tweets, 10) %>% select(screen_name, text)
+```{r, eval=FALSE}
+sample_n(fi_tweets, 10) |> select(id, text)
 ```
 
-We've only scratched the surface of the number of functions available in the `rtweets` package for searching Twitter. Use the following function to learn more about the {retwee} package:
+We've only scratched the surface of the number of functions available in the `rtweets` package for searching Twitter. Use the following function to learn more about the {retweet} package:
 
-```{r, eval=F}
-vignette("intro", package="rtweet")
+```{r, eval=FALSE}
+vignette("rtweet", package="rtweet")
 ```
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 To conclude Section 2a, try one of the following search functions from the `rtweet` vignette:
 
@@ -396,7 +423,7 @@ To conclude Section 2a, try one of the following search functions from the `rtw
 First, let's use the by now familiar `read_csv()` and `here()` functions to import our `ccss_tweets.csv` file saved in our data folder:
 
 ```{r}
-ccss_tweets <- read_csv(here("unit-3", "data", "ccss-tweets.csv"), 
+ccss_tweets <- read_csv("data/ccss-tweets.csv", 
           col_types = cols(author_id = col_character(), 
                            id = col_character(),
                            conversation_id = col_character(), 
@@ -415,7 +442,7 @@ Note the addition of the `col_types =` argument for changing some of the column 
 
 -   `in_reply_to_user_id` = the author of the tweet being replied to
 
-#### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
+#### [Your Turn]{style="color: green;"} ⤵
 
 Use the following code chunk to import the NGSS tweets located in the same data folder as our common core tweets. By default, R will treat numerical IDs in our dataset as numeric values but we will need to convert these to characters like demonstrated above for the purpose of analysis:
 
@@ -447,8 +474,8 @@ Wow, so much for a family friendly case study! Based on this very limited sample
 Let's take a slightly larger sample of the CCSS tweets:
 
 ```{r}
-ccss_tweets %>% 
-  sample_n(20) %>%
+ccss_tweets |> 
+  sample_n(20) |>
   relocate(text)
            
 ```
@@ -458,14 +485,14 @@ ccss_tweets %>%
 Use the code chunk below to take a sample of the NGSS tweets. Try to do it without looking at the code above first:
 
 ```{r}
-ngss_tweets %>% 
-  sample_n(20) %>%
+ngss_tweets |> 
+  sample_n(20) |>
   relocate(text)
 ```
 
 1.  Still of the same opinion?
 
-    -   Yes, these appear much less negative.
+    -   
 
 2.  What else you notice about our data sets? Record a few observations that you think are relevant to our analysis or might be useful for future analyses.
 
@@ -484,7 +511,7 @@ As you may have noticed, we have more data than we need for our analysis and sho
 Let's start with the CCSS tweets first. And since this is a family friendly case study, let's use the `filter()` function introduced in previous labs to filter out rows containing "possibly sensitive" language:
 
 ```{r, eval=TRUE}
-ccss_tweets_1 <- ccss_tweets %>% 
+ccss_tweets_1 <- ccss_tweets |> 
   filter(possibly_sensitive == "FALSE")
 ```
 
@@ -497,7 +524,7 @@ Now let's use the `select()` function to select the following columns from our n
 5.  `id` for the unique reference id for each tweet and useful for counts
 
 ```{r select-variables, eval=TRUE}
-ccss_tweets_2 <- ccss_tweets_1 %>% 
+ccss_tweets_2 <- ccss_tweets_1 |> 
   select(text,
          author_id,
          created_at, 
@@ -512,7 +539,7 @@ ccss_tweets_2 <- ccss_tweets_1 %>%
 Use the code chunk below to reorder the columns to your liking and assign to `ccss_tweets_3`:
 
 ```{r}
-ccss_tweets_3 <- ccss_tweets_1 %>% 
+ccss_tweets_3 <- ccss_tweets_1 |> 
   select(id,
          text,
          author_id,
@@ -543,7 +570,7 @@ colnames(ccss_tweets_5)
 Again, we could also have used the `select()` function to reorder columns like so:
 
 ```{r}
-ccss_tweets_5 <- ccss_tweets_4 %>% 
+ccss_tweets_5 <- ccss_tweets_4 |> 
   select(standards,
          text,
          author_id,
@@ -554,14 +581,14 @@ ccss_tweets_5 <- ccss_tweets_4 %>%
 colnames(ccss_tweets_5)
 ```
 
-Before moving on to the CCSS standards, let's use the `%>%` operator and rewrite the code from our wrangling so there is less redundancy and it is easier to read:
+Before moving on to the CCSS standards, let's use the `|>` pipe operator and rewrite the code from our wrangling so there is less redundancy and it is easier to read:
 
 ```{r}
 # Search Tweets
-ccss_tweets_clean <- ccss_tweets %>%
-  filter(possibly_sensitive == "FALSE") %>%
-  select(text, author_id, created_at, conversation_id, id) %>%
-  mutate(standards = "ccss") %>%
+ccss_tweets_clean <- ccss_tweets |>
+  filter(possibly_sensitive == "FALSE") |>
+  select(text, author_id, created_at, conversation_id, id) |>
+  mutate(standards = "ccss") |>
   relocate(standards)
 
 head(ccss_tweets_clean)
@@ -574,10 +601,10 @@ Recall from section [1b. Define Questions] that we are interested in comparing w
 Create an new `ngss_tweets_clean` data frame consisting of the Next Generation Science Standards tweets we imported by using the code above as a guide.
 
 ```{r}
-ngss_tweets_clean <- ngss_tweets %>%
-  filter(possibly_sensitive == "FALSE") %>%
-  select(text, author_id, created_at, conversation_id, id) %>%
-  mutate(standards = "ngss") %>%
+ngss_tweets_clean <- ngss_tweets |>
+  filter(possibly_sensitive == "FALSE") |>
+  select(text, author_id, created_at, conversation_id, id) |>
+  mutate(standards = "ngss") |>
   relocate(standards)
 
 head(ngss_tweets_clean)
@@ -612,6 +639,8 @@ However, since both functions returned the same number of rows, it's clear we do
 ```{r}
 ss_tweets_duplicate <- intersect(ccss_tweets_clean,
                                  ngss_tweets_clean)
+
+ss_tweets_duplicate
 ```
 
 #### [Your Turn]{style="color: green;"} ⤵
@@ -633,7 +662,7 @@ In Chapter 1 of Text Mining with R, @silge2017text define the tidy text format a
 
 > A **token** is a meaningful unit of text, such as a word, two-word phrase (bigram), or sentence that we are interested in using for analysis. And tokenization is the process of splitting text into tokens.
 
-This one-token-per-row structure is in contrast to the ways text is often stored for text analysis, perhaps as strings in a corpus object or in a document-term matrix. For tidy text mining, the token that is stored in each row is most often a single word, but can also be an n-gram, sentence, or paragraph.
+This one-token-per-row structure is in contrast to the ways text is often stored for text analysis, perhaps as strings in a corpus object or in a document-term matrix. For tidy text mining, the token that is stored in each row is most often a single word, but can also be an n-gram, sentence, or paragraph.
 
 For this part of our workflow, our goal is to transform our `ss_tweets` data from this:
 
@@ -644,9 +673,9 @@ head(relocate(ss_tweets, text))
 Into a "tidy text" one-token-per-row format that looks like this:
 
 ```{r}
-tidy_tweets <- ss_tweets %>% 
+tidy_tweets <- ss_tweets |> 
   unnest_tokens(output = word, 
-                input = text) %>%
+                input = text) |>
   relocate(word)
 
 head(tidy_tweets)
@@ -676,10 +705,10 @@ There is A LOT to unpack with this function:
 -   All punctuation has been removed.
 -   Tokens have been changed to lowercase, which makes them easier to compare or combine with other datasets (use the `to_lower = FALSE` argument to turn off if desired).
 
-**Note:** Since {tidytext} follows tidy data principles, we also could have used the `%>%` operator to pass our data frame to the `unnest_tokens()` function like so:
+**Note:** Since {tidytext} follows tidy data principles, we also could have used the `|>` operator to pass our data frame to the `unnest_tokens()` function like so:
 
 ```{r}
-ss_tokens <- ss_tweets %>%
+ss_tokens <- ss_tweets |>
   unnest_tokens(output = word, 
                 input = text)
 
@@ -701,7 +730,7 @@ ss_tokens_1 <- unnest_tokens(ss_tweets,
 head(ss_tokens_1)
 ```
 
-1.  How many observations were our original `ss_tweets` data frame?
+1.  How many observations were in our original `ss_tweets` data frame?
 
     -   
 
@@ -711,10 +740,10 @@ head(ss_tokens_1)
 
 Before we move any further let's take a quick look at the most common word in our two datasets. To do so, we'll introduce the easy to use `count()` function from the {dplyr} package.
 
-Like most functions we've introduced, the first argument `count()` expects is a data frame which we provided with the `%>%` operator, followed but the column, in our case `word`, whose values we want to count:
+Like most functions we've introduced, the first argument `count()` expects is a data frame which we provided with the `|>` operator, followed but the column, in our case `word`, whose values we want to count:
 
 ```{r}
-ss_tokens_1 %>%
+ss_tokens_1 |>
   count(word, sort = TRUE)
 
 ```
@@ -749,14 +778,18 @@ ss_tokens_2 <- anti_join(ss_tokens_1,
 head(ss_tokens_2)
 ```
 
-Notice that we've specified the `by =` argument to look for matching words in the `word` column for both data sets and remove any rows from the `tweet_tokens` dataset that match the `stop_words` dataset. Remember when we first tokenized our dataset I conveniently chose `output = word` as the column name because it matches the column name `word` in the `stop_words` dataset contained in the `tidytext` package. This makes our call to `anti_join()`simpler because `anti_join()` knows to look for the column named `word` in each dataset. However this wasn't really necessary since `word` is the only matching column name in both datasets and it would have matched those columns by default.
+Notice that we've specified the `by =` argument to look for matching words in the `word` column for both data sets and remove any rows from the `tweet_tokens` dataset that match the `stop_words` dataset.
+
+When we first tokenized our dataset I conveniently chose `output = word` as the column name because it matches the column name `word` in the `stop_words` dataset contained in the `tidytext` package. This makes our call to `anti_join()`simpler because `anti_join()` knows to look for the column named `word` in each dataset.
+
+However the `by =` argument wasn't really necessary since `word` is the only matching column name in both datasets and it would have matched those columns by default.
 
 #### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
 
 Use the code chunk below to take a quick count of the most common tokens in our `ss_tweets_2` data frame to see if the results are a little more meaningful, then answer the questions that follow.
 
 ```{r}
-ss_tokens_2 %>%
+ss_tokens_2 |>
   count(word, sort = TRUE)
 ```
 
@@ -764,11 +797,11 @@ ss_tokens_2 %>%
 
 1.  How many unique tokens are in our data tidied text?
 
-    -   73,596
+    -   67,718
 
 2.  How many times does the word "math" occur in our set of tweets?
 
-    -   11,788
+    -   12,046
 
 #### Custom Stop Words
 
@@ -780,14 +813,14 @@ Let's create a custom stop word list by using the simple `c()` function to combi
 my_stopwords <- c("amp", "=", "+")
 
 ss_tokens_3 <-
-  ss_tokens_2 %>%
+  ss_tokens_2 |>
   filter(!word %in% my_stopwords)
 ```
 
 Let's take a look at our top words again and see if that did the trick:
 
 ```{r}
-ss_tokens_3 %>%
+ss_tokens_3 |>
   count(word, sort = TRUE)
 ```
 
@@ -811,14 +844,14 @@ b.  **Word Clouds.** To help illustrate the relative frequency each of these top
 
 ### 3a. Top Tokens
 
-First, let's take advantage of the the `%>%` operator combine some of the functions we've used above with the `top_n()` function from the {dplyr} package. By default, this function is looking for a data frame as the first argument, and then the number of rows to return.
+First, let's take advantage of the the `|>` operator combine some of the functions we've used above with the `top_n()` function from the {dplyr} package. By default, this function is looking for a data frame as the first argument, and then the number of rows to return.
 
 Let's take a look at the top tokens among the CCSS tweets by filtering our `standards` by CCSS, counting the number of times each `word` occurs, and taking the look at the 50 most common words:
 
 ```{r}
-ccss_top_tokens <- ss_tidy_tweets %>%
-  filter(standards == "ccss") %>%
-  count(word, sort = TRUE) %>%
+ccss_top_tokens <- ss_tidy_tweets |>
+  filter(standards == "ccss") |>
+  count(word, sort = TRUE) |>
   top_n(50)
 
 ccss_top_tokens
@@ -845,8 +878,8 @@ In fact, search terms like these we might want to exclude from a final data prod
 
 ```{r}
 
-ccss_top_tokens %>%
-  filter(word != "common" & word != "core") %>%
+ccss_top_tokens |>
+  filter(word != "common" & word != "core") |>
   wordcloud2()
 ```
 
@@ -855,10 +888,10 @@ ccss_top_tokens %>%
 In the code chunk below, filter, count and select the top 50 tokens to create a word cloud for the NGSS tweets. A gold star if you can can do it without using the assignment operator or looking at the code above!
 
 ```{r}
-ss_tidy_tweets %>%
-  filter(standards == "ngss") %>%
-  count(word, sort = TRUE) %>%
-  top_n(50) %>%
+ss_tidy_tweets |>
+  filter(standards == "ngss") |>
+  count(word, sort = TRUE) |>
+  top_n(50) |>
   wordcloud2()
 ```
 
@@ -870,7 +903,7 @@ Now that we have our tweets nice and tidy, we're almost ready to begin exploring
 
 #### How do you "measure" sentiment?
 
-Sentiment analysis tries to evaluate words for their emotional association. In [Text Mining with R: A Tidy Approach](https://www.tidytextmining.com/sentiment.html), Silge aand Robinson point out that,
+Sentiment analysis tries to evaluate words for their emotional association. In [Text Mining with R: A Tidy Approach](https://www.tidytextmining.com/sentiment.html), Silge and Robinson point out that,
 
 > One way to analyze the sentiment of a text is to consider the text as a combination of its individual words and the sentiment content of the whole text as the sum of the sentiment content of the individual words.
 
@@ -937,13 +970,13 @@ The VADER assigns a number of different sentiment measures based on the context 
 One drawback to VADER is that it can take a little while to run since it's computationally intensive. Instead of analyzing tens of thousands of tweets, let's read in our original `ccss-tweets.csv` and take instead just a sample of 500 "untidu" CCSS tweets using the `sample_n()` function:
 
 ```{r}
-ccss_sample <- read_csv(here("unit-3", "data", "ccss-tweets.csv")) %>%
+ccss_sample <- read_csv(here("unit-3", "data", "ccss-tweets.csv")) |>
   sample_n(500)
 
 ccss_sample
 ```
 
-Note above that we passed our `read_csv()` output directly to our `sample()` function rather than saving a new data frame object, passing that to `sample_n()`, and saving as another data frame object. The power of the `%>%` pipe!
+Note above that we passed our `read_csv()` output directly to our `sample()` function rather than saving a new data frame object, passing that to `sample_n()`, and saving as another data frame object. The power of the `|>` pipe!
 
 On to the Dark Side. The {vader} package basically has just one function, `vader_df()` that does one thing and expects just one column from one frame. He's very single minded! Let's give VADER our `ccss_sample` data frame and include the `$` operator to include only the `text` column containing our tweets.
 
@@ -986,12 +1019,12 @@ The author's note that it is also useful for researchers who would like to set s
 Let's give that a try and see how things shake out:
 
 ```{r}
-vader_ccss_summary <- vader_ccss %>% 
+vader_ccss_summary <- vader_ccss |> 
   mutate(sentiment = ifelse(compound >= 0.05, "positive",
-                            ifelse(compound <= -0.05, "negative", "neutral"))) %>%
-  count(sentiment, sort = TRUE) %>% 
-  spread(sentiment, n) %>% 
-  relocate(positive) %>%
+                            ifelse(compound <= -0.05, "negative", "neutral"))) |>
+  count(sentiment, sort = TRUE) |> 
+  spread(sentiment, n) |> 
+  relocate(positive) |>
   mutate(ratio = negative/positive)
 
 vader_ccss_summary
@@ -1002,18 +1035,18 @@ Not quite as bleak as we might have expected according to VADER! But then again,
 In a separate R script file, try using VADER to perform a sentiment analysis of the NGSS tweets and see how they compare. Post your working code in the chunk below.
 
 ```{r}
-ngss_sample <- read_csv(here("unit-3", "data", "ngss-tweets.csv")) %>%
+ngss_sample <- read_csv(here("unit-3", "data", "ngss-tweets.csv")) |>
   sample_n(500)
 
 vader_ngss <- vader_df(ngss_sample$text)
 
-vader_ngss_summary <- vader_ngss %>% 
+vader_ngss_summary <- vader_ngss |> 
   mutate(sentiment = ifelse(compound >= 0.05, "positive",
                             ifelse(compound <= -0.05, 
-                                   "negative", "neutral"))) %>%
-  count(sentiment, sort = TRUE) %>% 
-  spread(sentiment, n) %>% 
-  relocate(positive) %>%
+                                   "negative", "neutral"))) |>
+  count(sentiment, sort = TRUE) |> 
+  spread(sentiment, n) |> 
+  relocate(positive) |>
   mutate(ratio = negative/positive)
 
 vader_ngss_summary
@@ -1062,7 +1095,7 @@ We can also use the `unnest_tokens()` function to tokenize our tweets into conse
 To specify our tokens as bigrams, We do add `token = "ngrams"` to the `unnest_tokens()` function and setting `n` to the number of words in each n-gram. Let's set `n` to 2, so we can examine pairs of two consecutive words, often called "bigrams":
 
 ```{r ccss-bigrams}
-ngss_bigrams <- ngss_tweets %>% 
+ngss_bigrams <- ngss_tweets |> 
   unnest_tokens(bigram, 
                 text, 
                 token = "ngrams", 
@@ -1072,7 +1105,7 @@ ngss_bigrams <- ngss_tweets %>%
 Before we move any further let's take a quick look at the most common bigrams in our NGSS tweets:
 
 ```{r}
-ngss_bigrams %>% 
+ngss_bigrams |> 
   count(bigram, sort = TRUE)
 ```
 
@@ -1080,21 +1113,21 @@ As we saw above, a lot of the most common bigrams are pairs of common (uninteres
 
 ```{r stop-bigrams}
 library(tidyr)
-bigrams_separated <- ngss_bigrams %>%
+bigrams_separated <- ngss_bigrams |>
   separate(bigram, c("word1", "word2"), sep = " ")
 
-bigrams_filtered <- bigrams_separated %>%
-  filter(!word1 %in% stop_words$word) %>%
+bigrams_filtered <- bigrams_separated |>
+  filter(!word1 %in% stop_words$word) |>
   filter(!word2 %in% stop_words$word)
 
-tidy_bigrams <- bigrams_filtered %>%
+tidy_bigrams <- bigrams_filtered |>
   unite(bigram, word1, word2, sep = " ")
 ```
 
 Let's take a look at our bigram counts now:
 
 ```{r}
-tidy_bigrams %>% 
+tidy_bigrams |> 
   count(bigram, sort = TRUE)
 ```
 
@@ -1109,11 +1142,11 @@ my_words <- c("https", "t.co")
 Now let's separate, filter, and unite again:
 
 ```{r}
-tidy_bigrams <- bigrams_separated %>%
-  filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>%
-  filter(!word1 %in% my_words) %>%
-  filter(!word2 %in% my_words) %>%
+tidy_bigrams <- bigrams_separated |>
+  filter(!word1 %in% stop_words$word) |>
+  filter(!word2 %in% stop_words$word) |>
+  filter(!word1 %in% my_words) |>
+  filter(!word2 %in% my_words) |>
   unite(bigram, word1, word2, sep = " ")
 ```
 
@@ -1122,7 +1155,7 @@ Note that since `my_words` is just a vector of words and not a data frame like `
 Let's take another quick count of our bigrams:
 
 ```{r}
-tidy_bigrams %>% 
+tidy_bigrams |> 
   count(bigram, sort = TRUE)
 ```
 
@@ -1131,19 +1164,19 @@ tidy_bigrams %>%
 Use the code chunk below to tidy and count our bigrams for the CCSS tweets:
 
 ```{r}
-ccss_bigrams <- ccss_tweets %>% 
+ccss_bigrams <- ccss_tweets |> 
   unnest_tokens(bigram, 
                 text, 
                 token = "ngrams", 
-                n = 2) %>%
-  separate(bigram, c("word1", "word2"), sep = " ") %>%
-  filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>%
-  filter(!word1 %in% my_words) %>%
-  filter(!word2 %in% my_words) %>%
+                n = 2) |>
+  separate(bigram, c("word1", "word2"), sep = " ") |>
+  filter(!word1 %in% stop_words$word) |>
+  filter(!word2 %in% stop_words$word) |>
+  filter(!word1 %in% my_words) |>
+  filter(!word2 %in% my_words) |>
   unite(bigram, word1, word2, sep = " ")
 
-ccss_bigrams %>% 
+ccss_bigrams |> 
   count(bigram, sort = TRUE)
 ```
 
