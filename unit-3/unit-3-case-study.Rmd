@@ -27,8 +27,8 @@ We will focus on conducting a very simplistic "replication study" by comparing t
 1.  **Prepare**: We'll take a quick look at Dr. Rosenberg's study, load packages we'll need for analysis, and learn how to use Twitter's API to retrieve data for those that created a Twitter Developer account.
 2.  **Wrangle**: We focus on basic text mining processes such as text tokenization and stop word removal. Specifically, we will learn how to "tidy text" so we can perform some basic analyses such as retrieving word counts and term frequencies.
 3.  **Explore**: In order to see what insight our data provides into answering our research questions, we will calculate some basic simple summary statistics from our tidied text and use data visualization to highlight some of these insights.
-4.  **Model:** We learn about sentiment lexicons in our third lab and introduce the {vader} package to model the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts.\
-    **Communicate:**
+4.  **Model:** We learn about sentiment lexicons and introduce the {vader} package to model the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts.
+5.  **Communicate:** To wrap up our case study, we'll write a brief summary of our findings and a short reflection on what we learned.
 
 ### 1a. Review the Literature
 
@@ -105,7 +105,7 @@ The questions guiding the Rosenberg et al. study attempt to quantify public sent
 4.  How does participation in #NGSSchat relate to the public sentiment individuals express?
 5.  How does public sentiment vary over time?
 
-For our text mining case study, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to guage public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in this case study we'll attempt to answer the following questions:
+For our text mining case study, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to gauge public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in this case study we'll attempt to answer the following questions:
 
 1.  What are the most frequent words or phrases used in reference to tweets about the CCSS and NGSS?
 2.  How does sentiment for NGSS compare to sentiment for CCSS?
@@ -116,7 +116,7 @@ For our text mining case study, we'll use approaches similar to those used by th
 
 ![](img/tidytext.png){width="20%"}
 
-As we'll learn first hand in this module, using tidy data principles can also make many text mining tasks easier, more effective, and consistent with tools already in wide use. The {tidytext} package helps to convert text into data frames of individual words, making it easy to to manipulate, summarize, and visualize text using using familiar functions form the {tidyverse} collection of packages.
+As we'll learn first hand in this case study, using tidy data principles can also make many text mining tasks easier, more effective, and consistent with tools already in wide use. The {tidytext} package helps to convert text into data frames of individual words, making it easy to to manipulate, summarize, and visualize text using using familiar functions form the {tidyverse} collection of packages.
 
 Let's go ahead and load the {tidytext} package:
 
@@ -124,7 +124,7 @@ Let's go ahead and load the {tidytext} package:
 library(tidytext)
 ```
 
-For a more comprehensive introduction to the `tidytext` package, I cannot recommend enough the free and excellent online book, *Text Mining with R: A Tidy Approach* [@silge2017text]. If you're interested in pursuing text analysis using R post Summer Workshop, this will be a go to reference.
+For a more comprehensive introduction to the `tidytext` package, I cannot recommend enough the free and excellent online book, *Text Mining with R: A Tidy Approach* [@silge2017text]. If you're interested in pursuing text analysis using R after this course, this will be a go to reference.
 
 #### The vader Package 📦
 
@@ -154,7 +154,7 @@ The {rtweet} package provides users a range of functions designed to extract dat
 
 3.  Wrangling data into tidy structures.
 
-For those that created a Twitter Developer account, load the {rtweet} package that we'll be using to accomplish all three of the goals listed above:
+For those that have Twitter account or created a Twitter Developer account, load the {rtweet} package that we'll be using to accomplish all three of the goals listed above:
 
 ```{r}
 library(rtweet)
@@ -180,7 +180,7 @@ c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and to
 
 ### 2a. Import Tweets from API (Optional)
 
-This section is optional and only for those who have either a Twitter account or have [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). The Import Tweets section introduces the following functions from the {rtweet} package for reading Twitter data into R:
+This section is optional and only for those who have either a Twitter account or have [setup a Twitter Developer Account and App](https://laser-institute.github.io/laser-sundry/twitter-setup.html#Introduction). This section walks you through authentication of your Twitter account and introduces the following functions from the {rtweet} package for reading Twitter data into R:
 
 -   [`search_tweets()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Pulls up to 18,000 tweets from the last 6-9 days matching provided search terms. 
 -   [`search_tweets2()`](https://www.rdocumentation.org/packages/rtweet/versions/0.7.0/topics/search_tweets) Returns data from **multiple** search queries. 
@@ -210,7 +210,7 @@ To use app based authentication, run the following code to run the `rtweet_app()
 auth <- rtweet_app()
 ```
 
-**Note:** It's good practice to only provide secrets interactively as we've done here, because that makes it harder to accidentally share them in either your `.Rhistory` or an `.R` file.
+**Note:** It's good practice to only provide keys and tokens interactively as we've done here, because that makes it harder to accidentally share them in either your `.Rhistory` or an `.R` file.
 
 **Check Authentication**
 
@@ -472,7 +472,7 @@ Now use the following code chunk to inspect the `head()` of each data frame and 
 
 Wow, so much for a family friendly case study! Based on this very limited sample, which set of standards do you think Twitter users are more negative about?
 
--   
+-   YOUR RESPONSE HERE
 
 Let's take a slightly larger sample of the CCSS tweets:
 
@@ -541,7 +541,7 @@ ccss_tweets_2 <- ccss_tweets_1 %>%
 Use the code chunk below to reorder the columns to your liking and assign to `ccss_tweets_3`:
 
 ```{r}
-
+# YOUR CODE HERE
 
 ```
 
@@ -599,7 +599,7 @@ Recall from section [1b. Define Questions] that we are interested in comparing w
 Create an new `ngss_tweets_clean` data frame consisting of the Next Generation Science Standards tweets we imported by using the code above as a guide.
 
 ```{r}
-
+# YOUR CODE HERE
 
 ```
 
@@ -639,7 +639,7 @@ ss_tweets_duplicate <- intersect(ccss_tweets_clean,
 Finally, let's take a quick look at both the `head()` and the `tail()` of this new `ss_tweets` data frame to make sure it contains both "ngss" and "ccss" standards:
 
 ```{r}
-
+# YOUR CODE HERE
 
 ```
 
@@ -713,7 +713,7 @@ The `unnest_tokens()` function also has a specialized `“tweets”` tokenizer
 Rewrite the code above (**you can check answer below**) to include the token argument set to "tweets", assign to `ss_tokens_1`, and answer the questions that follow:
 
 ```{r}
-
+# YOUR CODE HERE
 
 ```
 
@@ -846,7 +846,7 @@ ccss_top_tokens
 
 Not surprisingly, our search terms appear in the top 50 but the word "math" also features prominently among CCSS tweets!
 
-### Word Clouds
+#### Word Clouds
 
 Word clouds are much maligned and sometimes referred to as the "pie charts of text analysis", but they can be useful for communicating simple summaries of qualitative data for education practitioners and are intuitive for them to interpret. Also, for better or worse, these are now included as a default visualization for open-ended survey items in online Qualtrics reports and you can even add your own stop words.
 
@@ -880,6 +880,94 @@ In the code chunk below, filter, count and select the top 50 tokens to create a 
 ```
 
 Also, take a look at the help file for `wordclouds2` to see if there might be other ways you could improve the aesthetics of this visualization.
+
+### 3b. Exploring Bigrams (Optional)
+
+If you'd like to use the data we've been working with for extra credit, let's take a quick look at text analysis using **bigrams**, or tokens consisting of two words.
+
+So far in this lab, we specified tokens as individual words, but many interesting text analyses are based on the relationships between words, which words tend to follow others immediately, or words that tend to co-occur within the same documents.
+
+We can also use the `unnest_tokens()` function to tokenize our tweets into consecutive sequences of words, called **n-grams**. By seeing how often word X is followed by word Y, we could then build a model of the relationships between them.
+
+To specify our tokens as bigrams, We do add `token = "ngrams"` to the `unnest_tokens()` function and setting `n` to the number of words in each n-gram. Let's set `n` to 2, so we can examine pairs of two consecutive words, often called "bigrams":
+
+```{r ccss-bigrams}
+ngss_bigrams <- ngss_tweets %>% 
+  unnest_tokens(bigram, 
+                text, 
+                token = "ngrams", 
+                n = 2)
+```
+
+Before we move any further let's take a quick look at the most common bigrams in our NGSS tweets:
+
+```{r}
+ngss_bigrams %>% 
+  count(bigram, sort = TRUE)
+```
+
+As we saw above, a lot of the most common bigrams are pairs of common (uninteresting) words as well. Dealing with these is a little less straightforward and we'll need to use the `separate()` function from the `tidyr` package, which splits a column into multiple based on a delimiter. This lets us separate it into two columns, "word1" and "word2", at which point we can remove cases where either is a stop-word.
+
+```{r stop-bigrams}
+library(tidyr)
+bigrams_separated <- ngss_bigrams %>%
+  separate(bigram, c("word1", "word2"), sep = " ")
+
+bigrams_filtered <- bigrams_separated %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word)
+
+tidy_bigrams <- bigrams_filtered %>%
+  unite(bigram, word1, word2, sep = " ")
+```
+
+Let's take a look at our bigram counts now:
+
+```{r}
+tidy_bigrams %>% 
+  count(bigram, sort = TRUE)
+```
+
+Better, but there are still many tokens not especially useful for analysis.
+
+Let's make a custom custom stop word dictionary for bigrams just like we did for our unigrams. A list is started for you below, but you likely want to expand our list off stop words:
+
+```{r}
+my_words <- c("https", "t.co")
+```
+
+Now let's separate, filter, and unite again:
+
+```{r}
+tidy_bigrams <- bigrams_separated %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word) %>%
+  filter(!word1 %in% my_words) %>%
+  filter(!word2 %in% my_words) %>%
+  unite(bigram, word1, word2, sep = " ")
+```
+
+Note that since `my_words` is just a vector of words and not a data frame like `stop_words`, we do not need to select the `word` column using the `$` operator.
+
+Let's take another quick count of our bigrams:
+
+```{r}
+tidy_bigrams %>% 
+  count(bigram, sort = TRUE)
+```
+
+#### [Your Turn]{style="color: green;"} ⤵
+
+Use the code chunk below to tidy and count our bigrams for the CCSS tweets:
+
+```{r}
+# YOUR CODE HERE
+
+```
+
+What additional insight, if any, did looking at bigrams bring to out analysis?
+
+-   YOUR RESPONSE HERE
 
 ## 4. MODEL
 
@@ -974,8 +1062,6 @@ Take a look at `vader_summary` data frame using the `View()` function in the con
 
 Does it generally seem accurately identify positive and negative tweets? Could you find any that you think were mislabeled?
 
--   
-
 Hutto, C. & Gilbert, E. (2014) provide an excellent summary of the VADER package on their [GitHub repository](scores) and I've copied and explanation of the scores below:
 
 -   The `compound` score is computed by summing the valence scores of each word in the lexicon, adjusted according to the rules, and then normalized to be between -1 (most extreme negative) and +1 (most extreme positive). This is the most useful metric if you want a single unidimensional measure of sentiment for a given sentence. Calling it a 'normalized, weighted composite score' is accurate.
@@ -1058,105 +1144,6 @@ Finally, add 1-2 sentences in response to the following prompts:
     -   YOUR RESPONSE HERE
 
 Congratulations - you've completed your first text mining case study! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
-
-## Extra Credit (Optional)
-
-### Sentiment Analysis
-
-In a separate R script file, and using your own text data or data that you you pulled from Twitter above, try tidying your data into a tidy text format, examining the top words in your dataset, and conducting sentiment analysis with VADER. Post your final code here:
-
-```{r}
-# YOUR CODE HERE
-
-```
-
-### Exploring Bigrams
-
-If you'd like to use the data we've been working with for extra credit, let's take a quick look at text analysis using **bigrams**, or tokens consisting of two words.
-
-So far in this lab, we specified tokens as individual words, but many interesting text analyses are based on the relationships between words, which words tend to follow others immediately, or words that tend to co-occur within the same documents.
-
-We can also use the `unnest_tokens()` function to tokenize our tweets into consecutive sequences of words, called **n-grams**. By seeing how often word X is followed by word Y, we could then build a model of the relationships between them.
-
-To specify our tokens as bigrams, We do add `token = "ngrams"` to the `unnest_tokens()` function and setting `n` to the number of words in each n-gram. Let's set `n` to 2, so we can examine pairs of two consecutive words, often called "bigrams":
-
-```{r ccss-bigrams}
-ngss_bigrams <- ngss_tweets %>% 
-  unnest_tokens(bigram, 
-                text, 
-                token = "ngrams", 
-                n = 2)
-```
-
-Before we move any further let's take a quick look at the most common bigrams in our NGSS tweets:
-
-```{r}
-ngss_bigrams %>% 
-  count(bigram, sort = TRUE)
-```
-
-As we saw above, a lot of the most common bigrams are pairs of common (uninteresting) words as well. Dealing with these is a little less straightforward and we'll need to use the `separate()` function from the `tidyr` package, which splits a column into multiple based on a delimiter. This lets us separate it into two columns, "word1" and "word2", at which point we can remove cases where either is a stop-word.
-
-```{r stop-bigrams}
-library(tidyr)
-bigrams_separated <- ngss_bigrams %>%
-  separate(bigram, c("word1", "word2"), sep = " ")
-
-bigrams_filtered <- bigrams_separated %>%
-  filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word)
-
-tidy_bigrams <- bigrams_filtered %>%
-  unite(bigram, word1, word2, sep = " ")
-```
-
-Let's take a look at our bigram counts now:
-
-```{r}
-tidy_bigrams %>% 
-  count(bigram, sort = TRUE)
-```
-
-Better, but there are still many tokens not especially useful for analysis.
-
-Let's make a custom custom stop word dictionary for bigrams just like we did for our unigrams. A list is started for you below, but you likely want to expand our list off stop words:
-
-```{r}
-my_words <- c("https", "t.co")
-```
-
-Now let's separate, filter, and unite again:
-
-```{r}
-tidy_bigrams <- bigrams_separated %>%
-  filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>%
-  filter(!word1 %in% my_words) %>%
-  filter(!word2 %in% my_words) %>%
-  unite(bigram, word1, word2, sep = " ")
-```
-
-Note that since `my_words` is just a vector of words and not a data frame like `stop_words`, we do not need to select the `word` column using the `$` operator.
-
-Let's take another quick count of our bigrams:
-
-```{r}
-tidy_bigrams %>% 
-  count(bigram, sort = TRUE)
-```
-
-#### [Your Turn]{style="color: green;"} ⤵
-
-Use the code chunk below to tidy and count our bigrams for the CCSS tweets:
-
-```{r}
-# YOUR CDE HERE
-
-```
-
-What additional insight, if any, did looking at bigrams bring to out analysis?
-
--   YOUR RESPONSE HERE
 
 ### References
 
