@@ -73,7 +73,7 @@ ccss_tweets <- bind_tweet_jsons(data_path = "ccss-data/") |>
          in_reply_to_user_id)
 
 
-write_csv(ccss_tweets, here("data", "ccss-tweets.csv"))
+write_csv(ccss_tweets, "data/ccss-tweets.csv")
 ```
 
 #### Analysis
@@ -168,7 +168,6 @@ Finally, there are a few other packages we'll need to get started. The first two
 
 ```{r}
 library(tidyverse)
-library(here)
 library(wordcloud2)
 ```
 
@@ -920,7 +919,7 @@ We can also use the `unnest_tokens()` function to tokenize our tweets into conse
 To specify our tokens as bigrams, We do add `token = "ngrams"` to the `unnest_tokens()` function and setting `n` to the number of words in each n-gram. Let's set `n` to 2, so we can examine pairs of two consecutive words, often called "bigrams":
 
 ```{r ccss-bigrams}
-ngss_bigrams <- ngss_tweets %>% 
+ngss_bigrams <- ngss_tweets |> 
   unnest_tokens(bigram, 
                 text, 
                 token = "ngrams", 
@@ -930,7 +929,7 @@ ngss_bigrams <- ngss_tweets %>%
 Before we move any further let's take a quick look at the most common bigrams in our NGSS tweets:
 
 ```{r}
-ngss_bigrams %>% 
+ngss_bigrams |> 
   count(bigram, sort = TRUE)
 ```
 
@@ -938,21 +937,21 @@ As we saw above, a lot of the most common bigrams are pairs of common (uninteres
 
 ```{r stop-bigrams}
 library(tidyr)
-bigrams_separated <- ngss_bigrams %>%
+bigrams_separated <- ngss_bigrams |>
   separate(bigram, c("word1", "word2"), sep = " ")
 
-bigrams_filtered <- bigrams_separated %>%
-  filter(!word1 %in% stop_words$word) %>%
+bigrams_filtered <- bigrams_separated |>
+  filter(!word1 %in% stop_words$word) |>
   filter(!word2 %in% stop_words$word)
 
-tidy_bigrams <- bigrams_filtered %>%
+tidy_bigrams <- bigrams_filtered |>
   unite(bigram, word1, word2, sep = " ")
 ```
 
 Let's take a look at our bigram counts now:
 
 ```{r}
-tidy_bigrams %>% 
+tidy_bigrams |> 
   count(bigram, sort = TRUE)
 ```
 
@@ -967,11 +966,11 @@ my_words <- c("https", "t.co")
 Now let's separate, filter, and unite again:
 
 ```{r}
-tidy_bigrams <- bigrams_separated %>%
-  filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>%
-  filter(!word1 %in% my_words) %>%
-  filter(!word2 %in% my_words) %>%
+tidy_bigrams <- bigrams_separated |>
+  filter(!word1 %in% stop_words$word) |>
+  filter(!word2 %in% stop_words$word) |>
+  filter(!word1 %in% my_words) |>
+  filter(!word2 %in% my_words) |>
   unite(bigram, word1, word2, sep = " ")
 ```
 
@@ -980,7 +979,7 @@ Note that since `my_words` is just a vector of words and not a data frame like `
 Let's take another quick count of our bigrams:
 
 ```{r}
-tidy_bigrams %>% 
+tidy_bigrams |> 
   count(bigram, sort = TRUE)
 ```
 
@@ -1070,7 +1069,7 @@ The VADER assigns a number of different sentiment measures based on the context 
 One drawback to VADER is that it can take a little while to run since it's computationally intensive. Instead of analyzing tens of thousands of tweets, let's read in our original `ccss-tweets.csv` and take instead just a sample of 500 "untidu" CCSS tweets using the `sample_n()` function:
 
 ```{r}
-ccss_sample <- read_csv(here("unit-3", "data", "ccss-tweets.csv")) |>
+ccss_sample <- read_csv("data/ccss-tweets.csv") |>
   sample_n(500)
 
 ccss_sample
@@ -1135,7 +1134,7 @@ Not quite as bleak as we might have expected according to VADER! But then again,
 In a separate R script file, try using VADER to perform a sentiment analysis of the NGSS tweets and see how they compare. Post your working code in the chunk below.
 
 ```{r}
-ngss_sample <- read_csv(here("unit-3", "data", "ngss-tweets.csv")) |>
+ngss_sample <- read_csv("data/ngss-tweets.csv") |>
   sample_n(500)
 
 vader_ngss <- vader_df(ngss_sample$text)
