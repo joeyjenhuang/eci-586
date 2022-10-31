@@ -19,7 +19,7 @@ In Unit 4 we learn about social network analysis as a both a theory and a method
 
 ## READINGS
 
-For Unit 4, you will read chapter 1 from [Social Network Analysis and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) (Carolan 2014) and locate one additional research article, presentation, or informal study to help address our discussion questions for the week.
+For Unit 4, you will read Chapter 1 from [Social Network Analysis and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) (Carolan 2014) and locate one additional research article, presentation, or informal study to help address our discussion questions for the week.
 
 ### SNA and Education Part I: Theory and Concepts
 
