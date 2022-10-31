@@ -59,16 +59,16 @@ With the exception of the self-selected resource, you are not required to post t
 
 Provide an APA citation and brief overview of your self-selected resource and answer the following questions:
 
-3.  To what degree does the study emphasize one or more of the following?
+1.  To what degree does the study emphasize one or more of the following?
 
 -   individuals and their actions are viewed as interdependent;
 -   relational ties between individuals are opportunities for transmission of resources;
 -   the pattern of relations among individuals---the social structure---is an environment that can provide either opportunities for or constraints on individual action;
 -   social structure as an enduring pattern of relations among actors
 
-4.  At which level are the social network data measured and collected: ego, dyad, triad, or complete?
+2.  At which level are the social network data measured and collected: ego, dyad, triad, or complete?
 
-5.  What relations have been measured among actors? Why were these relations measured and others excluded?
+3.  What relations have been measured among actors? Why were these relations measured and others excluded?
 
 ## ASSESSMENT
 
