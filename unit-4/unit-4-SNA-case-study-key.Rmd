@@ -35,13 +35,13 @@ Although these standards once enjoyed bipartisan support, we saw in our
 previous case study how these standards have become a political punching
 bag.
 
-In Unit 4, we continue our investigation of tweets around the these
+In Unit 4, we continue our investigation of tweets around these
 controversial state standards through social network analysis.
 Specifically, this case study will cover the following topics pertaining
 to each data-intensive workflow process:
 
 1.  **Prepare**: Prior to analysis, we'll take a look at the context
-    from which our data came, formulate some research questions, and get
+    from which our data came, formulate some research questions, and be
     introduced the {tidygraph} and {ggraph} packages for analyzing
     relational data.
 
@@ -50,15 +50,15 @@ to each data-intensive workflow process:
     transforming, and merging network data.
 
 3.  **Explore**: With our network data tidied, we learn to calculate
-    some key network measures and to illustrate some of these stats
-    through network visualization.
+    some key network measures and illustrate some of these stats through
+    network visualization.
 
 4.  **Model**: We conclude our analysis by introducing community
     detection algorithms for identifying groups and revisiting sentiment
     about the common core.
 
-5.  **Communicate**: We briefly reflect on our walkthrough in and what
-    we learned from our analysis.
+5.  **Communicate**: We briefly reflect on our case study and what we
+    learned from our analysis.
 
 ## 1a. Review the Research
 
@@ -1045,7 +1045,7 @@ ggraph(ccss_network, layout = "fr") +
 
 **Note:** If you're having difficulty seeing the sociogram in the small
 R Markdown code chunk, you can copy and paste the code in the console
-and it will show in the viewpane and then you can enlarge and even save
+and it will show in the view pane and then you can enlarge and even save
 as an image file.
 
 ### **👉 Your Turn** **⤵**
