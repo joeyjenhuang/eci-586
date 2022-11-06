@@ -18,7 +18,6 @@ library(shiny)
 library(plotly)
 ```
 
-
 ```{r data}
 course_text <- read_csv("data/course-text.csv") |>
   clean_names()
