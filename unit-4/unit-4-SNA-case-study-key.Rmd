@@ -706,14 +706,12 @@ visualization to help illustrate these metrics. Specifically, in this
 section we'll learn to:
 
 a.  **Examine Basic Descriptives**. We focus primarily on actors and
-    edges in this case study, including the node degree measures we
-    added in the previous section, and import and fairly intuitive
-    measure of centrality.
+    measures of centrality, including fairly intuitive measures of node
+    degree.
 
-b.  **Make a Sociogram**. Finally, we wrap up the explore phases by
-    learning to plot a network and tweak key elements like the size,
-    shape, and position of nodes and edges to better at communicating
-    key findings.
+b.  **Make a Sociogram**. We wrap up the explore phase by learning to
+    plot a network and tweak key elements like the size, shape, and
+    position of nodes and edges to better communicate key findings.
 
 ## 3a. Examine Basic Descriptives
 
@@ -733,7 +731,7 @@ focused on a small number of "popular" actors or even a single actor in
 a network, whereas ties in a decentralized network are diffuse and
 spread over a number of actors. One of the most common descriptives
 reported in network studies and a primary measure of centralization is
-**degree**.
+"degree."
 
 > **Degree** is the number of ties to and from an ego. In a directed
 > network, in-degree is the number of ties received, whereas out-degree
@@ -798,9 +796,9 @@ node_measures <- ccss_network |>
 summary(node_measures)
 ```
 
-We see that typical nodes in this network are connected on average with
-3 other Twitter users and have received on average mentions or replies
-from 1.5 users.
+We see that actors in this network are connected on average with 3 other
+Twitter users and have received on average mentions or replies from 1.5
+users.
 
 ### **👉 Your Turn** **⤵**
 
@@ -848,7 +846,7 @@ variety of goals a good network visualization can accomplish:
 ![](img/viz-goals.jpeg){width="80%"}
 
 These visual representations of the actors and their relations, i.e. the
-network, are called a sociogram. Actors who are most central to the
+network, are called a sociograms. Actors who are most central to the
 network, such as those with higher node degrees, are usually placed in
 the center of the sociogram and their ties are placed near them. As
 we'll see in just a bit, those two actors with hundreds of ties will be
@@ -970,7 +968,7 @@ membership.
 
 #### Tweak Nodes
 
-Also like {ggplot2}, geoms can include aesthetics, or aes for short,
+Also like {ggplot2}, geoms can include aesthetics, or `aes` for short,
 such as `alpha` for transparency, as well as `color`, `shape` and
 `size`.
 
@@ -1033,9 +1031,9 @@ ggraph(ccss_network, layout = "fr") +
 Finally, let's add a **theme,** which controls the finer points of
 display, like the font size and background color. The `theme_graph()`
 function add a theme specially tuned for graph visualizations. This
-function removes redundant elements in order to put focus on the data
-and if you type `?theme_graph` in the console you will get a sense of
-the level of fine tuning you can do if desired.
+function removes redundant elements in order to put focus on the data.
+If you type `?theme_graph` in the console you will get a sense of the
+level of fine tuning you can do if desired.
 
 Let's add `theme_graph()` to our sociogram, remove the legends since
 they are not especially useful, and call it good for now:
@@ -1292,10 +1290,10 @@ Finally, add 1-2 sentences in response to the following prompts:
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed your first text mining case study! To
-complete your work, you can click the drop down arrow at the top of the
-file, then select "Knit top HTML". This will create a report in your
-Files pane that serves as a record of your code and its output you can
-open or share.
+Congratulations - you've completed your first network analysis case
+study! To complete your work, you can click the drop down arrow at the
+top of the file, then select "Knit top HTML". This will create a report
+in your Files pane that serves as a record of your code and its output
+you can open or share.
 
 ### References
