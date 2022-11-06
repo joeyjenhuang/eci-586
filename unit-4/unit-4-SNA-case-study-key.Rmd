@@ -706,9 +706,9 @@ visualization to help illustrate these metrics. Specifically, in this
 section we'll learn to:
 
 a.  **Examine Basic Descriptives**. We focus primarily on actors and
-    edges in this case study, including the edges wights we added in the
-    previous section as well as node degree, and import and fairly
-    intuitive measure of centrality.
+    edges in this case study, including the node degree measures we
+    added in the previous section, and import and fairly intuitive
+    measure of centrality.
 
 b.  **Make a Sociogram**. Finally, we wrap up the explore phases by
     learning to plot a network and tweak key elements like the size,
@@ -872,8 +872,20 @@ networks like our Twitter data, this doesn't communicate much. In fact,
 it's visualizations like these that give sociograms the unflattering
 nickname of "hair ball" plots!
 
-Fortunately, the {ggraph} package includes a plethora of plotting
-parameters for graph
+The {ggraph} package has a similar function called `autograph()` that
+will generate a network graph with minimal fuss. Let's pass our
+`ccss_network` to this function and see what it produces:
+
+```{r}
+autograph(ccss_network)
+```
+
+Similar to the `plot()` function, it doesn't produce the most readable
+graph, but it does make it easier to see each of the 13 "components," or
+disconnected groups, in our graph.
+
+Fortunately, the {ggraph} package includes a plethora of functions and
+plotting parameters for graph
 [layouts](https://ggraph.data-imaginist.com/articles/Layouts.html),
 [edges](https://ggraph.data-imaginist.com/articles/Edges.html) and
 [nodes](https://ggraph.data-imaginist.com/articles/Nodes.html) to
