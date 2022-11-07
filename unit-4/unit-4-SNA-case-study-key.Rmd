@@ -404,18 +404,14 @@ For our data wrangling this week, we're keeping it simple since working
 with network data is a bit of a departure from working with rectangular
 data frames. Our primary goals for Unit 4 are learning how to:
 
-a.  **Create an Edgelist**. In this section, we introduce a new tidy
-    data format call the "edgelist" which contains information about
-    each edge (i.e. connections or ties between actors) in our network.
-
-b.  **Format Network Data**. We learn to shape our data files into two
+a.  **Format Network Data**. We learn to shape our data files into two
     common formats for storing network data: edgelists and nodelists.
 
-c.  **Create a Network Object**. Finally, we'll need to convert our data
+b.  **Create a Network Object**. Finally, we'll need to convert our data
     frames into special data format, an R network object, for working
     with relational data.
 
-## 2b. Format Network Data
+## 2a. Format Network Data
 
 Recall from Chapter 1 of @carolan2014 that ties, or relations, are what
 connect actors to one another. These ties are often referred to as
@@ -624,7 +620,7 @@ How many unique node/actors are in our CCSS network?
 
 -   YOUR RESPONSE HERE
 
-## 2c. Create Network Object
+## 2b. Create Network Object
 
 Before we can begin using many of the functions from the {tidygraph} and
 {ggraph} packages for summarizing and visualizing our Common Core
