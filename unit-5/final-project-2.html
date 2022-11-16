@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.179">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2022-10-09">
+<meta name="dcterms.date" content="2022-11-16">
 
-<title>Final Project: A Case Study in LA</title>
+<title>Final Project: Independent Analysis &amp; Data Product</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -52,11 +52,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#grading-criteria" id="toc-grading-criteria" class="nav-link" data-scroll-target="#grading-criteria">Grading Criteria</a>
   <ul class="collapse">
-  <li><a href="#prepare-3-points-total-1-point-each" id="toc-prepare-3-points-total-1-point-each" class="nav-link" data-scroll-target="#prepare-3-points-total-1-point-each">Prepare (3 points total; 1 point each)</a></li>
-  <li><a href="#wrangle-3-points-total-1-point-each" id="toc-wrangle-3-points-total-1-point-each" class="nav-link" data-scroll-target="#wrangle-3-points-total-1-point-each">Wrangle&nbsp;(3 points total; 1 point each)</a></li>
-  <li><a href="#analyze-3-points-total-1-point-each" id="toc-analyze-3-points-total-1-point-each" class="nav-link" data-scroll-target="#analyze-3-points-total-1-point-each">Analyze (3 points total; 1 point each)</a></li>
-  <li><a href="#communication-3-points-total-1-point-each" id="toc-communication-3-points-total-1-point-each" class="nav-link" data-scroll-target="#communication-3-points-total-1-point-each">Communication (3 points total; 1 point each)</a></li>
+  <li><a href="#prepare" id="toc-prepare" class="nav-link" data-scroll-target="#prepare">Prepare</a></li>
+  <li><a href="#wrangle" id="toc-wrangle" class="nav-link" data-scroll-target="#wrangle">Wrangle</a></li>
+  <li><a href="#analyze" id="toc-analyze" class="nav-link" data-scroll-target="#analyze">Analyze</a></li>
+  <li><a href="#communication" id="toc-communication" class="nav-link" data-scroll-target="#communication">Communication</a></li>
   </ul></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
   </ul>
 </nav>
 </div>
@@ -64,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Final Project: A Case Study in LA</h1>
+<h1 class="title">Final Project: Independent Analysis &amp; Data Product</h1>
 <p class="subtitle lead">ECI 586 Intro to Learning Analytics</p>
 </div>
 
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 9, 2022</p>
+      <p class="date">November 16, 2022</p>
     </div>
   </div>
     
@@ -93,48 +94,50 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>For the end-of-course project, you’ll be applying the knowledge and skills gained throughout this semester to create your “case study” proposed in during&nbsp;Week 13. Similar to the case studies provided in this course, your case study should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. Also, similar to our Unit 1-4 case studies, you’ll be expected to use R Markdown to create a sharable web page ( or if preferred, a PDF or Word document), which includes the code used during each step of your analysis so it can be reproduced by others.</p>
-<p>When you are ready to share your final case study, please click “Add a new discussion topic” to create a new forum post. In your post, include a link to your knitted html case study file (or attach your Word or PDF file), and if you worked in RStudio desktop, also attach or link to your associated R markdown file use to create you case study. If your data is sensitive or proprietary and not suitable for including in your post, please let me know.&nbsp;</p>
+<p>For the end-of-course project, you’ll be applying the knowledge and skills gained throughout this semester to conduct the independent analysis proposed during&nbsp;Week 13. Similar to the case studies provided in this course, your analysis should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. You will also be expected to use <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown</a> (or <a href="https://quarto.org">Quarto</a> if preferred) to create a reproducible data product (e.g., slide show, dashboard, report, mini “case study”, etc.), which contains all the code used during each step of your analysis so it can be reproduced by others.</p>
+<p>When you are ready to share your final data product, please click “Add a new discussion topic” to create a new forum post. In your post, include a link to your published data product, and if you worked in RStudio desktop, also attach or link to your associated R markdown file use to create you case study. If your data is sensitive or proprietary and not suitable for including in your post, please let me know.</p>
 </section>
 <section id="grading-criteria" class="level2">
 <h2 class="anchored" data-anchor-id="grading-criteria">Grading Criteria</h2>
 <p>Grading criteria for your final project is guided by the&nbsp;Data-Intensive Research Workflow&nbsp;from&nbsp;<a href="https://catalog.lib.ncsu.edu/catalog/NCSU4862134">Learning analytics goes to school: A collaborative approach to improving education</a> (Krumm, Means, &amp; Bienkowski, 2018).</p>
-<section id="prepare-3-points-total-1-point-each" class="level3">
-<h3 class="anchored" data-anchor-id="prepare-3-points-total-1-point-each">Prepare (3 points total; 1 point each)</h3>
+<section id="prepare" class="level3">
+<h3 class="anchored" data-anchor-id="prepare">Prepare</h3>
 <p>Your case study should demonstrate your ability to formulate clear, actionable research questions relevant to a targeted audience. Specifically, your case study should include an <strong>introduction</strong> that:</p>
 <ol type="1">
-<li><p>Clearly describes the&nbsp;<strong>purpose</strong>&nbsp;of your case study, including the&nbsp;research&nbsp;question(s)&nbsp;guiding your analyses.</p></li>
-<li><p>Provides information about the&nbsp;<strong>data sources</strong>, including the context&nbsp;in which the data was collected and&nbsp;variables&nbsp;used to address your research questions.</p></li>
-<li><p>Includes a description of the&nbsp;<strong>target audience</strong>&nbsp;that would most benefit from your analysis and why.</p></li>
+<li><p>Clearly describes the&nbsp;<strong>purpose</strong> of your case study, including the&nbsp;research&nbsp;question(s)&nbsp;guiding your analyses.</p></li>
+<li><p>Provides information about the <strong>data sources</strong>, including the context in which the data was collected and&nbsp;variables&nbsp;used to address your research questions.</p></li>
 </ol>
 </section>
-<section id="wrangle-3-points-total-1-point-each" class="level3">
-<h3 class="anchored" data-anchor-id="wrangle-3-points-total-1-point-each">Wrangle&nbsp;(3 points total; 1 point each)</h3>
+<section id="wrangle" class="level3">
+<h3 class="anchored" data-anchor-id="wrangle">Wrangle</h3>
 <p>Your data project should demonstrate your ability to use R to manipulate, clean, transform, and/or merging data in order to prepare your text for analysis. Specifically, your case study should clearly describe:</p>
-<ol type="1">
-<li><p><strong>Data preprocessing</strong>&nbsp;steps (e.g., renaming variables, filtering, tokenization, stemming, stop words removal, etc.) taken to clean and prepare your text for analysis and why are they necessary, as well as any steps will excluded and why.</p></li>
-<li><p>Any <strong>new variables or&nbsp;features</strong>&nbsp;you created (e.g., indices, tf-idf measures, etc.) to address your research questions.&nbsp;</p></li>
-<li><p>Data <strong>transformations</strong> you made required&nbsp;for the types of analyses or packages used (e.g.&nbsp;reshaping, merging, joining etc.).</p></li>
+<ol start="3" type="1">
+<li><p><strong>Data preprocessing</strong> steps (e.g., renaming variables, filtering, tokenization, stemming, stop words removal, etc.) taken to clean and prepare your text for analysis and why are they necessary, as well as any steps will excluded and why.</p></li>
+<li><p>Any <strong>new variables or features</strong>&nbsp;you created to address your research questions; or any data <strong>transformations</strong> you made required&nbsp;for the types of analyses or packages used (e.g.&nbsp;reshaping, merging, joining etc.).</p></li>
 </ol>
 </section>
-<section id="analyze-3-points-total-1-point-each" class="level3">
-<h3 class="anchored" data-anchor-id="analyze-3-points-total-1-point-each">Analyze (3 points total; 1 point each)</h3>
+<section id="analyze" class="level3">
+<h3 class="anchored" data-anchor-id="analyze">Analyze</h3>
 <p>Your data project should demonstrate your ability to use R to apply text mining techniques appropriate to your research questions and data sources. Specifically, your case study should clearly include:</p>
-<ol type="1">
-<li><p>Clear descriptions of the <strong>techniques</strong>&nbsp;(e.g., descriptive statistics , network analysis, sentiment analysis, etc.) you applied to analyze your data.</p></li>
+<ol start="5" type="1">
+<li><p>Clear descriptions of the <strong>techniques</strong>&nbsp;(e.g., descriptive statistics, network analysis, sentiment analysis, etc.) you applied to analyze your data.</p></li>
 <li><p>Interpretations/meanings of specific&nbsp;<strong>metrics</strong>&nbsp;(e.g., counts, means, proportions, sentiment values, centrality measures, etc.) that your analysis generated.&nbsp;</p></li>
-<li><p>Data&nbsp;<strong>visualizations</strong>&nbsp;that are attractive and easy to interpret, and include text or narrative for aiding their Interpretation by others.</p></li>
+<li><p>Data <strong>visualizations</strong>&nbsp;that are attractive and easy to interpret, and include text or narrative for aiding their Interpretation by others.</p></li>
 </ol>
 </section>
-<section id="communication-3-points-total-1-point-each" class="level3">
-<h3 class="anchored" data-anchor-id="communication-3-points-total-1-point-each">Communication (3 points total; 1 point each)</h3>
+<section id="communication" class="level3">
+<h3 class="anchored" data-anchor-id="communication">Communication</h3>
 <p>Your case study should demonstrate your ability to clearly and effectively communicate the most important and most useful findings. Specifically, your case study should:</p>
-<ol type="1">
-<li><p>Highlights&nbsp;<strong>key finding and insights</strong>&nbsp;in response to your research questions.&nbsp;</p></li>
-<li><p>Suggests potential&nbsp;<strong>action</strong>&nbsp;that you and/or your target audience to better understand and improve the context in which your data product is intended to inform. &nbsp;</p></li>
-<li><p>Discusses the&nbsp;<strong>limitations</strong>&nbsp;and any&nbsp;ethical/legal issues&nbsp;taken&nbsp;into consideration, including acknowledgments&nbsp;any reference materials used.</p></li>
+<ol start="8" type="1">
+<li><p>Highlights <strong>key finding and insights</strong>&nbsp;in response to your research questions.&nbsp;</p></li>
+<li><p>Suggests potential <strong>action</strong> that you and/or your target audience to better understand and improve the context in which your data product is intended to inform. &nbsp;</p></li>
+<li><p>Discusses the <strong>limitations</strong> and any&nbsp;ethical/legal issues&nbsp;taken&nbsp;into consideration, including acknowledgments any reference materials used.</p></li>
 </ol>
 </section>
+</section>
+<section id="assessment" class="level2">
+<h2 class="anchored" data-anchor-id="assessment">Assessment</h2>
+<p>Similar to your project planning assignment in Week 13, this assignment is worth 12 points total. You will receive 1 point (10 points total) for each of the project criteria adequately addressed by your data product, and 1 point (2 points total) for each post providing constructive feedback to two of your peers is worth.</p>
 </section>
 
 </main>
