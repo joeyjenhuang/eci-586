@@ -19,7 +19,7 @@ Throughout this course, we've developed several data products as part of our tut
 
 ## Assignment
 
-Week 13, provides some space to plan and conceptualize your final course project. More details about the actual content and format of your case study are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings. While your data products are meant to be informative rather than instructional, I would love to use your analyses in future sections of ECI 586 as models for other students.
+Week 13, provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings. While your data products are meant to be informative rather than instructional, I would love to use your analyses in future sections of ECI 586 as models for other students.
 
 To help plan for your final project, your assignment is to create a forum post that addresses the questions below and to provide some constructive feedback on proposed final course projects for at least two of your peers.
 
@@ -53,4 +53,4 @@ To help plan for your final project, your assignment is to create a forum post t
 
 ## Assessment
 
-Your response to the questions above iaccounts for half of your final project grade (12 points planning, 12 points case study). For this specific assignment, each question response is worth 1 point (10 points total) and each post providing constructive feedback to two of your peers is worth 1 point each (2 points total).
+Your response to the questions above accounts for half of your final project grade (12 points planning, 12 points case study). For this specific assignment, each question response is worth 1 point (10 points total) and each post providing constructive feedback to two of your peers is worth 1 point each (2 points total).
