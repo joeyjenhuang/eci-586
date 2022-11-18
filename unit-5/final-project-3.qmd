@@ -1,5 +1,5 @@
 ---
-title: "Final Project: Independent Data Product"
+title: "Final Project: Data Sources & Student Examples"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
@@ -17,7 +17,7 @@ editor: visual
 
 For the end-of-course project, you'll be applying the knowledge and skills gained throughout this semester to conduct the independent analysis proposed in the previous assignment. Similar to the case studies provided in this course, your analysis should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. You will also be expected to use [R Markdown](https://bookdown.org/yihui/rmarkdown/) (or [Quarto](https://quarto.org) if preferred) to create a reproducible data product (e.g., slide show, dashboard, report, mini "data product", etc.), which contains all the code used during each step of your analysis so it can be reproduced by others.
 
-## Grading Criteria
+## Data Sources
 
 Grading criteria for your final project is guided by the Data-Intensive Research Workflow from [Learning analytics goes to school: A collaborative approach to improving education](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm, Means, & Bienkowski, 2018).
 
@@ -29,7 +29,7 @@ Your data product should demonstrate your ability to formulate clear, actionable
 
 2.  Provides information about the **data sources**, including the context in which the data was collected and variables used to address your research questions.
 
-### Wrangle
+### Text Data
 
 Your data project should demonstrate your ability to use R to manipulate, clean, transform, and/or merging data in order to prepare your text for analysis. Specifically, your data product should clearly describe:
 
@@ -37,15 +37,15 @@ Your data project should demonstrate your ability to use R to manipulate, clean,
 
 4.  Any **new variables or features** you created to address your research questions; or any data **transformations** you made required for the types of analyses or packages used (e.g. reshaping, merging, joining etc.).
 
-### Analyze
+### Network Data
 
 Your data project should demonstrate your ability to use R to apply text mining techniques appropriate to your research questions and data sources. Specifically, your data product should clearly include:
 
-5.  Clear descriptions of the **techniques** (e.g., descriptive statistics, network analysis, sentiment analysis, etc.) you applied to analyze your data.
+-   Example data sets from Social Network Analysis and Education including Newcomb\'s Fraternity Members, Pittinsky\'s Middle School Science Classroom Friendships, and Daly\'s Network of District School Leaders: <https://studysites.sagepub.com/carolan/study/resources.htm>
 
-6.  Interpretations/meanings of specific **metrics** (e.g., counts, means, proportions, sentiment values, centrality measures, etc.) that your analysis generated. 
+-   Dd
 
-7.  Data **visualizations** that are attractive and easy to interpret, and include text or narrative for aiding their Interpretation by others.
+-   
 
 ### Communication
 
@@ -57,6 +57,8 @@ Your data product should demonstrate your ability to clearly and effectively com
 
 10. Discusses the **limitations** and any ethical/legal issues taken into consideration, including acknowledgments any reference materials used.
 
-## Assessment
+## Student Data Products
 
 Similar to your project planning assignment, this assignment is worth 12 points total. You will receive 1 point (10 points total) for each of the project criteria adequately addressed by your data product, and 1 point (2 points total) for each post providing constructive feedback to two of your peers is worth.
+
+### Dashboards 

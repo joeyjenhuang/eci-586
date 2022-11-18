@@ -1,5 +1,5 @@
 ---
-title: "Final Project Planning: Independent Analysis & Data Product"
+title: "Final Project: Independent Analysis Planning"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
@@ -19,23 +19,23 @@ Throughout this course, we've developed several data products as part of our tut
 
 ## Assignment
 
-Week 13, provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings. While your data products are meant to be informative rather than instructional, I would love to use your analyses in future sections of ECI 586 as models for other students.
+Week 13, provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
 
-To help plan for your final project, your assignment is to create a forum post that addresses the questions below and to provide some constructive feedback on proposed final course projects for at least two of your peers.
+To help plan for your final project, your assignment is to: 1) create a forum post that addresses the questions below and 2) provide constructive feedback on proposed final course projects for at least two of your peers.
 
 ### Prepare
 
-1.  What research articles, if any, inspired your case study and what **data source(s)**, will you be using for your analysis?
+1.  What prior research, if any, inspired your case study and what **data source(s)**, will you be using for your analysis?
 
-2.  Why are you interested in this data/context and what **research question(s)** are you hoping to answer with your analysis?
+2.  Why are you interested in this data/context and what **research question(s)** are you hoping to answer with your analysis?
 
 3.  Who would most benefit from your analysis and why? How might your **target audience** use this information to take action?
 
 ### Wrangle
 
-4.  What **data cleaning** steps do you anticipate taking to prepare your data for analysis and why are they necessary? 
+4.  What **data cleaning** steps do you anticipate taking to prepare your data for analysis and why are they necessary? 
 
-5.  What other **variables/features** (e.g. student grades, schools, dates, tweets, chapter numbers, demographics, etc.) might you need to include to address your research questions?
+5.  What other **variables/features** (e.g. student grades, schools, dates, tweets, chapter numbers, demographics, etc.) might you need to include to address your research questions?
 
 ### Explore & Model (Analysis)
 
@@ -53,4 +53,4 @@ To help plan for your final project, your assignment is to create a forum post t
 
 ## Assessment
 
-Your response to the questions above accounts for half of your final project grade (12 points planning, 12 points case study). For this specific assignment, each question response is worth 1 point (10 points total) and each post providing constructive feedback to two of your peers is worth 1 point each (2 points total).
+This assignment accounts for half of your final project grade (12 points planning, 12 points data product). Responses that adequately addresses the questions above are worth 1 point each (10 points total). In addition you'll be expected to provide constructive feedback to two of your peers. Each response is worth 1 point each (2 points total).
