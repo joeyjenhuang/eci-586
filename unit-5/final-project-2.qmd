@@ -59,4 +59,4 @@ Your data product should demonstrate your ability to clearly and effectively com
 
 ## Assessment
 
-Similar to your project planning assignment, this assignment is worth 12 points total. You will receive 1 point (10 points total) for each of the project criteria adequately addressed by your data product, and 1 point (2 points total) for each post providing constructive feedback to two of your peers is worth.
+Similar to your project planning assignment, this assignment is worth 12 points total. You will receive 1 point (10 points total) for each of the project criteria adequately addressed by your data product, and 1 point (2 points total) for each post providing constructive feedback to at least two of your peers.
