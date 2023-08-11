@@ -40,11 +40,11 @@ This course requires R and R Studio, which will be used to provide hands-on expe
 
 2.  **RStudio** ([https://www.rstudio.com](https://www.rstudio.com/)) is an integrated development environment (IDE) for R which includes an R console, syntax-highlighting editor, and tools for plotting, packages, and workspace management. This course will be using a shared workspace hosted on RStudio Cloud ([https://rstudio.cloud](https://rstudio.cloud/)). The optional RStudio Desktop application can be downloaded from <https://www.rstudio.com/products/RStudio/#Desktop>. 
 
-#### **Getting Started with RStudio Cloud**
+#### **Getting Started with Posit Cloud**
 
 To help get you started with R, I've created a brief Getting Started Activity for you to work through. The activity is designed to orient you to our data analysis assignments and to R, RStudio, and/or RMarkdown, which we'll be using to complete those assignments.
 
-For now, your only requirement is to sign-up for an RStudio Cloud account and make sure you can access our [ECI 586 Intro to Learning Analytics RStudio Cloud workspace](https://rstudio.cloud/spaces/271329/join?access_code=qi94WAWMp1GGjl6-OT7Np4nSDEVm7Ot-ScCHEKKU "https://rstudio.cloud/spaces/271329/join?access_code=qi94WAWMp1GGjl6-OT7Np4nSDEVm7Ot-ScCHEKKU").
+For now, your only requirement is to sign-up for an RStudio Cloud account and make sure you can access our [ECI 586 Intro to Learning Analytics (2023)](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) workspace.
 
 Once you have accessed the workspace, click on the assignment labeled Unit 0 - Getting Started, which will create a copy of the R Project for your individual use as well a record on my end indicating that you have accessed the assignment. 
 
@@ -62,7 +62,7 @@ After completing the unit-0-case-study.qmd assignment, I highly recommend gettin
 
 ![](img/primers.png){fig-align="center"}
 
-I\'d also encourage you to read and/or work though the following chapters from Data Science in Education Using R, especially if you are interested in using the RStudio Desktop app at some point in the future: 
+I'd also encourage you to read and/or work though the following chapters from Data Science in Education Using R, especially if you are interested in using the RStudio Desktop app at some point in the future: 
 
 1.  [Getting Started with R and RStudio](https://datascienceineducation.com/c05.html) covers downloading R and RStudio, RStudio layout and customization, and writing and running code in RStudio.
 
@@ -72,11 +72,11 @@ I\'d also encourage you to read and/or work though the following chapters from 
 
 Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. Even experienced R developers like Hadley Wickham [get frustrated](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/):
 
-> "It\'s easy when you start out programming to get really frustrated and think, 'Oh it\'s me, I\'m really stupid,' or, 'I\'m not made out to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It\'s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don\'t blame yourself. Just take a break, do something fun, and then come back and try again later."
+> "It's easy when you start out programming to get really frustrated and think, 'Oh it's me, I'm really stupid,' or, 'I'm not made out to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later."
 
 When feeling stuck or like banging your head against your desk, there are several options for seeking out help within and beyond this course:
 
-1.  **Course Forums & Email**: Including this general software troubleshooting forum, we will have forums for each assignment. You\'ll likely have similar questions as your peers, and you\'ll likely be able to answer other peoples\' questions too so I encourage you to use these forums. Unlike most of my apps and social media accounts, I actually have notifications enabled. Also, do not hesitate to email me directly as well. 
+1.  **Course Forums & Email**: Including this general software troubleshooting forum, we will have forums for each assignment. You'll likely have similar questions as your peers, and you'll likely be able to answer other peoples' questions too so I encourage you to use these forums. Unlike most of my apps and social media accounts, I actually have notifications enabled. Also, do not hesitate to email me directly as well. 
 
 2.  **NCSU Library Services**: The [Data & Visualization](https://www.lib.ncsu.edu/services/data-visualization) group is an incredible asset for NC State students. Though the library's website, you can access and enroll in workshops, find resources, and chat or schedule a Zoom appointment to get R help. 
 

@@ -25,7 +25,7 @@ Students must have Internet access and access to a Web browser (e.g., Safari, Fi
 **Office:** [Friday Institute for Educational Innovation](https://www.fi.ncsu.edu) (Room 223)\
 **Phone:** (919) 513-8563\
 **Hours:** Appointments by [Calendly](https://calendly.com/sbkellogg/analytics) Monday-Friday 8:00-4:00\
-**Social:** [Twitter](https://twitter.com/sbkellogg) \| [GitHub](https://github.com/settings/profile) \| [LinkedIn](https://www.linkedin.com/in/shaunbkellogg/)
+**Social:** [GitHub](https://github.com/settings/profile) \| [LinkedIn](https://www.linkedin.com/in/shaunbkellogg/)
 
 ## Course Texts
 
@@ -73,9 +73,9 @@ This course requires R and R Studio, which will be used to provide hands-on expe
 
 2.  **Data Camp** (<https://www.datacamp.com>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our DataCamp site, full catalogue of courses and resources for 6 months.
 
-3.  **LinkedIn Learning** ([https://www.linkedin.com/learning)](https://www.linkedin.com/learning)){.uri} offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
+3.  **LinkedIn Learning** ([https://www.linkedin.com/learning)](https://www.linkedin.com/learning) offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
 
-4.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
+4.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
 
 5.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com> 
 
@@ -108,7 +108,7 @@ The following learning objectives are aligned with the overarching learning obje
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.
 
 | **Schedule** | **Topics**                                                                                                                                                                                                                         |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------|------------------------------------------------------------|
 | **WELCOME**  | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                       |
 | Week 1       | Introductions, syllabus review, and software setup                                                                                                                                                                                 |
 | **UNIT 1**   | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                    |
@@ -211,7 +211,7 @@ Please also keep in mind the following:
 
 -   **Course Meeting Schedule**: Your course might not have a traditional meeting schedule in Fall 2021.  Be sure to pay attention to any updates to the course schedule as the information in this syllabus may have changed. Please discuss any questions you have with the instructor.
 
--   **Classroom Seating:**  To support efficient, effective contact tracing, please sit in the same seat when possible and take note of who is sitting around you; instructors may also assign seats for this purpose. 
+-   **Classroom Seating:** To support efficient, effective contact tracing, please sit in the same seat when possible and take note of who is sitting around you; instructors may also assign seats for this purpose. 
 
 -   **Technology Requirements:** This course may require particular technologies to complete coursework.  Be sure to review the syllabus for these expectations, and see [go.ncsu.edu/syllabus-tech-requirements](https://go.ncsu.edu/syllabus-tech-requirements) to find out more about technical requirements for your course. If you need access to additional technological support, please contact  the Libraries' Technology Lending Service:  <https://www.lib.ncsu.edu/devices>.
 
@@ -223,7 +223,7 @@ Please be aware that the situation regarding COVID-19 is frequently changing, an
 
 If the delivery mode has a negative impact on your academic performance in this course, the university has provided tools to potentially reduce the impact:  
 
--   **Enhanced S/U Grading Option**:  <https://studentservices.ncsu.edu/your-resources/covid-19/spring2020-sat-grading/>
+-   **Enhanced S/U Grading Option**: <https://studentservices.ncsu.edu/your-resources/covid-19/spring2020-sat-grading/>
 
 -   **Late Drop**:  <https://studentservices.ncsu.edu/your-resources/covid-19/spring2020-latedrop/>
 
