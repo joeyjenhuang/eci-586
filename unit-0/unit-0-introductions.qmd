@@ -2,7 +2,7 @@
 title: "Intro Reading & Introductions" 
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Shaun Kellogg"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today
 format:
   html:
     toc: true
@@ -12,46 +12,20 @@ theme:
   dark: cyborg
 ---
 
-Your next assignment this week is to introduce yourself to the class. To assist us with our introductions, please read [Chapter 1: The Social Network Perspective and Educational Research Introduction](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n1.xml) from our course text [Social Network Analysis and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) prior to writing your introduction. 
+As one of your first contributions to our learning community, I ask that you please introduce yourself to the class. To assist us with our introductions, please read **Chapter 1: Introduction** from our course text [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) prior to writing your introduction. An online version of this book is available at no cost through the NC State library. Please let me know if you have difficulty accessing this book.
 
-### **Your Network**
+In your introduction, please address the following if comfortable sharing:
 
-For the first part of your introduction, consider a personal or professional network of which you are a part. For example, this might be a network of coworkers, members of an organization or club to which you belong, a program or group here at NC State, or even a virtual group of individuals you have never met in-person. In your introduction, write a short response that addresses the following questions about your network:
+1.  Your educational program and research area(s) of interest;
 
--   Who are the network's **actors**?
+2.  What experience, if any, you've had with Learning Analytics as described in Chapter 1 and with data science/analysis tools like R and R RStudio;
 
--   What **ties** might connect these actors?
+3.  Any personal or professional learning goals and/or data sources you may be interested in working towards this semester;
 
--   Are there any **groups** within this network?
+4.  Any data sources you may be interested in exploring this semester;
 
--   What makes this collection of actors a **social network**?
+5.  Three interesting and/or unusual facts about yourself, two of which are true and one of which is false.
 
-### **Your Attributes**
+After completing your introduction, please **respond to at least three of your peers** and see if you can guess which of their facts is complete fiction.  
 
-As you read in Chapter 1, it's estimated that individual-level **attributes** (e.g., gender, age, social status-economic status, etc.) are responsible for 70 to 90% of the variation in relevant educational outcomes for students. In the second part of your introduction, include some important "attributes" about yourself that you think might be of interest to your peers. For example, these may include: 
-
--   Your educational program and research area(s) of interest;
-
--   What experience, if any, that you've had with SNA and/or R;
-
--   Any personal learning goals and/or any social network data sources you may be interested in exploring this semester;
-
--   Any hobbies, relationships, or personal interests that define you as an individual. 
-
-### **Your Ties**
-
-As you also read in Chapter 1, the roles that one's  "ties," or relationships with others, play in shaping opportunities and outcomes for individuals is often under appreciated and unaccounted for in education research. After completing your introduction, **please "connect" with at least three other peers by welcoming them to the course**. In your reply, try to include at one tie you might have with your classmate if possible. For example, these might be: 
-
--   A behavioral interaction you've had such as meeting them at an event;
-
--   A physical connection such as living in the same city; 
-
--   An association such as taking a class together; 
-
--   A formal relation such as being coworkers; 
-
--   A social relation such as being friends. 
-
--   Another connection not listed above. 
-
-Finally, if you haven't done so already, please update your Moodle profile with a picture and short bio.
+Finally, if you haven't done so already, please **update your Moodle profile** with a picture and short bio.

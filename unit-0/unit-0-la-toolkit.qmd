@@ -11,7 +11,7 @@ theme: journal
 editor: visual
 ---
 
-Your final task this week is to prepare your Learning Analytics Toolkit by setting up and getting familiar with the texts, software, and supplementary learning resources for this course. This forum will also serve as our go to place for general software troubleshooting over the semester.
+Your final task this week is to prepare your Learning Analytics Toolkit by setting up and getting familiar with the texts, software, and supplementary learning resources for this course.
 
 ## **Course Texts**
 
@@ -33,17 +33,27 @@ Course readings will draw heavily from the following resources:  
 
 ## **Course Software & Resources**
 
-### **Required**
+### Required Software
 
-This course requires R and R Studio, which will be used to provide hands-on experience with the concepts and skills addressed in course readings.
+This course requires R and R Studio, which you will access through Posit Cloud and will use to for hands-on data analyses experiences throughout the semester.
 
-1.  **R** ([https://www.r-project.org](https://www.r-project.org/)) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network, <http://cran.r-project.org/>. 
+1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, the **RStudio IDE** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <https://login.posit.cloud/register.>
 
-2.  **RStudio** ([https://www.rstudio.com](https://www.rstudio.com/)) is an integrated development environment (IDE) for R which includes an R console, syntax-highlighting editor, and tools for plotting, packages, and workspace management. This course will be using a shared workspace hosted on RStudio Cloud ([https://rstudio.cloud](https://rstudio.cloud/)). The optional RStudio Desktop application can be downloaded from <https://www.rstudio.com/products/RStudio/#Desktop>. 
+2.  **Posit Primers** (<https://posit.cloud/learn/primers>) provide an excellent series of interactive tutorials that range from R fundamentals like basic programming syntax to complex tasks like building interactive data dashboards.
 
-#### **Getting Started with Posit Cloud**
+3.  **RPubs** (<https://rpubs.com)> is a free and easy web publishing platform for R. Throughout the course, you will be using R Markdown documents (<https://rmarkdown.rstudio.com/)>, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [books](https://bookdown.org/), [dashboards](https://rmarkdown.rstudio.com/flexdashboard/), [shiny applications](https://bookdown.org/yihui/rmarkdown/shiny-documents.html), [research articles](https://github.com/rstudio/rticles), [websites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), and more. To publish these documents via RPubs, however, you will first need to create an account here: <https://rpubs.com/users/new.>
 
-To help get you started with R, I've created a brief Getting Started Activity for you to work through. The activity is designed to orient you to our data analysis assignments and to R, RStudio, and/or RMarkdown, which we'll be using to complete those assignments.
+### Recommended Learning Tools
+
+1.  **Posit** **Cheat Sheets** (<https://posit.cloud/learn/cheat-sheets>) also provide handy reference to commonly used packages and their essential functions, including example code for testing them out.
+
+2.  **Dataquest** (<https://www.dataquest.io>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our Dataquest team, full catalogue of courses and resources for 6 months.
+
+3.  **LinkedIn Learning** ([https://www.linkedin.com/learning)](https://www.linkedin.com/learning) offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning).
+
+## **Getting Started with Posit Cloud**
+
+To help get you started with R, I've created a brief Getting Started activity for you to work through. The activity is designed to orient you to our data analysis assignments and to R, RStudio, and/or RMarkdown, which we'll be using to complete those assignments.
 
 For now, your only requirement is to sign-up for an RStudio Cloud account and make sure you can access our [ECI 586 Intro to Learning Analytics (2023)](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) workspace.
 
@@ -59,11 +69,11 @@ Finally, click on the Visual button in the toolbar of the file you just opened a
 
 ![](img/visual-editor.png){fig-align="center"}
 
-After completing the unit-0-case-study.qmd assignment, I highly recommend getting a head start on the [The Basics](https://rstudio.cloud/learn/primers/1) tutorial built into RStudio Cloud, which will be due in a few weeks. You can access these tutorials along with many other excellent primers by clicking on the Primers link in the sidebar:
+After completing the unit-0-case-study.qmd assignment, I highly recommend getting a head start on the [The Basics](https://rstudio.cloud/learn/primers/1) tutorial built into RStudio Cloud, which will be due in a few weeks. You can access these tutorials along with many other excellent primers by clicking on the Primers link in the sidebar:
 
 ![](img/primers.png){fig-align="center"}
 
-I'd also encourage you to read and/or work though the following chapters from Data Science in Education Using R, especially if you are interested in using the RStudio Desktop app at some point in the future: 
+I'd also encourage you to read and/or work though the following chapters from Data Science in Education Using R, especially if you are interested in using the RStudio Desktop app at some point in the future: 
 
 1.  [Getting Started with R and RStudio](https://datascienceineducation.com/c05.html) covers downloading R and RStudio, RStudio layout and customization, and writing and running code in RStudio.
 
@@ -71,7 +81,7 @@ I'd also encourage you to read and/or work though the following chapters from D
 
 ## **Troubleshooting**
 
-Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. Even experienced R developers like Hadley Wickham [get frustrated](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/):
+Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. Even experienced R developers like Hadley Wickham [get frustrated](#0):
 
 > "It's easy when you start out programming to get really frustrated and think, 'Oh it's me, I'm really stupid,' or, 'I'm not made out to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later."
 

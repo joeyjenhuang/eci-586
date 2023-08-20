@@ -72,7 +72,7 @@ Students should feel comfortable installing new software programs and navigating
 
 ### Required Software
 
-This course requires R and R Studio, which will be used to provide hands-on experience with the concepts and skills addressed in course readings.
+This course requires R and R Studio, which you will access through Posit Cloud and will use to for hands-on data analyses experiences throughout the semester.
 
 1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, the **RStudio IDE** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <https://login.posit.cloud/register.>
 
@@ -123,7 +123,7 @@ The following learning objectives are aligned with the overarching objectives of
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration using a range of digital data sources. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.
 
 | **Schedule** | **Topics**                                                                                                                                                                                                                         |
-|---------------|---------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | **WELCOME**  | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                       |
 | Week 1       | Introductions, syllabus review, and software setup                                                                                                                                                                                 |
 | **UNIT 1**   | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                    |
