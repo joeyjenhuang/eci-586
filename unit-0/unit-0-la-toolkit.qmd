@@ -1,6 +1,5 @@
 ---
-title-block-banner: "#CC0000"
-title-block-banner-color: "#FFFFFF"
+title-block-banner: false
 title: "Learning Analytics Toolkit"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
