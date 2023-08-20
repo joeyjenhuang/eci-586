@@ -13,7 +13,7 @@ editor: visual
 
 Your final task this week is to prepare your Learning Analytics Toolkit by setting up and getting familiar with the texts, software, and supplementary learning resources for this course.
 
-## **Course Texts**
+## Course Texts
 
 There are several required textbooks for this course, all of which are freely available online or through the NCSU Library. Supplemental course readings and content (e.g. articles, videos) will also be provided at no cost through the Moodle course site. You will also be asked to locate articles of interest for our discussions and I highly recommend that you link Google Scholar to the NCSU Library: <https://www.lib.ncsu.edu/articles/google-scholar>.
 
@@ -31,13 +31,13 @@ Course readings will draw heavily from the following resources:  
 
 5.  Carolan, B. V. (2013). [*Social network analysis and education: Theory, methods & applications*.](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) Sage Publications.
 
-## **Course Software & Resources**
+## Course Software & Resources
 
 ### Required Software
 
 This course requires R and R Studio, which you will access through Posit Cloud and will use to for hands-on data analyses experiences throughout the semester.
 
-1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, the **RStudio IDE** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <https://login.posit.cloud/register.>
+1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, including **RStudio** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <https://login.posit.cloud/register.>
 
 2.  **Posit Primers** (<https://posit.cloud/learn/primers>) provide an excellent series of interactive tutorials that range from R fundamentals like basic programming syntax to complex tasks like building interactive data dashboards.
 
@@ -51,17 +51,23 @@ This course requires R and R Studio, which you will access through Posit Cloud a
 
 3.  **LinkedIn Learning** ([https://www.linkedin.com/learning)](https://www.linkedin.com/learning) offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning).
 
-## **Getting Started with Posit Cloud**
+## Getting Started with Posit Cloud
 
 To help get you started with R, I've created a brief Getting Started activity for you to work through. The activity is designed to orient you to our data analysis assignments and to R, RStudio, and/or RMarkdown, which we'll be using to complete those assignments.
 
-For now, your only requirement is to sign-up for an RStudio Cloud account and make sure you can access our [ECI 586 Intro to Learning Analytics (2023)](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) workspace.
+First, sign-up for an Posit Cloud account and make sure you can access our [ECI 586 Intro to Learning Analytics (2023)](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) workspace. You should see a prompt to "Join Space?" like the one below:
 
-Once you have accessed the workspace, click on the assignment labeled Unit 0 - Getting Started, which will create a copy of the R Project for your individual use as well a record on my end indicating that you have accessed the assignment. 
+![](img/join-space.png)
+
+After joining the space, you may see a description of the space like in the screenshot below. Click the "Content" menu tab next.
+
+![](img/about-space.png)
+
+Once you have accessed the content section of our workspace, click on the assignment labeled **Unit 0 - Getting Started**, which will create a copy of the R Project for your individual use.
 
 ![](img/getting-started.png){alt="" fig-align="center"}
 
-Next, click on the unit-0-case-study.qmd file located in the Files tab of your R Studio cloud project to open the Unit 0: Getting Started Case Study assignment. 
+Next, click on the `unit-0-case-study.qmd` file located in the Files tab of your R Studio cloud project to open the Unit 0: Getting Started Case Study assignment.
 
 ![](img/files-pane.png){fig-align="center"}
 
@@ -69,7 +75,9 @@ Finally, click on the Visual button in the toolbar of the file you just opened a
 
 ![](img/visual-editor.png){fig-align="center"}
 
-After completing the unit-0-case-study.qmd assignment, I highly recommend getting a head start on the [The Basics](https://rstudio.cloud/learn/primers/1) tutorial built into RStudio Cloud, which will be due in a few weeks. You can access these tutorials along with many other excellent primers by clicking on the Primers link in the sidebar:
+## Posit Primers
+
+After completing the unit-0-case-study.qmd assignment, I highly recommend getting a head start on the [The Basics](#0) tutorial built into RStudio Cloud, which will be due in a few weeks. You can access these tutorials along with many other excellent primers by clicking on the Primers link in the sidebar:
 
 ![](img/primers.png){fig-align="center"}
 
@@ -79,7 +87,7 @@ I'd also encourage you to read and/or work though the following chapters from Da
 
 2.  [Foundational Skills](https://datascienceineducation.com/c06.html) introduces RStudio Projects and key building blocks of the R language including packages, functions, data, objects, and operators. 
 
-## **Troubleshooting**
+## Troubleshooting
 
 Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. Even experienced R developers like Hadley Wickham [get frustrated](#0):
 
