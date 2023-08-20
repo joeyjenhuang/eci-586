@@ -25,7 +25,7 @@ Grading criteria for your final project is guided by the Data-Intensive Research
 
 Your data product should demonstrate your ability to formulate clear, actionable research questions relevant to a targeted audience. Specifically, your data product should include an **introduction** that:
 
-1.  Clearly describes the **purpose** of your data product, including the research question(s) guiding your analyses.
+1.  Clearly describes the **purpose** of your data product, including the research question(s) guiding your analyses.
 
 2.  Provides information about the **data sources**, including the context in which the data was collected and variables used to address your research questions.
 

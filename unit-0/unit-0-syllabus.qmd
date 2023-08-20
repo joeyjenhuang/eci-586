@@ -1,4 +1,15 @@
-# **Syllabus**
+---
+title-block-banner: false
+title: "Course Syllabus"
+subtitle: "ECI 586 Intro to Learning Analytics"
+author: "Dr. Shaun Kellogg"
+date: today
+format:
+  html:
+    toc: true
+theme: journal
+editor: visual
+---
 
 ## Course Overview
 
@@ -63,17 +74,17 @@ Students should feel comfortable installing new software programs and navigating
 
 This course requires R and R Studio, which will be used to provide hands-on experience with the concepts and skills addressed in course readings.
 
-1.  **Posit Cloud** ([https://posit.co/products/cloud/cloud/)](https://posit.co/products/cloud/cloud/)) provides access to Posit's powerful set of data science tools, the **RStudio IDE** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <https://login.posit.cloud/register.>
+1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, the **RStudio IDE** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <https://login.posit.cloud/register.>
 
 2.  **Posit Primers** (<https://posit.cloud/learn/primers>) provide an excellent series of interactive tutorials that range from R fundamentals like basic programming syntax to complex tasks like building interactive data dashboards.
 
-3.  **RPubs** ([https://rpubs.com)](https://rpubs.com)) is a free and easy web publishing platform for R. Throughout the course, you will be using R Markdown documents ([https://rmarkdown.rstudio.com/)](https://rmarkdown.rstudio.com/)), which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [books](https://bookdown.org/), [dashboards](https://rmarkdown.rstudio.com/flexdashboard/), [shiny applications](https://bookdown.org/yihui/rmarkdown/shiny-documents.html), [research articles](https://github.com/rstudio/rticles), [websites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), and more. To publish these documents via RPubs, however, you will first need to create an account here: <https://rpubs.com/users/new.>
+3.  **RPubs** (<https://rpubs.com)> is a free and easy web publishing platform for R. Throughout the course, you will be using R Markdown documents (<https://rmarkdown.rstudio.com/)>, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [books](https://bookdown.org/), [dashboards](https://rmarkdown.rstudio.com/flexdashboard/), [shiny applications](https://bookdown.org/yihui/rmarkdown/shiny-documents.html), [research articles](https://github.com/rstudio/rticles), [websites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), and more. To publish these documents via RPubs, however, you will first need to create an account here: <https://rpubs.com/users/new.>
 
 ### Optional Software
 
 1.  **R** (<https://www.r-project.org>) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network, <http://cran.r-project.org/>.
 
-2.  **RStudio Desktop** ([https://posit.co/products/open-source/rstudio)](https://posit.co/products/open-source/rstudio)) is a free desktop application of the RStudio IDE for R that runs on Windows, MacOS or Linux. Its advantages over Posit Cloud include offline access, full control over the local environment, customization options, data privacy and security, and the ability to leverage the full resources of your local machine, such as CPU, memory, and storage. While we will be using RStudio through Posit Cloud for this course, I eventually recommend shifting to RStudio Desktop if you plan to use R and RStudio beyond this course.
+2.  **RStudio Desktop** (<https://posit.co/products/open-source/rstudio)> is a free desktop application of the RStudio IDE for R that runs on Windows, MacOS or Linux. Its advantages over Posit Cloud include offline access, full control over the local environment, customization options, data privacy and security, and the ability to leverage the full resources of your local machine, such as CPU, memory, and storage. While we will be using RStudio through Posit Cloud for this course, I eventually recommend shifting to RStudio Desktop if you plan to use R and RStudio beyond this course.
 
 3.  **Posit** **Cheat Sheets** (<https://posit.cloud/learn/cheat-sheets>) also provide handy reference to commonly used packages and their essential functions, including example code for testing them out.
 
@@ -112,7 +123,7 @@ The following learning objectives are aligned with the overarching objectives of
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration using a range of digital data sources. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.
 
 | **Schedule** | **Topics**                                                                                                                                                                                                                         |
-|------------|------------------------------------------------------------|
+|---------------|---------------------------------------------------------|
 | **WELCOME**  | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                       |
 | Week 1       | Introductions, syllabus review, and software setup                                                                                                                                                                                 |
 | **UNIT 1**   | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                    |
