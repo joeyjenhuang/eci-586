@@ -1,6 +1,6 @@
 ---
 title: "Intro Reading & Introductions" 
-subtitle: "Graduate Certificate in Learning Analytics"
+subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 format:
