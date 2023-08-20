@@ -21,7 +21,11 @@ Throughout this course, we've developed several data products as part of our tut
 
 Week 13, provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
 
-To help plan for your final project, your assignment is to: 1) create a forum post that addresses the questions below and 2) provide constructive feedback on proposed final course projects for at least two of your peers.
+To help plan for your final project, your assignment this week is to:
+
+-   create a forum post that addresses the questions below; and,
+
+-   provide constructive feedback on proposed case studies for at least two of your peers.
 
 ### Prepare
 
