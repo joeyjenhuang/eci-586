@@ -71,7 +71,7 @@ Next, click on the `unit-0-case-study.qmd` file located in the Files tab of your
 
 ![](img/files-pane.png){fig-align="center"}
 
-Finally, click on the Visual button in the toolbar of the file you just opened and follow the direction to complete the assignment. 
+Finally, click on the "Visual" button in the toolbar of the file you just opened and follow the direction to complete the assignment. 
 
 ![](img/visual-editor.png){fig-align="center"}
 
