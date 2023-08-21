@@ -1,7 +1,7 @@
 ---
 title: 'Unit 0: Getting Started Case Study'
 subtitle: 'ECI 586 Intro to Learning Analytics'
-author: "YOUR NAME HERE"
+author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 format:
   html:
@@ -38,7 +38,7 @@ This independent practice is really a warm-up. It is a chance to become familiar
 
 ### How to use this document
 
-What you are working in now is a [Quarto](https://quarto.org) markdown file as indicated by the .qmd file name extension. Following best practices for reproducible research [@gandrud2021], Quarto files store information in plain text [markdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) syntax. Quarto documents are fully reproducible and use a productive notebook interface to combine narrative text and "chunks" of code to produce [a range of static or dynamic outputs formats](https://quarto.org/docs/guide/) including: HTML, PDF, MS Word, HTML5 slides, Tufte-style handouts, books, dashboards, shiny applications, research articles, websites, and more.
+What you are working in now is a [Quarto](https://quarto.org) markdown file as indicated by the .qmd file name extension. Following best practices for reproducible research [@gandrud2021], Quarto files store information in plain text [markdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) syntax. Quarto documents are fully reproducible and use a productive notebook interface to combine narrative text and "chunks" of code to produce [a range of static or dynamic outputs formats](https://quarto.org/docs/guide/) including: HTML, PDF, MS Word, HTML5 slides, Tufte-style handouts, books, dashboards, shiny applications, research articles, websites, and more.
 
 There are two keys to your use of Quarto for this activity:
 
@@ -375,8 +375,8 @@ Complete the code chunk below to create a simple scatterplot with `TimeSpent` on
 
 ```{r}
 ggplot(sci_data) +
-  geom_point(aes(x = , 
-                 y = ))
+  geom_point(aes(x = TimeSpent, 
+                 y = FinalGradeCEMS))
 ```
 
 Well done! As you can see, there appears to be a positive relationship between the time students spend in the online course and their final grade!
@@ -405,7 +405,7 @@ There is a lot to unpack in this output, but for now the most important values t
 Now let's "add" *another* variable to the regression model. Specifically, use the `+` operator after `TimeSpent` to add the course `subject` variable, or another variable of your choosing, as a predictor of students' final grades.
 
 ```{r}
-m2 <- lm(FinalGradeCEMS ~ TimeSpent  , data = sci_data)
+m2 <- lm(FinalGradeCEMS ~ TimeSpent + subject, data = sci_data)
 summary(m2)
 ```
 

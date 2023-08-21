@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="YOUR NAME HERE">
+<meta name="author" content="Dr.&nbsp;Shaun Kellogg">
 <meta name="dcterms.date" content="2023-08-21">
 
 <title>Unit 0: Getting Started Case Study</title>
@@ -78,18 +78,18 @@ div.csl-indent {
 }</style>
 
 
-<script src="unit-0-case-study_files/libs/clipboard/clipboard.min.js"></script>
-<script src="unit-0-case-study_files/libs/quarto-html/quarto.js"></script>
-<script src="unit-0-case-study_files/libs/quarto-html/popper.min.js"></script>
-<script src="unit-0-case-study_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="unit-0-case-study_files/libs/quarto-html/anchor.min.js"></script>
-<link href="unit-0-case-study_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="unit-0-case-study_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="unit-0-case-study_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="unit-0-case-study_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="unit-0-case-study_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="unit-0-case-study_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="unit-0-case-study_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="unit-0-case-study-key_files/libs/clipboard/clipboard.min.js"></script>
+<script src="unit-0-case-study-key_files/libs/quarto-html/quarto.js"></script>
+<script src="unit-0-case-study-key_files/libs/quarto-html/popper.min.js"></script>
+<script src="unit-0-case-study-key_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="unit-0-case-study-key_files/libs/quarto-html/anchor.min.js"></script>
+<link href="unit-0-case-study-key_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="unit-0-case-study-key_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="unit-0-case-study-key_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="unit-0-case-study-key_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="unit-0-case-study-key_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="unit-0-case-study-key_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="unit-0-case-study-key_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
 
 </head>
@@ -133,6 +133,7 @@ div.csl-indent {
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
   <ul class="collapse">
+  <li><a href="#render-file" id="toc-render-file" class="nav-link" data-scroll-target="#render-file">Render File</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -153,7 +154,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>YOUR NAME HERE </p>
+             <p>Dr.&nbsp;Shaun Kellogg </p>
           </div>
   </div>
     
@@ -715,7 +716,7 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 </div>
 <section id="your-turn-7" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
-<p>Use the code from the chunk from above to explore some other variables of interest from our <code>sci_data</code>.</p>
+<p>Copy the code from the chunk from above and use it as a template to explore some other variables of interest from our <code>sci_data</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use skim() to summarize other variables of your choosing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -749,7 +750,7 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 <pre><code>Warning: Removed 30 rows containing non-finite values (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="unit-0-case-study_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Note that the first function, <code>ggplot()</code>, creates a coordinate system that you can “add” layers to using additional functions and <code>+</code> operator. The first argument of <code>ggplot()</code> is the dataset, in our case <code>sci_data</code>, to use for the graph.</p>
@@ -766,7 +767,7 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 <pre><code>Warning: Removed 30 rows containing non-finite values (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="unit-0-case-study_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="your-turn-8" class="level4">
@@ -783,19 +784,16 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 <p>Finally, let’s create a scatter plot for the relationship between these two variables. Scatterplots use the point geom, i.e., the <code>geom_point()</code> function, and are most useful for displaying the relationship between two continuous variables.</p>
 <section id="your-turn-9" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
-<p>Complete the code chunk below to create a simple scatterplot with <code>TimeSpent</code> on the x axis and <code>FinalGradeCEMS</code> on the y axis. <strong>Hint</strong>: something else important is also missing that you will need to “add” to your code.</p>
+<p>Complete the code chunk below to create a simple scatterplot with <code>TimeSpent</code> on the x axis and <code>FinalGradeCEMS</code> on the y axis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sci_data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="unit-0-case-study_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sci_data) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> TimeSpent, </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> FinalGradeCEMS))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 30 rows containing missing values (`geom_point()`).</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> , </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>mapping:  
-geom_point: na.rm = FALSE
-stat_identity: na.rm = FALSE
-position_identity </code></pre>
+<div class="cell-output-display">
+<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Well done! As you can see, there appears to be a positive relationship between the time students spend in the online course and their final grade!</p>
@@ -812,9 +810,9 @@ position_identity </code></pre>
 <p>“Model” is one of those terms that has many different meanings. For our purpose, we refer to the process of simplifying and summarizing our data. Thus, models can take many forms; calculating means represents a legitimate form of modeling data, as does estimating more complex models, including linear regressions, and models and algorithms associated with machine learning tasks. For now, we’ll run a base linear regression model to further examine the relationship between <code>TimeSpent</code> and <code>FinalGradeCEMS</code>.</p>
 <p>We’ll dive much deeper into modeling in subsequent learning labs, but for now let’s see if there is a statistically significant relationship between students’ final grades, <code>FinaGradeCEMS</code>, and the <code>TimeSpent</code> on the course:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FinalGradeCEMS <span class="sc">~</span> TimeSpent, <span class="at">data =</span> sci_data)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FinalGradeCEMS <span class="sc">~</span> TimeSpent, <span class="at">data =</span> sci_data)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -840,10 +838,10 @@ F-statistic: 87.99 on 1 and 571 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>There is a lot to unpack in this output, but for now the most important values to look at are those for <code>TimeSpent</code>. Note that the estimate for <code>TimeSpent</code> is positive and statistically significant indicating that students who spent more time in the LMS also earned higher grades.</p>
 <section id="your-turn-10" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
-<p>Now let’s “add” <em>another</em> variable to the regression model. Specifically, use the <code>+</code> operator after <code>TimeSpent</code> to add the course <code>subject</code> variable as a predictor of students’ final grades.</p>
+<p>Now let’s “add” <em>another</em> variable to the regression model. Specifically, use the <code>+</code> operator after <code>TimeSpent</code> to add the course <code>subject</code> variable, or another variable of your choosing, as a predictor of students’ final grades.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FinalGradeCEMS <span class="sc">~</span> TimeSpent <span class="sc">+</span> subject, <span class="at">data =</span> sci_data)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FinalGradeCEMS <span class="sc">~</span> TimeSpent <span class="sc">+</span> subject, <span class="at">data =</span> sci_data)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -878,9 +876,25 @@ F-statistic: 30.69 on 5 and 567 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="communicate" class="level2">
 <h2 class="anchored" data-anchor-id="communicate">5. COMMUNICATE</h2>
-<p>Great job! Now that you’ve finished your coding activities, scroll back to the very top of this Quarto Document and change the <code>author: "YOUR NAME HERE"</code> to your actual name surrounded by quotation marks like so: <code>author: "Shaun Kellogg"</code></p>
+<p>The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. <span class="citation" data-cites="krumm2018">Krumm, Means, and Bienkowski (<a href="#ref-krumm2018" role="doc-biblioref">2018</a>)</span> have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:</p>
+<ol type="1">
+<li><p><strong>Select.</strong> Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e.&nbsp;a “data product.”</p></li>
+<li><p><strong>Polish</strong>. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.</p></li>
+<li><p><strong>Narrate.</strong> Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a “change idea” for improving student learning.</p></li>
+</ol>
+<section id="render-file" class="level3">
+<h3 class="anchored" data-anchor-id="render-file">Render File</h3>
+<p>For your course project, you will have an opportunity to create a simple “data product” designed to illustrate some insights gained from your analysis and ideally highlight an action step or change idea that can be used to improve learning or the contexts in which learning occurs.</p>
+<p>For now, we will wrap up this case study by converting our work into a webpage that can be used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to “render” your document by clicking the <img src="img/render.png" class="img-fluid" style="width:4.0%"> Render button in the menu bar at that the top of this file. This will do two things; it will:</p>
+<ol type="1">
+<li><p>check through all your code for any errors; and,</p></li>
+<li><p>create a file in your directory that you can use to share you work through <a href="https://posit.cloud/learn/guide#publish-from-cloud">Posit Cloud</a>, <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, <a href="#0">Quarto Pub</a>, or <a href="#0">other methods</a>.</p></li>
+</ol>
+<p>Now that you’ve finished your first case study, scroll back to the very top of this Quarto Document and change the <code>author: "YOUR NAME HERE"</code> to your actual name surrounded by quotation marks like so: <code>author: "Shaun Kellogg"</code></p>
 <p>Next, click the “Render” button in the toolbar at the top of your document to render this document to a HTML web page, just one of <a href="https://quarto.org/docs/output-formats/all-formats.html">the many publishing formats you can create with Quarto</a> documents.</p>
 <p>You should now see a new file named <code>unit-0-case-study.html</code> in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You’re now ready for the unit Case Studies that we will complete during the third week of each unit.</p>
+<p><strong>Note:</strong> If you encountered some errors when you tried to render, first check this Getting Started Case Study Key which has the correct code for the Your Turns. If you are still having difficulties, please reach out to me and we debug the issues together.</p>
+</section>
 <section id="references" class="level3 unnumbered">
 
 
