@@ -113,7 +113,7 @@ Complete the code chunk below to load the {skimr} package into our environment a
 
 ```{r}
 # load the {skimr} package below
-library(skimr)
+library()
 ```
 
 ### Loading (or reading in) data
