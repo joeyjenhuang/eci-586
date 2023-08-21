@@ -53,11 +53,7 @@ knitr::include_graphics("img/laser-cycle.png")
 
 ### The Data-Intensive Research Workflow
 
-You may be wondering what these bolded terms refer to; what's so special about preparing, wrangling, exploring, and modeling data - and communicating results? We're using these terms as a part of a framework, or workflow, that comes from [*Learning Analytics Goes to School*](https://www.routledge.com/Learning-Analytics-Goes-to-School-A-Collaborative-Approach-to-Improving/Krumm-Means-Bienkowski/p/book/9781138121836) [@krumm2018]*.*
-
-You can check that out (literally, it's [available online through the NCSU Library](https://catalog.lib.ncsu.edu/catalog/NCSU4862134)), but don't feel any need to dive deep for now - we'll be spending more time on this process throughout the course. For now, know that this document is organized around these five components of the Data Intensive Research Workflow.
-
-You may have noticed that the words in this diagram correspond to the sections outlined at the beginning of this document. These terms, or processes, are part of a framework called the data-intensive research workflow and comes from the book [Learning Analytics Goes to School](https://www.routledge.com/Learning-Analytics-Goes-to-School-A-Collaborative-Approach-to-Improving/Krumm-Means-Bienkowski/p/book/9781138121836) [@krumm2018]*.* You can check that out later, but don't feel any need to dive deep into it for now - we'll be spending more time on this throughout the week; just know that this document and all of our LASER Lab case studies are organized around these five components.
+You may have noticed that the words in this diagram correspond to the sections outlined at the beginning of this document. These terms, or processes, are part of a framework called the data-intensive research workflow and comes from the book [Learning Analytics Goes to School](https://www.routledge.com/Learning-Analytics-Goes-to-School-A-Collaborative-Approach-to-Improving/Krumm-Means-Bienkowski/p/book/9781138121836) [@krumm2018]*.* You can check that out (literally, it's available online through the NCSU Library), but don't feel any need to dive deep for now - we'll be spending more time on this process throughout the course. For now, know that this document and our unit case studies is organized around these five components of the Data Intensive Research Workflow.
 
 Now, let's get started!
 
