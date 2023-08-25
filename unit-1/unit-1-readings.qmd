@@ -15,7 +15,7 @@ editor: visual
 
 ## OVERVIEW
 
-The primary goal of the Unit 1 readings and discussion is to build a basic understanding of Learning Analytics as a both a discipline and as a community of education researchers and practitioners whose primary goal is to understand and improve student learning. The required and self-selected readings for this week provide an introduction to data sources and methods used in data-intensive research. A secondary goal of our readings and discussion in each unit is to help you start generating ideas for your final course project.
+The primary goal of the Unit 1 readings and discussion is to build a basic understanding of Learning Analytics as a discipline and as a community of education researchers and practitioners whose primary goal is to understand and improve student learning. The required and self-selected readings this week provide an introduction to Learning Analytics in practice, including defining characteristics, data sources, and methods used. A secondary goal of our readings and discussion in each unit is to help you start generating ideas for your final course project.
 
 ## READINGS
 
