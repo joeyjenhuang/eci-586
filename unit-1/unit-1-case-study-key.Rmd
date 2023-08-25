@@ -25,21 +25,20 @@ illustrate how Learning Analytics methods and techniques can be applied
 to address research questions of interest, create useful data products,
 and conduct reproducible research. Each case study is structured around
 a basic research workflow modeled after the Data-Intensive Research
-Workflow from [Learning Analytics Goes to
-School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm et al.,
-2018):
+Workflow from Learning Analytics Goes to School [@krumm2018]:
 
 ![Figure 2.2 Steps of Data-Intensive Research
 Workflow](img/workflow.png){width="70%"}
 
 For Unit 1, we will focus on online science classes provided through a
 state-wide online virtual school and conduct an analysis that help
-product students' performance in these online courses. This case study
+predict students' performance in these online courses. This case study
 is guided by a foundational study in Learning Analytics that illustrates
 how analyses like these can be used develop an early warning system to
-help educators identify students at risk of failing and intervene before
-that happens. The Unit 1 case study will cover the following workflow
-topics:
+help educators to identify students at risk of failing and intervene
+before that happens.
+
+The Unit 1 case study will cover the following workflow topics:
 
 1.  **Prepare**: Prior to analysis, it's critical to understand the
     context and data sources you're working with so you can formulate
@@ -56,7 +55,7 @@ topics:
     and create some simple models of our data using linear regression.
 5.  **Communicate:** To wrap up our case study, we'll develop our first
     "data product" and share our analyses and findings by creating our
-    first web page using R Markdown.
+    first web page using R Pubs.
 
 ### 1a. Review the Literature
 
@@ -68,10 +67,10 @@ management systems (LMS) like Moodle and Canvas gained a quicker
 foothold, this study is particularly relevant since COVID-19. Many
 districts across the county have incorporated a LMS into their remote
 instruction and have set up virtual academies likely to continue
-post-pandemic. In North Carolina specifically, student disengagement has
-become a particular concern among districts and in response the NC
-Department of Public Instruction has recently established the [Office of
-Learning Recovery &
+post-pandemic. In North Carolina specifically, student disengagement and
+learning loss have become a particular concern among districts and in
+response the NC Department of Public Instruction has recently
+established the [Office of Learning Recovery &
 Acceleration](https://www.dpi.nc.gov/districts-schools/districts-schools-support/office-learning-recovery-acceleration)**.**
 
 [![](img/mining-lms-data.jpeg){width="40%"}](https://doi.org/10.1177/23328584211024261)
@@ -122,41 +121,22 @@ Finally, a linear multiple regression analysis was therefore conducted,
 in order to develop a predictive model in which 'Student final grade'
 was the continuous dependent variable.
 
-#### **Summary of Key Findings**
-
-1.  Although 13 LMS variables for this course appear to show significant
-    correlation with student final grade, it would be erroneous to rely
-    too heavily on the predictive power of simple correlations.
-2.  Some students are making more effective strategic decisions about
-    time use within the virtual classroom that is not adequately
-    represented by simple correlations with time online.
-3.  Total number of discussion messages posted, total number of mail
-    messages sent, and total number of assessments completed were all
-    statistically significant contributors to students' final grades and
-    indicated that some 33% of the variability in student achievement in
-    this course can be explained by this combination of student online
-    activities within the course site.
-4.  One of the highest performing students established a complex network
-    that included a core group of high-performing peers, conversely a
-    lower performing student's network is primarily comprised of
-    low-performing peers.
-
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Take a quick scan of Table 3 in the article linked above (and also
+Take a quick scan of Table 1 in the article linked above (and also
 located in your "lit" folder in the files pane) and in the space below,
 answer the following question: Of the 13 LMS variables correlated with
 student final grade, which 2-3 do you think will found to significantly
 predict final grades?
 
--   
+-   YOUR RESPONSE HERE
 
-Now take a quick look at sections 3.2 Mutltiple Regression and 3.3
-Logistic Regression and answer the following questions: What factors in
-the model did ultimately predict final grades? How accurate was this
-model in identifying "at risk" students?
+Now take a quick look at Discussion and Conclusions sections and answer
+the following questions: What factors in the model did ultimately
+predict final grades? How accurate was this model in identifying "at
+risk" students?
 
--   
+-   YOUR RESPONSE HERE
 
 ### 1b. Define Questions
 
