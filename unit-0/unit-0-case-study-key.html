@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2023-08-21">
+<meta name="dcterms.date" content="2023-08-26">
 
 <title>Unit 0: Getting Started Case Study</title>
 <style>
@@ -103,36 +103,67 @@ div.csl-indent {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">0. INTRODUCTION</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#organization" id="toc-organization" class="nav-link" data-scroll-target="#organization">Organization</a></li>
   <li><a href="#how-to-use-this-document" id="toc-how-to-use-this-document" class="nav-link" data-scroll-target="#how-to-use-this-document">How to use this document</a></li>
   <li><a href="#the-data-intensive-research-workflow" id="toc-the-data-intensive-research-workflow" class="nav-link" data-scroll-target="#the-data-intensive-research-workflow">The Data-Intensive Research Workflow</a></li>
   </ul></li>
   <li><a href="#prepare" id="toc-prepare" class="nav-link" data-scroll-target="#prepare">1. PREPARE</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research Question</a></li>
   <li><a href="#r-projects-packages" id="toc-r-projects-packages" class="nav-link" data-scroll-target="#r-projects-packages">R Projects &amp; Packages 📦</a></li>
-  <li><a href="#the-tidyverse-package" id="toc-the-tidyverse-package" class="nav-link" data-scroll-target="#the-tidyverse-package">The tidyverse Package</a></li>
-  <li><a href="#loading-or-reading-in-data" id="toc-loading-or-reading-in-data" class="nav-link" data-scroll-target="#loading-or-reading-in-data">Loading (or reading in) data</a></li>
-  <li><a href="#viewing-or-inspecting-data" id="toc-viewing-or-inspecting-data" class="nav-link" data-scroll-target="#viewing-or-inspecting-data">Viewing or inspecting data</a></li>
+  <li><a href="#the-tidyverse-package" id="toc-the-tidyverse-package" class="nav-link" data-scroll-target="#the-tidyverse-package">The tidyverse Package</a>
+  <ul class="collapse">
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
+  <li><a href="#loading-or-reading-in-data" id="toc-loading-or-reading-in-data" class="nav-link" data-scroll-target="#loading-or-reading-in-data">Loading (or reading in) data</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
+  <li><a href="#viewing-or-inspecting-data" id="toc-viewing-or-inspecting-data" class="nav-link" data-scroll-target="#viewing-or-inspecting-data">Viewing or inspecting data</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#wrangle" id="toc-wrangle" class="nav-link" data-scroll-target="#wrangle">2. WRANGLE</a>
+  <ul>
+  <li><a href="#selecting-variables" id="toc-selecting-variables" class="nav-link" data-scroll-target="#selecting-variables">Selecting variables</a>
   <ul class="collapse">
-  <li><a href="#selecting-variables" id="toc-selecting-variables" class="nav-link" data-scroll-target="#selecting-variables">Selecting variables</a></li>
-  <li><a href="#filtering-variables" id="toc-filtering-variables" class="nav-link" data-scroll-target="#filtering-variables">Filtering variables</a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange">Arrange</a></li>
+  <li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
+  <li><a href="#filtering-variables" id="toc-filtering-variables" class="nav-link" data-scroll-target="#filtering-variables">Filtering variables</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-5" id="toc-your-turn-5" class="nav-link" data-scroll-target="#your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange">Arrange</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-6" id="toc-your-turn-6" class="nav-link" data-scroll-target="#your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#explore" id="toc-explore" class="nav-link" data-scroll-target="#explore">3. EXPLORE</a>
+  <ul>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a>
   <ul class="collapse">
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
-  <li><a href="#the-graphing-workflow" id="toc-the-graphing-workflow" class="nav-link" data-scroll-target="#the-graphing-workflow">The Graphing Workflow</a></li>
-  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">Scatterplots</a></li>
+  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
-  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a></li>
-  <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
+  <li><a href="#the-graphing-workflow" id="toc-the-graphing-workflow" class="nav-link" data-scroll-target="#the-graphing-workflow">The Graphing Workflow</a>
   <ul class="collapse">
+  <li><a href="#your-turn-8" id="toc-your-turn-8" class="nav-link" data-scroll-target="#your-turn-8"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">Scatterplots</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-9" id="toc-your-turn-9" class="nav-link" data-scroll-target="#your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a>
+  <ul>
+  <li><a href="#your-turn-10" id="toc-your-turn-10" class="nav-link" data-scroll-target="#your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
+  <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
+  <ul>
   <li><a href="#render-file" id="toc-render-file" class="nav-link" data-scroll-target="#render-file">Render File</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -161,7 +192,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2023</p>
+      <p class="date">August 26, 2023</p>
     </div>
   </div>
   
