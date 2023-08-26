@@ -200,12 +200,12 @@ loaded package unless you specify otherwise.
 ## 2. WRANGLE
 
 In general, data wrangling involves some combination of cleaning,
-reshaping, transforming, and merging data (Wickham & Grolemund, 2017).
-The importance of data wrangling is difficult to overstate, as it
-involves the initial steps of going from raw data to a dataset that can
-be explored and modeled (Krumm et al, 2018) and often comprises a large
-share of time spent on data-intensive research workflows. In Part 2, we
-focus on the the following workflow processes:
+reshaping, transforming, and merging data [@wickham2023r]. The
+importance of data wrangling is difficult to overstate, as it involves
+the initial steps of going from raw data to a dataset that can be
+explored and modeled [@krumm2018] and often comprises a large share of
+time spent on data-intensive research workflows. In Part 2, we focus on
+the the following workflow processes:
 
 a.  **Import Data**. In this section, we introduce the `read_csv()`
     function for working with CSV files and revisit some key functions
@@ -235,7 +235,7 @@ format, where all the important information in the file is represented
 by text. Note that "text" here refers to numbers, letters, and symbols
 you can type on your keyboard. In [Tidyverse Skills for Data
 Science](Tidyverse%20Skills%20for%20Data%20Science), Wright et al.
-(2021) note that the advantage of a .csv files is that:
+@wright2021tidyverse note that the advantage of a .csv files is that:
 
 > ... there are no workbooks or metadata making it difficult to open
 > these files. CSVs are flexible files and are thus the preferred
@@ -246,7 +246,7 @@ Science](Tidyverse%20Skills%20for%20Data%20Science), Wright et al.
 *Log-trace data* is data generated from our interactions with digital
 technologies, such as archived data from social media postings. In
 education, an increasingly common source of log-trace data is that
-generated from interactions with LMS and other digital tools.
+generated from interactions with LMS and other digital learning tools.
 
 The data we will use in this case study and already been "wrangled"
 quite a bit and is a summary type of log-trace data: the number of
@@ -260,31 +260,34 @@ To help us import our data, we'll be using the
 and friendly way" to read rectangular data stored in plain-text file
 formats like csv, tsv, and fwf. If you are new to {readr}, I highly
 recommend the [data import
-chapter](https://r4ds.had.co.nz/data-import.html) in R for data science.
-We don't need to load the {readr} package because it was already loaded
-as part of the tidyverse package we called earlier.
+chapter](https://r4ds.had.co.nz/data-import.html) in R for Data Science
+[@wickham2023r]. Note that we don't need to load the {readr} package
+because it was already loaded as part of the tidyverse package we called
+earlier.
 
 Let's use the `read_csv()` function from {readr} to import our
 `log-data.csv` file directly from our data folder and name this data set
-`time_spent`, to help us to quickly recollect what function it serves in
-this analysis:
+`time_spent`, which will now be saved in our R environment:
 
 ```{r}
 time_spent <- read_csv("data/log-data.csv")
 ```
 
-Note that we had to specify the file path in our argument, but this may
-not consistently work depending on the type of operating system you are
-using and where your R Project is located. The message also indicated
-that four of the columns were specified as "character" data types and
-two of the columns `student_id` and `time_spent` as double or numeric
-types. The student id as numeric is problematic and something we will
-have to deal with later.
+There are two quick things to note. First, importing out data and saving
+in our environment does not alter the original file saved in our data
+folder, so we don't have to worry about causing any harm to the original
+file as we wrangle and explore our data!
+
+Second, the message in the output indicated that four of the columns
+were specified as "character" data types and two of the columns
+`student_id` and `time_spent` as double (dbl) or numeric types. The
+student ID as numeric is problematic and something we will have to deal
+with later.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 Let's take a look at this data in a couple ways. First, type
-`time_spent` into the console (below this window) and then hit
+`time_spent` into the console (the pane below this one) and then hit
 return/enter. You should see a printed summary of this data frame.
 
 Next, got your files pane (bottom right corner of R Studio), click on
@@ -295,7 +298,7 @@ What do you notice about this data? What questions do you have? Add a
 couple of notes (or more---you can type return/enter after a bullet
 point to add another) on your observations and/or questions here:
 
--   
+-   YOUR RESPONSE HERE
 
 #### Data Source #2: Academic Achievement Data
 
@@ -306,7 +309,7 @@ percentage of points they earned in the course---a measure comparable
 (but likely a little different based on teachers' grading policies) to
 their final grade.
 
-We'll load the data in the same way as earlier but take a quick peek but
+We'll load the data in the same way as earlier but take a quick peek by
 including the name of our data frame in the code chunk as well:
 
 ```{r}
@@ -325,10 +328,9 @@ explore here come from Expectancy-Value Theory, which states that
 students are motivated to learn when they both believe that they can
 achieve something (expectancy, also known as "perceived competence") and
 believe that the concept they are trying to learn is important (value)
-([Wigfield & Eccles,
-2000](https://datascienceineducation.com/references.html#ref-wigfield2000)).
-For a more information about this survey, including the specific items
-included, see [Chapter 7 of Data Science in Education Using
+[@wigfield2000expectancy]. For a more information about this survey,
+including the specific items included, see [Chapter 7 of Data Science in
+Education Using
 R](https://datascienceineducation.com/c07.html#data-sources)
 [@estrellado2020data].
 
@@ -345,21 +347,21 @@ survey
 ```
 
 **Hint**: By asking you to "assign the output from the `read_csv()`
-function the name `survey`, consider how in the code chunk above
-this"Your Turn" code chunk, we assigned the output from the `read_csv()`
-function to the name `gradebook`.
+function the name `survey`, consider how in the code chunk above this
+"Your Turn" we assigned the output from the `read_csv()` function to the
+name `gradebook`.
 
 After reading the data, let's continue the practice of looking at our
-data. Type `survey` into the console to take a look at the data: Does it
-appear to be the correct file? What do the variables seem to be about?
-What wrangling steps do we need to take? Taking a quick peak at the data
-helps us to begin to formulate answers to these and is an important step
-in any data analysis, especially as we *prepare* for what we are going
-to do.
+data. Type `survey` into the console to take a look at the data or add
+`survey` on a new line in your code chunk above. Does it appear to be
+the correct file? What do the variables seem to be about? What wrangling
+steps do we need to take? Taking a quick peak at the data helps us to
+begin to formulate answers to these questions is an important step in
+any data analysis.
 
 Add one or more of the things you notice or wonder about the data here:
 
--   
+-   YOUR RESPONSE HERE
 
 **RStudio Tip:** If you happen to run into issues with data import,
 RStudio has a handy "Import Dataset" feature for a point and click
