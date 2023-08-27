@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2023-08-26">
+<meta name="dcterms.date" content="2023-08-27">
 
 <title>Unit 0: Getting Started Case Study</title>
 <style>
@@ -192,7 +192,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2023</p>
+      <p class="date">August 27, 2023</p>
     </div>
   </div>
   
@@ -785,7 +785,7 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 </div>
 </div>
 <p>Note that the first function, <code>ggplot()</code>, creates a coordinate system that you can “add” layers to using additional functions and <code>+</code> operator. The first argument of <code>ggplot()</code> is the dataset, in our case <code>sci_data</code>, to use for the graph.</p>
-<p>By itself, <code>ggplot(data = mpg)</code> just creates an empty graph. But when you add a required <code>geom_()</code> function like <code>geom_histogram()</code>, you tell it which type of graph you want to make, in our case a histogram. A <strong>geom</strong> is the geometrical object that a plot uses to represent observations. People often describe plots by the type of geom that the plot uses. For example, bar charts use bar geoms, line charts use line geoms, boxplots use boxplot geoms, and so on. Scatterplots, which we’ll see a in bit, break the trend; they use the point geom.</p>
+<p>By itself, <code>ggplot(sci_data)</code> just creates an empty graph. But when you add a required <code>geom_()</code> function like <code>geom_histogram()</code>, you tell it which type of graph you want to make, in our case a histogram. A <strong>geom</strong> is the geometrical object that a plot uses to represent observations. People often describe plots by the type of geom that the plot uses. For example, bar charts use bar geoms, line charts use line geoms, boxplots use boxplot geoms, and so on. Scatterplots, which we’ll see a in bit, break the trend; they use the point geom.</p>
 <p>The final required element for any graph is a <code>mapping =</code> argument that defines which variables in your dataset are mapped to which axes in your graph. The <code>mapping</code> argument is always paired with the function <code>aes()</code>, which you use to gather together all of the mappings that you want to create. In our case, since we just created a simple histogram, we only had to specify what variable to place on the x axis, which in our case was <code>FinalGradeCEMS</code>.</p>
 <p>We won’t spend a lot of time on it in this case study, but you can also add a wide range of <a href="https://ggplot2.tidyverse.org/reference/index.html#aesthetics">aesthetic arguments</a> to each geom, like changing the color of the histogram bars by adding an argument to specify color. Let’s give that a try using the <code>fill =</code> argument:</p>
 <div class="cell">
