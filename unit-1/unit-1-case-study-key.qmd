@@ -423,7 +423,9 @@ After running the chunk above, print `df4` to the console to get a sense of what
 
 ```{r}
 df4 <- df4 |> 
-  mutate(var_a / var_b)
+  mutate(stem_proportion = var_a / var_b)
+
+df4
 ```
 
 What happens if the output is different than you intended? That's no problem! Re-run the code-chunk *above* (in which we create `df`) to have a blank slate with which to try again.
@@ -455,7 +457,7 @@ Does it appear to be the correct file? What do the variables seem to be about? W
 
 Add one or more of the things you notice or wonder about the data here:
 
--   
+-   YOUR RESPONSE HERE
 
 You may have noticed that `student_ID` is not formatted the same as `student_id` in our other files. This is important because in the next section when were "join," or merge, our data files, these variables will need to have identical names.
 

@@ -158,7 +158,7 @@ In the code chunk below, read in to R the `survey.csv` file located in the data 
 **Hint**: By asking you to "assign" the output from the `read_csv()` function to the name `survey`, consider how in the code chunk above this "Your Turn" we assigned the output from the `read_csv()` function to the name `gradebook`.
 
 ```{r}
-#YOUR CODE HERE
+# YOUR CODE HERE
 
 
 ```
@@ -325,7 +325,7 @@ time_spent <-
 We have made a habit of continually looking at our data after running code to ensure that the step worked as intended. Type the name of the data we have been working with in the code chunk below to ensure that the course_id variable has been separated into three variables that correspond to the subject, semester, and section.
 
 ```{r}
-#YOUR CODE HERE
+# YOUR CODE HERE
 
 
 ```
@@ -423,6 +423,8 @@ After running the chunk above, print `df4` to the console or view using another 
 To create a third variable that represents the proportion of STEM club activities students participated in, divide `var_a` by `var_b`.
 
 ```{r}
+# YOUR CODE HERE
+
 
 ```
 
@@ -430,7 +432,7 @@ What happens if the output is different than you intended? That's no problem! Re
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Your turn once more. This time, create a new variable---here, let's name it `proportion_earned`---using the `gradebook` data. This will involve using the mutate function with the `gradebook` data, creating a new variable (`proportion_earned`) on the basis of the values of two existing variables:
+Your turn once more. This time, create a new variable---here, let's name it `proportion_earned`---using the `gradebook` data. This will involve using the `mutate()` function with the `gradebook` data, creating a new variable (`proportion_earned`) on the basis of the values of two existing variables:
 
 -   `total_points_earned`
 
@@ -439,6 +441,8 @@ Your turn once more. This time, create a new variable---here, let's name it `pro
 Also, once your code is ready, you'll need to assign the results back to `gradebook`. This is challenging as you're starting from scratch with the code. However, good R programmers use other code (that they or others wrote!) often, so feel free to copy and paste code from other, similar problems to give yourself a head start.
 
 ```{r}
+# YOUR CODE HERE
+
 
 ```
 
@@ -449,6 +453,8 @@ Once the above step is complete, take another look at `gradebook` by printing it
 Finally, let's process our survey data that we imported earlier. First though, take a quick look again by typing `survey` into the console or using the code chunk below.
 
 ```{r}
+# YOUR CODE HERE
+
 
 ```
 
@@ -456,7 +462,7 @@ Does it appear to be the correct data frame? What do the variables seem to be ab
 
 Add one or more of the things you notice or wonder about the data here:
 
--   
+-   YOUR RESPONSE HERE
 
 You may have noticed that `student_ID` is not formatted *exactly* the same as `student_id` in our other files. This is important because in the next section when we "join," or merge, our data files, these variables will need to have identical names.
 
