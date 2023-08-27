@@ -123,7 +123,7 @@ time_spent <- read_csv("data/log-data.csv")
 
 There are two quick things to note. First, importing our data and saving in our environment does not alter the original file saved in our data folder, so we don't have to worry about causing any harm to the original file as we wrangle and explore our data!
 
-Second, the message in the output indicated that four of the columns were specified as "character" data types and two of the columns `student_id` and `time_spent` as double (dbl) or numeric types.
+Second, the message in the output indicated that four of the columns were specified as "character" data types and two of the columns `student_id` and `time_spent` as double (dbl) or numeric types. **The student ID as numeric is problematic and something we will have to deal with later.**
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
@@ -459,6 +459,30 @@ Add one or more of the things you notice or wonder about the data here:
 
 -   YOUR RESPONSE HERE
 
+#### Change Variable Type
+
+You may have noticed that `student_ID` is not formatted the same as `student_id` in our other files. This is important because in the next section when were "join," or merge, our data files, these variables will need to have identical names.
+
+Fortunately the {[janitor](https://garthtarr.github.io/meatR/janitor.html)} package has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. There is also a handy function called `clean_names()` in the {janitor} package for standardizing variable names.
+
+Run the following code load the {janitor} package and clean our column names in both data frames so they are consistent:
+
+```{r}
+# library(janitor)
+
+#gradebook <- gradebook |> 
+  mutate(student_id = as.character(student_id))
+
+#gradebook
+
+#time_spent <- time_spent |> 
+  mutate(student_id = as.character(student_id))
+
+#time_spent
+```
+
+Let's take one more look at the data by typing its name into the console or using a method of your choice to check that the above function appeared to work; if it did, the names should be lower-case, and any symbols or spaces should now be replaced by an underscore (`_`).
+
 ### c. Joining the data
 
 We're now ready to join! At their core, joins involve operations on two data frames at the same time. This may seem useful only in certain cases, but consider the following data analysis tasks:
@@ -491,11 +515,11 @@ df6
 
 A key (pun intended) with joins is to consider what variable(s) will serve as the *key*. This is the variable to join by.
 
-A key must have two characteristics:
+A key must have two characteristics; it is:
 
-1.  The variable(s) used as the key **must be present in both of the data frames** you are joining.
+-   a character string--- a word (thus, you cannot join on a number unless you "coerce" or change it to be a character string, first)
 
-2.  The variable(s) used as the key **must be of the same data type** (e.g., character, numeric, integer, double, etc.).
+-   present in both of the data frames you are joining.
 
 To join two datasets, it is important that the *key* (or *keys*) on which you are joining the data is formatted identically. The key represents an identifier that is present in both of the data sets you are joining. For instance, you may have data collected from (or created about) the same students that are from two very different sources, such as a self-report survey of students and their teacher-assigned grades in class.
 
@@ -527,7 +551,7 @@ Different from the above, `left_join()` did not return all of the rows from both
 
 #### Join Gradebook and Log Data
 
-For now, we're going to use a single join function, `full_join()`. In the code below, join `gradebook` and `time_spent`; type the names of those two data frames as arguments to the `full_join()` function in a similar manner as in the `full_join()` code above, and then run this code chunk. For now, don't specify anything for the `by =` argument of the function.
+For now, we're going to use a single join function, `full_join()`. In the code below, join `gradebook` and `time_spent`; type the names of those two data frames as arguments to the `full_join()` function in a similar manner as in the `full_join()` code above, and then run this code chunk. For now, don't specify anything for the `by =` part of the function.
 
 ```{r}
 # join together the gradebook and log_wrangled
@@ -568,34 +592,14 @@ data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject"
 data_to_explore
 ```
 
-Oops! You probably noticed a red error message telling us that `x$section` and `y$section` are not of the same data type. This is basically telling us we are not meeting the second criteria of a key noted above. Specifically, somewhere we have a mismatch in data types in our `joined_data` and `survey` data frames among our student_id, subject, semester or section variables; something we were warned about earlier.
+Oops! You probably noticed a red error message telling us that even though `student_id` is consistently named in both files, they are not of the same data type. Something we were warned about earlier.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
-
-Run the following code chunk to inspect our two data frames and record below the variable used in our key where we have a mismatch in data type:
-
--   YOUR RESPONSE HERE
-
-```{r}
-joined_data
-
-survey
-```
-
-#### Change Data Type
-
-We can use the `mutate()` function that we learned about in our tutorials to also change data types!
-
-Run the code chunk below to "mutate" the `section` variable in our `joined_data` table from a "character" data type to a "dbl" data type, i.e. numeric variable to a character variable using the base R `as.double()` function:
+We can use the `mutate()` function that we learned about in our tutorials to change this variable in our `joined_data` from a "double," i.e. numeric variable to a character variable using the base R `as.character()` function:
 
 ```{r}
 joined_data <- joined_data |>
-  mutate(section = as.double(section))
-
-joined_data
+  mutate(student_id = as.character(student_id))
 ```
-
-A quick note about "dbl" (short for double) vs. "numeric" data types. "dbl" is the designation you'll commonly see for numeric columns when printing a tibble (a modern form of data frame provided by the tidyverse). This is just a user-friendly way to indicate that the column contains numeric (double-precision) data. For a nice simple list of data types and examples, check out this short article on the tidyverse website: [https://tibble.tidyverse.org/articles/types.html](https://tibble.tidyverse.org/articles/types.htmlhttps://tibble.tidyverse.org/articles/types.html).
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
@@ -615,7 +619,7 @@ Congratulations! We're done wrangling our data and it is ready to explore!
 
 As highlighted in both [DSEIUR](https://datascienceineducation.com/c03.html#doing-analysis-exploring-visualizing-and-modeling-data) and Learning Analytics Goes to School, calculating summary statistics and data visualization are a key part of exploratory data analysis. One goal in this phase is explore questions that drove the original analysis and develop new questions and hypotheses to test in later stages. Topics addressed in Part 3 include:
 
--   **Summarize Key Stats**. We'll learn about the {skmir} package for pulling together some quick descriptive statistics when your goal is to understand your data internally.
+-   **Summarize Key Stats**. We'll learn about the {skmir} package for pulling together some quick creating descriptive statistics when your goal is to understand your data internally.
 
 -   **Visualize Data**. We'll introduce the histogram geom for taking a quick peak the distributions of some key variables and put together some scatter plots for examining potential relationships between time spent and student performance.
 
@@ -653,7 +657,7 @@ skim(data_to_explore)
 
 What do you notice about the output? These observations might pertain to the format of the output or its values (i.e., what the mean for the `val` variable is). Note one or two of these noticings or wonderings below:
 
--   YOUR RESPONSE HERE
+-   
 
 As we noted earlier, the {skimr} package works nicely with other {tidyverse} functions.
 
@@ -678,67 +682,44 @@ If you are curious about doing more with {skimr}, check out: [\<https://cran.r-p
 
 ### b. Data Visualization
 
-As we noted in our Getting Started Case Study, data visualization is an extremely common practice in Learning Analytics, especially in the use of data dashboards. Data visualization involves graphically representing one or more variables with the goal of discovering patterns in data. These patterns may help us to answer research questions or generate new questions about our data, to discover relationships between and among variables, and to create or select features for data modeling.
+#### Histograms
 
-### The Graphing Workflow
+You likely notice that the `skim()` function created some miniature histrograms for each of the numeric variables in our `data-to-explore` data frame. Since we are especially interested in whether time spent in the online course is related to student performance, let's take a closer look at this variable.
 
-Before visually exploring our data, let's revisit the basic code template for the {[ggplot2](https://ggplot2.tidyverse.org)} package from the tidyverse. `ggplot2` is a system for declaratively creating graphics, based on [the grammar of graphics](https://ggplot2-book.org/introduction.html#what-is-the-grammar-of-graphics) [@Wickham]. You provide the data, tell ggplot2 how to map variables to [aesthetics](https://ggplot2.tidyverse.org/reference/aes.html), what graphical elements to use, and it takes care of the details.
-
-At it's core, you can create some very simple but attractive graphs with just a couple lines of code. {[ggplot2](https://ggplot2.tidyverse.org)} follows the common workflow for making graphs. To make a graph, you simply:
-
-1.  Start the graph with `ggplot()` and include your data as an argument;
-
-2.  "Add" elements to the graph using the `+` operator a [`geom_()` function](https://ggplot2.tidyverse.org/reference/#geoms);
-
-3.  Select variables to graph on each axis with the `aes()` argument.
-
-Let's give it a try by creating a simple histogram of our `time_spent_hours` variable. You likely noticed that the `skim()` function created some miniature histrograms for each of the numeric variables in our `data-to-explore` data frame. Since we are especially interested in whether time spent in the online course is related to student performance, let's take a closer look at this variable.
-
-The code below creates a histogram with 30 bins -- the default number for `geom_histogram`:
+The code below creates a histogram with 30 bins---the default number for `geom_histogram`:
 
 ```{r}
-ggplot(data_to_explore) +
-  geom_histogram(aes(x = time_spent_hours), bins = 30)
+data_to_explore |> 
+  ggplot(aes(x = time_spent_hours)) +
+  geom_histogram(bins = 30)
 ```
-
-Note that the first function, `ggplot()`, creates a coordinate system that you can "add" layers to using additional functions and `+` operator. The first argument of `ggplot()` is the dataset, in our case `data_to_explore`, to use for the graph.
-
-By itself, `ggplot(data_to_explore)` just creates an empty graph. But when you add a required `geom_()` function like `geom_histogram()`, you tell it which type of graph you want to make, in our case a histogram. A **geom** is the geometrical object that a plot uses to represent observations. People often describe plots by the type of geom that the plot uses. For example, bar charts use bar geoms, line charts use line geoms, boxplots use boxplot geoms, and so on. Scatterplots, which we'll see a in bit, break the trend; they use the point geom.
-
-The final required element for any graph is a `mapping =` argument that defines which variables in your dataset are mapped to which axes in your graph. The `mapping` argument is always paired with the function `aes()`, which you use to gather together all of the mappings that you want to create. In our case, since we just created a simple histogram, we only had to specify what variable to place on the x axis, which in our case was `time_spent_hours`.
-
-Note that we also included the `bins =` argument in our `geom_historgram()` function. Again, by default this is set to 30. Aside from the `bins =` argument, `geom_historgram()` has other arguments that you can modify, search the Help tab in the Files pane for " geom_histrogram" or type `?geom_histogram` in the Console to open the help page.
-
-**Pro Tip**: If you scroll to the bottom of most help pages for functions, you will see and examples section with code for executing those functions. You can copy and paste that code in the console to view the output of those functions and discover different ways they can be used.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 Now change the number of bins using the code chunk below below and note any differences in what you interpret about the data.
 
 ```{r}
-# YOUR CODE HERE
-
 
 ```
 
 What do you think the ideal number of bins is---with what is ideal being the number of bins that helps you to interpret the overall distribution of the values for how much time students' spent (*note*: there is no one right or wrong answer here!)?
 
--   YOUR RESPONSE HERE
+-   
 
 #### Faceting
 
-Next we'll introduce the `facet_wrap()` function for creating *small multiples*, or plots that are specific to subsets of your data. These subsets are identified based on another variable in your dataset. For example, the code below uses the built-in `mpg` dataset to plot the relationship between the displacement of a car's engine and its highway miles per gallon fuel efficiency.
+We'll next be using the `facet_wrap()` function to create *small multiples*, or plots that are specific to subsets of your data. These subsets are identified based on another variable in your dataset. For example, the code below uses the built-in `mpg` dataset to plot the relationship between the displacement of a car's engine and its highway miles per gallon fuel efficiency.
 
 ```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy))
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point()
 ```
 
 The code in the next plot creates individual plots for each class---think compact car or SUV.
 
 ```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy)) +
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point() +
   facet_wrap(~class)
 ```
 
@@ -753,14 +734,14 @@ In the code below, create a faceted histogram based on the subject of the course
 You may also wish to change the color; reflect back to the getting started task for an example of how to do this.
 
 ```{r}
-ggplot(data_to_explore) + 
-  geom_histogram(aes(x = time_spent_hours)) +
+ggplot(data_to_explore, aes(x = time_spent_hours)) + 
+  geom_histogram() +
   facet_wrap(~subject)
 ```
 
 What do you notice about this figure? What questions do you have? Add a note (or a few notes!) below:
 
--   YOUR RESPONSE HERE
+-   
 
 #### Scatter Plots
 
@@ -771,20 +752,19 @@ We'll be using the {ggplot2} package again, but, this time, will be creating a d
 Run the code below to create a scatter plot of the proportion of points students earned and the number of hours they spent on the course LMS.
 
 ```{r}
-ggplot(data_to_explore) +
-  geom_point(aes(x = time_spent_hours, y = proportion_earned))
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned)) +
+  geom_point()
 ```
 
 What do you notice about this graph? And what do you wonder? How about the code---what do you notice about it (and what do you wonder)? Add one or more of what you see as the most important elements.
 
--   YOUR RESPONSE HERE
+-   
 
 Using {ggplot2} makes it efficient to iterate through different versions of similar plots. For instance, we can color the points by a third variable, such as the reason for which students enrolled in the course, to begin to explore what was going on for students who spent very little time on the course:
 
 ```{r}
-ggplot(data_to_explore) +
-  geom_point(aes(x = time_spent_hours, y = proportion_earned, 
-                 color = enrollment_status))
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point()
 ```
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
@@ -792,18 +772,16 @@ ggplot(data_to_explore) +
 We can also additionally create faceted plots, like the one you created in the last learning lab. In the code below, facet the plot by `subject`.
 
 ```{r}
-ggplot(data_to_explore) +
-  geom_point(aes(x = time_spent_hours, y = proportion_earned, 
-                 color = enrollment_status)) +
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
   facet_wrap(~subject)
 ```
 
 You may wish to style your plot. A few ways you can do that are as follows; we'll discuss more throughout the institute. For each of the following, add them to your plot by adding a plus symbol to the line prior to the line you are adding. For instance, the following code styles the x-axis label of a plot:
 
 ```{r}
-ggplot(data_to_explore) +
-  geom_point(aes(x = time_spent_hours, y = proportion_earned, 
-                 color = enrollment_status)) +
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
   xlab("Time Spent (Hours)")
 ```
 
@@ -820,14 +798,12 @@ Try adding (and modifying, if you'd like) any of the following to the faceted pl
 -   `theme(legend.position = "bottom")`
 
 ```{r}
-# YOUR CODE HERE
-
 
 ```
 
 Once you have settled on a plot you are happy with (for now!), add a sentence or two interpreting your graph (like you were describing it within a journal article):
 
--   YOUR RESPONSE HERE
+-   
 
 ### c. Create a Correlation Matrix
 
@@ -859,8 +835,6 @@ data_to_explore |>
   correlate()
 ```
 
-As our scatterplot suggested, there is positive correlation (0.438) between time spent and the percentage of total points a student earned, suggesting that students who spend more time in the LMS also tend to have a higher proportion of points earned.
-
 For the purpose of printing, and as a quick aside, the {corrr} package also has a nice `fashion()` function for converting a correlation data frame into a matrix with the correlations cleanly formatted (leading zeros removed; spaced for signs) and the diagonal (or any NA) left blank.
 
 Run the following code to try it out:
@@ -879,16 +853,14 @@ data_to_explore |>
 In the code chunk below, select 3-4 numeric variables in addition to `time_spent_hours` that you think may be related to student achievement, i.e. `proportion_earned`, and run a simple correlation.
 
 ```{r}
-# YOUR CODE HERE
-
 
 ```
 
-**Hint:** One key is to correlate only numeric variables. Note that while some numeric variables can *technically* be used, it is likely not sensible to correlate all of the variables; some---for instance, the `student_id` variable---are not very sensible to correlate!
+**Hint:** One key is to correlate only numeric variables. Note that while some numeric variables can *technically* be used, it is likely not sensible to correlate all of the variables; some---for instance, the `section` variable---are not very sensible to correlate!
 
 What did you find? Were your selected variables related to time spent in the course? These observations might pertain to the format of the output or its values (i.e., what the mean for the `val` variable is). Note one or two of these noticings or wonderings below:
 
--   YOUR RESPONSE HERE
+-   
 
 If you are interested in learning more about the {corrr} package, visit: [\<https://corrr.tidymodels.org\>](https://corrr.tidymodels.org){.uri}
 
@@ -993,7 +965,7 @@ apa.reg.table(m1, filename = "lm-table.doc")
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-Repurpose the code from above to estimate a different regression models with at least 2 variables, save as `m2`, and view a `summary()` of the results:
+Below, estimate different regression models with at least 2 variables, save as `m2`, and view a `summary()` of the results:
 
 ```{r}
 m2 <- lm(proportion_earned ~ int + time_spent_hours + gender + val, data = data_to_explore)
@@ -1003,7 +975,7 @@ summary(m2)
 
 Add a brief note or two interpreting the above model (`m2`):
 
--   YOUR RESPONSE HERE
+-   
 
 ## 5. COMMUNICATE
 
@@ -1020,8 +992,6 @@ For Unit 1 we will keep it simple. In the code chunk below, select a chart, tabl
 ### My First Data Product (Change Me)
 
 ```{r}
-# YOUR CODE HERE
-
 
 ```
 
