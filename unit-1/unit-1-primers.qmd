@@ -1,0 +1,40 @@
+---
+title: "Unit 1 Primers: R Basics and Working with Data"
+subtitle: "ECI 586 Intro to Learning Analytics"
+author: "Dr. Shaun Kellogg"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+---
+
+## OVERVIEW
+
+The second week of each unit consists of [Posit Primers](https://posit.cloud/learn/primers) for working with R packages used import, wrangle, explore, and model data. The primary goal of these primers is to support familiarity and fluency with R syntax and key functions for data analysis. In addition to completing the assigned tutorials, you\'ll be asked to demonstrate these essential skills on an educational data set provided by your instructor.
+
+## **Assignment**
+
+Your assignment this week is to complete the following primers and exercises:
+
+1.  [**The Basics**](https://rstudio.cloud/learn/primers/1)**.** I recommend starting with with the Programming Basics tutorial to learn how to run functions and build objects. Then complete the Visualization Basics tutorial to begin making plots with R. The code template for ggplot will serve your well throughout the semester.
+
+2.  [**Working with Data**](https://rstudio.cloud/learn/primers/2)**.** Next, complete the three tutorials in this primer to learn the most important data wrangling skills in R: how to extract values from a table, subset tables, calculate summary statistics, and derive new variables. You may skip the Challenges topic in the Deriving Information with dplyr tutorials. 
+
+Finally, navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://posit.cloud/spaces/146919/join?access_code=VgotVV692OpRoxZvrOp9oW8a2EThPX5kHkJ7Vgf8 "https://posit.cloud/spaces/146919/join?access_code=VgotVV692OpRoxZvrOp9oW8a2EThPX5kHkJ7Vgf8") and locate the two R script exercise files located in the Unit 1 - Week 3 Exercises R project. These are corresponding .R scripts for each of the two primers above. I highly recommend completing the exercise files as you work through each topic. While these are not required and will not be graded, items from these exercises may appear on the quiz at the end of the week (see below).  
+
+1.  unit-1-basics-exercise.R
+
+2.  unit-1-data-exercise.R
+
+**If you have questions about the tutorials or exercises, I encourage you to post to the forum below**, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the exercises independently before reaching out for support.
+
+Finally, you are always welcome to email me directly at sbkellog\@ncsu.edu or [set up a meeting](#0) with me if you need help.
+
+## **Assessment**
+
+After completing the primers, there is a brief online quiz worth 6 points. This is an "open book" quiz and you are welcome to refer to our course readings, primers, exercises, and case study to complete. You will be able to attempt this quiz more than once, though penalties may be assigned for incorrect responses.
