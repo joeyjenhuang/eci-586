@@ -202,14 +202,15 @@ tail(survey)
 names(survey) 
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # or view in source pane
 View(survey)
 ```
 
 Yes, the "V" is capitalized---very unusual for an R function (the tidyverse does have it's own lowercase `view()` function if that bothers you though). Because this function is a bit atypical in more ways than one, I have two recommendations concerning its use:
 
--   Use it strictly in the console. Because it opens a new viewing window, **including it in an R Markdown or Quarto document can cause issues when "knitting" or "rendering"** an HTML (or PDF) file. Hence I have included the `eval = FALSE` argument in the code chunk so it it not run when you render your document.
+-   Use it strictly in the console. Because it opens a new viewing window, **including it in an R Markdown or Quarto document can cause issues when "knitting" or "rendering"** an HTML (or PDF) file. Hence I have included the `eval: false` option in the code chunk so it does not run when you render your document.
 
 -   Close the viewer window that opens once you have viewed the data. Keeping it open can clutter your work space a bit and can lead to confusion about what data frame it was you viewed.
 
@@ -581,7 +582,8 @@ What do you notice about the result---the data you joined? In particular, how do
 
 Now let's try joining on our final data set so that our LMS, gradebook and survey data are all in a single data frame for analysis called `data_to_explore`:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # join together the gradebook and log_wrangled
 data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject", "semester", "section"))
 
@@ -589,6 +591,8 @@ data_to_explore
 ```
 
 Oops! You probably noticed a red error message telling us that `x$section` and `y$section` are not of the same data type. This is basically telling us we are not meeting the second criteria of a key noted above. Specifically, somewhere we have a mismatch in data types in our `joined_data` and `survey` data frames among our student_id, subject, semester or section variables; something we were warned about earlier.
+
+Your probably also noticed that I included something strange in this code chunk, specifically the `#|eval: false` code chunk option. The `eval=` argument is just one of many [code chunk options](https://quarto.org/docs/reference/cells/cells-knitr.html#code-output) you can include to change the output and behavior for code in Quarto docs. The reason I included this in the code chunk is because the code doesn't work until we change the data type, which we'll do below. By setting eval to false, it's saying don't include this code when you render.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 

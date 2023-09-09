@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2023-08-27">
+<meta name="dcterms.date" content="2023-09-09">
 
 <title>Unit 1 Case Study: Predicting Student Achievement</title>
 <style>
@@ -151,6 +151,8 @@ div.csl-indent {
   <li><a href="#your-turn-12" id="toc-your-turn-12" class="nav-link" data-scroll-target="#your-turn-12"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   <li><a href="#join-gradebook-and-log-data-1" id="toc-join-gradebook-and-log-data-1" class="nav-link" data-scroll-target="#join-gradebook-and-log-data-1">Join Gradebook and Log Data</a></li>
   <li><a href="#your-turn-13" id="toc-your-turn-13" class="nav-link" data-scroll-target="#your-turn-13"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#change-data-type" id="toc-change-data-type" class="nav-link" data-scroll-target="#change-data-type">Change Data Type</a></li>
+  <li><a href="#your-turn-14" id="toc-your-turn-14" class="nav-link" data-scroll-target="#your-turn-14"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#explore" id="toc-explore" class="nav-link" data-scroll-target="#explore">3. EXPLORE</a>
@@ -158,22 +160,22 @@ div.csl-indent {
   <li><a href="#a.-table-summaries" id="toc-a.-table-summaries" class="nav-link" data-scroll-target="#a.-table-summaries">a. Table Summaries</a>
   <ul class="collapse">
   <li><a href="#skimr-package" id="toc-skimr-package" class="nav-link" data-scroll-target="#skimr-package">Skimr Package</a></li>
-  <li><a href="#your-turn-14" id="toc-your-turn-14" class="nav-link" data-scroll-target="#your-turn-14"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  </ul></li>
-  <li><a href="#b.-data-visualization" id="toc-b.-data-visualization" class="nav-link" data-scroll-target="#b.-data-visualization">b. Data Visualization</a>
-  <ul class="collapse">
-  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
   <li><a href="#your-turn-15" id="toc-your-turn-15" class="nav-link" data-scroll-target="#your-turn-15"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting">Faceting</a></li>
+  </ul></li>
+  <li><a href="#b.-data-visualization" id="toc-b.-data-visualization" class="nav-link" data-scroll-target="#b.-data-visualization">b. Data Visualization</a></li>
+  <li><a href="#the-graphing-workflow" id="toc-the-graphing-workflow" class="nav-link" data-scroll-target="#the-graphing-workflow">The Graphing Workflow</a>
+  <ul class="collapse">
   <li><a href="#your-turn-16" id="toc-your-turn-16" class="nav-link" data-scroll-target="#your-turn-16"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots">Scatter Plots</a></li>
+  <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting">Faceting</a></li>
   <li><a href="#your-turn-17" id="toc-your-turn-17" class="nav-link" data-scroll-target="#your-turn-17"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots">Scatter Plots</a></li>
+  <li><a href="#your-turn-18" id="toc-your-turn-18" class="nav-link" data-scroll-target="#your-turn-18"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#c.-create-a-correlation-matrix" id="toc-c.-create-a-correlation-matrix" class="nav-link" data-scroll-target="#c.-create-a-correlation-matrix">c.&nbsp;Create a Correlation Matrix</a>
   <ul class="collapse">
   <li><a href="#corrr-package" id="toc-corrr-package" class="nav-link" data-scroll-target="#corrr-package">Corrr Package</a></li>
   <li><a href="#time-spent-and-course-grade" id="toc-time-spent-and-course-grade" class="nav-link" data-scroll-target="#time-spent-and-course-grade">Time Spent and Course Grade</a></li>
-  <li><a href="#your-turn-18" id="toc-your-turn-18" class="nav-link" data-scroll-target="#your-turn-18"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-19" id="toc-your-turn-19" class="nav-link" data-scroll-target="#your-turn-19"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   <li><a href="#apa-formatted-tables" id="toc-apa-formatted-tables" class="nav-link" data-scroll-target="#apa-formatted-tables">APA Formatted Tables</a></li>
   </ul></li>
   </ul></li>
@@ -184,7 +186,7 @@ div.csl-indent {
   <li><a href="#does-time-spent-predict-grade-earned" id="toc-does-time-spent-predict-grade-earned" class="nav-link" data-scroll-target="#does-time-spent-predict-grade-earned">Does Time Spent Predict Grade Earned?</a></li>
   <li><a href="#how-about-interest-in-science" id="toc-how-about-interest-in-science" class="nav-link" data-scroll-target="#how-about-interest-in-science">How about interest in science?</a></li>
   <li><a href="#do-average-students-earn-an-average-grade" id="toc-do-average-students-earn-an-average-grade" class="nav-link" data-scroll-target="#do-average-students-earn-an-average-grade">Do average students earn an average grade?</a></li>
-  <li><a href="#your-turn-19" id="toc-your-turn-19" class="nav-link" data-scroll-target="#your-turn-19"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-20" id="toc-your-turn-20" class="nav-link" data-scroll-target="#your-turn-20"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
@@ -217,7 +219,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 27, 2023</p>
+      <p class="date">September 9, 2023</p>
     </div>
   </div>
   
@@ -346,8 +348,8 @@ dbl (2): student_id, time_spent
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>There are two quick things to note. First, importing out data and saving in our environment does not alter the original file saved in our data folder, so we don’t have to worry about causing any harm to the original file as we wrangle and explore our data!</p>
-<p>Second, the message in the output indicated that four of the columns were specified as “character” data types and two of the columns <code>student_id</code> and <code>time_spent</code> as double (dbl) or numeric types. The student ID as numeric is problematic and something we will have to deal with later.</p>
+<p>There are two quick things to note. First, importing our data and saving in our environment does not alter the original file saved in our data folder, so we don’t have to worry about causing any harm to the original file as we wrangle and explore our data!</p>
+<p>Second, the message in the output indicated that four of the columns were specified as “character” data types and two of the columns <code>student_id</code> and <code>time_spent</code> as double (dbl) or numeric types.</p>
 </section>
 <section id="your-turn-1" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
@@ -407,8 +409,8 @@ dbl (3): student_id, total_points_possible, total_points_earned
 <pre><code>Rows: 662 Columns: 26
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
-chr   (5): student_ID, course_ID, subject, semester, section
-dbl  (18): int, val, percomp, tv, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, p...
+chr   (3): course_id, subject, semester
+dbl  (20): student_id, section, int, val, percomp, tv, q1, q2, q3, q4, q5, q...
 dttm  (3): date.x, date.y, date
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
@@ -417,18 +419,18 @@ dttm  (3): date.x, date.y, date
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 662 × 26
-   student_ID course_ID subject semester section   int   val percomp    tv    q1
-   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 43146      FrScA-S2… FrScA   S216     02        4.2  3.67     4    3.86     4
- 2 44638      OcnA-S11… OcnA    S116     01        4    3        3    3.57     4
- 3 47448      FrScA-S2… FrScA   S216     01        4.2  3        3    3.71     5
- 4 47979      OcnA-S21… OcnA    S216     01        4    3.67     2.5  3.86     4
- 5 48797      PhysA-S1… PhysA   S116     01        3.8  3.67     3.5  3.71     4
- 6 51943      FrScA-S2… FrScA   S216     03        3.8  3.67     3.5  3.71     4
- 7 52326      AnPhA-S2… AnPhA   S216     01        3.6  4        3    4        4
- 8 52446      PhysA-S1… PhysA   S116     01        4.2  3.67     3    4        4
- 9 53447      FrScA-S1… FrScA   S116     01        3.8  2        3    3        5
-10 53475      FrScA-S2… FrScA   S216     01        4.8  3.33     4    4.14     5
+   student_id course_id subject semester section   int   val percomp    tv    q1
+        &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1      43146 FrScA-S2… FrScA   S216           2   4.2  3.67     4    3.86     4
+ 2      44638 OcnA-S11… OcnA    S116           1   4    3        3    3.57     4
+ 3      47448 FrScA-S2… FrScA   S216           1   4.2  3        3    3.71     5
+ 4      47979 OcnA-S21… OcnA    S216           1   4    3.67     2.5  3.86     4
+ 5      48797 PhysA-S1… PhysA   S116           1   3.8  3.67     3.5  3.71     4
+ 6      51943 FrScA-S2… FrScA   S216           3   3.8  3.67     3.5  3.71     4
+ 7      52326 AnPhA-S2… AnPhA   S216           1   3.6  4        3    4        4
+ 8      52446 PhysA-S1… PhysA   S116           1   4.2  3.67     3    4        4
+ 9      53447 FrScA-S1… FrScA   S116           1   3.8  2        3    3        5
+10      53475 FrScA-S2… FrScA   S216           1   4.8  3.33     4    4.14     5
 # ℹ 652 more rows
 # ℹ 16 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
 #   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date.x &lt;dttm&gt;, post_int &lt;dbl&gt;,
@@ -452,18 +454,18 @@ dttm  (3): date.x, date.y, date
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 662 × 26
-   student_ID course_ID subject semester section   int   val percomp    tv    q1
-   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 43146      FrScA-S2… FrScA   S216     02        4.2  3.67     4    3.86     4
- 2 44638      OcnA-S11… OcnA    S116     01        4    3        3    3.57     4
- 3 47448      FrScA-S2… FrScA   S216     01        4.2  3        3    3.71     5
- 4 47979      OcnA-S21… OcnA    S216     01        4    3.67     2.5  3.86     4
- 5 48797      PhysA-S1… PhysA   S116     01        3.8  3.67     3.5  3.71     4
- 6 51943      FrScA-S2… FrScA   S216     03        3.8  3.67     3.5  3.71     4
- 7 52326      AnPhA-S2… AnPhA   S216     01        3.6  4        3    4        4
- 8 52446      PhysA-S1… PhysA   S116     01        4.2  3.67     3    4        4
- 9 53447      FrScA-S1… FrScA   S116     01        3.8  2        3    3        5
-10 53475      FrScA-S2… FrScA   S216     01        4.8  3.33     4    4.14     5
+   student_id course_id subject semester section   int   val percomp    tv    q1
+        &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1      43146 FrScA-S2… FrScA   S216           2   4.2  3.67     4    3.86     4
+ 2      44638 OcnA-S11… OcnA    S116           1   4    3        3    3.57     4
+ 3      47448 FrScA-S2… FrScA   S216           1   4.2  3        3    3.71     5
+ 4      47979 OcnA-S21… OcnA    S216           1   4    3.67     2.5  3.86     4
+ 5      48797 PhysA-S1… PhysA   S116           1   3.8  3.67     3.5  3.71     4
+ 6      51943 FrScA-S2… FrScA   S216           3   3.8  3.67     3.5  3.71     4
+ 7      52326 AnPhA-S2… AnPhA   S216           1   3.6  4        3    4        4
+ 8      52446 PhysA-S1… PhysA   S116           1   4.2  3.67     3    4        4
+ 9      53447 FrScA-S1… FrScA   S116           1   3.8  2        3    3        5
+10      53475 FrScA-S2… FrScA   S216           1   4.8  3.33     4    4.14     5
 # ℹ 652 more rows
 # ℹ 16 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
 #   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date.x &lt;dttm&gt;, post_int &lt;dbl&gt;,
@@ -477,11 +479,11 @@ dttm  (3): date.x, date.y, date
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 662
 Columns: 26
-$ student_ID   &lt;chr&gt; "43146", "44638", "47448", "47979", "48797", "51943", "52…
-$ course_ID    &lt;chr&gt; "FrScA-S216-02", "OcnA-S116-01", "FrScA-S216-01", "OcnA-S…
+$ student_id   &lt;dbl&gt; 43146, 44638, 47448, 47979, 48797, 51943, 52326, 52446, 5…
+$ course_id    &lt;chr&gt; "FrScA-S216-02", "OcnA-S116-01", "FrScA-S216-01", "OcnA-S…
 $ subject      &lt;chr&gt; "FrScA", "OcnA", "FrScA", "OcnA", "PhysA", "FrScA", "AnPh…
 $ semester     &lt;chr&gt; "S216", "S116", "S216", "S216", "S116", "S216", "S216", "…
-$ section      &lt;chr&gt; "02", "01", "01", "01", "01", "03", "01", "01", "01", "01…
+$ section      &lt;dbl&gt; 2, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, …
 $ int          &lt;dbl&gt; 4.2, 4.0, 4.2, 4.0, 3.8, 3.8, 3.6, 4.2, 3.8, 4.8, 4.6, 3.…
 $ val          &lt;dbl&gt; 3.666667, 3.000000, 3.000000, 3.666667, 3.666667, 3.66666…
 $ percomp      &lt;dbl&gt; 4.0, 3.0, 3.0, 2.5, 3.5, 3.5, 3.0, 3.0, 3.0, 4.0, 4.0, 3.…
@@ -510,14 +512,14 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(survey) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 26
-  student_ID course_ID  subject semester section   int   val percomp    tv    q1
-  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 43146      FrScA-S21… FrScA   S216     02        4.2  3.67     4    3.86     4
-2 44638      OcnA-S116… OcnA    S116     01        4    3        3    3.57     4
-3 47448      FrScA-S21… FrScA   S216     01        4.2  3        3    3.71     5
-4 47979      OcnA-S216… OcnA    S216     01        4    3.67     2.5  3.86     4
-5 48797      PhysA-S11… PhysA   S116     01        3.8  3.67     3.5  3.71     4
-6 51943      FrScA-S21… FrScA   S216     03        3.8  3.67     3.5  3.71     4
+  student_id course_id  subject semester section   int   val percomp    tv    q1
+       &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      43146 FrScA-S21… FrScA   S216           2   4.2  3.67     4    3.86     4
+2      44638 OcnA-S116… OcnA    S116           1   4    3        3    3.57     4
+3      47448 FrScA-S21… FrScA   S216           1   4.2  3        3    3.71     5
+4      47979 OcnA-S216… OcnA    S216           1   4    3.67     2.5  3.86     4
+5      48797 PhysA-S11… PhysA   S116           1   3.8  3.67     3.5  3.71     4
+6      51943 FrScA-S21… FrScA   S216           3   3.8  3.67     3.5  3.71     4
 # ℹ 16 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
 #   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date.x &lt;dttm&gt;, post_int &lt;dbl&gt;,
 #   post_uv &lt;dbl&gt;, post_tv &lt;dbl&gt;, post_percomp &lt;dbl&gt;, date.y &lt;dttm&gt;,
@@ -529,14 +531,14 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(survey) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 26
-  student_ID course_ID  subject semester section   int   val percomp    tv    q1
-  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 19         AnPhA-S21… AnPhA   S217     02        4.2  5        5    4.5      5
-2 42         FrScA-S21… FrScA   S217     01        4    4        4    4        4
-3 52         FrScA-S21… FrScA   S217     03        4.4  2.67     3.5  3.75     4
-4 57         FrScA-S21… FrScA   S217     01        4.4  2.33     2.5  3.62     5
-5 72         FrScA-S21… FrScA   S217     01        5    3        4    4.25     5
-6 80         FrScA-S21… FrScA   S217     01        3.6  2.33     3    3.12     4
+  student_id course_id  subject semester section   int   val percomp    tv    q1
+       &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1         19 AnPhA-S21… AnPhA   S217           2   4.2  5        5    4.5      5
+2         42 FrScA-S21… FrScA   S217           1   4    4        4    4        4
+3         52 FrScA-S21… FrScA   S217           3   4.4  2.67     3.5  3.75     4
+4         57 FrScA-S21… FrScA   S217           1   4.4  2.33     2.5  3.62     5
+5         72 FrScA-S21… FrScA   S217           1   5    3        4    4.25     5
+6         80 FrScA-S21… FrScA   S217           1   3.6  2.33     3    3.12     4
 # ℹ 16 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
 #   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date.x &lt;dttm&gt;, post_int &lt;dbl&gt;,
 #   post_uv &lt;dbl&gt;, post_tv &lt;dbl&gt;, post_percomp &lt;dbl&gt;, date.y &lt;dttm&gt;,
@@ -547,7 +549,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the names of your variables or columns</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(survey) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "student_ID"   "course_ID"    "subject"      "semester"     "section"     
+<pre><code> [1] "student_id"   "course_id"    "subject"      "semester"     "section"     
  [6] "int"          "val"          "percomp"      "tv"           "q1"          
 [11] "q2"           "q3"           "q4"           "q5"           "q6"          
 [16] "q7"           "q8"           "q9"           "q10"          "date.x"      
@@ -963,45 +965,6 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <ul>
 <li>YOUR RESPONSE HERE</li>
 </ul>
-<p>You may have noticed that <code>student_ID</code> is not formatted the same as <code>student_id</code> in our other files. This is important because in the next section when were “join,” or merge, our data files, these variables will need to have identical names.</p>
-<p>Fortunately the {<a href="https://garthtarr.github.io/meatR/janitor.html">janitor</a>} package has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. There is also a handy function called <code>clean_names()</code> in the {janitor} package for standardizing variable names.</p>
-<p>Run the following code load the {janitor} package and clean our column names in both data frames so they are consistent:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'janitor'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    chisq.test, fisher.test</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>survey <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(survey)</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 662 × 26
-   student_id course_id subject semester section   int   val percomp    tv    q1
-   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 43146      FrScA-S2… FrScA   S216     02        4.2  3.67     4    3.86     4
- 2 44638      OcnA-S11… OcnA    S116     01        4    3        3    3.57     4
- 3 47448      FrScA-S2… FrScA   S216     01        4.2  3        3    3.71     5
- 4 47979      OcnA-S21… OcnA    S216     01        4    3.67     2.5  3.86     4
- 5 48797      PhysA-S1… PhysA   S116     01        3.8  3.67     3.5  3.71     4
- 6 51943      FrScA-S2… FrScA   S216     03        3.8  3.67     3.5  3.71     4
- 7 52326      AnPhA-S2… AnPhA   S216     01        3.6  4        3    4        4
- 8 52446      PhysA-S1… PhysA   S116     01        4.2  3.67     3    4        4
- 9 53447      FrScA-S1… FrScA   S116     01        3.8  2        3    3        5
-10 53475      FrScA-S2… FrScA   S216     01        4.8  3.33     4    4.14     5
-# ℹ 652 more rows
-# ℹ 16 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
-#   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date_x &lt;dttm&gt;, post_int &lt;dbl&gt;,
-#   post_uv &lt;dbl&gt;, post_tv &lt;dbl&gt;, post_percomp &lt;dbl&gt;, date_y &lt;dttm&gt;,
-#   date &lt;dttm&gt;</code></pre>
-</div>
-</div>
-<p>Let’s take one more look at the data by typing its name into the console or using a method of your choice to check that the above function appeared to work; if it did, the names should be lower-case, and any symbols or spaces should now be replaced by an underscore (<code>_</code>).</p>
 </section>
 </section>
 <section id="c.-joining-the-data" class="level3">
@@ -1017,10 +980,10 @@ Attaching package: 'janitor'</code></pre>
 <p><code>df6</code> contains a variable with three student names, <code>name</code> (like in <code>df5</code>), as well as another, different variable, for students’ self-reported interest in STEM topics, <code>interest_in_stem</code>, measured on a one-seven scale, with seven indicating higher levels of interest.</p>
 <p>Run the code below and then type <code>df5</code> and <code>df6</code> in the console.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>df5 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Sheila"</span>, <span class="st">"Tayla"</span>, <span class="st">"Marcus"</span>),</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">n_stem_classes =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>df5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>df5 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Sheila"</span>, <span class="st">"Tayla"</span>, <span class="st">"Marcus"</span>),</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">n_stem_classes =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>df5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   name   n_stem_classes
@@ -1029,10 +992,10 @@ Attaching package: 'janitor'</code></pre>
 2 Tayla               5
 3 Marcus              6</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>df6 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Tayla"</span>, <span class="st">"Marcus"</span>, <span class="st">"Sheila"</span>, <span class="st">"Vin"</span>),</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">interest_in_stem =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">6</span>))</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>df6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df6 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Tayla"</span>, <span class="st">"Marcus"</span>, <span class="st">"Sheila"</span>, <span class="st">"Vin"</span>),</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">interest_in_stem =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>df6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
   name   interest_in_stem
@@ -1044,18 +1007,18 @@ Attaching package: 'janitor'</code></pre>
 </div>
 </div>
 <p>A key (pun intended) with joins is to consider what variable(s) will serve as the <em>key</em>. This is the variable to join by.</p>
-<p>A key must have two characteristics; it is:</p>
-<ul>
-<li><p>a character string— a word (thus, you cannot join on a number unless you “coerce” or change it to be a character string, first)</p></li>
-<li><p>present in both of the data frames you are joining.</p></li>
-</ul>
+<p>A key must have two characteristics:</p>
+<ol type="1">
+<li><p>The variable(s) used as the key <strong>must be present in both of the data frames</strong> you are joining.</p></li>
+<li><p>The variable(s) used as the key <strong>must be of the same data type</strong> (e.g., character, numeric, integer, double, etc.).</p></li>
+</ol>
 <p>To join two datasets, it is important that the <em>key</em> (or <em>keys</em>) on which you are joining the data is formatted identically. The key represents an identifier that is present in both of the data sets you are joining. For instance, you may have data collected from (or created about) the same students that are from two very different sources, such as a self-report survey of students and their teacher-assigned grades in class.</p>
 <p>While some of the time it takes some thought to determine what the key is (or what the keys are—you can join on multiple keys!), in the above case, there is just one variable that meets both of the above characteristics.</p>
 <section id="your-turn-10" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the code below, enter the name of the variable that is the key within the quotation marks following <code>by =</code>. Then run the code chunk and note the output.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(df5, df6, <span class="at">by =</span> <span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(df5, df6, <span class="at">by =</span> <span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
   name   n_stem_classes interest_in_stem
@@ -1068,7 +1031,7 @@ Attaching package: 'janitor'</code></pre>
 </div>
 <p>What do you notice about the output of the <code>full_join()</code>? All observations are valid; consider how the output is similar to and different from <code>df5</code> and <code>df6</code>, particularly in one or more notes following the bullet point.</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 <p><code>full_join()</code> is one of a number of joins from which we can choose. <code>full_join()</code> is distinguished from the other joins by how it returns <em>all</em> of the rows in both of the data frames being joined. If a particular key is present in one of the data frames but not the other, the values for the variable in the data set for which the key is not present are simply recorded as missing (like in the above, where there is no value for the number of STEM classes Vin has taken).</p>
 <p>There is one other join on which we’ll focus for now. That is <code>left_join()</code>, which differs from <code>full_join()</code> in that it returns all of the rows in the “left” data frame, the data frame named first in the function, but not all of the rows in the “right” data frame: it retains only the rows in the “right” data frame, the data frame named second in the function, that have a matching key. An example is necessary. Before running the code below, add the same key you added above.</p>
@@ -1076,7 +1039,7 @@ Attaching package: 'janitor'</code></pre>
 <section id="your-turn-11" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-11"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(df5, df6, <span class="at">by =</span> <span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(df5, df6, <span class="at">by =</span> <span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   name   n_stem_classes interest_in_stem
@@ -1090,14 +1053,14 @@ Attaching package: 'janitor'</code></pre>
 </section>
 <section id="join-gradebook-and-log-data" class="level4">
 <h4 class="anchored" data-anchor-id="join-gradebook-and-log-data">Join Gradebook and Log Data</h4>
-<p>For now, we’re going to use a single join function, <code>full_join()</code>. In the code below, join <code>gradebook</code> and <code>time_spent</code>; type the names of those two data frames as arguments to the <code>full_join()</code> function in a similar manner as in the <code>full_join()</code> code above, and then run this code chunk. For now, don’t specify anything for the <code>by =</code> part of the function.</p>
+<p>For now, we’re going to use a single join function, <code>full_join()</code>. In the code below, join <code>gradebook</code> and <code>time_spent</code>; type the names of those two data frames as arguments to the <code>full_join()</code> function in a similar manner as in the <code>full_join()</code> code above, and then run this code chunk. For now, don’t specify anything for the <code>by =</code> argument of the function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join together the gradebook and log_wrangled</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> <span class="fu">full_join</span>(gradebook, time_spent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join together the gradebook and log_wrangled</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> <span class="fu">full_join</span>(gradebook, time_spent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(student_id, subject, semester, section)`</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>joined_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>joined_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 830 × 12
    student_id subject semester section total_points_possible total_points_earned
@@ -1125,10 +1088,10 @@ Attaching package: 'janitor'</code></pre>
 <h4 class="anchored" data-anchor-id="your-turn-12"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the code chunk below, write your join like above, but add the <code>c("student_id", "subject", "semester", "section")</code> part to your code. You may notice the red message you may have noticed does not appear. This is generally a better practice because you know precisely on which variables you data sets are joining.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join together the gradebook and time_spent</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> <span class="fu">full_join</span>(gradebook, time_spent, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"student_id"</span>, <span class="st">"subject"</span>, <span class="st">"semester"</span>, <span class="st">"section"</span>))</span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>joined_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join together the gradebook and time_spent</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> <span class="fu">full_join</span>(gradebook, time_spent, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"student_id"</span>, <span class="st">"subject"</span>, <span class="st">"semester"</span>, <span class="st">"section"</span>))</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>joined_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 830 × 12
    student_id subject semester section total_points_possible total_points_earned
@@ -1152,27 +1115,103 @@ Attaching package: 'janitor'</code></pre>
 <p><strong>Hint:</strong> If you’re curious about how to format the use of the <code>by =</code> part of your code, look up above at how you used this argument to the <code>full_join()</code> function.</p>
 <p>What do you notice about the result—the data you joined? In particular, how does it differ from the two data sets from which it was created? Add one or more notes below.</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 </section>
 <section id="join-gradebook-and-log-data-1" class="level4">
 <h4 class="anchored" data-anchor-id="join-gradebook-and-log-data-1">Join Gradebook and Log Data</h4>
 <p>Now let’s try joining on our final data set so that our LMS, gradebook and survey data are all in a single data frame for analysis called <code>data_to_explore</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join together the gradebook and log_wrangled</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="ot">&lt;-</span> <span class="fu">full_join</span>(joined_data, survey, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"student_id"</span>, <span class="st">"subject"</span>, <span class="st">"semester"</span>, <span class="st">"section"</span>))</span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>data_to_explore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join together the gradebook and log_wrangled</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="ot">&lt;-</span> <span class="fu">full_join</span>(joined_data, survey, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"student_id"</span>, <span class="st">"subject"</span>, <span class="st">"semester"</span>, <span class="st">"section"</span>))</span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>data_to_explore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Oops! You probably noticed a red error message telling us that even though <code>student_id</code> is consistently named in both files, they are not of the same data type. Something we were warned about earlier.</p>
-<p>We can use the <code>mutate()</code> function that we learned about in our tutorials to change this variable in our <code>joined_data</code> from a “double,” i.e.&nbsp;numeric variable to a character variable using the base R <code>as.character()</code> function:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span></span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">student_id =</span> <span class="fu">as.character</span>(student_id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Oops! You probably noticed a red error message telling us that <code>x$section</code> and <code>y$section</code> are not of the same data type. This is basically telling us we are not meeting the second criteria of a key noted above. Specifically, somewhere we have a mismatch in data types in our <code>joined_data</code> and <code>survey</code> data frames among our student_id, subject, semester or section variables; something we were warned about earlier.</p>
 </section>
 <section id="your-turn-13" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-13"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Run the following code chunk to inspect our two data frames and record below the variable used in our key where we have a mismatch in data type:</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>joined_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 830 × 12
+   student_id subject semester section total_points_possible total_points_earned
+        &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;                   &lt;dbl&gt;               &lt;dbl&gt;
+ 1      43146 FrScA   S216     02                       1217               1150 
+ 2      44638 OcnA    S116     01                       1676               1384.
+ 3      47448 FrScA   S216     01                       1232               1116 
+ 4      47979 OcnA    S216     01                       1833               1493.
+ 5      48797 PhysA   S116     01                       2225               1995.
+ 6      51943 FrScA   S216     03                       1222                 70 
+ 7      52326 AnPhA   S216     01                       1775               1519.
+ 8      52446 PhysA   S116     01                       2225               2198 
+ 9      53447 FrScA   S116     01                       1212               1173 
+10      53475 FrScA   S116     02                       1212                  0 
+# ℹ 820 more rows
+# ℹ 6 more variables: proportion_earned &lt;dbl&gt;, gender &lt;chr&gt;,
+#   enrollment_reason &lt;chr&gt;, enrollment_status &lt;chr&gt;, time_spent &lt;dbl&gt;,
+#   time_spent_hours &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 662 × 26
+   student_id course_id subject semester section   int   val percomp    tv    q1
+        &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1      43146 FrScA-S2… FrScA   S216           2   4.2  3.67     4    3.86     4
+ 2      44638 OcnA-S11… OcnA    S116           1   4    3        3    3.57     4
+ 3      47448 FrScA-S2… FrScA   S216           1   4.2  3        3    3.71     5
+ 4      47979 OcnA-S21… OcnA    S216           1   4    3.67     2.5  3.86     4
+ 5      48797 PhysA-S1… PhysA   S116           1   3.8  3.67     3.5  3.71     4
+ 6      51943 FrScA-S2… FrScA   S216           3   3.8  3.67     3.5  3.71     4
+ 7      52326 AnPhA-S2… AnPhA   S216           1   3.6  4        3    4        4
+ 8      52446 PhysA-S1… PhysA   S116           1   4.2  3.67     3    4        4
+ 9      53447 FrScA-S1… FrScA   S116           1   3.8  2        3    3        5
+10      53475 FrScA-S2… FrScA   S216           1   4.8  3.33     4    4.14     5
+# ℹ 652 more rows
+# ℹ 16 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;,
+#   q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date.x &lt;dttm&gt;, post_int &lt;dbl&gt;,
+#   post_uv &lt;dbl&gt;, post_tv &lt;dbl&gt;, post_percomp &lt;dbl&gt;, date.y &lt;dttm&gt;,
+#   date &lt;dttm&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="change-data-type" class="level4">
+<h4 class="anchored" data-anchor-id="change-data-type">Change Data Type</h4>
+<p>We can use the <code>mutate()</code> function that we learned about in our tutorials to also change data types!</p>
+<p>Run the code chunk below to “mutate” the <code>section</code> variable in our <code>joined_data</code> table from a “character” data type to a “dbl” data type, i.e.&nbsp;numeric variable to a character variable using the base R <code>as.double()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">section =</span> <span class="fu">as.double</span>(section))</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>joined_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 830 × 12
+   student_id subject semester section total_points_possible total_points_earned
+        &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt;                 &lt;dbl&gt;               &lt;dbl&gt;
+ 1      43146 FrScA   S216           2                  1217               1150 
+ 2      44638 OcnA    S116           1                  1676               1384.
+ 3      47448 FrScA   S216           1                  1232               1116 
+ 4      47979 OcnA    S216           1                  1833               1493.
+ 5      48797 PhysA   S116           1                  2225               1995.
+ 6      51943 FrScA   S216           3                  1222                 70 
+ 7      52326 AnPhA   S216           1                  1775               1519.
+ 8      52446 PhysA   S116           1                  2225               2198 
+ 9      53447 FrScA   S116           1                  1212               1173 
+10      53475 FrScA   S116           2                  1212                  0 
+# ℹ 820 more rows
+# ℹ 6 more variables: proportion_earned &lt;dbl&gt;, gender &lt;chr&gt;,
+#   enrollment_reason &lt;chr&gt;, enrollment_status &lt;chr&gt;, time_spent &lt;dbl&gt;,
+#   time_spent_hours &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>A quick note about “dbl” (short for double) vs.&nbsp;“numeric” data types. “dbl” is the designation you’ll commonly see for numeric columns when printing a tibble (a modern form of data frame provided by the tidyverse). This is just a user-friendly way to indicate that the column contains numeric (double-precision) data. For a nice simple list of data types and examples, check out this short article on the tidyverse website: <a href="https://tibble.tidyverse.org/articles/types.htmlhttps://tibble.tidyverse.org/articles/types.html">https://tibble.tidyverse.org/articles/types.html</a>.</p>
+</section>
+<section id="your-turn-14" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-14"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the code chunk below, try joining our two data frames again using the same code from above:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="ot">&lt;-</span> <span class="fu">full_join</span>(joined_data, survey, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"student_id"</span>, <span class="st">"subject"</span>, <span class="st">"semester"</span>, <span class="st">"section"</span>))</span>
@@ -1181,23 +1220,23 @@ Attaching package: 'janitor'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 943 × 34
    student_id subject semester section total_points_possible total_points_earned
-   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;                   &lt;dbl&gt;               &lt;dbl&gt;
- 1 43146      FrScA   S216     02                       1217               1150 
- 2 44638      OcnA    S116     01                       1676               1384.
- 3 47448      FrScA   S216     01                       1232               1116 
- 4 47979      OcnA    S216     01                       1833               1493.
- 5 48797      PhysA   S116     01                       2225               1995.
- 6 51943      FrScA   S216     03                       1222                 70 
- 7 52326      AnPhA   S216     01                       1775               1519.
- 8 52446      PhysA   S116     01                       2225               2198 
- 9 53447      FrScA   S116     01                       1212               1173 
-10 53475      FrScA   S116     02                       1212                  0 
+        &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt;                 &lt;dbl&gt;               &lt;dbl&gt;
+ 1      43146 FrScA   S216           2                  1217               1150 
+ 2      44638 OcnA    S116           1                  1676               1384.
+ 3      47448 FrScA   S216           1                  1232               1116 
+ 4      47979 OcnA    S216           1                  1833               1493.
+ 5      48797 PhysA   S116           1                  2225               1995.
+ 6      51943 FrScA   S216           3                  1222                 70 
+ 7      52326 AnPhA   S216           1                  1775               1519.
+ 8      52446 PhysA   S116           1                  2225               2198 
+ 9      53447 FrScA   S116           1                  1212               1173 
+10      53475 FrScA   S116           2                  1212                  0 
 # ℹ 933 more rows
 # ℹ 28 more variables: proportion_earned &lt;dbl&gt;, gender &lt;chr&gt;,
 #   enrollment_reason &lt;chr&gt;, enrollment_status &lt;chr&gt;, time_spent &lt;dbl&gt;,
 #   time_spent_hours &lt;dbl&gt;, course_id &lt;chr&gt;, int &lt;dbl&gt;, val &lt;dbl&gt;,
 #   percomp &lt;dbl&gt;, tv &lt;dbl&gt;, q1 &lt;dbl&gt;, q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;,
-#   q6 &lt;dbl&gt;, q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date_x &lt;dttm&gt;,
+#   q6 &lt;dbl&gt;, q7 &lt;dbl&gt;, q8 &lt;dbl&gt;, q9 &lt;dbl&gt;, q10 &lt;dbl&gt;, date.x &lt;dttm&gt;,
 #   post_int &lt;dbl&gt;, post_uv &lt;dbl&gt;, post_tv &lt;dbl&gt;, post_percomp &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
@@ -1210,7 +1249,7 @@ Attaching package: 'janitor'</code></pre>
 <h2 class="anchored" data-anchor-id="explore">3. EXPLORE</h2>
 <p>As highlighted in both <a href="https://datascienceineducation.com/c03.html#doing-analysis-exploring-visualizing-and-modeling-data">DSEIUR</a> and Learning Analytics Goes to School, calculating summary statistics and data visualization are a key part of exploratory data analysis. One goal in this phase is explore questions that drove the original analysis and develop new questions and hypotheses to test in later stages. Topics addressed in Part 3 include:</p>
 <ul>
-<li><p><strong>Summarize Key Stats</strong>. We’ll learn about the {skmir} package for pulling together some quick creating descriptive statistics when your goal is to understand your data internally.</p></li>
+<li><p><strong>Summarize Key Stats</strong>. We’ll learn about the {skmir} package for pulling together some quick descriptive statistics when your goal is to understand your data internally.</p></li>
 <li><p><strong>Visualize Data</strong>. We’ll introduce the histogram geom for taking a quick peak the distributions of some key variables and put together some scatter plots for examining potential relationships between time spent and student performance.</p></li>
 <li><p><strong>Correlated Variables.</strong> We’ll wrap up our Part 3 by learning to create a correlation matrix for quantifying these relationships between key variables and student performance.</p></li>
 </ul>
@@ -1259,11 +1298,11 @@ Attaching package: 'janitor'</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: left;">character</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">numeric</td>
-<td style="text-align: left;">23</td>
+<td style="text-align: left;">25</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">POSIXct</td>
@@ -1305,16 +1344,6 @@ Attaching package: 'janitor'</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">student_id</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">879</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">subject</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1.00</td>
@@ -1324,22 +1353,12 @@ Attaching package: 'janitor'</code></pre>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">semester</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1.00</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">section</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
@@ -1389,16 +1408,16 @@ Attaching package: 'janitor'</code></pre>
 <p><strong>Variable type: numeric</strong></p>
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 9%">
+<col style="width: 19%">
+<col style="width: 8%">
 <col style="width: 12%">
 <col style="width: 7%">
 <col style="width: 7%">
+<col style="width: 6%">
 <col style="width: 7%">
 <col style="width: 7%">
 <col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
+<col style="width: 8%">
 <col style="width: 5%">
 </colgroup>
 <thead>
@@ -1417,6 +1436,32 @@ Attaching package: 'janitor'</code></pre>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td style="text-align: left;">student_id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">98989.73</td>
+<td style="text-align: right;">66673.70</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">84717.00</td>
+<td style="text-align: right;">89345.00</td>
+<td style="text-align: right;">96423.50</td>
+<td style="text-align: right;">265635.00</td>
+<td style="text-align: left;">▂▇▁▁▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">section</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.48</td>
+<td style="text-align: right;">0.73</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
 <tr class="odd">
 <td style="text-align: left;">total_points_possible</td>
 <td style="text-align: right;">226</td>
@@ -1742,7 +1787,7 @@ Attaching package: 'janitor'</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">date_x</td>
+<td style="text-align: left;">date.x</td>
 <td style="text-align: right;">393</td>
 <td style="text-align: right;">0.58</td>
 <td style="text-align: left;">2015-09-02 15:40:00</td>
@@ -1751,7 +1796,7 @@ Attaching package: 'janitor'</code></pre>
 <td style="text-align: right;">536</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">date_y</td>
+<td style="text-align: left;">date.y</td>
 <td style="text-align: right;">848</td>
 <td style="text-align: right;">0.10</td>
 <td style="text-align: left;">2015-09-02 15:31:00</td>
@@ -1775,13 +1820,13 @@ Attaching package: 'janitor'</code></pre>
 <p><strong>Note:</strong> If you are having difficult viewing your data in the code chunk, try clicking the icon in the output that looks like a spreadsheet with an arrow on it to expand your output in a separate window.</p>
 <p>What do you notice about the output? These observations might pertain to the format of the output or its values (i.e., what the mean for the <code>val</code> variable is). Note one or two of these noticings or wonderings below:</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 <p>As we noted earlier, the {skimr} package works nicely with other {tidyverse} functions.</p>
 <p><strong>Hint:</strong> For help, also consider running <code>?skim()</code> in the console to view the documentation for the function.</p>
 </section>
-<section id="your-turn-14" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-14"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-15" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-15"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>Recall from the Week 3 tutorials and exercises how we how we isolated data using the <code>select()</code> and <code>filter()</code> functions. In the code chunk below, look at descriptives for just <code>proportion_earned</code> , <code>time_spent</code> and <code>gender</code>, but only for the “OcnA” and “PhysA” subjects.</p>
 <p>Can you do this by modifying the code below to do this?</p>
 <div class="cell">
@@ -1945,14 +1990,22 @@ Attaching package: 'janitor'</code></pre>
 </section>
 <section id="b.-data-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="b.-data-visualization">b. Data Visualization</h3>
-<section id="histograms" class="level4">
-<h4 class="anchored" data-anchor-id="histograms">Histograms</h4>
-<p>You likely notice that the <code>skim()</code> function created some miniature histrograms for each of the numeric variables in our <code>data-to-explore</code> data frame. Since we are especially interested in whether time spent in the online course is related to student performance, let’s take a closer look at this variable.</p>
-<p>The code below creates a histogram with 30 bins—the default number for <code>geom_histogram</code>:</p>
+<p>As we noted in our Getting Started Case Study, data visualization is an extremely common practice in Learning Analytics, especially in the use of data dashboards. Data visualization involves graphically representing one or more variables with the goal of discovering patterns in data. These patterns may help us to answer research questions or generate new questions about our data, to discover relationships between and among variables, and to create or select features for data modeling.</p>
+</section>
+<section id="the-graphing-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="the-graphing-workflow">The Graphing Workflow</h3>
+<p>Before visually exploring our data, let’s revisit the basic code template for the {<a href="https://ggplot2.tidyverse.org">ggplot2</a>} package from the tidyverse. <code>ggplot2</code> is a system for declaratively creating graphics, based on <a href="https://ggplot2-book.org/introduction.html#what-is-the-grammar-of-graphics">the grammar of graphics</a> <span class="citation" data-cites="Wickham">(<a href="#ref-Wickham" role="doc-biblioref"><strong>Wickham?</strong></a>)</span>. You provide the data, tell ggplot2 how to map variables to <a href="https://ggplot2.tidyverse.org/reference/aes.html">aesthetics</a>, what graphical elements to use, and it takes care of the details.</p>
+<p>At it’s core, you can create some very simple but attractive graphs with just a couple lines of code. {<a href="https://ggplot2.tidyverse.org">ggplot2</a>} follows the common workflow for making graphs. To make a graph, you simply:</p>
+<ol type="1">
+<li><p>Start the graph with <code>ggplot()</code> and include your data as an argument;</p></li>
+<li><p>“Add” elements to the graph using the <code>+</code> operator a&nbsp;<a href="https://ggplot2.tidyverse.org/reference/#geoms"><code>geom_()</code> function</a>;</p></li>
+<li><p>Select variables to graph on each axis with the <code>aes()</code> argument.</p></li>
+</ol>
+<p>Let’s give it a try by creating a simple histogram of our <code>time_spent_hours</code> variable. You likely noticed that the <code>skim()</code> function created some miniature histrograms for each of the numeric variables in our <code>data-to-explore</code> data frame. Since we are especially interested in whether time spent in the online course is related to student performance, let’s take a closer look at this variable.</p>
+<p>The code below creates a histogram with 30 bins – the default number for <code>geom_histogram</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="sc">|&gt;</span> </span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours)) <span class="sc">+</span></span>
-<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours), <span class="at">bins =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 232 rows containing non-finite values (`stat_bin()`).</code></pre>
 </div>
@@ -1960,37 +2013,44 @@ Attaching package: 'janitor'</code></pre>
 <p><img src="unit-1-case-study-key_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="your-turn-15" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-15"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Note that the first function, <code>ggplot()</code>, creates a coordinate system that you can “add” layers to using additional functions and <code>+</code> operator. The first argument of <code>ggplot()</code> is the dataset, in our case <code>data_to_explore</code>, to use for the graph.</p>
+<p>By itself, <code>ggplot(data_to_explore)</code> just creates an empty graph. But when you add a required <code>geom_()</code> function like <code>geom_histogram()</code>, you tell it which type of graph you want to make, in our case a histogram. A <strong>geom</strong> is the geometrical object that a plot uses to represent observations. People often describe plots by the type of geom that the plot uses. For example, bar charts use bar geoms, line charts use line geoms, boxplots use boxplot geoms, and so on. Scatterplots, which we’ll see a in bit, break the trend; they use the point geom.</p>
+<p>The final required element for any graph is a <code>mapping =</code> argument that defines which variables in your dataset are mapped to which axes in your graph. The <code>mapping</code> argument is always paired with the function <code>aes()</code>, which you use to gather together all of the mappings that you want to create. In our case, since we just created a simple histogram, we only had to specify what variable to place on the x axis, which in our case was <code>time_spent_hours</code>.</p>
+<p>Note that we also included the <code>bins =</code> argument in our <code>geom_historgram()</code> function. Again, by default this is set to 30. Aside from the <code>bins =</code> argument, <code>geom_historgram()</code> has other arguments that you can modify, search the Help tab in the Files pane for ” geom_histrogram” or type <code>?geom_histogram</code> in the Console to open the help page.</p>
+<p><strong>Pro Tip</strong>: If you scroll to the bottom of most help pages for functions, you will see and examples section with code for executing those functions. You can copy and paste that code in the console to view the output of those functions and discover different ways they can be used.</p>
+<section id="your-turn-16" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-16"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>Now change the number of bins using the code chunk below below and note any differences in what you interpret about the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>What do you think the ideal number of bins is—with what is ideal being the number of bins that helps you to interpret the overall distribution of the values for how much time students’ spent (<em>note</em>: there is no one right or wrong answer here!)?</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 </section>
 <section id="faceting" class="level4">
 <h4 class="anchored" data-anchor-id="faceting">Faceting</h4>
-<p>We’ll next be using the <code>facet_wrap()</code> function to create <em>small multiples</em>, or plots that are specific to subsets of your data. These subsets are identified based on another variable in your dataset. For example, the code below uses the built-in <code>mpg</code> dataset to plot the relationship between the displacement of a car’s engine and its highway miles per gallon fuel efficiency.</p>
+<p>Next we’ll introduce the <code>facet_wrap()</code> function for creating <em>small multiples</em>, or plots that are specific to subsets of your data. These subsets are identified based on another variable in your dataset. For example, the code below uses the built-in <code>mpg</code> dataset to plot the relationship between the displacement of a car’s engine and its highway miles per gallon fuel efficiency.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(displ, hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="unit-1-case-study-key_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The code in the next plot creates individual plots for each class—think compact car or SUV.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="unit-1-case-study-key_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="your-turn-16" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-16"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-17" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-17"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the code below, create a faceted histogram based on the subject of the course. To do so, consider both:</p>
 <ul>
 <li><p>What code you used to create the histogram of the time students’ spent on the course</p></li>
@@ -1998,9 +2058,9 @@ Attaching package: 'janitor'</code></pre>
 </ul>
 <p>You may also wish to change the color; reflect back to the getting started task for an example of how to do this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore, <span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours)) <span class="sc">+</span> </span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>subject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span> </span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours)) <span class="sc">+</span></span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>subject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -2013,7 +2073,7 @@ Attaching package: 'janitor'</code></pre>
 </div>
 <p>What do you notice about this figure? What questions do you have? Add a note (or a few notes!) below:</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 </section>
 <section id="scatter-plots" class="level4">
@@ -2022,8 +2082,8 @@ Attaching package: 'janitor'</code></pre>
 <p>We’ll be using the {ggplot2} package again, but, this time, will be creating a different type of plot.</p>
 <p>Run the code below to create a scatter plot of the proportion of points students earned and the number of hours they spent on the course LMS.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore, <span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned)) <span class="sc">+</span></span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 345 rows containing missing values (`geom_point()`).</code></pre>
 </div>
@@ -2033,12 +2093,13 @@ Attaching package: 'janitor'</code></pre>
 </div>
 <p>What do you notice about this graph? And what do you wonder? How about the code—what do you notice about it (and what do you wonder)? Add one or more of what you see as the most important elements.</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 <p>Using {ggplot2} makes it efficient to iterate through different versions of similar plots. For instance, we can color the points by a third variable, such as the reason for which students enrolled in the course, to begin to explore what was going on for students who spent very little time on the course:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore, <span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, <span class="at">color =</span> enrollment_status)) <span class="sc">+</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, </span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> enrollment_status))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 345 rows containing missing values (`geom_point()`).</code></pre>
 </div>
@@ -2047,13 +2108,14 @@ Attaching package: 'janitor'</code></pre>
 </div>
 </div>
 </section>
-<section id="your-turn-17" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-17"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-18" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-18"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>We can also additionally create faceted plots, like the one you created in the last learning lab. In the code below, facet the plot by <code>subject</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore, <span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, <span class="at">color =</span> enrollment_status)) <span class="sc">+</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>subject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, </span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> enrollment_status)) <span class="sc">+</span></span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>subject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 345 rows containing missing values (`geom_point()`).</code></pre>
 </div>
@@ -2063,9 +2125,10 @@ Attaching package: 'janitor'</code></pre>
 </div>
 <p>You may wish to style your plot. A few ways you can do that are as follows; we’ll discuss more throughout the institute. For each of the following, add them to your plot by adding a plus symbol to the line prior to the line you are adding. For instance, the following code styles the x-axis label of a plot:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore, <span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, <span class="at">color =</span> enrollment_status)) <span class="sc">+</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Time Spent (Hours)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, </span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> enrollment_status)) <span class="sc">+</span></span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Time Spent (Hours)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 345 rows containing missing values (`geom_point()`).</code></pre>
 </div>
@@ -2081,9 +2144,12 @@ Attaching package: 'janitor'</code></pre>
 <li><p><code>ggtitle("How Time Spent on Course LMS is Related to Points Earned in the Course")</code></p></li>
 <li><p><code>theme(legend.position = "bottom")</code></p></li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Once you have settled on a plot you are happy with (for now!), add a sentence or two interpreting your graph (like you were describing it within a journal article):</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 </section>
 </section>
@@ -2097,7 +2163,7 @@ Attaching package: 'janitor'</code></pre>
 <p>First, the {corrr} package provides a way to create a correlation matrix in a {tidyverse}-friendly way. Like for the {skimr} package, it can take as little as a line of code to create a correlation matrix. If not familiar, a correlation matrix is a table that presents how <em>all of the variables</em> are related to <em>all of the other variables</em>.</p>
 <p>Run the following code to load the {corrr} package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'corrr'</code></pre>
@@ -2114,9 +2180,9 @@ Attaching package: 'corrr'</code></pre>
 <p>Since the primary purpose of this case study is to investigate whether time spent in an online course is predictive of student achievement, let’s first take a look and see if there is a simple correlation between time spent and student achievement.</p>
 <p>Run the following code to create a simple correlation matrix using the <code>correlate()</code> function from the {corrr} package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="sc">|&gt;</span> </span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(proportion_earned, time_spent_hours) <span class="sc">|&gt;</span></span>
-<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="sc">|&gt;</span> </span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(proportion_earned, time_spent_hours) <span class="sc">|&gt;</span></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Correlation computed with
 • Method: 'pearson'
@@ -2130,15 +2196,16 @@ Attaching package: 'corrr'</code></pre>
 2 time_spent_hours              0.438           NA    </code></pre>
 </div>
 </div>
+<p>As our scatterplot suggested, there is positive correlation (0.438) between time spent and the percentage of total points a student earned, suggesting that students who spend more time in the LMS also tend to have a higher proportion of points earned.</p>
 <p>For the purpose of printing, and as a quick aside, the {corrr} package also has a nice <code>fashion()</code> function for converting a correlation data frame into a matrix with the correlations cleanly formatted (leading zeros removed; spaced for signs) and the diagonal (or any NA) left blank.</p>
 <p>Run the following code to try it out:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="sc">|&gt;</span> </span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(proportion_earned, time_spent_hours, int, val, percomp) <span class="sc">|&gt;</span> </span>
-<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rearrange</span>() <span class="sc">|&gt;</span></span>
-<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shave</span>() <span class="sc">|&gt;</span></span>
-<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fashion</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="sc">|&gt;</span> </span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(proportion_earned, time_spent_hours, int, val, percomp) <span class="sc">|&gt;</span> </span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rearrange</span>() <span class="sc">|&gt;</span></span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shave</span>() <span class="sc">|&gt;</span></span>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fashion</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Correlation computed with
 • Method: 'pearson'
@@ -2154,13 +2221,16 @@ Attaching package: 'corrr'</code></pre>
 </div>
 </div>
 </section>
-<section id="your-turn-18" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-18"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-19" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-19"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the code chunk below, select 3-4 numeric variables in addition to <code>time_spent_hours</code> that you think may be related to student achievement, i.e.&nbsp;<code>proportion_earned</code>, and run a simple correlation.</p>
-<p><strong>Hint:</strong> One key is to correlate only numeric variables. Note that while some numeric variables can <em>technically</em> be used, it is likely not sensible to correlate all of the variables; some—for instance, the <code>section</code> variable—are not very sensible to correlate!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Hint:</strong> One key is to correlate only numeric variables. Note that while some numeric variables can <em>technically</em> be used, it is likely not sensible to correlate all of the variables; some—for instance, the <code>student_id</code> variable—are not very sensible to correlate!</p>
 <p>What did you find? Were your selected variables related to time spent in the course? These observations might pertain to the format of the output or its values (i.e., what the mean for the <code>val</code> variable is). Note one or two of these noticings or wonderings below:</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 <p>If you are interested in learning more about the {corrr} package, visit: <a href="https://corrr.tidymodels.org" class="uri">&lt;https://corrr.tidymodels.org&gt;</a></p>
 </section>
@@ -2170,12 +2240,12 @@ Attaching package: 'corrr'</code></pre>
 <p>Then, we can use that subset of the variables as the argument to the<code>apa.cor.table()</code> function.</p>
 <p>Run the following code to create a subset of the larger <code>data_to_explore</code> data frame with the variables you wish to correlate, then create a correlation table using <code>apa.cor.table()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(apaTables)</span>
-<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>data_to_explore_subset <span class="ot">&lt;-</span> data_to_explore <span class="sc">|&gt;</span> </span>
-<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time_spent_hours, proportion_earned, int)</span>
-<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.cor.table</span>(data_to_explore_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(apaTables)</span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>data_to_explore_subset <span class="ot">&lt;-</span> data_to_explore <span class="sc">|&gt;</span> </span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time_spent_hours, proportion_earned, int)</span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.cor.table</span>(data_to_explore_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
@@ -2202,7 +2272,7 @@ that could have caused the sample correlation (Cumming, 2014).
 </div>
 <p>This may look nice, but how to actually add this into a dissertation or journal article that you might be interested in publishing? Read the documentation for <code>apa.cor.table()</code> by running <code>?apa.cor.table()</code> in the console. Look through the documentation and examples to understand how to output a file with the formatted correlation table, and then run the code to do that with your subset of the <code>data_to_explore</code> data frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.cor.table</span>(data_to_explore_subset, <span class="at">filename =</span> <span class="st">"cor-table.doc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.cor.table</span>(data_to_explore_subset, <span class="at">filename =</span> <span class="st">"cor-table.doc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
@@ -2246,8 +2316,8 @@ that could have caused the sample correlation (Cumming, 2014).
 <p>Let’s consider a simple concrete example. We’ll use the <code>lm()</code> function in R to estimate a linear regression model.</p>
 <p>The following code estimates a model in which <code>proportion_earned</code>, the proportion of points students earned, is the dependent variable. It is predicted by one independent variable, <code>int</code>, students’ self-reported interest in science.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(proportion_earned <span class="sc">~</span> time_spent_hours, </span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">data =</span> data_to_explore)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(proportion_earned <span class="sc">~</span> time_spent_hours, </span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">data =</span> data_to_explore)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2265,8 +2335,8 @@ Coefficients:
 <h4 class="anchored" data-anchor-id="how-about-interest-in-science">How about interest in science?</h4>
 <p>We can add additional predictor variables by separating variables with a plus symbol. Run the following code to add <code>int</code>, students’ self-reported interest in science, to our linear model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(proportion_earned <span class="sc">~</span> time_spent_hours <span class="sc">+</span> int, </span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">data =</span> data_to_explore)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(proportion_earned <span class="sc">~</span> time_spent_hours <span class="sc">+</span> int, </span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">data =</span> data_to_explore)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2280,9 +2350,9 @@ Coefficients:
 <p>We can see that the intercept is now estimated at 0.449, which tells us that when students’ time spent and interest are equal to zero, they are likely fail the course unsurprisingly. Note that that estimate for interest in science is .046, so for every one-unit increase in <code>int</code>, we should expect an 5 percentage point increase in their grade.</p>
 <p>We can save the output of the function to an object—let’s say <code>m1</code>, standing for model 1. We can then use the <code>summary()</code> function built into R to view a much more feature-rich summary of the estimated model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(proportion_earned <span class="sc">~</span> time_spent_hours <span class="sc">+</span> int, <span class="at">data =</span> data_to_explore)</span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(proportion_earned <span class="sc">~</span> time_spent_hours <span class="sc">+</span> int, <span class="at">data =</span> data_to_explore)</span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2314,9 +2384,9 @@ F-statistic: 61.18 on 2 and 536 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Now let’s consider the mean values for each of these predictors. Recall from our tutorials last week the <code>summarize()</code> function from the {dplyr} package used to create summary statistics such as the mean, standard deviation, or the minimum or maximum of a value. At its core, think of <code>summarize()</code> as a function that returns a single value (whether it’s a mean, median, standard deviation—whichever!) that summarizes a single column.</p>
 <p>Let’s use the summarize function to calculate the means for time spent and interest in science and add the argument <code>na.rm = TRUE</code> to tell R that it can ignore missing, or <code>NA</code> values, and to calculate the summary statistic using the non-missing values.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="sc">|&gt;</span> </span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_interest =</span> <span class="fu">mean</span>(int, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_time =</span> <span class="fu">mean</span>(time_spent_hours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="sc">|&gt;</span> </span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_interest =</span> <span class="fu">mean</span>(int, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_time =</span> <span class="fu">mean</span>(time_spent_hours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   mean_interest mean_time
@@ -2328,7 +2398,7 @@ F-statistic: 61.18 on 2 and 536 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>If we add both 0.197 and 0.128 to the intercept, 0.449, that equals 0.774, or about 77%. In other words, a student with average interest in science who spent an average amount of time in the course earned a pretty average grade.</p>
 <p>Finally, similar to our APA formatted correlation table above, we can use the {apaTables} package to create a nice regression table that could be used for later publication:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.reg.table</span>(m1, <span class="at">filename =</span> <span class="st">"lm-table.doc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.reg.table</span>(m1, <span class="at">filename =</span> <span class="st">"lm-table.doc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
@@ -2359,13 +2429,13 @@ Square brackets are used to enclose the lower and upper limits of a confidence i
 </div>
 </div>
 </section>
-<section id="your-turn-19" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-19"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
-<p>Below, estimate different regression models with at least 2 variables, save as <code>m2</code>, and view a <code>summary()</code> of the results:</p>
+<section id="your-turn-20" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-20"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Repurpose the code from above to estimate a different regression models with at least 2 variables, save as <code>m2</code>, and view a <code>summary()</code> of the results:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(proportion_earned <span class="sc">~</span> int <span class="sc">+</span> time_spent_hours <span class="sc">+</span> gender <span class="sc">+</span> val, <span class="at">data =</span> data_to_explore)</span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(proportion_earned <span class="sc">~</span> int <span class="sc">+</span> time_spent_hours <span class="sc">+</span> gender <span class="sc">+</span> val, <span class="at">data =</span> data_to_explore)</span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2394,7 +2464,7 @@ F-statistic: 31.84 on 4 and 531 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>Add a brief note or two interpreting the above model (<code>m2</code>):</p>
 <ul>
-<li></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
 </section>
 </section>
@@ -2410,6 +2480,9 @@ F-statistic: 31.84 on 4 and 531 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>For Unit 1 we will keep it simple. In the code chunk below, select a chart, table or model created above (or create an entirely new one based a new analysis) that you think an education stakeholder might find interesting. Beneath the code chunk, write a very brief narrative to accompany your narrative.</p>
 <section id="my-first-data-product-change-me" class="level3">
 <h3 class="anchored" data-anchor-id="my-first-data-product-change-me">My First Data Product (Change Me)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="congratulations" class="level3">
 <h3 class="anchored" data-anchor-id="congratulations">Congratulations!</h3>
