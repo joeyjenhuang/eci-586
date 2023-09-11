@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2023-09-09">
+<meta name="dcterms.date" content="2023-09-11">
 
 <title>Unit 1 Case Study: Predicting Student Achievement</title>
 <style>
@@ -219,7 +219,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 9, 2023</p>
+      <p class="date">September 11, 2023</p>
     </div>
   </div>
   
@@ -238,7 +238,7 @@ div.csl-indent {
 <figcaption class="figure-caption">Figure 2.2 Steps of Data-Intensive Research Workflow</figcaption>
 </figure>
 </div>
-<p>For Unit 1, we will focus on online science classes provided through a state-wide online virtual school and conduct an analysis that help predict students’ performance in these online courses. This case study is guided by a foundational study in Learning Analytics that illustrates how analyses like these can be used develop an early warning system to help educators to identify students at risk of failing and intervene before that happens.</p>
+<p>For Unit 1, we will focus on online science classes provided through a state-wide online virtual school and conduct an analysis that help predict students’ performance in these online courses. This case study is guided by a foundational study in Learning Analytics that illustrates how analyses like these can be used develop an early warning system to help educators identify students at risk of failing and intervene before that happens.</p>
 <p>The Unit 1 case study will cover the following workflow topics:</p>
 <ol type="1">
 <li><strong>Prepare</strong>: Prior to analysis, it’s critical to understand the context and data sources you’re working with so you can formulate useful and answerable questions. You’ll also need to become familiar with and load essential packages for analysis.</li>
@@ -563,7 +563,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 <p>Yes, the “V” is capitalized—very unusual for an R function (the tidyverse does have it’s own lowercase <code>view()</code> function if that bothers you though). Because this function is a bit atypical in more ways than one, I have two recommendations concerning its use:</p>
 <ul>
-<li><p>Use it strictly in the console. Because it opens a new viewing window, <strong>including it in an R Markdown or Quarto document can cause issues when “knitting” or “rendering”</strong> an HTML (or PDF) file. Hence I have included the <code>eval = FALSE</code> argument in the code chunk so it it not run when you render your document.</p></li>
+<li><p>Use it strictly in the console. Because it opens a new viewing window, <strong>including it in an R Markdown or Quarto document can cause issues when “knitting” or “rendering”</strong> an HTML (or PDF) file. Hence I have included the <code>eval = FALSE</code> option in the code chunk so it does not run when you render your document.</p></li>
 <li><p>Close the viewer window that opens once you have viewed the data. Keeping it open can clutter your work space a bit and can lead to confusion about what data frame it was you viewed.</p></li>
 </ul>
 </section>
@@ -1128,6 +1128,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>data_to_explore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Oops! You probably noticed a red error message telling us that <code>x$section</code> and <code>y$section</code> are not of the same data type. This is basically telling us we are not meeting the second criteria of a key noted above. Specifically, somewhere we have a mismatch in data types in our <code>joined_data</code> and <code>survey</code> data frames among our student_id, subject, semester or section variables; something we were warned about earlier.</p>
+<p>Your probably also noticed that I included something strange in this code chunk, specifically the <code>#|eval: false</code> code chunk option. The <code>eval</code> argument is just one of many&nbsp;<a href="https://quarto.org/docs/reference/cells/cells-knitr.html#code-output">code chunk options</a> you can include to change the output and behavior for code in Quarto docs. The reason I included this in the code chunk is because the code doesn’t work until we change the data type, which we’ll do below. By setting eval to false, it’s saying don’t include this code when you render.</p>
 </section>
 <section id="your-turn-13" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-13"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>

@@ -21,7 +21,7 @@ During the final week of each unit, we will complete a "case study" to illustrat
 
 ![Figure 2.2 Steps of Data-Intensive Research Workflow](img/workflow.png){width="70%"}
 
-For Unit 1, we will focus on online science classes provided through a state-wide online virtual school and conduct an analysis that help predict students' performance in these online courses. This case study is guided by a foundational study in Learning Analytics that illustrates how analyses like these can be used develop an early warning system to help educators to identify students at risk of failing and intervene before that happens.
+For Unit 1, we will focus on online science classes provided through a state-wide online virtual school and conduct an analysis that help predict students' performance in these online courses. This case study is guided by a foundational study in Learning Analytics that illustrates how analyses like these can be used develop an early warning system to help educators identify students at risk of failing and intervene before that happens.
 
 The Unit 1 case study will cover the following workflow topics:
 
@@ -572,7 +572,7 @@ data_to_explore
 
 Oops! You probably noticed a red error message telling us that `x$section` and `y$section` are not of the same data type. This is basically telling us we are not meeting the second criteria of a key noted above. Specifically, somewhere we have a mismatch in data types in our `joined_data` and `survey` data frames among our student_id, subject, semester or section variables; something we were warned about earlier.
 
-Your probably also noticed that I included something strange in this code chunk, specifically the `#|eval: false` code chunk option. The `eval=` argument is just one of many [code chunk options](https://quarto.org/docs/reference/cells/cells-knitr.html#code-output) you can include to change the output and behavior for code in Quarto docs. The reason I included this in the code chunk is because the code doesn't work until we change the data type, which we'll do below. By setting eval to false, it's saying don't include this code when you render.
+Your probably also noticed that I included something strange in this code chunk, specifically the `#|eval: false` code chunk option. The `eval` argument is just one of many [code chunk options](https://quarto.org/docs/reference/cells/cells-knitr.html#code-output) you can include to change the output and behavior for code in Quarto docs. The reason I included this in the code chunk is because the code doesn't work until we change the data type, which we'll do below. By setting eval to false, it's saying don't include this code when you render.
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
