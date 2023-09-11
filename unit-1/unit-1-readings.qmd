@@ -2,7 +2,7 @@
 title: "Unit 1 Readings: What is Learning Analytics?"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today
 format:
   html:
     toc: true
