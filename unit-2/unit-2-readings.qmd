@@ -2,7 +2,7 @@
 title: "Unit 2 Readings: Methods Used & Responsible Use"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today
 format:
   html:
     toc: true
@@ -23,8 +23,8 @@ In addition to watching the Unit 2 Intro video, this week you'll be required to 
 
 ### Learning Analytics Goes to School
 
--   Chapter 3: Methods Used in Educational Data-Intensive Research
 -   Chapter 4: Legal and Ethical Issues in Using Educational Data
+-   Chapter 5: Foundations of Collaborative Applications of Learning Analytics
 
 ### Self-Selected Resource 
 
@@ -46,18 +46,6 @@ With the exception of the self-selected resource, you are not required to post t
 
 ### Guiding Questions
 
-#### Chapter 3: Methods Used in Educational Data-Intensive Research
-
-Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
-
--   What exactly does it mean to **prepare** for collaborative, data-intensive research?
--   What are some common techniques used to **wrangle** data add what do they entail?
--   What exactly is meant by exploratory data analysis (EDA) and how why might researchers **explore** data as part of workflow?
--   What are some common approaches used in data-intensive to **model** data and what do they entail?
--   What exactly is involved in the **communicate** step of the data-intensive workflow and what makes a "good" data product used to communicate findings?
--   What are some of the **challenges** of working with big data and data-intensive research in particular?
--   How, and to what extent, might education practitioners **collaborate** on these steps?
-
 #### Chapter 4: Legal and Ethical Issues in Using Educational Data
 
 Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
@@ -67,6 +55,14 @@ Reflecting on the course text and your self-selected reading, answer one or more
 -   During what step of the **data-intensive research workflow** might you need to address a legal or ethical issue associated with student data?
 -   What is an example of **algorithmic bias** that might emerge in a learning context and how might education researchers address it?
 -   What **questions** do you still have about data used in data-intensive research like learning analytics?
+
+#### Chapter 5: Foundations of Collaborative Applications of Learning Analytics
+
+Consider an educational context you might be interested in studying an answer one or more of the following questions:
+
+-   What real or hypothetical context educational context are you interested in better understanding or improving through collaborative data-intensive improvement?
+-   How might one of the foundational approaches described described in Chapter 5 be applied to understand or improve this context?
+-   What specific characteristics, processes, and/or tools of this approach might you utilize and for what purpose?
 
 #### Self-Selected Resource
 
