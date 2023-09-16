@@ -33,7 +33,7 @@ This week you have two required primers to complete before we dig into our Unit 
 
 We're keeping things pretty light this week on the exercise front. There is just one file to work through and five relatively simple exercises to complete, the first of which has been done for you. The final exercise in this set will be slightly more intensive and necessary to complete your data product for this week. 
 
-1.  **Week 6 Exercises:** Navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://rstudio.cloud/spaces/271329/content/all?sort=name_asc) and complete the unit-2-visualize-exercises.R file located in the Unit 2 - Week 6 Exercises project. For the final exercise, you will be asked to create a new R Markdown file
+1.  **Week 6 Exercises:** Navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) and complete the unit-2-visualize-exercises.R file located in the Unit 2 - Week 6 Exercises project. For the final exercise, you will be asked to create a new R Markdown file
 
 ### **Data Product (3 points)**
 
