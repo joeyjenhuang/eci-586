@@ -158,7 +158,7 @@ ggplot(data_to_viz) +
 #' packages and importing your data. 
 #' 
 #' Also note that I included some additional arguments
-#' to my code chunk to prevent messages add warnings 
+#' to my code chunk to prevent messages and warnings 
 #' from being displayed in my knitted document. 
 #' 
 #' In the YAML section at the top, be sure to change

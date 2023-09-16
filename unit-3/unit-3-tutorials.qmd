@@ -15,47 +15,33 @@ editor: visual
 
 ## Assignment
 
-![](img/flexdashboard.png){fig-align="left" width="20%"}
-
 For Unit 3 we'll learn how to make and use "tidy data" and how to present that data with a simple dashboard. The assigned Tidy Data primers further explore data wrangling techniques introduced in previous case studies such as reshaping and joining data sets. We'll also gain hands-on experience with Flexdashboard package, which can be used to create interactive dashboards for R, using R Markdown. This week you'll be required to make your second data product by using R Markdown to create a simple dashboard that you will export to an HTML webpage.
 
 ### Primers
 
 This week you have two required primers to complete before we dig into our Unit 3 case study:
 
-1.  [**Tidy Your Data**](https://rstudio.cloud/learn/primers/4)**:** In the three tutorials included in this primer, you'll learn how to reshape the layout of any data set, separate a column into multiple columns and to reverse the process, and how to augment data sets with information from related data sets.
+1.  **Hello Quarto:**
 
-2.  [**Flexdashboard**](https://pkgs.rstudio.com/flexdashboard/index.html)**:** Read through the Getting Started, Examples, and Sample Layouts pages to learn how Rmarkdown can be used to create a simple dashboard. Later in the course we will learn how to add interactivity to this dashboard that allows the dashboard to change dynamically based on user input.
+2.  
 
-### Data Product
+### **Data Product (3 points)**
 
 As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
--   **Select**. Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form (i.e., a "data product") and a format for communicating your results (e.g. a presentation, document, or dashboard).  
+-   **Select**. Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form (i.e. a "data product") and a format for communicating your results (e.g. a presentation, document, or dashboard).  
 
 -   **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
 
 -   **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
 
-For your assignment, you will create a new R Markdown file using the flexdashboard template to make a simple data dashboard. You may use as a template for your assignment the `unit-3-data-product-example.Rmd` file located in the files pane of the Unit 3 - Week 9 R project in our RStudio Cloud Workspace. The knitted document is also published on:
+For exercise 6, you will create a new Quarto file that you will use to make and share your own data visualization. You may use the `data-product-example.qmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
 
--   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-3/unit-3-data-product-example.html>
+-   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-2/data-product-example.html>
 
--   **RPubs** - <https://rpubs.com/sbkellogg/dashboard-example>
+-   **RPubs** - <http://rpubs.com/sbkellogg/grades-time>
 
-## Assessment
-
-The assignment for this week is worth a total of 6 points. The first half of your grade will be for creating and publishing a simple data dashboard consisting of 3-5 data visualizations accompanied by some narrative text. The second half of you assignment grade is for providing some brief feedback on the dashboards of your peers.
-
-### Dashboard (3 points)
-
-You will earn 1 point for each of the the following three dashboard components:
-
-1.  **Wrangle**: Similar to your data product for Unit 2, your first code chunk will be named "setup" and will run the code necessary for importing and wrangling your data in preparation for visualization or data summaries. There are two data sets located in your data folder that you will need to import and join together. The `course-data.csv` file contains student demographics, survey responses, final grades and other course information that we have worked with previously. The `liwc-data.csv` file contains summary statistics for discussion board responses, including the number of posts per student and the emotional tone (e.g., positive or negative sentiment) and other composite scores calculated using the used the [Linguistic Inquiry and Word Count (LIWC) lexicons](https://mcrc.journalism.wisc.edu/files/2018/04/Manual_LIWC.pdf) (see page 3 overview of categories).
-
-2.  **Explore**: Your data dashboard should also incorporate 3-5 data visualizations (e.g., bar charts or scatterplots) or data summaries (e.g., data tables or key metrics) that illustrate distinct findings from your analysis. You are more than welcome to repurpose data visualizations created in previous assignments and I encourage you to do so to help save some time. However, at least one visualization or data summary should incorporate data from the text analysis summaries for each student located in the `liwc-data.csv` file. For example, you may be interested in comparing positive or negative sentiment in discussion posts by course or by gender.
-
-3.  **Communicate**: Your dashboard should also include a title and a brief narrative summary explaining the purpose of your analysis and 1-2 key findings that might be of interest to educators. When you are finished, knit your RMarkdown file to an HTML document and create a new post in the Week 9 forum to share your data product. You may use [RPubs](https://rpubs.com/about/getting-started) (recommended for beginners) or another service like [GitHub Pages](https://pages.github.com/) (advanced) to publish your final knitted .html file to the web. From there you can copy the link to include in your forum post for others to access. An example post has been provided.
+When you are finished knitting your HTML document, create a new post in the Week 6 forum to share your data product. You may use [RPubs](https://rpubs.com/about/getting-started) (recommended for beginners) or another service like [GitHub Pages](https://pages.github.com/) (advanced) to publish your final knitted .html file to the web. From there you can copy the link to include in your forum post for others to access. An example post has been provided.
 
 ### Peer Feedback (3 points)
 
