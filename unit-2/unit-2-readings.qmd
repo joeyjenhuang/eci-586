@@ -11,11 +11,12 @@ theme:
   light: simplex
   dark: cyborg
 editor: visual
+bibliography: lit/references.bib
 ---
 
 ## OVERVIEW
 
-The primary goal of our Unit 2 readings and discussion is to develop a better understanding of the methods used in data-intensive research, as well as the legal and ethical considerations surrounding these methods and their use of educational data. The required and self-selected readings for this week provide a deep dive to the data-intensive research workflow introduced in the previous unit, legal requirements imposed by federal and state governments, and recommendations for the responsible and ethical use of student data. A secondary goal of our readings and discussion is to help you start generating ideas for your final course project.
+The primary goal of our Unit 2 readings and discussion is to develop a better understanding of the legal and ethical considerations surrounding learning analytics and as well the three major influences on the collaborative data-intensive improvement (CDI) model introduced in Unit 1. Chapter 4 of LA Goes to School [@krumm2018] provides a deep dive to the legal requirements imposed by federal and state governments, and recommendations for the responsible and ethical use of student data. Chapter 5 then provides a overview of datadriven decision making, emerging models of how researchers and education practitioners can engage in collaborative research, and the rapidly expanding fields of educational data mining and learning analytics.
 
 ## READINGS
 
@@ -26,15 +27,19 @@ In addition to watching the Unit 2 Intro video, this week you'll be required to 
 -   Chapter 4: Legal and Ethical Issues in Using Educational Data
 -   Chapter 5: Foundations of Collaborative Applications of Learning Analytics
 
-### Self-Selected Resource 
+### Self-Selected Resource
 
-Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a journal article, presentation, website or other scholarly resource that addresses a topic of interest and includes one or more of the following terms or related terms:
+Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a journal article, presentation, website or other scholarly resource that addresses a topic of interest and includes two or more of the following terms:
 
 -   learning analytics
 -   predictive analytics
 -   machine learning
 -   algorithmic bias
 -   data ethics
+-   data privacy
+-   data-driven decisions
+-   design-based research
+-   improvement science
 
 Your selection should also address one or more of the discussion topics/questions provided below. In addition, you are welcome to find less formal resources such as videos or shorter online articles to share with the class and that help us better understand this week's topics for discussion.
 
@@ -68,7 +73,7 @@ Consider an educational context you might be interested in studying an answer on
 
 Provide a brief overview of your self-selected resource that includes the following:
 
--   APA Citation (note: this can be easily [retrieved via Google Scholar](https://libanswers.ucmerced.edu/faq/95935))
+-   APA Citation (note: this can be easily [retrieved via Google Scholar](#0))
 -   What was the **purpose** of your article?
 -   What **data source(s),** if any, were analyzed or discussed?
 -   What data-intensive research **workflows** steps, if any, were described by your selection?
@@ -121,3 +126,5 @@ Actively **synthesize knowledge** and explicitly express improved understanding 
 -   **Summarizing personal learning** experiences of online discussions
 -   **Synthesizing content** of discussion
 -   **Generating new topics** based on a review of previous discussions
+
+## REFERENCES
