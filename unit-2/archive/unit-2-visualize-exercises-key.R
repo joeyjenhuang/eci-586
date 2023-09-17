@@ -11,7 +11,7 @@
 
 library(tidyverse)
 
-data_to_viz <- read_csv("unit-2/data/data-to-explore.csv")
+data_to_viz <- read_csv(here("unit-2", "data", "data-to-explore.csv"))
 
 # VARIATION ####################
 

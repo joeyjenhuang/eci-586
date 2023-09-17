@@ -11,7 +11,7 @@
 
 library(tidyverse)
 
-data_to_viz <- read_csv("unit-2/data/data-to-explore.csv")
+data_to_viz <- read_csv(here("unit-2", "data", "data-to-explore.csv"))
 
 # VARIATION ####################
 
@@ -50,8 +50,6 @@ ggplot(data_to_viz) +
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
-ggplot(data_to_viz) +
-  geom_freqpoly(aes(x = time_spent_hours, color = subject))
 
 
 # COVARIATION ####################
@@ -71,8 +69,6 @@ ggplot(data_to_viz) +
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
-ggplot(data_to_viz) +
-  geom_boxplot(aes(x= time_spent_hours, y = subject))
 
 
 
@@ -90,10 +86,6 @@ ggplot(data_to_viz) +
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
-data_to_explore %>% 
-  count(subject, semester) %>% 
-  ggplot() +
-  geom_tile(mapping = aes(x = subject, y = semester, fill = n))
 
 
 
@@ -112,18 +104,8 @@ data_to_explore %>%
 #' Add a caption that poses a question educators may have 
 #' about this data that your visualization could help answer.
 
-data_to_explore  %>% 
-  select(subject, section, time_spent_hours, proportion_earned) %>%
-  drop_na() %>%
-  group_by(subject, section) %>% 
-  summarise(mean_time = mean(time_spent_hours), 
-            mean_grade = mean(proportion_earned)) %>% 
-  ggplot(mapping = aes(x = mean_time, y = mean_grade)) +
-  geom_point() +
-  geom_label_repel(aes(label = subject)) +
-  geom_smooth(method = lm)
 
-# INSERT QUESTION HERE
+
 
 ## Big Data & Customizing Plots ####
 
@@ -176,7 +158,7 @@ data_to_explore  %>%
 #' packages and importing your data. 
 #' 
 #' Also note that I included some additional arguments
-#' to my code chunk to prevent messages add warnings 
+#' to my code chunk to prevent messages and warnings 
 #' from being displayed in my knitted document. 
 #' 
 #' In the YAML section at the top, be sure to change

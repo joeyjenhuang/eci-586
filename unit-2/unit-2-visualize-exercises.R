@@ -11,7 +11,7 @@
 
 library(tidyverse)
 
-data_to_viz <- read_csv(here("unit-2", "data", "data-to-explore.csv"))
+data_to_viz <- read_csv("unit-2/data/data-to-explore.csv")
 
 # VARIATION ####################
 
@@ -134,37 +134,4 @@ ggplot(data_to_viz) +
 #' Adjust or remove your legend as appropriate. 
 
 
-
-
-#' Once you are satisfied with your data visualization, 
-#' create a new R Markdown file that you will use for 
-#' your first "data product." 
-#' 
-#' Use the data-product-example.Rmd located in the 
-#' files pane as a template for how your final 
-#' markdown file should look. 
-#' 
-#' The first code chunk named "setup" runs the code
-#' necessary for knitting your markdown file to an 
-#' HTML webpage. Note that is includes the argument
-#' include=FALSE which tells R not to include any code
-#' or output in your final document. 
-#' 
-#' Repurpose one of the other code chunks to recreate 
-#' the data visualization you made above. 
-#' 
-#' Note that you will need to add all the code necessary 
-#' to make your visualization including loading required 
-#' packages and importing your data. 
-#' 
-#' Also note that I included some additional arguments
-#' to my code chunk to prevent messages and warnings 
-#' from being displayed in my knitted document. 
-#' 
-#' In the YAML section at the top, be sure to change
-#' the title and include your name as author. 
-#' Also include the "cold_folding: hide" option 
-#' as illustrated in the data-product-example.Rmd file. 
-#' This will allow others to view your code if desired
-#' to see you you created your data viz. 
 

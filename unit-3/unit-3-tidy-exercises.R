@@ -1,32 +1,20 @@
-pacman::p_load(tidyverse,
-               flexdashboard, 
-               janitor)
+# INTRO ################
 
-course_minutes <- dataedu::course_minutes
+#' For our Unit 2 exercises, we will be working with 
+#' the data_to_explore data frame we created in Unit 1
+#' consisting of our merged gradebook, log data, and survey data.
+#' 
+#' In the space below, load the tidyverse and here packages and
+#' import the data-to-explore.csv file located in the data folder.
+#' 
+#' Save your data to a new object named data_to_viz.  
 
-course_data <- dataedu::course_data
+library(tidyverse)
 
-course_text <- dataedu::sci_mo_with_text
+data_to_viz <- read_csv("unit-2/data/data-to-explore.csv")
 
-write_csv(course_text, "unit-3/data/course-text.csv")
+# VARIATION ####################
 
-course_text <- read_csv("unit-3/data/course-text.csv") |>
-  clean_names()
+## Bar Charts ########
 
-data_to_viz <- course_text |>
-  select(course_id, 
-         gender,
-         time_spent_hours, 
-         final_grade) |>
-  separate(course_id, c("subject", "semester", "section")) |>
-  mutate(subject = recode(subject, 
-                          "AnPhA" = "Anatomy",
-                          "BioA" = "Biology", 
-                          "FrScA" = "Forensics", 
-                          "OcnA" =  "Oceanography", 
-                          "PhysA" = "Physics"))
-
-data_to_viz |>
-  group_by(subject) |>
-  summarise(avg_grade = mean(final_grade, na.rm=TRUE),
-            avg_time = mean(time_spent_hours, na.rm=TRUE))
+### Exercise 1 #################
