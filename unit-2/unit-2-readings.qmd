@@ -20,12 +20,12 @@ The primary goal of our Unit 2 readings and discussion is to develop a better un
 
 ## READINGS
 
-In addition to watching the Unit 2 Intro video, this week you'll be required to read two chapters from [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) and find one additional journal article, conference presentation, or scholarly resource to help address our discussion questions for the week.
+This week you'll be required to read Chapter 4 from Learning Analytics Goes to School [@krumm2018], an excellent article on using ML to predict student outcomes by some colleagues at Duke and Chapel Hill [@arizmendi2022predicting], and find one additional journal article, conference presentation, or scholarly resource to help address our discussion questions for the week.
 
-### Learning Analytics Goes to School
+### Instructor-Selected
 
--   Chapter 4: Legal and Ethical Issues in Using Educational Data
--   Chapter 5: Foundations of Collaborative Applications of Learning Analytics
+-   Krumm, A., Means, B., & Bienkowski, M. (2018). Chapter 4: Legal and Ethical Issues in Using Educational Data. *Learning analytics goes to school: A collaborative approach to improving education*. Routledge.
+-   Arizmendi, C. J., Bernacki, M. L., Raković, M., Plumley, R. D., Urban, C. J., Panter, A. T., ... & Gates, K. M. (2022). Predicting student outcomes using digital logs of learning behaviors: Review, current standards, and suggestions for future work. Behavior research methods, 1-29. <https://link.springer.com/article/10.3758/s13428-022-01939-9>
 
 ### Self-Selected Resource
 
@@ -37,11 +37,16 @@ Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](htt
 -   algorithmic bias
 -   data ethics
 -   data privacy
--   data-driven decisions
--   design-based research
--   improvement science
 
 Your selection should also address one or more of the discussion topics/questions provided below. In addition, you are welcome to find less formal resources such as videos or shorter online articles to share with the class and that help us better understand this week's topics for discussion.
+
+One optional but highly recommended read is Stewart's @stewart2019actual very accessible post on Medium outlining the differences between machine learning and statistics. In essence, he notes that:
+
+> The purpose of (supervised) machine learning is obtaining a model that can make repeatable predictions. We typically do not care if the model is interpretable... machine learning is all about results. Whereas, statistical modeling is more about finding relationships between variables and the significance of those relationships.
+
+You are mare than welcome
+
+-   Stewart, M. (2019). The actual difference between statistics and machine learning. Towards Data Science, 24(3), 19. <https://towardsdatascience.com/the-actual-difference-between-statistics-and-machine-learning-64b49f07ea3>
 
 ## DISCUSSION
 
@@ -51,7 +56,7 @@ With the exception of the self-selected resource, you are not required to post t
 
 ### Guiding Questions
 
-#### Chapter 4: Legal and Ethical Issues in Using Educational Data
+#### Legal and Ethical Issues in Using Educational Data
 
 Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
 
@@ -59,15 +64,18 @@ Reflecting on the course text and your self-selected reading, answer one or more
 -   What are some of the similarities and differences between **laws and ethical guidelines** that have emerged to address issues surrounding student data?
 -   During what step of the **data-intensive research workflow** might you need to address a legal or ethical issue associated with student data?
 -   What is an example of **algorithmic bias** that might emerge in a learning context and how might education researchers address it?
--   What **questions** do you still have about data used in data-intensive research like learning analytics?
+-   What **questions** do you still have about legal or ethical consideration for data-intensive research methods like learning analytics?
 
-#### Chapter 5: Foundations of Collaborative Applications of Learning Analytics
+#### Machine Learning in Education
 
-Consider an educational context you might be interested in studying an answer one or more of the following questions:
+Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
 
--   What real or hypothetical context educational context are you interested in better understanding or improving through collaborative data-intensive improvement?
--   How might one of the foundational approaches described described in Chapter 5 be applied to understand or improve this context?
--   What specific characteristics, processes, and/or tools of this approach might you utilize and for what purpose?
+-   How do the **methods and goals of machine learning** (supervised or unsupervised) differ from more traditional statistical methods in education?
+-   What are some of the **advantages and disadvantages** of using machine learning in educational research?
+-   What are some **common predictor variables** or "features" used in machine learning models for predicting outcomes?
+-   What **types of machine learning algorithms** are commonly used in predicting learning outcomes?
+-   **How do these algorithms differ** from each other and from models used in traditional statistics?
+-   What **questions** do you still have about machine learning and it's applications in learning analytics?
 
 #### Self-Selected Resource
 

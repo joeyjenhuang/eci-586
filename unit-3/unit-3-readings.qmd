@@ -48,12 +48,12 @@ With the exception of the self-selected resource, you are not required to post t
 
 ### Guiding Questions
 
-#### Foundations of Collaborative Applications of Learning Analytics
+#### LA Goes to School Chapter 5: Foundations of Collaborative Applications of Learning Analytics
 
 Consider an educational context you might be interested in studying an answer one or more of the following questions:
 
 -   What real or hypothetical context educational context are you interested in better understanding or improving through collaborative data-intensive improvement?
--   How might one the foundational approaches described described in Chapter 5 be applied to understand or improve this context?
+-   How might one of the foundational approaches described described in Chapter 5 be applied to understand or improve this context?
 -   What specific characteristics, processes, and/or tools of this approach might you utilize and for what purpose?
 
 #### Text as Data: Methods for Education Research
