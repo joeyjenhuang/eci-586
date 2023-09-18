@@ -4,7 +4,7 @@
 #' the data_to_explore data frame we created in Unit 1
 #' consisting of our merged gradebook, log data, and survey data.
 #' 
-#' In the space below, load the tidyverse and here packages and
+#' In the space below, load the tidyverse package and
 #' import the data-to-explore.csv file located in the data folder.
 #' 
 #' Save your data to a new object named data_to_viz.  

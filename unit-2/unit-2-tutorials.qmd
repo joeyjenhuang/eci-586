@@ -1,8 +1,8 @@
 ---
-title: "Unit 2 Tutorials: Data Viz & Data Products"
+title: "Unit 2 Tutorials: Data Viz & Tidy Data"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today
 format:
   html:
     toc: true
@@ -23,7 +23,7 @@ For Unit 2, we'll take a deeper dive into exploring and tidying our data. The as
 
 This week you have two required primers to complete before we dig into our Unit 2 case study:
 
-1.  [**Visualize Data**](https://rstudio.cloud/learn/primers/3)**:** For our third primer, we'll learn some new ggplot2 "grammar" for making new types of plots and best practices for visualizing patterns within values and relationships between variables. This primer is critical for completing your exercises and "data product" for this week so do not skip.
+1.  [**Visualize Data**](https://rstudio.cloud/learn/primers/3)**:** For our third primer, we'll learn some new ggplot2 "grammar" for making new types of plots and best practices for visualizing patterns within values and relationships between variables.
 
 2.  [**Tidy Your Data**](https://rstudio.cloud/learn/primers/4)**:** In the three tutorials included in this primer, you'll learn how to reshape the layout of any data set, separate a column into multiple columns and to reverse the process, and how to augment data sets with information from related data sets.
 
@@ -31,9 +31,12 @@ This week you have two required primers to complete before we dig into our Unit 
 
 ### **Exercises (3 points each)**
 
-We're keeping things pretty light this week on the exercise front. There is just one file to work through and five relatively simple exercises to complete, the first of which has been done for you. The final exercise in this set will be slightly more intensive and necessary to complete your data product for this week.
+There is are two exercise files corresponding to each primer that you will need to work through this week. To access these files, navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) and open the following R script files:
 
-1.  **Visualize Data:** Navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) and complete the unit-2-visualize-exercises.R file located in the Unit 2 - Week 6 Exercises project. For the final exercise, you will be asked to create a new R Markdown file
-2.  **Tidy Your Data**:
+-   unit-2-visualize-exercises.R
+
+-   unit-2-tidy-exercises.R
+
+After you have completed the primers and the exercise R scripts, click the "Mark as done" button on our ECI 586 Moodle course page to notify me that you have completed the assignment.
 
 If you have questions about the tutorials or exercises, I encourage you to reply to the Questions and Troubleshooting post, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the exercises independently before reaching out for support.

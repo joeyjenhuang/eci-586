@@ -1,38 +1,70 @@
 # INTRO ################
 
-#' For our Unit 2 exercises, we will be working with 
-#' the data_to_explore data frame we created in Unit 1
-#' consisting of our merged gradebook, log data, and survey data.
+#' For our Unit 2 tidy exercises, we will be working with 
+#' the survey data, log data, and gradebook data from unit 1
 #' 
-#' In the space below, load the tidyverse and here packages and
-#' import the data-to-explore.csv file located in the data folder.
+#' In the space below, load the tidyverse packages and
+#' import the survey, grade-book and log-data CSV files located in the data folder.
 #' 
-#' Save your data to a new object named data_to_viz.  
+#' Save your each of your data sets to a new object with appropriate names.  
 
 library(tidyverse)
 
-data_to_viz <- read_csv(here("unit-2", "data", "data-to-explore.csv"))
+survey_data <- read_csv("unit-2/data/survey.csv")
 
-# VARIATION ####################
+grade_data <- read_csv("unit-2/data/grade-book.csv")
 
-## Bar Charts ########
+log_data <- read_csv("unit-2/data/log-data.csv")
+
+# RESHAPE DATA ####################
+
+## pivot_longer ########
 
 ### Exercise 1 #################
 
-#' In the space below, create a basic visualization
-#' that examines a categorical variable of interest. 
+#' The gather() function introduced in the primers has been 
+#' superseded by the new  pivot_longer() function, which works just like 
+#' gather() but is easier to use, more featureful, 
+#' and still being actively updated. 
 #' 
-#' Add an appropriate title to your chart.
-#' 
-#' Add a caption that poses a question educators may have 
-#' about this data that your visualization could help answer.
-#' 
-#' The first exercise has been done for you. 
+#' First, run the following code to open up the help menu
+#' for the pivot_longer() function and take a look at the 
 
-ggplot(data_to_viz) +
-  geom_bar(aes(x = subject)) +
-  labs(title = "Number of Student Enrollments per Subject",
-       caption = "Which online courses have had the largest enrollment?")
+?pivot_longer
+
+#' Let's use the new pivot_longer() function in order to 
+#' transform our survey data from wide format to long format. 
+#' 
+#' Using the help menu as a guide, complete the following code 
+#' to transform our survey data from wide format to long. 
+
+survey_long <- survey_data |>
+  pivot_longer(cols = q1:q10,
+               names_to = "question",
+               values_to = "response")
+
+#' By using pivot_longer(), we make it so that each 
+#' question & response pair has its own line in the data. 
+#' 
+#' Therefore, since we have ten-question variables (columns) 
+#' in the pre_survey dataset, after we use pivot_longer() 
+#' we will end up with ten times as many observations (rows) 
+#' as before, but 8 fewer variables since our 10 columns 
+#' are reduced to 2, one for the question name and one for 
+#' the response. 
+#' 
+#' That means instead of having 662 observations of 26 variables, 
+#' we will now have 6,620 observations of 18 variables. 
+#' 
+#' Additionally, we no longer need a separate column for 
+#' each individual question since each question-response 
+#' pair is now on its own line. 
+#' 
+#' What was previously one row of data now takes up 
+#' ten rows of data. So pivot_longer() automatically deletes 
+#' those empty columns after condensing all the data. 
+
+
 
 
 ## Histograms & Similar Geoms #####
