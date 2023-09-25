@@ -1,7 +1,7 @@
 # INTRO ################
 
 #' For our Unit 2 tidy exercises, we will be working with 
-#' the survey data, log data, and gradebook data from unit 1
+#' the survey data, log data, and gradebook data from unit 1. 
 #' 
 #' In the space below, load the tidyverse packages and
 #' import the survey, grade-book and log-data CSV files located in the data folder.
@@ -24,11 +24,12 @@ log_data <- read_csv("unit-2/data/log-data.csv")
 
 #' The gather() function introduced in the primers has been 
 #' superseded by the new  pivot_longer() function, which works just like 
-#' gather() but is easier to use, more featureful, 
-#' and still being actively updated. 
+#' gather() but is easier to use, more featureful, and still being 
+#' actively updated. 
 #' 
 #' First, run the following code to open up the help menu
-#' for the pivot_longer() function and take a look at the 
+#' for the pivot_longer() function and take a look at the arguments 
+#' and examples for this function: 
 
 ?pivot_longer
 
@@ -36,9 +37,11 @@ log_data <- read_csv("unit-2/data/log-data.csv")
 #' transform our survey data from wide format to long format. 
 #' 
 #' Using the help menu as a guide, complete the following code 
-#' to transform our survey data from wide format to long. 
+#' to select our student id and survey question 1:10 and then 
+#' transform our survey data from wide format to long. 
 
 survey_long <- survey_data |>
+  select(student_id, course_id, q1:q10) |>
   pivot_longer(cols = q1:q10,
                names_to = "question",
                values_to = "response")
@@ -60,161 +63,111 @@ survey_long <- survey_data |>
 #' each individual question since each question-response 
 #' pair is now on its own line. 
 #' 
-#' What was previously one row of data now takes up 
-#' ten rows of data. So pivot_longer() automatically deletes 
-#' those empty columns after condensing all the data. 
-
-
-
-
-## Histograms & Similar Geoms #####
-
-### Exercise 2 ####################
-
-#' In the space below, create a basic visualization
-#' that examines a continuous variable of interest.
+#' So why do this? Here are some situations in which pivoting data to a long format can be useful:
 #' 
-#' This could be a histogram, frequency polygon, 
-#' density curve or even a dot plot.   
+# 1.	Visualization: Certain types of graphs or plots, especially those in software tools like ggplot2 in R or seaborn in Python, expect data in a long format. For instance, to create line plots, box plots, or bar plots that compare multiple categories, a long-format dataset can often be easier to work with.
+# 2.	Statistical Analysis and Modeling: Some statistical functions and models require data in long format. For example, mixed-effects models or repeated measures ANOVA often expect data in a long format.
+# 3.	Consistent Structure: If you're working with time-series data where measurements are taken at irregular intervals, a long format can ensure a consistent structure, where each time point is a new row rather than a new column.
+# 4.	Data Concatenation: If you're combining multiple datasets that capture similar types of observations but over different variables (like measurements across different years), converting to long format can make the concatenation process smoother.
+# 5.	Data Exploration: It can be easier to filter, summarize, and explore data when it's in a long format, especially when trying to understand distributional properties across different categories.
+# 6.	Reducing Redundancy: In wide format, metadata (like units of measurement or other descriptor variables) might be repeated across many column names. By pivoting to long format, this information can be stored just once, in a single column.
+# 7.	Storage: In some scenarios, long format can be more space-efficient, especially when the wide data has many missing values. Rather than having a column for every potential attribute (many of which might be empty or NaN for a given observation), the long format only stores entries for attributes that have been observed.
+# 8.	Flexibility: A dataset in long format can be more flexible for a variety of analyses. With the data in a standardized structure, it's often easier to pivot back to a wide format or any other desired structure.
+#'
+
+## pivot_wider ########
+
+### Exercise 2 #################
+
+# However, it's worth noting that pivoting to a long format isn't always the best choice. The decision should be based on the specific needs of the analysis or operation at hand. There are certainly situations where wide format is preferable, especially when the relationship between columns is critical or when performing operations that require column-wise calculations.
+#'
+#' If we want to convert our data from a long format back to a wide format, 
+#' the pivot_wider() "widens" data, increasing the number of columns and decreasing the number of rows. This is the inverse transformation of pivot_longer().
 #' 
-#' Add an appropriate title to your chart.
+#' Run the following code to open up the help menu
+#' for the pivot_wider() function and take a look at the arguments and 
+#' examples for this function: 
+
+?pivot_wider
+
+#' Now use the pivot_wider function to transform our survey_long
+#' data back to a wide format and save as survey_wide: 
 #' 
-#' Add a caption that poses a question educators may have 
-#' about this data that your visualization could help answer.
+#' Hint: You'll need to include arguments that specify where the new column names will come from and where the values for each column are from. 
 
-ggplot(data_to_viz) +
-  geom_freqpoly(aes(x = time_spent_hours, color = subject))
+survey_wide <- pivot_wider(survey_long, 
+                           names_from = "question",
+                           values_from = "response")
 
 
-# COVARIATION ####################
+# Separate & Unite ####################
 
-## Boxplots & Similar Geoms #####
+## Separate Columns #####
 
 #### Exercise 3 ##################
 
-#' In the space below, create a basic visualization
-#' that examines the relationship between a categorical 
-#' variable and a continuous variable.
+#' Although the separate() function introduced in the primers, still works
+#' perfectly well, separate() has been superseded in favour of
+#' separate_wider_position() and separate_wider_delim() because the two
+#' functions make the two uses more obvious, the API is more polished, and the
+#' handling of problems is better. Superseded functions will not go away, but
+#' will only receive critical bug fixes. 
 #' 
-#' This could be a boxplot or violin plot.   
-#' 
-#' Add an appropriate title to your chart.
-#' 
-#' Add a caption that poses a question educators may have 
-#' about this data that your visualization could help answer.
+#' First, run the following code to open up the help menu
+#' for the separate_wider_delim() function and take a look at the arguments 
+#' and examples for this function: 
 
-ggplot(data_to_viz) +
-  geom_boxplot(aes(x= time_spent_hours, y = subject))
+?separate_wider_delim
 
+#' Scroll down to the examples provided and see if you can complete 
+#' the following code to separate the course_id variable into 
+#' three colulmns named course, semester, and section. 
 
+course_time <- log_data |>
+  select(student_id, course_id, time_spent) |>
+  separate_wider_delim(course_id, 
+                       delim = "-",
+                       names = c("course", "semester", "section"))
 
-## Counts #####
+#### Exercise 4 ##################
 
-### Exercise 4 ##################
+#' Now try completing the following code to "unite" them back together into 
+#' a column named course_id. 
 
-#' In the space below, create a basic visualization
-#' that examines the relationship between two categorical variables.
-#' 
-#' This could be a count plot or heatmap.   
-#' 
-#' Add an appropriate title to your chart.
-#' 
-#' Add a caption that poses a question educators may have 
-#' about this data that your visualization could help answer.
-
-data_to_explore %>% 
-  count(subject, semester) %>% 
-  ggplot() +
-  geom_tile(mapping = aes(x = subject, y = semester, fill = n))
+course_time <- course_time |>
+  unite(course_id, 
+        course,
+        semester,
+        section,
+        sep = "-")
 
 
 
-## Scatterplots & Line Plots #####
+# Join Data Sets ####################
+
+## Mutating Joins #####
 
 ### Exercise 5 ##################
 
-#' In the space below, create a basic visualization
-#' that examines the relationship between two continuous variables.
+#' In the space below, use the one of the join functions introduced 
+#' in the primers to merge our course_time and survey_long datasets 
+#' into a single data set that contains all survey responses and 
+#' time spent in the course for every student and assign to an object
+#' with a name of your own choosing.
 #' 
-#' This could be a scatterplot with layers, 
-#' a log-log or line plot, or one using coord functions.   
-#' 
-#' Add an appropriate title to your chart.
-#' 
-#' Add a caption that poses a question educators may have 
-#' about this data that your visualization could help answer.
+#' Hint: Some student take more that one course so you will need
+#' to join by using both their student_id and their course_id. 
 
-data_to_explore  %>% 
-  select(subject, section, time_spent_hours, proportion_earned) %>%
-  drop_na() %>%
-  group_by(subject, section) %>% 
-  summarise(mean_time = mean(time_spent_hours), 
-            mean_grade = mean(proportion_earned)) %>% 
-  ggplot(mapping = aes(x = mean_time, y = mean_grade)) +
-  geom_point() +
-  geom_label_repel(aes(label = subject)) +
-  geom_smooth(method = lm)
+joined_data <- full_join(survey_long,
+                         course_time,
+                         by = c("student_id", "course_id"))
 
-# INSERT QUESTION HERE
+joined_data
 
-## Big Data & Customizing Plots ####
-
-### Exercise 6 ##################
-
-#' In the space below, select one of your graphs
-#' from above or create an entirely new viz. 
-#' 
-#' Add an appropriate title to your chart.
-#' 
-#' Add or adjust any aesthetics to improve the 
-#' readability of visual appeal of your viz. 
-#' 
-#' Zoom or clip your x and/or y axis if needed to
-#' better see key data points. 
-#' 
-#' Add or adjust any labels such as graph titles, 
-#' subtitles, captions, axis titles, or annotations
-#' that you think will help others interpret your chart. 
-#' 
-#' Add a theme you find attractive and adjust if needed. 
-#' 
-#' Use a color scale if appropriate to modify the 
-#' default colors used by ggplot. 
-#' 
-#' Adjust or remove your legend as appropriate. 
+#' In the space below explain which type of join you used and and why the 
+#' number of observations in your joined data set may differ than the 
+#' number of observations in your survey_long data set. 
 
 
 
-
-#' Once you are satisfied with your data visualization, 
-#' create a new R Markdown file that you will use for 
-#' your first "data product." 
-#' 
-#' Use the data-product-example.Rmd located in the 
-#' files pane as a template for how your final 
-#' markdown file should look. 
-#' 
-#' The first code chunk named "setup" runs the code
-#' necessary for knitting your markdown file to an 
-#' HTML webpage. Note that is includes the argument
-#' include=FALSE which tells R not to include any code
-#' or output in your final document. 
-#' 
-#' Repurpose one of the other code chunks to recreate 
-#' the data visualization you made above. 
-#' 
-#' Note that you will need to add all the code necessary 
-#' to make your visualization including loading required 
-#' packages and importing your data. 
-#' 
-#' Also note that I included some additional arguments
-#' to my code chunk to prevent messages add warnings 
-#' from being displayed in my knitted document. 
-#' 
-#' In the YAML section at the top, be sure to change
-#' the title and include your name as author. 
-#' Also include the "cold_folding: hide" option 
-#' as illustrated in the data-product-example.Rmd file. 
-#' This will allow others to view your code if desired
-#' to see you you created your data viz. 
 
