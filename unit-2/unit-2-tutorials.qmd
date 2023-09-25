@@ -31,7 +31,7 @@ This week you have two required primers to complete before we dig into our Unit 
 
 ### **Exercises (3 points each)**
 
-There is are two exercise files corresponding to each primer that you will need to work through this week. To access these files, navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) and open the following R script files:
+To receive credit for this week's assignment, there are two exercise files corresponding to each primer that you will need to work through this week. To access these files, navigate to our [ECI 586 - Intro to LA RStudio Cloud workspace](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) and open the following R script files:
 
 -   unit-2-visualize-exercises.R
 
