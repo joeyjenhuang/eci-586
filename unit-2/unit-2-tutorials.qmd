@@ -15,7 +15,7 @@ editor: visual
 
 ## **Assignment**
 
-For Unit 2, we'll take a deeper dive into exploring and tidying our data. The assigned [Visualize Data](https://posit.cloud/learn/primers/3) primer is designed to increase your comfort level with the {ggplot} and useful chart types for examining single variables (variation) and relationships between variables (covariation). Specifically, you will learn how to make each type of plot show in the figure below. In the [Tidy Your Data](https://posit.cloud/learn/primers/4) primer, you'll learn a bit more about "tidy" data and and useful data wrangling techniques like reshaping and joining data sets.
+For Unit 2, we'll take a deeper dive into exploring and tidying our data. The assigned [Visualize Data](https://posit.cloud/learn/primers/3) primer is designed to increase your comfort level with the {ggplot} and useful chart types for examining single variables (variation) and relationships between variables (covariation). Specifically, you will learn how to make each type of plot shown in the figure below. In the [Tidy Your Data](https://posit.cloud/learn/primers/4) primer, you'll learn a bit more about "tidy" data and and useful data wrangling techniques like reshaping and joining data sets.
 
 ![](img/viz-matrix.jpeg){fig-align="center" width="500"}
 
