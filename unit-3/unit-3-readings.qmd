@@ -15,7 +15,7 @@ editor: visual
 
 ## OVERVIEW
 
-In Unit 3 we examine the foundations of the collaborative data-intensive improvement (CDI) model and a gentle introduction to working with documents and text as data. The required and self-selected readings for this week focus on three major influences on the CDI model and also provide a survey of general overview of text mining in education. In addition, we'll take a look a three broad approaches to analyzing text as data including lexical-based methods, supervised and unsupervised machine learning.
+In Unit 3 we examine the foundations of the collaborative data-intensive improvement (CDI) model and get a gentle introduction to working with documents and text as data. The required and self-selected readings for this week focus on three major influences on the CDI model and also provide a survey of general overview of text mining in education. In addition, we'll take a look a three broad approaches to analyzing text as data including lexical-based methods, supervised and unsupervised machine learning.
 
 ## READINGS
 
