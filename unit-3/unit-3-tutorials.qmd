@@ -29,7 +29,11 @@ This week you have two required primers to complete before we dig into our Unit 
 
 I have included the accompanying Quarto files for each tutorial in the Unit 3 Week 9 - Tutorials workspace on Posit Cloud.
 
-### **Data Product**
+## Assessment
+
+The assignment for this week is worth a total of 6 points. The first half of your grade will be for creating and publishing a simple data product consisting of a single data visualizations or table accompanied by some narrative text. The second half of your assignment grade is for providing some brief feedback on the data products of your peers.
+
+### **Publish a Data Product (3 points)**
 
 As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
@@ -39,16 +43,54 @@ As highlighted in *Learning Analytics Goes to School*, the Communicate step in t
 
 -   **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
 
-This week, you will create a new Quarto file that you will use to make and share your own data visualization. I have included some data set for you to use to create your own visualization, but you are also to use and datasets built into R or that you find online. You may use the `data-product-example.qmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
+This week, you will create a new Quarto file that you will use to make and share your own data product on RPubs. There are two data sets located in your data folder that you are welcome to use. The `course-data.csv` file contains student demographics, survey responses, final grades and other course information that we have worked with previously. The `liwc-data.csv` file contains summary statistics for discussion board responses for these same students, including the number of posts per students and the emotional tone (e.g., positive or negative sentiment) and other composite scores calculated using the used the [Linguistic Inquiry and Word Count (LIWC) lexicons](https://mcrc.journalism.wisc.edu/files/2018/04/Manual_LIWC.pdf) (see page 3 overview of categories). You are also welcome to join these datasets together for your data product or to use any other datasets that you find online or that you may be using for your own work.
 
--   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-2/data-product-example.html>
+As an example of what your final data product may look like, see the following two examples I've published on RPubs:
 
--   **RPubs** - <http://rpubs.com/sbkellogg/grades-time>
+-   **Single Visualization** - <http://rpubs.com/sbkellogg/grades-time>
 
-When you are finished knitting your HTML document, create a new post in the Week 6 forum to share your data product. You may use [RPubs](https://rpubs.com/about/getting-started) (recommended for beginners) or another service like [GitHub Pages](https://pages.github.com/) (advanced) to publish your final knitted .html file to the web. From there you can copy the link to include in your forum post for others to access. An example post has been provided.
+-   **Basic Dashboard** - [https://rpubs.com/sbkellogg/dashboard-example](https://rpubs.com/sbkellogg/dashboard-example https://rpubs.com/sbkellogg/dashboard-example)
 
-### Peer Feedback (3 points)
+Note that the dashboard example was made using [Flexdashboard](https://pkgs.rstudio.com/flexdashboard/index.html), an R package for making simple data dashboards. Although Dashboard publishing options are eventually coming Quarto, the {flexdashboard} package uses [R Markdown](https://rmarkdown.rstudio.com/lesson-1.html), which will gradually be replaced by Quarto. You are more than welcome to give it a try this week, but only if you're feeling a little ambitions and are seeking a challenge.
+
+Next, click the "Render" button in the toolbar at the top of your document to render this document to a HTML web page, just one of [the many publishing formats you can create with Quarto](https://quarto.org/docs/output-formats/all-formats.html) documents.
+
+After you are satisfied with your data product, remember to "render" your Quarto file by clicking the ![](img/render.png){width="4%"} "Render" button in the menu bar at that the top of this file to render your Quarto document to a HTML web page, just one of [the many publishing formats you can create with Quarto](https://quarto.org/docs/output-formats/all-formats.html) documents. Also, be sure that the option to "Preview in the Viewer Pane" is selected. This option can be found in the menu with the gear icon right next to the Render button.
+
+Recall that rendering your Quarto file will do two things; it will:
+
+1.  check through all your code for any errors; and,
+
+2.  create a file in your directory that you can use to share you work through [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0).
+
+Next, I recommend using [RPubs](https://rpubs.com/about/getting-started) to publish your final rendered .html file to the web. If you have not already done so, please create a free RPubs account prior to completing the following steps:
+
+1.  Click the Publish button in your View pane.
+
+![](img/click-publish.png){fig-align="left" width="80%"}
+
+2.   Click the RPubs Publish To option.
+
+![](img/click-rpubs.png){fig-align="left" width="80%"}
+
+3.  Click the Publish button.
+
+![](img/click-publish-rpubs.png){fig-align="left" width="80%"}
+
+4.  Add the required information and click continue.
+
+![](img/click-continue.png){fig-align="left" width="80%"}
+
+5.  Congrats! Your data product is now published to the web!
+
+![](img/click-congrats.png){fig-align="left" width="80%"}
+
+You are also welcome to use another services to share you work such as [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0). RPubs, however, is by far the simplest.
+
+### Provide Peer Feedback (3 points)
+
+When you are finished publishing your data product online, create a new post in the Week 9 forum to share your data product. Be sure to include the link to your data product in your forum post for others to access. An example post has been provided.
 
 Finally, provide some brief but constructive feedback (2-3 sentences) on the data products of 3 of your peers (1 point each). Your feedback should include one thing you liked about their data product and why as well as one suggestion for potential improvement or extension of the analysis.
 
-If you have questions about the primers or dashboard, I encourage you to reply to the Questions and Troubleshooting post, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the exercises independently before reaching out for support.
+If you have questions about the tutorials or data product, I encourage you to reply to the Questions and Troubleshooting post, especially if others might benefit from the response to question. You are also more than welcome to respond to the questions posted by your peers. However, I do ask that you try work through the assignment independently before reaching out for support.
