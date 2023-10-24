@@ -15,17 +15,21 @@ editor: visual
 
 ## Assignment
 
-For Unit 3 we'll learn how to make and use "tidy data" and how to present that data with a simple dashboard. The assigned Tidy Data primers further explore data wrangling techniques introduced in previous case studies such as reshaping and joining data sets. We'll also gain hands-on experience with Flexdashboard package, which can be used to create interactive dashboards for R, using R Markdown. This week you'll be required to make your second data product by using R Markdown to create a simple dashboard that you will export to an HTML webpage.
+For Unit 3 we'll take a deep dive into [Quarto](https://quarto.org/), a new open-source scientific and technical publishing system and is the next generation of [R Markdown](https://rmarkdown.rstudio.com/). Quarto can be used to create dynamic content with Python, R, Julia, and Observable and to publish reproducible, production quality articles, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more. This week, you'll work through three tutorials covering the basics of creating and publishing documents with Quarto and use Quarto to create and publish your first "data product."
 
-### Primers
+### Primers 
 
 This week you have two required primers to complete before we dig into our Unit 3 case study:
 
-1.  **Hello Quarto:**
+1.  [**Hello Quarto**](https://quarto.org/docs/get-started/hello/rstudio.html)**:** In this tutorial, you'll review the Quarto basics of editing code and markdown and previewing the rendered document in the Viewer tab as you work.
 
-2.  
+2.  [**Computations**](https://quarto.org/docs/get-started/computations/rstudio.html): In this tutorial you'll learn how to author fully reproducible computational documents with Quarto in RStudio.
 
-### **Data Product (3 points)**
+3.  [**Authoring**](https://quarto.org/docs/get-started/computations/rstudio.html): In the final tutorial, you'll learn how to author Quarto document, how to add components like table of contents, equations, citations, etc., and the various document formats you can produce with the same source code.
+
+I have included the accompanying Quarto files for each tutorial in the Unit 3 Week 9 - Tutorials workspace on Posit Cloud.
+
+### **Data Product**
 
 As highlighted in *Learning Analytics Goes to School*, the Communicate step in the data-intensive research workflow consists of sharing the results of analysis with wider audience. Krumm et al. (2018) outlined the following 3-step process for communicating with education stakeholders what you have learned through analysis:
 
@@ -35,7 +39,7 @@ As highlighted in *Learning Analytics Goes to School*, the Communicate step in t
 
 -   **Narrate**. Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
 
-For exercise 6, you will create a new Quarto file that you will use to make and share your own data visualization. You may use the `data-product-example.qmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
+This week, you will create a new Quarto file that you will use to make and share your own data visualization. I have included some data set for you to use to create your own visualization, but you are also to use and datasets built into R or that you find online. You may use the `data-product-example.qmd` located in your project files pane as a template and you can find and example of the final knitted document published on: 
 
 -   **GitHub** - <https://sbkellogg.github.io/eci-586/unit-2/data-product-example.html>
 
