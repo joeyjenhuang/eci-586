@@ -161,7 +161,7 @@ c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and to
 
 As noted above, data used in this case study was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the {rtweet} package, which limits the number of tweets and the length of time from which you can pull tweets.
 
-Data for this case study includes all tweets from January through May of 2020 and includes the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Since we'll be working with some computational intensive functions later in this case study that can take some time to run, I restricted the time frame for my search to only a handful of month. Even so, we'll be working with over 30,000 tweets and nearly 1,000,000 words for our analysis!
+Data for this case study includes all tweets from January through May of 2020 and includes the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`. Since we'll be working with some computational intensive functions later in this case study that can take some time to run, I restricted the time frame for my search to only a handful of month. Even so, we'll be working with nearly 30,000 tweets and nearly 1,000,000 words for our analysis!
 
 Let's use the by now familiar `read_csv()` function to import our `ccss_tweets.csv` file saved in our data folder:
 
@@ -189,7 +189,7 @@ Note the addition of the `col_types =` argument for changing some of the column 
 
 #### [Your Turn]{style="color: green;"} ⤵
 
-Use the following code chunk to import the NGSS tweets located in the same data folder as our common core tweets. By default, R will treat numerical IDs in our dataset as numeric values but we will need to convert these to characters like demonstrated above for the purpose of analysis:
+Complete the following code chunk to import the NGSS tweets located in the same data folder as our common core tweets and named `ngss-tweets.csv`. By default, R will treat numerical IDs in our dataset as numeric values but we will need to convert these to characters like demonstrated above for the purpose of analysis. Also, feel free to repurpose the code from above.
 
 ```{r}
 ngss_tweets <- read_csv("data/ngss-tweets.csv", 
@@ -205,7 +205,7 @@ ngss_tweets
 
 Importing data and dealing with data types can be a bit tricky, especially for beginners. Recall from previous case studies that RStudio has an "Import Dataset" feature in the Environment Pane that can help you use the {readr} package and associated functions to greatly facilitate this process. If you get stuck, you can copy the code generated in the lower right hand corner of the Import Dataset window.
 
-![](images/import-data.png){width="80%"}
+![](img/import-data.png){fig-align="left"}
 
 Now use the following code chunk to inspect the `head()` of each data frame and answer the questions that follow:
 
@@ -216,7 +216,7 @@ head(ccss_tweets)
 
 Wow, so much for a family friendly case study! Based on this very limited sample, which set of standards do you think Twitter users are more negative about?
 
--   CSSS
+-   YOUR RESPONSE HERE
 
 Let's take a slightly larger sample of the CCSS tweets:
 
@@ -255,14 +255,14 @@ ngss_tweets |>
 
 As you may have noticed, we have more data than we need for our analysis and should probably pare it down to just what we'll use.
 
-Let's start with the CCSS tweets first. And since this is a family friendly case study, let's use the `filter()` function introduced in previous labs to filter out rows containing "possibly sensitive" language:
+Let's start with the CCSS tweets first. And since this is a family friendly case study, let's use the `filter()` function introduced in previous labs to keep only those rows containing "possibly sensitive" language:
 
 ```{r, eval=TRUE}
 ccss_tweets_1 <- ccss_tweets |> 
   filter(possibly_sensitive == "FALSE")
 ```
 
-Now let's use the `select()` function to select the following columns from our new `ss_tweets_clean` data frame:
+Now let's use the `select()` function to select the following columns from our `ccss_tweets_1` data frame:
 
 1.  `text` containing the tweet which is our primary data source of interest
 2.  `author_id` of the user who created the tweet
@@ -277,6 +277,8 @@ ccss_tweets_2 <- ccss_tweets_1 |>
          created_at, 
          conversation_id,
          id)
+
+ccss_tweets_2
 ```
 
 #### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
@@ -286,19 +288,21 @@ ccss_tweets_2 <- ccss_tweets_1 |>
 Use the code chunk below to reorder the columns to your liking and assign to `ccss_tweets_3`:
 
 ```{r}
-ccss_tweets_3 <- ccss_tweets_1 |> 
+ccss_tweets_3 <- ccss_tweets_2 |> 
   select(id,
          text,
          author_id,
          created_at, 
          conversation_id)
+
+ccss_tweets_3
 ```
 
 #### Add & Relocate Columns
 
 Finally, since we are interested in comparing the sentiment of NGSS tweets with CSSS tweets, it would be helpful if we had a column to quickly identify the set of state standards with which each tweet is associated.
 
-We'll use the `mutate()` function to create a new variable called `standards` to label each tweets as "ngss":
+We'll use the `mutate()` function introduced in previous case studies to create a new variable called `standards` to label each tweets as "ngss":
 
 ```{r}
 ccss_tweets_4 <- mutate(ccss_tweets_2, standards = "ccss")
@@ -345,7 +349,7 @@ head(ccss_tweets_clean)
 
 Recall from section [1b. Define Questions] that we are interested in comparing word usage and public sentiment around both the Common Core and Next Gen Science Standards.
 
-Create an new `ngss_tweets_clean` data frame consisting of the Next Generation Science Standards tweets we imported by using the code above as a guide.
+Create an new `ngss_tweets_clean` data frame consisting of the Next Generation Science Standards tweets we imported earlier by using the code directly above as a guide.
 
 ```{r}
 ngss_tweets_clean <- ngss_tweets |>
@@ -392,7 +396,7 @@ ss_tweets_duplicate
 
 #### [Your Turn]{style="color: green;"} ⤵
 
-Finally, let's take a quick look at both the `head()` and the `tail()` of this new `ss_tweets` data frame to make sure it contains both "ngss" and "ccss" standards:
+Finally, let's take a quick look at both the `head()` and the `tail()` of this new `ss_tweets` data frame to make sure it contains both "ngss" and "ccss" standards and that the values for each are in the correct columns:
 
 ```{r}
 head(ss_tweets)
@@ -447,7 +451,7 @@ There is A LOT to unpack with this function:
 -   First notice that `unnest_tokens()` expects a data frame as the first argument, followed by two column names.
 -   The next argument is an output column name that doesn't currently exist but will be created as the text is "unnested" into it, `word` in this case).
 -   This is followed by the input column that the text comes from, which we uncreatively named `text`.
--   By default, a token is an individual word or unigram.
+-   By default, a token is an individual word or "unigram" but we could use the `token =` argument to change our token to bigrams (2 words) or more.
 -   Other columns, such as `author_id` and `created_at`, are retained.
 -   All punctuation has been removed.
 -   Tokens have been changed to lowercase, which makes them easier to compare or combine with other datasets (use the `to_lower = FALSE` argument to turn off if desired).
@@ -464,37 +468,25 @@ ss_tokens
 
 #### [Your Turn]{style="color: green;"} ⤵ {style="font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
 
-The `unnest_tokens()` function also has a specialized `“tweets”` tokenizer in the `tokens =` argument that is very useful for dealing with Twitter text. It retains hashtags and mentions of usernames with the \@ symbol as illustrated by our \@catturd2 friend who featured prominently in our the first CCSS tweet.
+Before we move any further let's take a quick look at the most common word in our two datasets. To do so, use `count()` function from the {dplyr} package and include the `sort = TRUE`.
 
-Rewrite the code above (**you can check answer below**) to include the token argument set to "tweets", assign to `ss_tokens_1`, and answer the questions that follow:
-
-```{r}
-ss_tokens_1 <- unnest_tokens(ss_tweets, 
-                             output = word, 
-                             input = text)
-
-head(ss_tokens_1)
-```
-
-1.  How many observations were in our original `ss_tweets` data frame?
-
-    -   
-
-2.  How many observations are there now? Why the difference?
-
-    -   
-
-Before we move any further let's take a quick look at the most common word in our two datasets. To do so, we'll introduce the easy to use `count()` function from the {dplyr} package.
-
-Like most functions we've introduced, the first argument `count()` expects is a data frame which we provided with the `|>` operator, followed but the column, in our case `word`, whose values we want to count:
+**Hint**: Like most functions we've introduced, the first argument `count()` expects is a data frame, followed by the column, in our case `word`, whose values we want to count:
 
 ```{r}
-ss_tokens_1 |>
+ss_tokens |>
   count(word, sort = TRUE)
 
 ```
 
-Well, many of these tweets are clearly about the CCSS and math at least, but beyond that it's a bit hard to tell because there are so many "stop words" like "the", "to", "and", "in" that don't carry much meaning by themselves.
+What are the three most common words and how many times do there occur?
+
+1.  YOUR RESPONSE HERE
+
+2.  YOUR RESPONSE HERE
+
+3.  YOUR RESPONSE HERE
+
+As you may have noticed, many of these tweets are clearly about the CCSS and math, but beyond that it's a bit hard to tell what the tweets are about and whether they are positive or negative because there are so many "**stop words**" like "the", "to", "and", "in" that don't carry much meaning by themselves.
 
 #### Remove Stop Words
 
@@ -517,11 +509,11 @@ For a good overview of the different `dplyr` joins see here: <https://medium.
 Now let's remove stop words that don't help us learn much about what people are saying about the state standards.
 
 ```{r stop-unigrams}
-ss_tokens_2 <- anti_join(ss_tokens_1,
+ss_tokens_1 <- anti_join(ss_tokens,
                          stop_words,
                          by = "word")
 
-head(ss_tokens_2)
+head(ss_tokens_1)
 ```
 
 Notice that we've specified the `by =` argument to look for matching words in the `word` column for both data sets and remove any rows from the `tweet_tokens` dataset that match the `stop_words` dataset.
@@ -535,7 +527,7 @@ However the `by =` argument wasn't really necessary since `word` is the only mat
 Use the code chunk below to take a quick count of the most common tokens in our `ss_tweets_2` data frame to see if the results are a little more meaningful, then answer the questions that follow.
 
 ```{r}
-ss_tokens_2 |>
+ss_tokens_1 |>
   count(word, sort = TRUE)
 ```
 
@@ -543,30 +535,30 @@ ss_tokens_2 |>
 
 1.  How many unique tokens are in our data tidied text?
 
-    -   67,718
+    -   66,166
 
 2.  How many times does the word "math" occur in our set of tweets?
 
-    -   12,046
+    -   12,208
 
 #### Custom Stop Words
 
 Notice that the nonsense word "amp" is among our high frequency words as well as some. We can create our own custom stop word list to to weed out any additional words that don't carry much meaning but skew our data by being so prominent.
 
-Let's create a custom stop word list by using the simple `c()` function to combine our words. We can the add a filter to keep rows where words in our `word` column do NOT `!` match words `%in%` `my_stopwords` list:
+Let's create a custom stop word list by using the simple `c()` function to combine our words. We can then add a filter to keep rows where words in our `word` column do NOT `!` match words `%in%` `my_stopwords` list:
 
 ```{r}
-my_stopwords <- c("amp", "=", "+")
+my_stopwords <- c("amp", "=", "+", "t.co", "https")
 
-ss_tokens_3 <-
-  ss_tokens_2 |>
+ss_tokens_2 <-
+  ss_tokens_1 |>
   filter(!word %in% my_stopwords)
 ```
 
 Let's take a look at our top words again and see if that did the trick:
 
 ```{r}
-ss_tokens_3 |>
+ss_tokens_2 |>
   count(word, sort = TRUE)
 ```
 
@@ -575,22 +567,22 @@ Much better! Note that we could extend this stop word list indefinitely. Feel fr
 Before we move any further, let's save our tidied tweets as a new data frame for Section 3 and also save it as a .csv file in our data folder:
 
 ```{r}
-ss_tidy_tweets <- ss_tokens_3
+ss_tidy_tweets <- ss_tokens_2
 
-write_csv(ss_tokens_3, "data/ss_tidy_tweets.csv")
+write_csv(ss_tokens_2, "data/ss_tidy_tweets.csv")
 ```
 
 ## 3. EXPLORE
 
-Calculating summary statistics, data visualization, and feature engineering (the process of creating new variables from a dataset) are a key part of exploratory data analysis. For our first lab, we're going to keep things super simple and focus on:
+Calculating summary statistics, data visualization, and feature engineering (the process of creating new variables from a dataset) are a key part of exploratory data analysis. For Unit 3, we're going to keep things super simple and focus on:
 
 a.  **Top Tokens.** Since once of our goals is to compare tweets about the NGSS and CSSS standards, we'll take a look at the to 50 words that appear in each.
 
-b.  **Word Clouds.** To help illustrate the relative frequency each of these top 50 words occurs, we'll introduce the {wordclouds2} package for creating interactive word clouds that can be knitted with your HTML doc.
+b.  **Word Clouds.** To help illustrate the relative frequency for each of these top 50 words, we'll introduce the {wordclouds2} package for creating interactive word clouds that can be knitted with your HTML doc.
 
 ### 3a. Top Tokens
 
-First, let's take advantage of the the `|>` operator combine some of the functions we've used above with the `top_n()` function from the {dplyr} package. By default, this function is looking for a data frame as the first argument, and then the number of rows to return.
+First, let's take advantage of the `|>` operator to combine some of the functions we've used above with the `top_n()` function from the {dplyr} package. By default, this function is looking for a data frame as the first argument, and then the number of rows to return.
 
 Let's take a look at the top tokens among the CCSS tweets by filtering our `standards` by CCSS, counting the number of times each `word` occurs, and taking the look at the 50 most common words:
 
@@ -607,7 +599,7 @@ Not surprisingly, our search terms appear in the top 50 but the word "math" also
 
 #### Word Clouds
 
-Word clouds are much maligned and sometimes referred to as the "pie charts of text analysis", but they can be useful for communicating simple summaries of qualitative data for education practitioners and are intuitive for them to interpret. Also, for better or worse, these are now included as a default visualization for open-ended survey items in online Qualtrics reports and you can even add your own stop words.
+Word clouds are much maligned and sometimes referred to as the "pie charts of text analysis", but they can be useful for communicating simple summaries of qualitative data for education practitioners and are intuitive for them to interpret.
 
 The {wordclouds2} package is pretty dead simple tool for generating HTML based interactive word clouds. By default, when you pass a data frame to the `wordcloud2()` function, it will look for a word column and a column with frequencies or counts, i.e., our column `n` that we created with the `count()` function.
 
@@ -645,13 +637,13 @@ Also, take a look at the help file for `wordclouds2` to see if there might be ot
 
 ### 3b. Exploring Bigrams (Optional)
 
-If you'd like to use the data we've been working with for extra credit, let's take a quick look at text analysis using **bigrams**, or tokens consisting of two words.
+If you'd like to use the data we've been working with a little more, let's take a quick look at text analysis using **bigrams**, or tokens consisting of two words.
 
 So far in this lab, we specified tokens as individual words, but many interesting text analyses are based on the relationships between words, which words tend to follow others immediately, or words that tend to co-occur within the same documents.
 
 We can also use the `unnest_tokens()` function to tokenize our tweets into consecutive sequences of words, called **n-grams**. By seeing how often word X is followed by word Y, we could then build a model of the relationships between them.
 
-To specify our tokens as bigrams, We do add `token = "ngrams"` to the `unnest_tokens()` function and setting `n` to the number of words in each n-gram. Let's set `n` to 2, so we can examine pairs of two consecutive words, often called "bigrams":
+To specify our tokens as bigrams, we do add `token = "ngrams"` to the `unnest_tokens()` function and setting `n` to the number of words in each n-gram. Let's set `n` to 2, so we can examine pairs of two consecutive words, often called "bigrams":
 
 ```{r ccss-bigrams}
 ngss_bigrams <- ngss_tweets |> 
@@ -723,7 +715,7 @@ tidy_bigrams |>
 Use the code chunk below to tidy and count our bigrams for the CCSS tweets:
 
 ```{r}
-# YOUR CDE HERE
+# YOUR CODE HERE
 
 ```
 
@@ -741,7 +733,7 @@ Sentiment analysis tries to evaluate words for their emotional association. In [
 
 > One way to analyze the sentiment of a text is to consider the text as a combination of its individual words and the sentiment content of the whole text as the sum of the sentiment content of the individual words.
 
-This isn't the only way to approach sentiment analysis, but it is an easier entry point into sentiment analysis and you'll find that is it often-used in publications that utilize sentiment analysis.
+This isn't the only way to approach sentiment analysis, but it is an easier entry point into sentiment analysis and you'll find that is it often used in publications that utilize sentiment analysis.
 
 The {tidytext} package provides access to several sentiment **lexicons,** [sometimes referred to as dictionaries](https://cbail.github.io/textasdata/dictionary-methods/rmarkdown/Dictionary-Based_Text_Analysis.html), based on unigrams, i.e., single words. These lexicons contain many English words and the words are assigned scores for positive/negative sentiment, and also possibly emotions like joy, anger, sadness, and so forth.
 
@@ -753,7 +745,7 @@ The three general-purpose lexicons we'll focus on are:
 
 -   `nrc` categorizes words in a binary fashion ("yes"/"no") into categories of positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust.
 
-Note that **if this is your first time using the AFINN and NRC lexicons, you may prompted to download both** Respond yes to the prompt by entering "1" and the NRC and AFINN lexicons will download. You'll only have to do this the first time you use the NRC lexicon.
+Note that **if this is your first time using the AFINN and NRC lexicons, you may prompted to download both**. Respond yes to the prompt by entering "1" and the NRC and AFINN lexicons will download. You'll only have to do this the first time you use the NRC lexicon.
 
 Let's take a quick look at each of these lexicons using the `get_sentiments()` function and assign them to their respective names for later use:
 
@@ -801,7 +793,7 @@ As noted in the PERPARE section, the {vader} package is for the Valence Aware Di
 
 The VADER assigns a number of different sentiment measures based on the context of the entire social-media post or in our case a tweet. Ultimately, however, these measures are based on a sentiment lexicon similar to those you just saw above. One benefit of using VADER rather than the approaches described by Silge and Robinson is that we use it with our tweets in their original format and skip the text preprocessing steps demonstrated above.
 
-One drawback to VADER is that it can take a little while to run since it's computationally intensive. Instead of analyzing tens of thousands of tweets, let's read in our original `ccss-tweets.csv` and take instead just a sample of 500 "untidu" CCSS tweets using the `sample_n()` function:
+One drawback to VADER is that it can take a little while to run since it's computationally intensive. Instead of analyzing tens of thousands of tweets, let's read in our original `ccss-tweets.csv` and take instead just a sample of 500 "untidy" CCSS tweets using the `sample_n()` function:
 
 ```{r}
 ccss_sample <- read_csv("data/ccss-tweets.csv") |>
@@ -814,6 +806,8 @@ Note above that we passed our `read_csv()` output directly to our `sample()` fun
 
 On to the Dark Side. The {vader} package basically has just one function, `vader_df()` that does one thing and expects just one column from one frame. He's very single minded! Let's give VADER our `ccss_sample` data frame and include the `$` operator to include only the `text` column containing our tweets.
 
+Note, this may take a little while to run.
+
 ```{r}
 vader_ccss <- vader_df(ccss_sample$text)
 
@@ -822,7 +816,7 @@ vader_ccss
 
 Take a look at `vader_summary` data frame using the `View()` function in the console and sort by most positive and negative tweets.
 
-Does it generally seem accurately identify positive and negative tweets? Could you find any that you think were mislabeled?
+Does it generally seem to accurately identify positive and negative tweets? Could you find any that you think were mislabeled?
 
 -   YOUR RESPONSE HERE
 
@@ -866,7 +860,7 @@ vader_ccss_summary
 
 Not quite as bleak as we might have expected according to VADER! But then again, VADER brings an entirely different perspective coming from the dark side
 
-In a separate R script file, try using VADER to perform a sentiment analysis of the NGSS tweets and see how they compare. Post your working code in the chunk below.
+In the code chunk below, try using VADER to perform a sentiment analysis of the NGSS tweets and see how they compare:
 
 ```{r}
 ngss_sample <- read_csv("data/ngss-tweets.csv") |>
@@ -888,11 +882,13 @@ vader_ngss_summary
 
 How do our results compare to the CSSS sample of tweets?
 
+-   YOUR RESPONSE HERE
+
 ## 5. COMMUNICATE
 
 In this case study, we focused on the literature guiding our analysis; wrangling our data into a one-token-per-row tidy text format; and using simple word counts and word clouds to compare common words used in tweets about the NGSS and CCSS curriculum standards. Below, add a few notes in response to the following prompts:
 
-1.  One thing I took away from this learning lab:
+1.  One thing I took away from this case study:
 
     -   
 
@@ -900,13 +896,7 @@ In this case study, we focused on the literature guiding our analysis; wrangling
 
     -   
 
-Congratulations - you've completed your first text mining case study! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
-
-If you wanted, you could save the processed data set to your data folder. The `write_csv()` function is useful for this. The following code is set to not run, as we wanted to ensure that everyone had the data set needed to begin the second learning lab, but if you're confident in your prepared data, you can save it with the following:
-
-```{r, eval = FALSE}
-write_csv()
-```
+Congratulations - you've completed your first text mining case study! To complete your work, click the Render button in the toolbar. This will check all your code and create an HTML file in the Files pane that serves as a record of your work that you can open in a browser or share online.
 
 ### References
 
