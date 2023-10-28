@@ -30,7 +30,7 @@ We will focus on conducting a very simplistic "replication study" by comparing t
 
 ### 1a. Review the Literature
 
-The **Unit 3 Case Study: Public Sentiment and the State Standards** is guided by a recent publication by [@rosenberg2021] *Understanding Public Sentiment About Educational Reforms: The Next Generation Science Standards on Twitter*. This study in turn builds on upon previous work by @wang2017 examining public opinion on the Common Core State Standards (CCSS) on Twitter. For Module 1, we will focus on analyzing tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand key words and phrases that emerge, as well as public sentiment towards these two curriculum reform efforts.
+The **Unit 3 Case Study: Public Sentiment and the State Standards** is guided by a recent publication by [@rosenberg2021] *Understanding Public Sentiment About Educational Reforms: The Next Generation Science Standards on Twitter*. This study in turn builds on upon previous work by @wang2017 examining public opinion on the Common Core State Standards (CCSS) on Twitter. For this case study, we will focus on analyzing tweets about the [Next Generation Science Standards](https://www.nextgenscience.org) (NGSS) and [Common Core State Standards](http://www.corestandards.org) (CCSS) in order to better understand key words and phrases that emerge, as well as public sentiment towards these two curriculum reform efforts.
 
 [![](img/rosenberg.jpg){width="50%"}](https://doi.org/10.1177/23328584211024261)
 
@@ -44,9 +44,9 @@ System-wide educational reforms are difficult to implement in the United States,
 
 Similar to data we'll be using for this case study, Rosenberg et al. used publicly accessible data from Twitter collected using the Full-Archive Twitter API and the {rtweet} package in R. Specifically, the authors accessed tweets and user information from the hashtag-based #NGSSchat online community, all tweets that included any of the following phrases, with "/" indicating an additional phrase featuring the respective plural form: "ngss", "next generation science standard/s", "next gen science standard/s".
 
-Data used in this case study was pulled using an [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research) and the {academictwitter} package, which uses the Twitter API v2 endpoints and allows researchers to access the full twitter archive, unlike the standard developer account. Data includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`.
+Data used in this case study was obtained prior to Twitter's transition to X, and used the {academictwitter} package and the sadly no longer accessible [Academic Research developer account](https://developer.twitter.com/en/products/twitter-api/academic-research). The Twitter API v2 endpoints allowed researchers to access the full twitter archive, unlike a standard developer account. Data includes all tweets from January through May of 2020 and included the following terms: `#ccss`, `common core`, `#ngsschat`, `ngss`.
 
-Below is an example of the code used to retrieve data for this lab. **This code is set not to execute and will NOT run** without your developer credentials installed, but it does illustrate the search query used, variables selected, and time frame. For those that created a standard developer account, we will learn later in this section how to retrieve data from Twitter using the {rtweet} package.
+Below is an example of the code used to retrieve data for this case study. **This code is set not to execute and will NOT run**, but it does illustrate the search query used, variables selected, and time frame.
 
 ```{r, eval=FALSE}
 library(academictwitteR)
