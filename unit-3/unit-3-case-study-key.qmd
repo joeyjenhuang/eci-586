@@ -80,7 +80,7 @@ The authors determined Tweet sentiment using the Java version of SentiStrength t
 
 We'll be using the AFINN sentiment lexicon which also assigns words in a tweet to two 5-point scales, in addition to exploring some other sentiment lexicons to see if they produce similar results. We will use a similar approach to label tweets as positive, negative, or neutral using the {Vader} package which greatly simplifies this process.
 
-The authors also used the `lme4` package in R to run a mixed effects model to determine if sentiment changes over time and differs between teachers and non-teachers. We won't try to replicate in this study, but we will take a look at some of their findings from this model in below.
+The authors also used the `lme4` package in R to run a mixed effects model to determine if sentiment changes over time and differs between teachers and non-teachers. We won't try to replicate in this part of the study, but we will take a look at some of their findings from this model in section 4.
 
 #### **Summary of Key Findings**
 
@@ -88,8 +88,6 @@ The authors also used the `lme4` package in R to run a mixed effects model to de
 2.  Teachers were more positive than non-teachers, and sentiment became substantially more positive over the ten years of NGSS-related posts.
 3.  Differences between the context of the tweets were small, but those that did not include the #NGSSchat hashtag became more positive over time than those posts that did not include the hashtag.
 4.  Individuals posted more tweets during #NGSSchat chats, the sentiment of their posts was more positive, suggesting that while the context of individual tweets has a small effect (with posts not including the hashtag becoming more positive over time), the effect upon individuals of being involved in the #NGSSchat was positive.
-
-Finally, you can watch Dr. Rosenberg provide a quick 3-minute overview of this work at <https://stanford.app.box.com/s/i5ixkj2b8dyy8q5j9o5ww4nafznb497x>
 
 ### 1b. Define Questions
 
@@ -105,7 +103,7 @@ The questions guiding the Rosenberg et al. study attempt to quantify public sent
 4.  How does participation in #NGSSchat relate to the public sentiment individuals express?
 5.  How does public sentiment vary over time?
 
-For our text mining case study, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to guage public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in this case study we'll attempt to answer the following questions:
+For this text mining case study, we'll use approaches similar to those used by the authors cited above to better understand public discourse surrounding these standards, particularly as they relate to STEM education. We will also try to guage public sentiment around the NGSS, by comparing how much more positive or negative NGSS tweets are relative to CSSS tweets. Specifically, in this case study we'll attempt to answer the following questions:
 
 1.  What are the most frequent words or phrases used in reference to tweets about the CCSS and NGSS?
 2.  How does sentiment for NGSS compare to sentiment for CCSS?
@@ -116,7 +114,7 @@ For our text mining case study, we'll use approaches similar to those used by th
 
 ![](img/tidytext.png){width="20%"}
 
-As we'll learn first hand in this module, using tidy data principles can also make many text mining tasks easier, more effective, and consistent with tools already in wide use. The {tidytext} package helps to convert text into data frames of individual words, making it easy to to manipulate, summarize, and visualize text using using familiar functions form the {tidyverse} collection of packages.
+As we'll learn first hand in this module, using tidy data principles can also make many text mining tasks easier, more effective, and consistent with tools already in wide use. The {tidytext} package helps to convert text into data frames with each rows containing an individual word or sequence of words, making it easy to to manipulate, summarize, and visualize text using using familiar functions form the {tidyverse} collection of packages.
 
 Let's go ahead and load the {tidytext} package:
 
@@ -132,7 +130,7 @@ For a more comprehensive introduction to the `tidytext` package, I cannot recomm
 
 The {vader} package is for the Valence Aware Dictionary for sEntiment Reasoning (VADER), a rule-based model for general sentiment analysis of social media text and specifically attuned to measuring sentiment in microblog-like contexts.
 
-To learn more about the {vader} package and its development, take a look at the article by Hutto and Gilbert (2014), [VADER: A Parsimonious Rule-based Model forSentiment Analysis of Social Media Text](http://comp.social.gatech.edu/papers/icwsm14.vader.hutto.pdf).
+To learn more about the {vader} package and its development, take a look at the article by Hutto and Gilbert (2014), [VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text](https://ojs.aaai.org/index.php/ICWSM/article/view/14550).
 
 Let's go ahead and load the VADER library:
 
@@ -155,7 +153,7 @@ library(wordcloud2)
 
 The importance of data wrangling, particularly when working with text, is difficult to overstate. Just as a refresher, wrangling involves the initial steps of going from raw data to a dataset that can be explored and modeled [@krumm2018]. This case study will place a heavy emphasis on preparing text for analysis and in particular we'll learn how to:
 
-a.  **Import Tweets**. First we revisit the familiar `read_csv()` function for reading in our CCSS and NGSS tweets into R. For those of you who created a Twitter Developer Account, we'll also demonstrate the use of the {rtweet} package for downloading data directly from Twitter.
+a.  **Import Tweets**. First we revisit the familiar `read_csv()` function for reading in our CCSS and NGSS tweets into R.
 b.  **Restructure Data**. We focus on removing extraneous data using the `select()` and `filter()` functions from {dplyr}, and revisit functions from the [Tidy Your Data Primer](https://rstudio.cloud/learn/primers/4.3) for merging data frames.
 c.  **Tidy Text.** Finally, we introduce the {tidytext} package to "tidy" and tokenize our tweets in order to create our data frame for analysis. We also introduce a new join function to remove "stop words" that don't add much value to our analysis.
 
