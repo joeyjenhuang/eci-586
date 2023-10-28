@@ -1,5 +1,6 @@
 ---
 title: 'Unit 2 Case Study: Identifying At-Risk Students'
+subtitle: "ECI 586 Introduction to Learning Analytics"
 author: "Dr. Shaun Kellogg"
 date: today 
 format:
