@@ -2,7 +2,7 @@
 title: "Final Project: Independent Data Product"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today
 format:
   html:
     toc: true
@@ -15,7 +15,7 @@ editor: visual
 
 ## Overview
 
-For the end-of-course project, you'll be applying the knowledge and skills gained throughout this semester to conduct the independent analysis proposed in the previous assignment. Similar to the case studies provided in this course, your analysis should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. You will also be expected to use [R Markdown](https://bookdown.org/yihui/rmarkdown/) (or [Quarto](https://quarto.org) if preferred) to create a reproducible data product (e.g., slide show, dashboard, report, mini "data product", etc.), which contains all the code used during each step of your analysis so it can be reproduced by others.
+For the end-of-course project, you'll be applying the knowledge and skills gained throughout this semester to conduct the independent analysis proposed in the previous assignment. Similar to the case studies provided in this course, your analysis should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. You will also be expected to use [Quarto](https://quarto.org) (or [R Markdown](https://bookdown.org/yihui/rmarkdown/) if preferred) to create a reproducible data product (e.g., slide show, dashboard, report, mini "data product", etc.), which contains all the code used during each step of your analysis so it can be reproduced by others.
 
 ## Grading Criteria
 

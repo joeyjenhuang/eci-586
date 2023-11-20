@@ -2,7 +2,7 @@
 title: "Final Project: Independent Analysis Planning"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today
 format:
   html:
     toc: true
@@ -15,17 +15,19 @@ editor: visual
 
 ## Overview
 
-Throughout this course, we've developed several data products as part of our tutorials and completed several case studies modeled after the Data-Intensive Research Workflow from Learning Analytics Goes to School (Krumm et al., 2018). For your final course project, you'll be asked to complete an independent analysis and create your own data product (e.g., slide show, dashboard, report, or mini "case study") to showcase your analyses and findings. Your data product will bring together some of the workflow processes we've learned this semester to help answer a research question you have about a dataset of your own choosing.
+Throughout this course, you conducted several analyses as part of the unit case studies and developed your first data product using Quarto in Unit 3. For your final course project, you'll be asked to complete an independent analysis and create your own data product (e.g., slide show, dashboard, report, or mini "case study") to showcase your analyses and findings. Your data product will bring together some of the data-intensive research workflow processes that we've learned this semester to help answer a research question you have about a dataset of your own choosing.
 
 ## Assignment
 
-Week 13, provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
+Week 13 provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
 
 To help plan for your final project, your assignment this week is to:
 
 -   create a forum post that addresses the questions below; and,
 
 -   provide constructive feedback on proposed case studies for at least two of your peers.
+
+To assist you in addressing these questions, I've included some potential data sources you may be interested in using for your final project, as well as some example student data products from past courses.
 
 ### Prepare
 
@@ -57,4 +59,64 @@ To help plan for your final project, your assignment this week is to:
 
 ## Assessment
 
-This assignment accounts for half of your final project grade (12 points planning, 12 points data product). Responses that adequately addresses the questions above are worth 1 point each (10 points total). In addition you'll be expected to provide constructive feedback to two of your peers. Each response is worth 1 point each (2 points total).
+This assignment accounts for half of your final project grade (12 points planning, 12 points data product). Responses that adequately addresses the questions above are worth 1 point each (10 points total). In addition, you'll be expected to provide constructive feedback to two of your peers. Each response is worth 1 point each (2 points total).
+
+## Data Sources
+
+### Education Data
+
+-   NC School Report Cards (SRC): <https://www.dpi.nc.gov/data-reports/school-report-cards/school-report-card-resources-researchers>
+
+-   Open University Learning Analytics dataset: \
+    [https://www.nature.com/articles/sdata2017171](https://www.nature.com/articles/sdata2017171https://www.nature.com/articles/sdata2017171) (description)\
+    <https://analyse.kmi.open.ac.uk/open_dataset> (data)
+
+-   Friday Institute MOOC-Ed Resource Utilization Data: <https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/FI-Hewlett%20MOOC-Ed%20Data%20%28Fall%202014%29-2.xlsx> ([Data Codebook](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/MOOC-Ed%20Data%20Set%202%20Description.docx))
+
+-   National Center for Education Statistics: <https://nces.ed.gov/datatools/>
+
+-   University of Virginia Education Statistics, Data Sets, and Data Experts: <https://guides.lib.virginia.edu/statisticsdatasets>
+
+-   Urban Institute Education Data Explorer: <https://educationdata.urban.org/data-explorer/>
+
+### Text Data
+
+-   [Race to the Top Online PD Survey](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/opd_survey.csv) ([Data Description pg. 15](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/0%20-%20OPD_Y1_FINAL_11_9_12%20copy.jpg))
+
+-   [MOOC-Ed Discussion Forums](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/ts_forum_data.csv): https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/ts_forum_data.csv
+
+### Network Data
+
+-   Social Network Analysis and Education data sets: <https://studysites.sagepub.com/carolan/study/resources.htm>
+
+-   Massively Open Online Course for Educators (MOOC-Ed) network dataset: <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZZH3UB>
+
+## Example Data Products
+
+### Slides
+
+-   Assessing Student Performance Factors in Calculus II: <https://rpubs.com/akourou/calculus_final_presentation>
+
+-   Academic Mental Health on Twitter: <https://jennhouchins.github.io/Sentiments/SentimentAnalysisinR.html#1>
+
+-   North Carolina Goes Back to School: <https://cullerth.github.io/wk_7_indpndnt_analysis/wk_7_presentation.html#1>
+
+### Reports
+
+-   Comparing Duke, UNC, and NC State Twitter Activity: A Text Mining Approach: <https://sorayaworldwide.github.io/DukeUNCNCStateTweets.html>
+
+### Case Studies
+
+-   Reddit Vaccine Myths Sentiment Analysis: <https://rpubs.com/jmbethe2/983173>
+
+-   BeAM Online Training: <https://rpubs.com/aengelke/984188>
+
+-   Predicting Non-success in a College Science Course: <https://rpubs.com/rmlucas/845863>
+
+-   #BlackinSTEM and #DiversityinSTEM Twitter Analysis: <https://rpubs.com/dsc21/845881>
+
+### Dashboards
+
+-   Accountability and Testing Reports Dashboard: <https://jkhouchins.shinyapps.io/accountability/>
+
+-   Troubles with Technology for School Children in America: <https://speckart.shinyapps.io/Project/>

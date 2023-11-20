@@ -19,6 +19,8 @@ editor: visual
 
 -   NC School Report Cards (SRC): <https://www.dpi.nc.gov/data-reports/school-report-cards/school-report-card-resources-researchers>
 
+-   Open University Learning Analytics dataset: [https://www.nature.com/articles/sdata2017171](https://www.nature.com/articles/sdata2017171https://www.nature.com/articles/sdata2017171)
+
 -   Friday Institute MOOC-Ed Resource Utilization Data: <https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/FI-Hewlett%20MOOC-Ed%20Data%20%28Fall%202014%29-2.xlsx> ([Data Codebook](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/MOOC-Ed%20Data%20Set%202%20Description.docx))
 
 -   National Center for Education Statistics: <https://nces.ed.gov/datatools/>
@@ -41,12 +43,6 @@ editor: visual
 
 ## Student Data Products
 
-### Dashboards
-
--   Accountability and Testing Reports Dashboard: <https://jkhouchins.shinyapps.io/accountability/>
-
--   Troubles with Technology for School Children in America: <https://speckart.shinyapps.io/Project/>
-
 ### Slides
 
 -   Academic Mental Health on Twitter: <https://jennhouchins.github.io/Sentiments/SentimentAnalysisinR.html#1>
@@ -62,3 +58,9 @@ editor: visual
 -   Predicting Non-success in a College Science Course: <https://rpubs.com/rmlucas/845863>
 
 -   #BlackinSTEM and #DiversityinSTEM Twitter Analysis: <https://rpubs.com/dsc21/845881>
+
+### Dashboards
+
+-   Accountability and Testing Reports Dashboard: <https://jkhouchins.shinyapps.io/accountability/>
+
+-   Troubles with Technology for School Children in America: <https://speckart.shinyapps.io/Project/>
