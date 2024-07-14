@@ -1,0 +1,4 @@
+- source: unit-3-data-product-example.qmd
+  quarto-pub:
+    - id: 66e8e0cc-b68a-452e-820e-eecb47a6d699
+      url: 'https://sbkellogg.quarto.pub/do-students-who-spend-more-time-in-the-course-earn-higher-grades-a244'
