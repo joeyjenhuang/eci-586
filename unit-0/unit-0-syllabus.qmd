@@ -56,15 +56,15 @@ There are several required textbooks for this course, all of which are freely av
 
 1.  Sclater, N. (2017). [*Learning analytics explained*](https://catalog.lib.ncsu.edu/catalog/NCSU4863297). Taylor & Francis.
 
-2.  Xie, Y., Allaire, J. J., & Grolemund, G. (2018). [*R markdown: The definitive guide*.](https://bookdown.org/yihui/rmarkdown/) CRC Press.
+2.  Wickham, H., & Grolemund, G. (2016). [*R for data science: import, tidy, transform, visualize, and model data (2e)*](https://r4ds.hadley.nz). " O'Reilly Media, Inc.".
 
-3.  Wickham, H., & Grolemund, G. (2016). [*R for data science: import, tidy, transform, visualize, and model data (2e)*](https://r4ds.hadley.nz). " O'Reilly Media, Inc.".
+3.  Healy, K. (2018). [*Data visualization: a practical introduction*.](http://socviz.co/) Princeton University Press.
 
-4.  Wickham, H. (2021). [*Mastering shiny*.](https://mastering-shiny.org/) " O'Reilly Media, Inc.".
+4.  Cairo, A. (2016). [*The truthful art: Data, charts, and maps for communication*.](https://catalog.lib.ncsu.edu/catalog/NCSU3923006) New Riders.
 
-5.  Healy, K. (2018). [*Data visualization: a practical introduction*.](http://socviz.co/) Princeton University Press.
+5.  Silge, J., & Robinson, D. (2017). [*Text mining with R: A tidy approach*](https://www.tidytextmining.com). O'Reilly Media, Inc..
 
-6.  Cairo, A. (2016). [*The truthful art: Data, charts, and maps for communication*.](https://catalog.lib.ncsu.edu/catalog/NCSU3923006) New Riders.
+6.  Carolan, B. V. (2013). [*Social network analysis and education: Theory, methods & applications*](https://methods.sagepub.com/book/social-network-analysis-and-education). Sage Publications.
 
 ## Software
 
@@ -74,27 +74,51 @@ Students should feel comfortable installing new software programs and navigating
 
 This course requires R and R Studio, which you will access through Posit Cloud and will use to for hands-on data analyses experiences throughout the semester.
 
-1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, including **RStudio** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <https://login.posit.cloud/register.>
+1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, including **RStudio** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management.
 
-2.  **Posit Primers** (<https://posit.cloud/learn/primers>) provide an excellent series of interactive tutorials that range from R fundamentals like basic programming syntax to complex tasks like building interactive data dashboards.
+    -   First, register for a free Posit Cloud account at: <https://login.posit.cloud/register.>
 
-3.  **RPubs** (<https://rpubs.com)> is a free and easy web publishing platform for R. Throughout the course, you will be using using [R Markdown](https://rmarkdown.rstudio.com/)) and [Quarto](https://quarto.org) documents, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [books](https://bookdown.org/), [dashboards](https://rmarkdown.rstudio.com/flexdashboard/), [shiny applications](https://bookdown.org/yihui/rmarkdown/shiny-documents.html), [research articles](https://github.com/rstudio/rticles), [websites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), and more. To publish these documents via RPubs, however, you will first need to create an account here: <https://rpubs.com/users/new.>
+    -   Next, access our ECI 586 Intro to Learning Analytics workspace at:
 
-### Optional Software
+2.  **Data Camp** ([https://www.datacamp.com](https://www.datacamp.com/)) is an online learning platform with a large catalog of video tutorials, coding activities, assessments and certifications for R, Python, data science, statistics & more.
+
+    -   Register for a free account using your \@ncsu.edu email address at: <https://www.datacamp.com/users/sign_up>
+
+    -   After registering with your NC State email, click the following link to access our [Learning Analytics DataCamp group space](https://www.datacamp.com/groups/shared_links/b6b84feb66a4f045585bb4dbe7eb154418aef1136ccef4450d5eb3f453b0e136) where you will complete required assignments during Week 2 of each unit.
+
+### Optional Software (R)
+
+While we will be using RStudio through Posit Cloud for this course, I eventually recommend shifting to RStudio Desktop if you plan to use R and RStudio beyond this course.
 
 1.  **R** (<https://www.r-project.org>) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network, <http://cran.r-project.org/>.
 
-2.  **RStudio Desktop** (<https://posit.co/products/open-source/rstudio)> is a free desktop application of the RStudio IDE for R that runs on Windows, MacOS or Linux. Its advantages over Posit Cloud include offline access, full control over the local environment, customization options, data privacy and security, and the ability to leverage the full resources of your local machine, such as CPU, memory, and storage. While we will be using RStudio through Posit Cloud for this course, I eventually recommend shifting to RStudio Desktop if you plan to use R and RStudio beyond this course.
+2.  **RStudio Desktop** (<https://posit.co/products/open-source/rstudio)> is a free desktop application of the RStudio IDE for R that runs on Windows, MacOS or Linux. Its advantages over Posit Cloud include offline access, full control over the local environment, customization options, data privacy and security, and the ability to leverage the full resources of your local machine, such as CPU, memory, and storage.
 
-3.  **Posit** **Cheat Sheets** (<https://posit.cloud/learn/cheat-sheets>) also provide handy reference to commonly used packages and their essential functions, including example code for testing them out.
+3.  **RPubs** (<https://rpubs.com)> is a free and easy web publishing platform for R. Throughout the course, you will be using using [R Markdown](https://rmarkdown.rstudio.com/)) and [Quarto](https://quarto.org) documents, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [books](https://bookdown.org/), [dashboards](https://rmarkdown.rstudio.com/flexdashboard/), [shiny applications](https://bookdown.org/yihui/rmarkdown/shiny-documents.html), [research articles](https://github.com/rstudio/rticles), [websites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), and more. \
+    To publish these documents via RPubs, however, you will first need to create an account here: <https://rpubs.com/users/new.>
 
-4.  **Dataquest** (<https://www.dataquest.io>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. An email will be sent providing free access to our Dataquest team, full catalogue of courses and resources for 6 months.
+### Optional Software (Posit)
 
-5.  **LinkedIn Learning** ([https://www.linkedin.com/learning)](https://www.linkedin.com/learning) offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning). 
+1.  **Quarto** ([https://quarto.org](https://quarto.org/)) is an open-source scientific and technical publishing system used for creating reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more. \
+    You can download and install Quarto here: <https://quarto.org/docs/get-started/>
 
-6.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
+2.  **Quarto Pub** ([https://quartopub.com](https://quartopub.com/)) is a free and easy web publishing platform for Quarto docs. To publish the documents via Quarto Pub, however, you will first need to create an account. \
+    To create a Quarto Pub account, sign up here: <https://quartopub.com/sign-up> 
 
-7.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com>
+3.  **Posit Recipes** (<https://posit.cloud/learn/recipes>) provide a collection of R code snippets and instructions featuring up-to-date best practices for coding in R.
+
+4.  **Posit** **Cheat Sheets** ([https://posit.co/resources/cheatsheets](https://posit.co/resources/cheatsheets/?_gl=1*12iba7w*_ga*MTE1MTYxMzc2NC4xNzE3ODQzNDU5*_ga_2C0WZ1JHG0*MTcxNzg1MTMwOS4zLjEuMTcxNzg1Mjk1Mi4wLjAuMA..)) also provide handy printable reference sheets to commonly used packages and their essential functions, including example code for testing them out. also provide handy reference to commonly used packages and their essential functions, including example code for testing them out.
+
+### Optional Software (Other)
+
+1.  **ChatGPT** (<https://openai.com/chatgpt/>) is an advanced AI language model developed by OpenAI and is **highly recommended for this course**. It's and excellent tool for learning analytics and can assist by explaining concepts, helping with code, offering analysis guidance, and troubleshooting, though it's important to verify its advice against reliable sources.\
+    Use with or without registering for an account at: <https://chatgpt.com>
+
+2.  **Git** is a free and open source distributed version control system. Jenny Bryan's very thorough installation and R Studio set up process for Mac and Windows can be found here: <http://happygitwithr.com>.
+
+3.  **GitHub** is a web-based hosting service for version control using Git. You can create an account here: <https://github.com>
+
+4.  **LinkedIn Learning** ([https://www.linkedin.com/learning)](https://www.linkedin.com/learning) offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is [available at no charge to students](https://www.lib.ncsu.edu/faq/what-is-linkedin-learning).
 
 ## Course Goals
 
@@ -123,36 +147,36 @@ The following learning objectives are aligned with the overarching objectives of
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration using a range of digital data sources. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.
 
 | **Schedule** | **Topics**                                                                                                                                                                                                                         |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------|------------------------------------------------------------|
 | **WELCOME**  | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                       |
 | Week 1       | Introductions, syllabus review, and software setup                                                                                                                                                                                 |
 | **UNIT 1**   | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                    |
 | Week 2       | **Readings & Discussion:** Introduction to Learning Analytics as a discipline, including a little history, key concepts, learning theories, methodologies, etc.)                                                                   |
-| Week 3       | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report "tidy" data.                                                                                 |
+| Week 3       | **R Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report "tidy" data.                                                                                         |
 | Week 4       | **Case Study**: A look into student-level data from online classes provided by a state-wide virtual public school.                                                                                                                 |
 | **UNIT 2**   | **PARTNERSHIPS & PREDICTIVE ANALYTICS**                                                                                                                                                                                            |
 | Week 5       | **Readings & Discussion:** An examination of the use of data visualization and dashboards in Learning Analytics to understand and improve student learning.                                                                        |
-| Week 6       | **R Toolkit Tutorial**: A deeper dive into the "grammar of graphics" and development of foundational skills for creating interactive data apps.                                                                                    |
+| Week 6       | **R Tutorial**: A deeper dive into the "grammar of graphics" and development of foundational skills for creating interactive data apps.                                                                                            |
 | Week 7       | **Case Study**: An exploration of aggregate student data to examine educational inequities and changes over time.                                                                                                                  |
 | **UNIT 3**   | **TEXT AS DATA**                                                                                                                                                                                                                   |
 | Week 8       | **Readings & Discussion:** Introduction to text mining in education, including a key concepts and common techniques, and their application in educational settings.                                                                |
-| Week 9       | **R Toolkit Tutorial**: An introduction to the Shiny package and development of interactive data apps.                                                                                                                             |
+| Week 9       | **R Tutorial**: An introduction to the Shiny package and development of interactive data apps.                                                                                                                                     |
 | Week 10      | **Case Study**: A focus on text processing, word frequencies, and sentiment lexicons to examine public opinions on Twitter around the Common Core and Next Generation Science Standards.                                           |
 | **UNIT 4**   | **A NETWORK PERSPECTIVE**                                                                                                                                                                                                          |
 | Week 11      | **Readings & Discussion:** Introduction to social network analysis in education, including a key concepts and common techniques, and applications in educational settings.                                                         |
-| Week 12      | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report relational data.                                                                             |
+| Week 12      | **R Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report relational data.                                                                                     |
 | Week 13      | **Case Study**: A focus on network data formats, descriptives, and sociograms to examine peer interaction in Massively Open Online Course for Educators (MOOC-Eds).                                                                |
 | **WRAP UP**  | **MAKE UP & FINAL PROJECTS**                                                                                                                                                                                                       |
 | Week 14      | **Make-up Week:** Final opportunity for students to complete any missing work. This week should also be used to make significant progress on your final project.                                                                   |
 | Week 15      | **Final Project:** In lieu of a final exam, students will complete and Independent analysis and develop a data product (e.g. report, presentation, data dashboard, etc.) that demonstrates concepts learned throughout the course. |
 
-## **Major Assignments & Assessment**
+## Major Assignments & Assessment
 
 1.  **Housekeeping (4 pts)**: Students will review the syllabus and "sign" the Online Learner Agreement sent at the beginning of the semester that outlines expectations for participating in an online course. Student will also be required to install necessary software and post a brief introduction of themselves and respond to their peers. 
 
 2.  **Reading & Discussion (24 pts)**: The first week of each unit introduces terminology, core concepts, and applications of an analytical approach through readings, course videos, and discussion. To help guide discussions, students are provided a set of essential questions to address and are also encouraged to explore their own areas of interest. The primary goal of course readings and discussion is to foster a deeper understanding of how Learning Analytics has been applied in educational contexts.
 
-3.  **R Toolkit Tutorials (24 pts):** The second week of each unit, consists of tutorials for working with R packages and functions used import, wrangle, explore, and model data. The primary goal of these tutorials is to support familiarity and fluency with R syntax and key functions for data analysis.
+3.  **R Tutorials (24 pts):** The second week of each unit, consists of tutorials for working with R packages and functions used import, wrangle, explore, and model data. The primary goal of these tutorials is to support familiarity and fluency with R syntax and key functions for data analysis.
 
 4.  **Case Studies (24 pts)**: In the third week of each unit, students will complete an interactive "case study" demonstrating how key data-intensive research workflow processes (i.e., wrangling, visualizing, summarizing, modeling, and communicating data) featured in exemplary education research studies are implemented in R. Coding case studies also provide a holistic setting to explore important foundational LA topics integral to data analysis such as reproducible research, use of APIs, ethical considerations, diversity and inclusion, and creation of useful data products.
 
@@ -168,7 +192,7 @@ Late work is accepted but may be penalized at 15% per week it is late. Assignmen
 
 **Course Feedback Expectations:** Please contact your instructor via email (shaun.kellogg\@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback to help improve the design of current and future course implementations. 
 
-## **NC State Policies**
+## NC State Policies
 
 **Academic Integrity:** Students are bound by the academic integrity policy as stated in the code of student conduct. Therefore, students are required to uphold the university pledge of honor and exercise honesty in completing any assignment. See the website for a full explanation: <http://www.ncsu.edu/policies/student_services/student_discipline/POL11.35.1.php>
 
@@ -186,7 +210,7 @@ Late work is accepted but may be penalized at 15% per week it is late. Assignmen
 
 **Disabilities**: Reasonable accommodations will be made for students with verifiable disabilities. In order to take advantage of available accommodations, students must register with the Disability Resource Office at Holmes Hall, Suite 304, Campus Box 7509, 919-515-7653. For more information on NC State's policy on working with students with disabilities, please see the Academic Accommodations for Students with Disabilities Regulation (REG02.20.01).
 
-## **Other Important Resources**
+## Other Important Resources
 
 -   **Keep Learning:** <https://dasa.ncsu.edu/students/keep-learning/>
 

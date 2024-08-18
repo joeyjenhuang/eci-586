@@ -96,7 +96,7 @@ Click the green arrow in the right corner of the block-or "chunk"-of code that f
 install.packages("tidyverse")
 ```
 
-Once these packages have been installed, we will need to load them using teh `library()` function in order to use the handy functions they contain.
+Once these packages have been installed, we will need to load them using the `library()` function in order to use the handy functions they contain.
 
 To load the tidyverse, click the green arrow in the right corner of the block-or "chunk"-of code that follows. Notice that we do not need to use the quotation marks again because the {tidyverse} package and packages it contains are now a part of our package library!
 

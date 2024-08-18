@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2023-08-22">
+<meta name="dcterms.date" content="2024-08-18">
 
 <title>Course Syllabus</title>
 <style>
@@ -58,14 +58,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a>
   <ul class="collapse">
   <li><a href="#required-software" id="toc-required-software" class="nav-link" data-scroll-target="#required-software">Required Software</a></li>
-  <li><a href="#optional-software" id="toc-optional-software" class="nav-link" data-scroll-target="#optional-software">Optional Software</a></li>
+  <li><a href="#optional-software-r" id="toc-optional-software-r" class="nav-link" data-scroll-target="#optional-software-r">Optional Software (R)</a></li>
+  <li><a href="#optional-software-posit" id="toc-optional-software-posit" class="nav-link" data-scroll-target="#optional-software-posit">Optional Software (Posit)</a></li>
+  <li><a href="#optional-software-other" id="toc-optional-software-other" class="nav-link" data-scroll-target="#optional-software-other">Optional Software (Other)</a></li>
   </ul></li>
   <li><a href="#course-goals" id="toc-course-goals" class="nav-link" data-scroll-target="#course-goals">Course Goals</a></li>
   <li><a href="#student-learning-outcomes" id="toc-student-learning-outcomes" class="nav-link" data-scroll-target="#student-learning-outcomes">Student Learning Outcomes</a></li>
   <li><a href="#course-structure-schedule" id="toc-course-structure-schedule" class="nav-link" data-scroll-target="#course-structure-schedule">Course Structure &amp; Schedule</a></li>
-  <li><a href="#major-assignments-assessment" id="toc-major-assignments-assessment" class="nav-link" data-scroll-target="#major-assignments-assessment"><strong>Major Assignments &amp; Assessment</strong></a></li>
-  <li><a href="#nc-state-policies" id="toc-nc-state-policies" class="nav-link" data-scroll-target="#nc-state-policies"><strong>NC State Policies</strong></a></li>
-  <li><a href="#other-important-resources" id="toc-other-important-resources" class="nav-link" data-scroll-target="#other-important-resources"><strong>Other Important Resources</strong></a></li>
+  <li><a href="#major-assignments-assessment" id="toc-major-assignments-assessment" class="nav-link" data-scroll-target="#major-assignments-assessment">Major Assignments &amp; Assessment</a></li>
+  <li><a href="#nc-state-policies" id="toc-nc-state-policies" class="nav-link" data-scroll-target="#nc-state-policies">NC State Policies</a></li>
+  <li><a href="#other-important-resources" id="toc-other-important-resources" class="nav-link" data-scroll-target="#other-important-resources">Other Important Resources</a></li>
   </ul>
 </nav>
 </div>
@@ -91,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 22, 2023</p>
+      <p class="date">August 18, 2024</p>
     </div>
   </div>
   
@@ -99,7 +101,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="course-overview" class="level2">
 <h2 class="anchored" data-anchor-id="course-overview">Course Overview</h2>
@@ -139,11 +143,11 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="optional">Optional</h3>
 <ol type="1">
 <li><p>Sclater, N. (2017). <a href="https://catalog.lib.ncsu.edu/catalog/NCSU4863297"><em>Learning analytics explained</em></a>. Taylor &amp; Francis.</p></li>
-<li><p>Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). <a href="https://bookdown.org/yihui/rmarkdown/"><em>R markdown: The definitive guide</em>.</a> CRC Press.</p></li>
 <li><p>Wickham, H., &amp; Grolemund, G. (2016).&nbsp;<a href="https://r4ds.hadley.nz"><em>R for data science: import, tidy, transform, visualize, and model data (2e)</em></a>. ” O’Reilly Media, Inc.”.</p></li>
-<li><p>Wickham, H. (2021). <a href="https://mastering-shiny.org/"><em>Mastering shiny</em>.</a> ” O’Reilly Media, Inc.”.</p></li>
 <li><p>Healy, K. (2018).&nbsp;<a href="http://socviz.co/"><em>Data visualization: a practical introduction</em>.</a> Princeton University Press.</p></li>
 <li><p>Cairo, A. (2016). <a href="https://catalog.lib.ncsu.edu/catalog/NCSU3923006"><em>The truthful art: Data, charts, and maps for communication</em>.</a> New Riders.</p></li>
+<li><p>Silge, J., &amp; Robinson, D. (2017). <a href="https://www.tidytextmining.com"><em>Text mining with R: A tidy approach</em></a>. O’Reilly Media, Inc..</p></li>
+<li><p>Carolan, B. V. (2013). <a href="https://methods.sagepub.com/book/social-network-analysis-and-education"><em>Social network analysis and education: Theory, methods &amp; applications</em></a>. Sage Publications.</p></li>
 </ol>
 </section>
 </section>
@@ -154,21 +158,47 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="required-software">Required Software</h3>
 <p>This course requires R and R Studio, which you will access through Posit Cloud and will use to for hands-on data analyses experiences throughout the semester.</p>
 <ol type="1">
-<li><p><strong>Posit Cloud</strong> (<a href="https://posit.co/products/cloud/cloud/)" class="uri">https://posit.co/products/cloud/cloud/)</a> provides access to Posit’s powerful set of data science tools, including <strong>RStudio</strong> (<a href="https://posit.co/products/open-source/rstudio/">https://posit.co/products/open-source/rstudio</a>), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. To register for a free Posit Cloud account vist: <a href="https://login.posit.cloud/register." class="uri">https://login.posit.cloud/register.</a></p></li>
-<li><p><strong>Posit Primers</strong> (<a href="https://posit.cloud/learn/primers" class="uri">https://posit.cloud/learn/primers</a>) provide an excellent series of interactive tutorials that range from R fundamentals like basic programming syntax to complex tasks like building interactive data dashboards.</p></li>
-<li><p><strong>RPubs</strong> (<a href="https://rpubs.com)" class="uri">https://rpubs.com)</a> is a free and easy web publishing platform for R. Throughout the course, you will be using using <a href="https://rmarkdown.rstudio.com/">R Markdown</a>) and <a href="https://quarto.org">Quarto</a> documents, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">HTML</a>, <a href="https://bookdown.org/yihui/rmarkdown/pdf-document.html">PDF</a>, <a href="https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html">HTML5 slides</a>, <a href="https://bookdown.org/yihui/rmarkdown/tufte-handouts.html">Tufte-style handouts</a>, <a href="https://bookdown.org/">books</a>, <a href="https://rmarkdown.rstudio.com/flexdashboard/">dashboards</a>, <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">shiny applications</a>, <a href="https://github.com/rstudio/rticles">research articles</a>, <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">websites</a>, and more. To publish these documents via RPubs, however, you will first need to create an account here: <a href="https://rpubs.com/users/new." class="uri">https://rpubs.com/users/new.</a></p></li>
+<li><p><strong>Posit Cloud</strong> (<a href="https://posit.co/products/cloud/cloud/)" class="uri">https://posit.co/products/cloud/cloud/)</a> provides access to Posit’s powerful set of data science tools, including <strong>RStudio</strong> (<a href="https://posit.co/products/open-source/rstudio/">https://posit.co/products/open-source/rstudio</a>), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management.</p>
+<ul>
+<li><p>First, register for a free Posit Cloud account at: <a href="https://login.posit.cloud/register." class="uri">https://login.posit.cloud/register.</a></p></li>
+<li><p>Next, access our ECI 586 Intro to Learning Analytics workspace at:</p></li>
+</ul></li>
+<li><p><strong>Data Camp</strong> (<a href="https://www.datacamp.com/">https://www.datacamp.com</a>) is an online learning platform with a large catalog of video tutorials, coding activities, assessments and certifications for R, Python, data science, statistics &amp; more.</p>
+<ul>
+<li><p>Register for a free account using your @ncsu.edu email address at: <a href="https://www.datacamp.com/users/sign_up" class="uri">https://www.datacamp.com/users/sign_up</a></p></li>
+<li><p>After registering with your NC State email, click the following link to access our <a href="https://www.datacamp.com/groups/shared_links/b6b84feb66a4f045585bb4dbe7eb154418aef1136ccef4450d5eb3f453b0e136">Learning Analytics DataCamp group space</a> where you will complete required assignments during Week 2 of each unit.</p></li>
+</ul></li>
 </ol>
 </section>
-<section id="optional-software" class="level3">
-<h3 class="anchored" data-anchor-id="optional-software">Optional Software</h3>
+<section id="optional-software-r" class="level3">
+<h3 class="anchored" data-anchor-id="optional-software-r">Optional Software (R)</h3>
+<p>While we will be using RStudio through Posit Cloud for this course, I eventually recommend shifting to RStudio Desktop if you plan to use R and RStudio beyond this course.</p>
 <ol type="1">
 <li><p><strong>R</strong> (<a href="https://www.r-project.org" class="uri">https://www.r-project.org</a>) is an open-source language and computing environment for data manipulation, analysis, and visualization. Installation files for Windows, Mac, and Linux can be found at the website for the Comprehensive R Archive Network,&nbsp;<a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a>.</p></li>
-<li><p><strong>RStudio Desktop</strong> (<a href="https://posit.co/products/open-source/rstudio)" class="uri">https://posit.co/products/open-source/rstudio)</a> is a free desktop application of the RStudio IDE for R that runs on Windows, MacOS or Linux. Its advantages over Posit Cloud include offline access, full control over the local environment, customization options, data privacy and security, and the ability to leverage the full resources of your local machine, such as CPU, memory, and storage. While we will be using RStudio through Posit Cloud for this course, I eventually recommend shifting to RStudio Desktop if you plan to use R and RStudio beyond this course.</p></li>
-<li><p><strong>Posit</strong> <strong>Cheat Sheets</strong> (<a href="https://posit.cloud/learn/cheat-sheets" class="uri">https://posit.cloud/learn/cheat-sheets</a>) also provide handy reference to commonly used packages and their essential functions, including example code for testing them out.</p></li>
-<li><p><strong>Dataquest</strong> (<a href="https://www.dataquest.io" class="uri">https://www.dataquest.io</a>) offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning.&nbsp;An email will be sent providing free access to our Dataquest team, full catalogue of courses and resources for 6 months.</p></li>
-<li><p><strong>LinkedIn Learning</strong> (<a href="https://www.linkedin.com/learning">https://www.linkedin.com/learning)</a> offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is <a href="https://www.lib.ncsu.edu/faq/what-is-linkedin-learning">available at no charge to students</a>.&nbsp;</p></li>
+<li><p><strong>RStudio Desktop</strong> (<a href="https://posit.co/products/open-source/rstudio)" class="uri">https://posit.co/products/open-source/rstudio)</a> is a free desktop application of the RStudio IDE for R that runs on Windows, MacOS or Linux. Its advantages over Posit Cloud include offline access, full control over the local environment, customization options, data privacy and security, and the ability to leverage the full resources of your local machine, such as CPU, memory, and storage.</p></li>
+<li><p><strong>RPubs</strong> (<a href="https://rpubs.com)" class="uri">https://rpubs.com)</a> is a free and easy web publishing platform for R. Throughout the course, you will be using using <a href="https://rmarkdown.rstudio.com/">R Markdown</a>) and <a href="https://quarto.org">Quarto</a> documents, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">HTML</a>, <a href="https://bookdown.org/yihui/rmarkdown/pdf-document.html">PDF</a>, <a href="https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html">HTML5 slides</a>, <a href="https://bookdown.org/yihui/rmarkdown/tufte-handouts.html">Tufte-style handouts</a>, <a href="https://bookdown.org/">books</a>, <a href="https://rmarkdown.rstudio.com/flexdashboard/">dashboards</a>, <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">shiny applications</a>, <a href="https://github.com/rstudio/rticles">research articles</a>, <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">websites</a>, and more.<br>
+To publish these documents via RPubs, however, you will first need to create an account here: <a href="https://rpubs.com/users/new." class="uri">https://rpubs.com/users/new.</a></p></li>
+</ol>
+</section>
+<section id="optional-software-posit" class="level3">
+<h3 class="anchored" data-anchor-id="optional-software-posit">Optional Software (Posit)</h3>
+<ol type="1">
+<li><p><strong>Quarto</strong> (<a href="https://quarto.org/">https://quarto.org</a>) is an open-source scientific and technical publishing system used for creating reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.<br>
+You can download and install Quarto here: <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></p></li>
+<li><p><strong>Quarto Pub</strong> (<a href="https://quartopub.com/">https://quartopub.com</a>) is a free and easy web publishing platform for Quarto docs. To publish the documents via Quarto Pub, however, you will first need to create an account.<br>
+To create a Quarto Pub account, sign up here: <a href="https://quartopub.com/sign-up" class="uri">https://quartopub.com/sign-up</a>&nbsp;</p></li>
+<li><p><strong>Posit Recipes</strong> (<a href="https://posit.cloud/learn/recipes" class="uri">https://posit.cloud/learn/recipes</a>) provide a collection of R code snippets and instructions featuring up-to-date best practices for coding in R.</p></li>
+<li><p><strong>Posit</strong> <strong>Cheat Sheets</strong> (<a href="https://posit.co/resources/cheatsheets/?_gl=1*12iba7w*_ga*MTE1MTYxMzc2NC4xNzE3ODQzNDU5*_ga_2C0WZ1JHG0*MTcxNzg1MTMwOS4zLjEuMTcxNzg1Mjk1Mi4wLjAuMA..">https://posit.co/resources/cheatsheets</a>) also provide handy printable reference sheets to commonly used packages and their essential functions, including example code for testing them out. also provide handy reference to commonly used packages and their essential functions, including example code for testing them out.</p></li>
+</ol>
+</section>
+<section id="optional-software-other" class="level3">
+<h3 class="anchored" data-anchor-id="optional-software-other">Optional Software (Other)</h3>
+<ol type="1">
+<li><p><strong>ChatGPT</strong> (<a href="https://openai.com/chatgpt/" class="uri">https://openai.com/chatgpt/</a>) is an advanced AI language model developed by OpenAI and is <strong>highly recommended for this course</strong>. It’s and excellent tool for learning analytics and can assist by explaining concepts, helping with code, offering analysis guidance, and troubleshooting, though it’s important to verify its advice against reliable sources.<br>
+Use with or without registering for an account at: <a href="https://chatgpt.com" class="uri">https://chatgpt.com</a></p></li>
 <li><p><strong>Git</strong> is a free and open source distributed version control system. Jenny Bryan’s very thorough installation and R Studio set up process for Mac and Windows can be found here: <a href="http://happygitwithr.com" class="uri">http://happygitwithr.com</a>.</p></li>
 <li><p><strong>GitHub</strong> is a web-based hosting service for version control using Git. You can create an account here: <a href="https://github.com" class="uri">https://github.com</a></p></li>
+<li><p><strong>LinkedIn Learning</strong> (<a href="https://www.linkedin.com/learning">https://www.linkedin.com/learning)</a> offers tutorials and training courses on R, R Studio, and Tableau. LinkedIn Learning is <a href="https://www.lib.ncsu.edu/faq/what-is-linkedin-learning">available at no charge to students</a>.</p></li>
 </ol>
 </section>
 </section>
@@ -196,8 +226,8 @@ ul.task-list li input[type="checkbox"] {
 <p>This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration using a range of digital data sources. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.</p>
 <table class="table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 94%">
+<col style="width: 16%">
+<col style="width: 83%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -224,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>Week 3</td>
-<td><strong>R Toolkit Tutorial</strong>: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report “tidy” data.</td>
+<td><strong>R Tutorial</strong>: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report “tidy” data.</td>
 </tr>
 <tr class="even">
 <td>Week 4</td>
@@ -240,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>Week 6</td>
-<td><strong>R Toolkit Tutorial</strong>: A deeper dive into the “grammar of graphics” and development of foundational skills for creating interactive data apps.</td>
+<td><strong>R Tutorial</strong>: A deeper dive into the “grammar of graphics” and development of foundational skills for creating interactive data apps.</td>
 </tr>
 <tr class="even">
 <td>Week 7</td>
@@ -256,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>Week 9</td>
-<td><strong>R Toolkit Tutorial</strong>: An introduction to the Shiny package and development of interactive data apps.</td>
+<td><strong>R Tutorial</strong>: An introduction to the Shiny package and development of interactive data apps.</td>
 </tr>
 <tr class="even">
 <td>Week 10</td>
@@ -272,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>Week 12</td>
-<td><strong>R Toolkit Tutorial</strong>: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report relational data.</td>
+<td><strong>R Tutorial</strong>: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report relational data.</td>
 </tr>
 <tr class="even">
 <td>Week 13</td>
@@ -294,11 +324,11 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </section>
 <section id="major-assignments-assessment" class="level2">
-<h2 class="anchored" data-anchor-id="major-assignments-assessment"><strong>Major Assignments &amp; Assessment</strong></h2>
+<h2 class="anchored" data-anchor-id="major-assignments-assessment">Major Assignments &amp; Assessment</h2>
 <ol type="1">
 <li><p><strong>Housekeeping (4 pts)</strong>: Students will review the syllabus and “sign” the Online Learner Agreement sent at the beginning of the semester that outlines expectations for participating in an online course. Student will also be required to install necessary software and post a brief introduction of themselves and respond to their peers.&nbsp;</p></li>
 <li><p><strong>Reading &amp; Discussion (24 pts)</strong>: The first week of each unit introduces terminology, core concepts, and applications of an analytical approach through readings, course videos, and discussion. To help guide discussions, students are provided a set of essential questions to address and are also encouraged to explore their own areas of interest. The primary goal of course readings and discussion is to foster a deeper understanding of how Learning Analytics has been applied in educational contexts.</p></li>
-<li><p><strong>R Toolkit Tutorials (24 pts):</strong> The second week of each unit, consists of tutorials for working with R packages and functions used import, wrangle, explore, and model data. The primary goal of these tutorials is to support familiarity and fluency with R syntax and key functions for data analysis.</p></li>
+<li><p><strong>R Tutorials (24 pts):</strong> The second week of each unit, consists of tutorials for working with R packages and functions used import, wrangle, explore, and model data. The primary goal of these tutorials is to support familiarity and fluency with R syntax and key functions for data analysis.</p></li>
 <li><p><strong>Case Studies (24 pts)</strong>: In the third week of each unit, students will complete an interactive “case study” demonstrating how key data-intensive research workflow processes (i.e., wrangling, visualizing, summarizing, modeling, and communicating data) featured in exemplary education research studies are implemented in R. Coding case studies also provide a holistic setting to explore important foundational LA topics integral to data analysis such as reproducible research, use of APIs, ethical considerations, diversity and inclusion, and creation of useful data products.</p></li>
 <li><p><strong>Final Project (24 pts)</strong>: In lieu of a final exam, students will conduct and independent analysis using a data source of their choosing and create a “data product” (e.g.&nbsp;report, presentation, data dashboard, etc.) demonstrating the knowledge and skills gained throughout the semester.</p></li>
 </ol>
@@ -309,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Course Feedback Expectations:</strong> Please contact your instructor via email (shaun.kellogg@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback to help improve the design of current and future course implementations.&nbsp;</p>
 </section>
 <section id="nc-state-policies" class="level2">
-<h2 class="anchored" data-anchor-id="nc-state-policies"><strong>NC State Policies</strong></h2>
+<h2 class="anchored" data-anchor-id="nc-state-policies">NC State Policies</h2>
 <p><strong>Academic Integrity:</strong> Students are bound by the academic integrity policy as stated in the code of student conduct. Therefore, students are required to uphold the university pledge of honor and exercise honesty in completing any assignment. See the website for a full explanation: <a href="http://www.ncsu.edu/policies/student_services/student_discipline/POL11.35.1.php" class="uri">http://www.ncsu.edu/policies/student_services/student_discipline/POL11.35.1.php</a></p>
 <p><strong>N.C. State University Policies, Regulations, and Rules (PRR)</strong>: Students are responsible for reviewing the PRRs which pertain to their course rights and responsibilities. These include:</p>
 <ul>
@@ -322,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Disabilities</strong>: Reasonable accommodations will be made for students with verifiable disabilities. In order to take advantage of available accommodations, students must register with the Disability Resource Office at Holmes Hall, Suite 304, Campus Box 7509, 919-515-7653. For more information on NC State’s policy on working with students with disabilities, please see the Academic Accommodations for Students with Disabilities Regulation (REG02.20.01).</p>
 </section>
 <section id="other-important-resources" class="level2">
-<h2 class="anchored" data-anchor-id="other-important-resources"><strong>Other Important Resources</strong></h2>
+<h2 class="anchored" data-anchor-id="other-important-resources">Other Important Resources</h2>
 <ul>
 <li><p><strong>Keep Learning:</strong> <a href="https://dasa.ncsu.edu/students/keep-learning/" class="uri">https://dasa.ncsu.edu/students/keep-learning/</a></p></li>
 <li><p><strong>Protect the Pack FAQs:</strong> <a href="https://www.ncsu.edu/coronavirus/frequently-asked-question" class="uri">https://www.ncsu.edu/coronavirus/frequently-asked-question</a></p></li>
@@ -415,10 +445,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -428,8 +457,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -442,6 +480,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -485,6 +642,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -510,6 +668,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -570,6 +754,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
