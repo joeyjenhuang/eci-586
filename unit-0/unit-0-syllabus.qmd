@@ -92,15 +92,15 @@ While we will be using RStudio through Posit Cloud for this course, I eventually
 
 2.  **RStudio Desktop** (<https://posit.co/products/open-source/rstudio)> is a free desktop application of the RStudio IDE for R that runs on Windows, MacOS or Linux. Its advantages over Posit Cloud include offline access, full control over the local environment, customization options, data privacy and security, and the ability to leverage the full resources of your local machine, such as CPU, memory, and storage.
 
-3.  **RPubs** (<https://rpubs.com)> is a free and easy web publishing platform for R. Throughout the course, you will be using using [R Markdown](https://rmarkdown.rstudio.com/)) and [Quarto](https://quarto.org) documents, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [books](https://bookdown.org/), [dashboards](https://rmarkdown.rstudio.com/flexdashboard/), [shiny applications](https://bookdown.org/yihui/rmarkdown/shiny-documents.html), [research articles](https://github.com/rstudio/rticles), [websites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), and more. \
+3.  **RPubs** (<https://rpubs.com)> is a free and easy web publishing platform for R. Throughout the course, you will be using using [R Markdown](https://rmarkdown.rstudio.com/)) and [Quarto](https://quarto.org) documents, which weave together narrative text and code to produce elegantly formatted, static and dynamic outputs formats including: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [books](https://bookdown.org/), [dashboards](https://rmarkdown.rstudio.com/flexdashboard/), [shiny applications](https://bookdown.org/yihui/rmarkdown/shiny-documents.html), [research articles](https://github.com/rstudio/rticles), [websites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), and more.\
     To publish these documents via RPubs, however, you will first need to create an account here: <https://rpubs.com/users/new.>
 
 ### Optional Software (Posit)
 
-1.  **Quarto** ([https://quarto.org](https://quarto.org/)) is an open-source scientific and technical publishing system used for creating reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more. \
+1.  **Quarto** ([https://quarto.org](https://quarto.org/)) is an open-source scientific and technical publishing system used for creating reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\
     You can download and install Quarto here: <https://quarto.org/docs/get-started/>
 
-2.  **Quarto Pub** ([https://quartopub.com](https://quartopub.com/)) is a free and easy web publishing platform for Quarto docs. To publish the documents via Quarto Pub, however, you will first need to create an account. \
+2.  **Quarto Pub** ([https://quartopub.com](https://quartopub.com/)) is a free and easy web publishing platform for Quarto docs. To publish the documents via Quarto Pub, however, you will first need to create an account.\
     To create a Quarto Pub account, sign up here: <https://quartopub.com/sign-up> 
 
 3.  **Posit Recipes** (<https://posit.cloud/learn/recipes>) provide a collection of R code snippets and instructions featuring up-to-date best practices for coding in R.
@@ -145,7 +145,7 @@ The following learning objectives are aligned with the overarching objectives of
 This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration using a range of digital data sources. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.
 
 | **Schedule** | **Topics**                                                                                                                                                                                                                         |
-|------------|------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | **WELCOME**  | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                       |
 | Week 1       | Introductions, syllabus review, and software setup                                                                                                                                                                                 |
 | **UNIT 1**   | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                    |
@@ -170,7 +170,7 @@ This course is divided into four units focused on conceptualizing Learning Analy
 
 ## Major Assignments & Assessment
 
-1.  **Housekeeping (4 pts)**: Students will review the syllabus and "sign" the Online Learner Agreement sent at the beginning of the semester that outlines expectations for participating in an online course. Student will also be required to install necessary software and post a brief introduction of themselves and respond to their peers. 
+1.  **Housekeeping (4 pts)**: Students will review the syllabus and respond to the welcome announcement sent at the beginning of the course, post a brief introduction of themselves and respond to their peers. Student will also be required to access the required course texts and software and complete some basic tutorials.
 
 2.  **Reading & Discussion (24 pts)**: The first week of each unit introduces terminology, core concepts, and applications of an analytical approach through readings, course videos, and discussion. To help guide discussions, students are provided a set of essential questions to address and are also encouraged to explore their own areas of interest. The primary goal of course readings and discussion is to foster a deeper understanding of how Learning Analytics has been applied in educational contexts.
 
