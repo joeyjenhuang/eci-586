@@ -35,7 +35,7 @@ Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](ht
 
 In lieu of the peer interaction and discussion of course materials that normally take place "in class", you'll be asked to log in this week and engage with other members of our learning community through the course discussion forum. To help guide our discussions, **we will collectively address a set of guiding questions provided in each forum**. You are also welcome to add your own topics or questions for the class to discuss.
 
-With the exception of the Self-Selected resource, **you are not required to post to every thread or address every question raised in the discussions**, particularly if you feel others in the class have thoroughly addressed the topic or questions. Our primary goal for these discussions is to collectively build our understanding of this week's topics through back-and-forth dialogue and avoid a "collective monologue" in which we see 20 variations of the same post.
+With the exception of the Self-Selected resource, **you are not required to post to every thread or address every question listed below**, particularly if you feel others in the class have thoroughly addressed the topic or questions. Our primary goal for these discussions is to collectively build our understanding of this week's topics through back-and-forth dialogue and avoid a "collective monologue" in which we see 20 variations of the same post.
 
 ### Guiding Questions
 
@@ -93,7 +93,7 @@ Reflecting on the course text and your self-selected reading, answer one or more
 
 Provide a brief overview of your self-selected resource that includes the following:
 
--   APA Citation (note: this can be easily [retrieved via Google Scholar](https://libanswers.ucmerced.edu/faq/95935))
+-   APA Citation (note: this can be easily [retrieved via Google Scholar](#0))
 
 -   What was the **purpose** of your article?
 
@@ -103,7 +103,7 @@ Provide a brief overview of your self-selected resource that includes the follow
 
 -   How, if at all, did your article touch upon the **application(s)** of LA to "understand and improve learning and the contexts in which learning occurs?"
 
--   Did your selection address any **ethical or legal considerations** of LA?
+-   Did your selection address any **ethical or legal considerations** of LA?
 
 ## ASSESSMENT
 
@@ -111,9 +111,9 @@ Provide a brief overview of your self-selected resource that includes the follow
 
 Grading for this week is fairly lenient, provided that it's clear from your posts that you've done the required readings. Readings and discussion for each unit are worth 6 points and judged based on quantity and quality of your posts.
 
-In term of **quantity** (3 points), you'll be expected to add at least 3 posts in addition to an overview of your Selected Resource. *Your initial post should be shared by Friday* to help facilitate discussion.
+In term of **quantity** (3 points), you'll be expected to add at least 3 posts in addition to an overview of your Selected Resource. *Your initial post should be shared by Friday* to help facilitate discussion.
 
-In terms of **quality** (3 points), your posts over the next week should provide new or insightful contributions to the division questions or topics. There is no requisite for the length of each posting, and I strongly recommend taking a look at Table 1 of [Gao's productive online discussion model](https://github.com/sbkellogg/eci-586/blob/main/unit-1/lit/Gao-productive-discussion.pdf) (summarized below) for ways to contribute to the conversation.
+In terms of **quality** (3 points), your posts over the next week should provide new or insightful contributions to the division questions or topics. There is no requisite for the length of each posting, and I strongly recommend taking a look at Table 1 of [Gao's productive online discussion model](#0) (summarized below) for ways to contribute to the conversation.
 
 At minimum, your collective posts should also help us interpret or elaborate on discussion topics, questions, or ideas others have shared by "making connection to the learning materials" and should reference at some point the required video, course text and your self-selected resource.
 
