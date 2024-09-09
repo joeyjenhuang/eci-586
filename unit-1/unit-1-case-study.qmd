@@ -564,7 +564,7 @@ This is related to not specifying anything for the `by =` part of the function; 
 
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
-In the code chunk below, write your join like above, but add the `by = c("student_id", "course", "subject", "section")` part to your code. You may notice the message does not appear. This is generally a better practice because you know precisely on which variables you data sets are joining.
+In the code chunk below, write your join like above, but add the `by = c("student_id", "subject", "semester", "section")` part to your code. You may notice the message does not appear. This is generally a better practice because you know precisely on which variables you data sets are joining.
 
 ```{r}
 # YOUR CODE HERE
