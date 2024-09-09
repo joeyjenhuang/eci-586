@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2023-08-27">
+<meta name="dcterms.date" content="2024-09-09">
 
 <title>Unit 0: Getting Started Case Study</title>
 <style>
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -106,7 +107,13 @@ div.csl-indent {
   <ul>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#organization" id="toc-organization" class="nav-link" data-scroll-target="#organization">Organization</a></li>
-  <li><a href="#how-to-use-this-document" id="toc-how-to-use-this-document" class="nav-link" data-scroll-target="#how-to-use-this-document">How to use this document</a></li>
+  <li><a href="#how-to-use-this-quarto-document" id="toc-how-to-use-this-quarto-document" class="nav-link" data-scroll-target="#how-to-use-this-quarto-document">How to use this Quarto document</a>
+  <ul class="collapse">
+  <li><a href="#source-vs.-visual-editor" id="toc-source-vs.-visual-editor" class="nav-link" data-scroll-target="#source-vs.-visual-editor">Source vs.&nbsp;Visual Editor</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code Chunks</a></li>
+  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  </ul></li>
   <li><a href="#the-data-intensive-research-workflow" id="toc-the-data-intensive-research-workflow" class="nav-link" data-scroll-target="#the-data-intensive-research-workflow">The Data-Intensive Research Workflow</a></li>
   </ul></li>
   <li><a href="#prepare" id="toc-prepare" class="nav-link" data-scroll-target="#prepare">1. PREPARE</a>
@@ -115,52 +122,52 @@ div.csl-indent {
   <li><a href="#r-projects-packages" id="toc-r-projects-packages" class="nav-link" data-scroll-target="#r-projects-packages">R Projects &amp; Packages 📦</a></li>
   <li><a href="#the-tidyverse-package" id="toc-the-tidyverse-package" class="nav-link" data-scroll-target="#the-tidyverse-package">The tidyverse Package</a>
   <ul class="collapse">
-  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#loading-or-reading-in-data" id="toc-loading-or-reading-in-data" class="nav-link" data-scroll-target="#loading-or-reading-in-data">Loading (or reading in) data</a>
   <ul class="collapse">
-  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#viewing-or-inspecting-data" id="toc-viewing-or-inspecting-data" class="nav-link" data-scroll-target="#viewing-or-inspecting-data">Viewing or inspecting data</a>
   <ul class="collapse">
-  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  <li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-5" id="toc-your-turn-5" class="nav-link" data-scroll-target="#your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#wrangle" id="toc-wrangle" class="nav-link" data-scroll-target="#wrangle">2. WRANGLE</a>
   <ul>
   <li><a href="#selecting-variables" id="toc-selecting-variables" class="nav-link" data-scroll-target="#selecting-variables">Selecting variables</a>
   <ul class="collapse">
-  <li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-6" id="toc-your-turn-6" class="nav-link" data-scroll-target="#your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#filtering-variables" id="toc-filtering-variables" class="nav-link" data-scroll-target="#filtering-variables">Filtering variables</a>
   <ul class="collapse">
-  <li><a href="#your-turn-5" id="toc-your-turn-5" class="nav-link" data-scroll-target="#your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange">Arrange</a>
   <ul class="collapse">
-  <li><a href="#your-turn-6" id="toc-your-turn-6" class="nav-link" data-scroll-target="#your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-8" id="toc-your-turn-8" class="nav-link" data-scroll-target="#your-turn-8"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#explore" id="toc-explore" class="nav-link" data-scroll-target="#explore">3. EXPLORE</a>
   <ul>
   <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a>
   <ul class="collapse">
-  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-9" id="toc-your-turn-9" class="nav-link" data-scroll-target="#your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
   <li><a href="#the-graphing-workflow" id="toc-the-graphing-workflow" class="nav-link" data-scroll-target="#the-graphing-workflow">The Graphing Workflow</a>
   <ul class="collapse">
-  <li><a href="#your-turn-8" id="toc-your-turn-8" class="nav-link" data-scroll-target="#your-turn-8"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-10" id="toc-your-turn-10" class="nav-link" data-scroll-target="#your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">Scatterplots</a>
   <ul class="collapse">
-  <li><a href="#your-turn-9" id="toc-your-turn-9" class="nav-link" data-scroll-target="#your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-11" id="toc-your-turn-11" class="nav-link" data-scroll-target="#your-turn-11"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a>
   <ul>
-  <li><a href="#your-turn-10" id="toc-your-turn-10" class="nav-link" data-scroll-target="#your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-12" id="toc-your-turn-12" class="nav-link" data-scroll-target="#your-turn-12"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
   <ul>
@@ -192,7 +199,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 27, 2023</p>
+      <p class="date">September 9, 2024</p>
     </div>
   </div>
   
@@ -200,13 +207,15 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">0. INTRODUCTION</h2>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Welcome to using <strong>ECI 586: An Introduction to Learning Analytics</strong>! During the third week of each unit, we’ll complete a basic research workflow, or data analysis process, modeled after an actual learning analytics study. This getting started task is designed to orient you to both our data analysis assignments and to R, RStudio, and/or RMarkdown, which we’ll be using to complete those assignments.</p>
+<p>Welcome to using <strong>ECI 586: An Introduction to Learning Analytics</strong>! During the third week of each unit, we’ll complete a basic research workflow, or data analysis process, modeled after an actual learning analytics study. This getting started task is designed to orient you to both our data analysis assignments and to R, RStudio, and/or Quarto, which we’ll be using to complete those assignments.</p>
 <p>We’ll be using Posit Cloud, which has all of the functionality of the RStudio Desktop, and some additional benefits for the those new to R, such as the pre-installation of packages and the simplification of file directories. If you’re new to R, I highly recommend it.</p>
 <p>You are also welcome to use RStudio Desktop, and you can download this project on our course workspace by clicking the “Export” button shown in the following screenshot:</p>
 <p><img src="img/project-export.png" class="img-fluid" style="width:80.0%"></p>
@@ -222,21 +231,63 @@ div.csl-indent {
 <li>Finally, creating a reproducible report of your work you can share with others (in the <strong>Communicate</strong> section)</li>
 </ol>
 </section>
-<section id="how-to-use-this-document" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-use-this-document">How to use this document</h3>
-<p>What you are working in now is a <a href="https://quarto.org">Quarto</a> markdown file as indicated by the .qmd file name extension. Following best practices for reproducible research <span class="citation" data-cites="gandrud2021">(<a href="#ref-gandrud2021" role="doc-biblioref">Gandrud 2013</a>)</span>, Quarto files store information in plain text <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">markdown</a> syntax. Quarto documents are fully reproducible and use a productive notebook interface to combine narrative text and “chunks” of code to produce <a href="https://quarto.org/docs/guide/">a range of static or dynamic outputs formats</a> including: HTML, PDF, MS Word, HTML5 slides,&nbsp;Tufte-style handouts, books, dashboards, shiny applications, research articles, websites, and more.</p>
-<p>There are two keys to your use of Quarto for this activity:</p>
-<ol type="1">
-<li>First, be sure that you are viewing the document in the “Visual Editor” mode. You can use this mode by clicking the word “Visual” on the left side of the toolbar above. The visual editor allows you to view formatted headers, text and code chunks as specified by the underlying markdown syntax, or “Source” text. Visual mode is a bit more “human readable” than markdown syntax but definitely take a look at the source text.</li>
-<li>Second, note the specially formatted text box below called a “<a href="#0">code chunk</a>.” These chunks allows you to run code from <a href="#0">multiple languages</a> including R, Python, and SQL. This specific code chunk contains a line of R code as specified by “r” inside the curly brackets <code>{}</code> where you can also include other “<a href="https://yihui.org/knitr/options/#chunk-options">chunk options</a>.”</li>
-</ol>
-<p>You may have noticed a set of buttons in the upper right corner for running the code. Click the green arrow to the right of the code chunk to view the image:</p>
+<section id="how-to-use-this-quarto-document" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-use-this-quarto-document">How to use this Quarto document</h3>
+<p>What you are working in now is an <strong>Q</strong>uarto <strong>m</strong>ark<strong>d</strong>own file as indicated by the .<strong>qmd</strong> file name extension. Quarto documents are fully reproducible and use a productive notebook interface to combine formatted text and “chunks” of code to produce a range of <a href="https://quarto.org/docs/guide/">static and dynamic output formats</a> including: HTML, PDF, Word, HTML5 slides, Tufte-style handouts, books, dashboards, shiny applications, scientific articles, websites, and more.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quarto docs can include specially formatted <strong>callout boxes</strong> like this one to draw special attention to provide notes, tips, cautions, warnings, and important information.</p>
+<p><strong>Pro tip</strong>: Quarto documents also have a handy Outline feature that allow you to easily navigate the entire document. If the outline is not currently visible, click the Outline button located on the right of the toolbar at the top of this document.</p>
+</div>
+</div>
+<section id="source-vs.-visual-editor" class="level4">
+<h4 class="anchored" data-anchor-id="source-vs.-visual-editor">Source vs.&nbsp;Visual Editor</h4>
+<p>Following best practices for reproducible research <span class="citation" data-cites="gandrud2021">(<a href="#ref-gandrud2021" role="doc-biblioref">Gandrud 2013</a>)</span>, Quarto files store information in plain text <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">markdown</a> syntax. You are currently viewing this Quarto document using the visual editor, The visual editor is set as the default view in the <a href="https://quarto.org/docs/get-started/hello/rstudio.html#yaml-header">Quarto YAML header</a> at the top of this document. Basically, a <a href="https://monashdatafluency.github.io/r-rep-res/yaml-header.html#">YAML header</a> is:</p>
+<blockquote class="blockquote">
+<p>a short blob of text that… not only dictates the final file format, but a style and feel for our final document.</p>
+</blockquote>
+<p>The visual editor allows you to view formatted headers, text and code chunks and is a bit more “human readable” than markdown syntax but there will be many occasions where you will want to take a look at the plain text source code underlying this document. This can be viewed at any point by switching to source mode for editing. You can toggle back and forth between these two modes by clicking on <strong>Source</strong> and <strong>Visual</strong> in the editor toolbar.</p>
+<p>You may have noticed a special kind of link in the text above. Specifically, a link citing Reproducible Research with R and R Studio by Chris Gandrud. The YAML header includes a bibliography option and points to our <code>reference.bib</code> file in the <code>lit</code> folder of this project, which produces a nice tooltip for linked references and a bibliography when our doc is <a href="https://quarto.org/docs/get-started/hello/rstudio.html#rendering">rendered</a> and <a href="https://quarto.org/docs/get-started/authoring/rstudio.html#publishing">published</a>. Click the following link to learn more about <a href="https://quarto.org/docs/authoring/citations.html">citations in Quarto</a>.</p>
+</section>
+<section id="your-turn" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Learning Analytics case studies include many interactive elements in which you are asked to perform an action, answer some questions, or write some code. These are indicated by the <span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong> header. Now it’s your turn to do something.</p>
+<p>Take a look at the markdown syntax used to create this document by viewing with the source editor. To do so, click the “Source” button in the toolbar at the top of this file. After you’ve had a look, click back to the visual editor to continue.</p>
+<p><img src="images/source-view.png" class="img-fluid"></p>
+<p>Great job! Let’s continue!</p>
+</section>
+<section id="code-chunks" class="level4">
+<h4 class="anchored" data-anchor-id="code-chunks">Code Chunks</h4>
+<p>In addition to including formatted text hyperlinks, and embedded images like above, Quarto documents can also include a specially formatted text box called a “<a href="https://quarto.org/docs/get-started/hello/rstudio.html#code-chunks">code chunk</a>.” These chunks allows you to run code from multiple languages including R, Python, and SQL. For example, the code chunk below is intended to run R code as specified by “r” inside the curly brackets <code>{}</code>. It also contains a contains a code “comment” as indicted by the # hashtag and line of R code. You may have also noticed a set of buttons in the upper right corner of the code chunk which are used to execute the code.</p>
+</section>
+<section id="your-turn-1" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>You may have noticed a set of buttons in the upper right corner for running the code. Click the green arrow <img src="https://d33wubrfki0l68.cloudfront.net/18153fb9953057ee5cff086122bd26f9cee8fe93/3aba9/images/notebook-run-chunk.png" class="img-fluid">icon on the right side of the code chunk to run the R code and view the image file name <code>research-workflow.png</code> stored in the <code>img</code> folder in your files pane. Quarto will execute the code and its output and any related messages are displayed below the chunk.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"img/research-workflow.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="img/research-workflow.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="img/research-workflow.png" class="img-fluid figure-img" width="596"></p>
+</figure>
 </div>
 </div>
+</div>
+<p>Nice work! For this case study, don’t stress too much about understanding the code. We’ll spend a lot of time doing that in the other modules. For now, take a look at the image displayed and answer the question that follows by typing your response directly in this document.</p>
+<p>In case studies, you will often see as part of “Your Turns” a prompt to answer a question. Type your response to the following question by deleting “YOUR RESPONSE HERE” and adding your own response:</p>
+<p>What do you think this image is intended to illustrate?</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
+</section>
 </section>
 <section id="the-data-intensive-research-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="the-data-intensive-research-workflow">The Data-Intensive Research Workflow</h3>
@@ -276,17 +327,17 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once these packages have been installed, we will need to load them using teh <code>library()</code> function in order to use the handy functions they contain.</p>
+<p>Once these packages have been installed, we will need to load them using the <code>library()</code> function in order to use the handy functions they contain.</p>
 <p>To load the tidyverse, click the green arrow in the right corner of the block-or “chunk”-of code that follows. Notice that we do not need to use the quotation marks again because the {tidyverse} package and packages it contains are now a part of our package library!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -294,8 +345,8 @@ div.csl-indent {
 </div>
 </div>
 <p>Please do not worry if you saw a number of messages. Those probably mean that the tidyverse loaded just fine. If you see an error, though, try to interpret or search via your search engine the contents of the error, or reach out to us for assistance.</p>
-<section id="your-turn" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-2" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>As we noted in the beginning, these case studies are meant to be interactive. Throughout each case study, you’ll see Your Turn headings like the one above that will ask to you apply some of your R skills to help with the analysis. These Your Turns are intended to help you practice newly introduced functions or R code and reinforce R skills you have already learned.</p>
 <p>Complete the code chunk below to load the {skimr} package into our environment as well. <strong><code>Skimr</code></strong> is a handy package that provides summary statistics that you can skim quickly to understand your data. We’ll be using this later in the Explore section of this case study.</p>
 <div class="cell">
@@ -333,8 +384,8 @@ lgl  (1): Grade_Category
 </div>
 <p>Notice that we “assigned” our data set to a new object in R named <code>sci_data</code> that will now be saved in your “Environment” pane in the upper right corner of RStudio. Go ahead and take a look to make sure it’s there.</p>
 <p><img src="img/environment-pane.png" class="img-fluid" style="width:80.0%"></p>
-<section id="your-turn-1" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-3" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>Why do you think we included <code>data/</code> before our <code>sci-online-classes.csv</code> file? Why quotation marks?</p>
 <p>Add your responses after the dashes below:</p>
 <ul>
@@ -371,8 +422,8 @@ lgl  (1): Grade_Category
 #   TimeSpent_hours &lt;dbl&gt;, TimeSpent_std &lt;dbl&gt;, int &lt;dbl&gt;, pc &lt;dbl&gt;, uv &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<section id="your-turn-2" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-4" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>What do you notice about this dataset? What do you wonder? Add one or two thoughts after the dash below:</p>
 <ul>
 <li>YOUR RESPONSE HERE</li>
@@ -417,8 +468,8 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 </div>
 <p>Generally, rows typically represent “cases,” the units that we measure, or the units on which we collect data. What counts as a “case” (and therefore what is represented as a row) varies by (and within) fields. There may be multiple types or levels of units studied in your field; listing more than one is fine! Also, please consider what columns - which usually represent variables - represent in your area of work and/or research.</p>
 </section>
-<section id="your-turn-3" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-5" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>How many “cases” or observations are in this data set?</p>
 <ul>
 <li>YOUR RESPONSE HERE</li>
@@ -470,8 +521,8 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(sci_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="your-turn-4" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-6" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the code chunk below, add a new variable, being careful to type the new variable name as it appears in the data. We’ve added some code to get you started. Consider how the names of the other variables are separated as you think about how to add an additional variable to this code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sci_data <span class="sc">|&gt;</span> </span>
@@ -526,8 +577,8 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 #   TimeSpent_hours &lt;dbl&gt;, TimeSpent_std &lt;dbl&gt;, int &lt;dbl&gt;, pc &lt;dbl&gt;, uv &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<section id="your-turn-5" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-7" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the next code chunk, change the cut-off from 70% to some other value - larger or smaller (maybe much larger or smaller - feel free to play around with the code a bit!).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sci_data <span class="sc">|&gt;</span> </span>
@@ -608,8 +659,8 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 </div>
 </div>
 <p>Just at a quick cursory glance at our two variables, it does appear that students with higher grades also tend to have spent more time in the online course.</p>
-<section id="your-turn-6" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-8" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-8"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>In the code chunk below, replace <code>FinalGradeCEMS</code> that is used with both the <code>select()</code> and <code>arrange()</code> functions with a different variable in the data set. Consider returning to the code chunk above in which you glimpsed at the names of all of the variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sci_data <span class="sc">|&gt;</span> </span>
@@ -745,8 +796,8 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 </table>
 </div>
 </div>
-<section id="your-turn-7" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-9" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>Copy the code from the chunk from above and use it as a template to explore some other variables of interest from our <code>sci_data</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use skim() to summarize other variables of your choosing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -778,10 +829,15 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 30 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 30 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Note that the first function, <code>ggplot()</code>, creates a coordinate system that you can “add” layers to using additional functions and <code>+</code> operator. The first argument of <code>ggplot()</code> is the dataset, in our case <code>sci_data</code>, to use for the graph.</p>
@@ -795,14 +851,19 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 30 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 30 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<section id="your-turn-8" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-8"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+</div>
+<section id="your-turn-10" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>Now use the code chunk below to visualize the distribution of another variable in the data, specifically <code>TimeSpent</code>. You can do so by swapping out the variable <code>FinalGradeCEMS</code> with our new variable. Also, change the color to one of your choosing; consider this list of valid color names here: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a histogram of TimeSpent using a different color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -813,18 +874,23 @@ $ uv                    &lt;dbl&gt; 4.333333, 4.000000, 3.666667, 5.000000, 3.50
 <section id="scatterplots" class="level3">
 <h3 class="anchored" data-anchor-id="scatterplots">Scatterplots</h3>
 <p>Finally, let’s create a scatter plot for the relationship between these two variables. Scatterplots use the point geom, i.e., the <code>geom_point()</code> function, and are most useful for displaying the relationship between two continuous variables.</p>
-<section id="your-turn-9" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-11" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-11"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>Complete the code chunk below to create a simple scatterplot with <code>TimeSpent</code> on the x axis and <code>FinalGradeCEMS</code> on the y axis.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sci_data) <span class="sc">+</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> TimeSpent, </span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> FinalGradeCEMS))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 30 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 30 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="unit-0-case-study-key_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Well done! As you can see, there appears to be a positive relationship between the time students spend in the online course and their final grade!</p>
@@ -867,8 +933,8 @@ F-statistic: 87.99 on 1 and 571 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>There is a lot to unpack in this output, but for now the most important values to look at are those for <code>TimeSpent</code>. Note that the estimate for <code>TimeSpent</code> is positive and statistically significant indicating that students who spent more time in the LMS also earned higher grades.</p>
-<section id="your-turn-10" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<section id="your-turn-12" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-12"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
 <p>Now let’s “add” <em>another</em> variable to the regression model. Specifically, use the <code>+</code> operator after <code>TimeSpent</code> to add the course <code>subject</code> variable, or another variable of your choosing, as a predictor of students’ final grades.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FinalGradeCEMS <span class="sc">~</span> TimeSpent <span class="sc">+</span> subject, <span class="at">data =</span> sci_data)</span>
@@ -932,7 +998,7 @@ F-statistic: 30.69 on 5 and 567 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-estrellado2020e" class="csl-entry" role="listitem">
 Estrellado, Ryan A., Emily A. Freer, Jesse Mostipak, Joshua M. Rosenberg, and Isabella C. Velásquez. 2020. <em>Data Science in Education Using r</em>. Routledge. <a href="https://doi.org/10.4324/9780367822842">https://doi.org/10.4324/9780367822842</a>.
 </div>
@@ -991,6 +1057,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1059,13 +1152,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1144,10 +1239,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1157,8 +1251,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1171,6 +1274,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1214,6 +1436,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1239,6 +1462,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1299,6 +1548,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
