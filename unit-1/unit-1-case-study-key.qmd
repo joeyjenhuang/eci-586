@@ -611,7 +611,7 @@ data_to_explore <- full_join(joined_data, survey, by = c("student_id", "subject"
 data_to_explore
 ```
 
-We'll revisit joins in our Unit 2 tutorials, but for a quick overview of the different join functions with helpful visuals, visit: <https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti>
+We'll revisit joins in our Unit 2 tutorials, but for a quick overview of the different join functions with helpful visuals, check out the chapter on joins in R for Data Science [@wickham2023r] at: <https://r4ds.hadley.nz/joins>
 
 Congratulations! We're done wrangling our data and it is ready to explore!
 
