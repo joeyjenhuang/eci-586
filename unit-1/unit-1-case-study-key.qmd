@@ -802,7 +802,19 @@ ggplot(data_to_explore) +
   facet_wrap(~subject)
 ```
 
-You may wish to style your plot. A few ways you can do that are as follows; we'll discuss more throughout the institute. For each of the following, add them to your plot by adding a plus symbol to the line prior to the line you are adding. For instance, the following code styles the x-axis label of a plot:
+In `ggplot2`, there are various ways to style a scatterplot, or any plot for that matter, to enhance its visual appeal and convey more information. Aside from using facets, here are some key styling options:
+
+1.  **Changing Point Shapes and Sizes**: You can use shape to differentiate groups by using different symbols and size to change the size of the points.
+
+2.  **Adjusting Colors**: Use color or fill to map variables to point colors. This can be done for both continuous and categorical variables.
+
+3.  **Transparency (Alpha)**: Modify the alpha parameter to handle overplotting and make points more transparent.
+
+4.  **Adding Titles and Labels**: Use ggtitle(), xlab(), and ylab() to add plot titles and axis labels.
+
+5.  **Customizing Themes**: Modify the overall appearance with different themes such as theme_minimal(), theme_bw(), or create custom themes using theme().
+
+Some styling requires you to modify arguments in a function, like adding `color = enrollment_status` to the `aes()` function, others you can "add" [layers](https://r4ds.hadley.nz/layers) to your plot by using the plus `+` operator to the line prior and then adding a new function. For instance, the following code adds the x-axis label of a plot:
 
 ```{r}
 ggplot(data_to_explore) +

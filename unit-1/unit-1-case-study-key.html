@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2024-09-14">
+<meta name="dcterms.date" content="2024-09-21">
 
 <title>Unit 1 Case Study: Predicting Student Achievement</title>
 <style>
@@ -247,7 +247,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 14, 2024</p>
+      <p class="date">September 21, 2024</p>
     </div>
   </div>
   
@@ -2183,7 +2183,15 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 </div>
 </div>
-<p>You may wish to style your plot. A few ways you can do that are as follows; we’ll discuss more throughout the institute. For each of the following, add them to your plot by adding a plus symbol to the line prior to the line you are adding. For instance, the following code styles the x-axis label of a plot:</p>
+<p>You may wish to style your plot. Aside from using facets, a few other ways you can do that are as follows:</p>
+<ol type="1">
+<li><p><strong>Changing Point Shapes and Sizes</strong>: You can use shape to differentiate groups by using different symbols and size to change the size of the points.</p></li>
+<li><p><strong>Adjusting Colors</strong>: Use color or fill to map variables to point colors. This can be done for both continuous and categorical variables.</p></li>
+<li><p><strong>Transparency (Alpha)</strong>: Modify the alpha parameter to handle overplotting and make points more transparent.</p></li>
+<li><p><strong>Adding Titles and Labels</strong>: Use ggtitle(), xlab(), and ylab() to add plot titles and axis labels.</p></li>
+<li><p><strong>Customizing Themes</strong>: Modify the overall appearance with different themes such as theme_minimal(), theme_bw(), or create custom themes using theme().</p></li>
+</ol>
+<p>Some styling requires you to modify arguments in a function, like adding <code>color = enrollment_status</code> to the <code>aes()</code> function, others you can add to your plot by using the plus <code>+</code> operator to the line prior and then adding a new function. For instance, the following code adds the x-axis label of a plot:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, </span>
