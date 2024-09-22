@@ -19,7 +19,7 @@ Throughout this course, you conducted several analyses as part of the unit case 
 
 ## Assignment
 
-Week 13 provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 14, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
+Week 14 provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 15, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
 
 To help plan for your final project, your assignment this week is to:
 
@@ -31,35 +31,31 @@ To assist you in addressing these questions, I've included some potential data s
 
 ### Prepare
 
-1.  What prior research, if any, inspired your case study and what **data source(s)**, will you be using for your analysis?
+1.  Why are you interested in this data/context and what **research question(s)** are you hoping to answer with your analysis?
 
-2.  Why are you interested in this data/context and what **research question(s)** are you hoping to answer with your analysis?
-
-3.  Who would most benefit from your analysis and why? How might your **target audience** use this information to take action?
+2.  Who would most benefit from your analysis and why? How might your **target audience** use this information to take action?
 
 ### Wrangle
 
-4.  What **data cleaning** steps do you anticipate taking to prepare your data for analysis and why are they necessary? 
+3.  What **data cleaning** steps do you anticipate taking to prepare your data for analysis and why are they necessary? 
 
-5.  What other **variables/features** (e.g. student grades, schools, dates, tweets, chapter numbers, demographics, etc.) might you need to include to address your research questions?
+4.  What other **variables/features** (e.g. student grades, schools, dates, tweets, chapter numbers, demographics, etc.) might you need to include to address your research questions?
 
 ### Explore & Model (Analysis)
 
-6.  What **metrics** (e.g., percents, counts, p-values, sentiment values, degree, density, etc.) will you calculate and examine? And at what stage of your analysis?
+5.  What **metrics** (e.g., percents, counts, p-values, sentiment values, degree, density, etc.) will you calculate and examine? And at what stage of your analysis?
 
-7.  What **tables or charts** (e.g. text networks, word clouds, etc?) might you include to help readers understand and interpret your findings?
-
-8.  While not required, what modeling **techniques** (e.g., logistic regression, random forests, sentiment analysis, community detection, etc.), if any, will you use to analyze your data and how do you anticipate these techniques will help you address your research questions?
+6.  What **tables or charts** (e.g. text networks, word clouds, etc?) might you include to help readers understand and interpret your findings?
 
 ### Communicate
 
-9.  What **key insights** do you anticipate finding as a result of your analysis? Why would they be useful and what actions might they result in by your target audience?
+7.  What **key insights** do you anticipate finding as a result of your analysis? Why would they be useful and what actions might they result in by your target audience?
 
-10. What **ethical/legal issues,** if any, need to be taken into consideration?
+8.  What **ethical/legal issues,** if any, need to be taken into consideration?
 
 ## Assessment
 
-This assignment accounts for half of your final project grade (12 points planning, 12 points data product). Responses that adequately addresses the questions above are worth 1 point each (10 points total). In addition, you'll be expected to provide constructive feedback to two of your peers. Each response is worth 1 point each (2 points total).
+This assignment accounts for one-fourth of your final project grade (6 points total). Responses that adequately addresses the questions above are worth a 1/2 point each (4 points total). In addition, you'll be expected to provide constructive feedback to two of your peers. Each response is worth 1 point each (2 points total).
 
 ## Data Sources
 
