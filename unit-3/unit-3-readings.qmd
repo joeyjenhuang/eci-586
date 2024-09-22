@@ -23,8 +23,8 @@ In addition to watching the Unit 3 Intro video, this week you'll be required to 
 
 ### Required
 
--   Krumm, A., Means, B., & Bienkowski, M. (2018). Chapter 5: Foundations of Collaborative Applications of Educational Data Mining and Learning Analytics. *Learning analytics goes to school: A collaborative approach to improving education*. Routledge.
--   Fesler, L., Dee, T., Baker, R., & Evans, B. (2019). Text as data methods for education research. *Journal of Research on Educational Effectiveness*, *12*(4), 707-727.
+-   Krumm, A., Means, B., & Bienkowski, M. (2018). Chapter 5: Foundations of Collaborative Applications of Educational Data Mining and Learning Analytics. *Learning analytics goes to school: A collaborative approach to improving education*. Routledge. <https://doi.org/10.4324/9781315650722>
+-   Fesler, L., Dee, T., Baker, R., & Evans, B. (2019). Text as Data Methods for Education Research. *Journal of Research on Educational Effectiveness*, *12*(4), 707–727. <https://doi.org/10.1080/19345747.2019.1634168>
 
 ### Self-Selected Resource 
 
