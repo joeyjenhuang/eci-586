@@ -49,7 +49,7 @@ The data analyzed in this exploratory research was extracted from the course-bas
 
 The authors used scatter plots for identifying potential relationships between variables under investigation, followed by a a simple correlation analysis of each variable to further interrogate the significance of selected variables as indicators of student achievement. Finally, a linear multiple regression analysis was conducted in order to develop a predictive model in which a student final grade was the continuous dependent variable.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Take a quick scan of Table 1 in the article linked above (and also located in your "lit" folder in the files pane) and in the space below, answer the following question: Of the 13 LMS variables correlated with student final grade, which 2-3 do you think will found to significantly predict final grades?
 
@@ -125,7 +125,7 @@ There are two quick things to note. First, importing our data and saving in our 
 
 Second, the message in the output indicated that four of the columns were specified as "character" data types and two of the columns `student_id` and `time_spent` as double or numeric types.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Let's take a look at this data in a couple ways. First, type `time_spent` into the console (the pane below this one) and then hit return/enter. You should see a printed summary of this data frame.
 
@@ -151,7 +151,7 @@ gradebook
 
 The third data source is a self-report survey. This was data collected before the start of the course. The survey included ten items, each corresponding to one of three motivation measures: interest, utility value, and perceived competence. The three motivation measures we explore here come from Expectancy-Value Theory, which states that students are motivated to learn when they both believe that they can achieve something (expectancy, also known as "perceived competence") and believe that the concept they are trying to learn is important (value) [@wigfield2000expectancy]. For a more information about this survey, including the specific items included, see [Chapter 7 of Data Science in Education Using R](https://datascienceineducation.com/c07.html#data-sources) [@estrellado2020data].
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 👉 Your Turn ⤵**
 
 In the code chunk below, read in to R the `survey.csv` file located in the data folder. You can use the code above as a template. Assign the output from the `read_csv()` function to a new object named `survey`.
 
@@ -228,7 +228,7 @@ Not surprisingly, the Tidyverse set of packages including packages like `dplyr`
 
 3.  Each type of observational unit is a table
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 👉 Your Turn ⤵**
 
 Why would this data be considered "untidy"? **Hint**: Look at the column names.
 
@@ -289,7 +289,7 @@ df2 <- tibble(course_variable = c("19-Fall-Algebra1",
 df2
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Can you separate the variable in the above data frame not into two, but rather three, new variables?
 
@@ -311,7 +311,7 @@ time_spent |>
            c("subject", "semester", "section"))
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 There is one last key step -- one that is likely to be a bit disorienting at first. Once we've processed the data how we would like, we have to assign, or save, the results back to the name for the data with which we have been working. This is done with the assignment operator, or the \<- symbol.
 
@@ -358,7 +358,7 @@ df3 |>
   mutate(points_sum = var_a + var_b)
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 We can combine many `mutate()` functions together. Below, complete the following code to create a new variable (let's call it `points_proportion`) that represents the proportion of the total points students could, potentially, earn. To do this, you can divide `points_sum` created in the second line of code by the maximum possible points---150.
 
@@ -373,7 +373,7 @@ df3 |>
 
 You should see output that contains four variables, one each for `var_a` and `var_b`, `points_sum`, which represents the sum of the points students earned, and `points_proportion`, which represents the percentage of the total points students earned.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Let's now process the `time_spent` variable. Specifically, this variable currently represents the number of *minutes* that students spent on the course LMS. Below, complete the code template to create a new variable, `time_spent_hours`, that represents the number of *hours* that students spent on the course LMS.
 
@@ -419,7 +419,7 @@ Since interpreting proportions when the denominator is nine can be difficult, we
 
 After running the chunk above, print `df4` to the console or view using another method to get a sense of what the data frame consists of.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 To create a third variable that represents the proportion of STEM club activities students participated in, divide `var_a` by `var_b`.
 
@@ -431,7 +431,7 @@ To create a third variable that represents the proportion of STEM club activitie
 
 What happens if the output is different than you intended? That's no problem! Re-run the code-chunk *above* (in which we create `df`) to have a blank slate with which to try again.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Your turn once more. This time, create a new variable---here, let's name it `proportion_earned`---using the `gradebook` data. This will involve using the `mutate()` function with the `gradebook` data, creating a new variable (`proportion_earned`) on the basis of the values of two existing variables:
 
@@ -525,7 +525,7 @@ To join two datasets, it is important that the *key* (or *keys*) on which you ar
 
 While some of the time it takes some thought to determine what the key is (or what the keys are---you can join on multiple keys!), in the above case, there is just one variable that meets both of the above characteristics.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 In the code below, enter the name of the variable that is the key within the quotation marks following the `by =` argument. Then run the code chunk and note the output.
 
@@ -562,7 +562,7 @@ You may notice a message in the console or first output box above that says `Joi
 
 This is related to not specifying anything for the `by =` part of the function; by default, `full_join()` (and `left_join()`) will consider any character strings with identical names that are present in both data sets to be keys. But, it's generally better practice to specify the variables on which we are joining.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 In the code chunk below, write your join like above, but add the `by = c("student_id", "subject", "semester", "section")` part to your code. You may notice the message does not appear. This is generally a better practice because you know precisely on which variables you data sets are joining.
 
@@ -594,7 +594,7 @@ Oops! You probably noticed a red error message telling us that `x$section` and `
 
 Your probably also noticed that I included something strange in this code chunk, specifically the `#|eval: false` code chunk option. The `eval` argument is just one of many [code chunk options](https://quarto.org/docs/reference/cells/cells-knitr.html#code-output) you can include to change the output and behavior for code in Quarto docs. The reason I included this in the code chunk is because the code doesn't work until we change the data type, which we'll do below. By setting eval to false, it's saying don't include this code when you render.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Run the following code chunk to inspect our two data frames and record below the variable used in our key where we have a mismatch in data type:
 
@@ -621,7 +621,7 @@ joined_data
 
 A quick note about "dbl" (short for double) vs. "numeric" data types. "dbl" is the designation you'll commonly see for numeric columns when printing a tibble (a modern form of data frame provided by the tidyverse). This is just a user-friendly way to indicate that the column contains numeric (double-precision) data. For a nice simple list of data types and examples, check out this short article on the tidyverse website: [https://tibble.tidyverse.org/articles/types.html](https://tibble.tidyverse.org/articles/types.htmlhttps://tibble.tidyverse.org/articles/types.html).
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 In the code chunk below, try joining our two data frames again using the same code from above:
 
@@ -683,7 +683,7 @@ As we noted earlier, the {skimr} package works nicely with other {tidyverse} fun
 
 **Hint:** For help, also consider running `?skim()` in the console to view the documentation for the function.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Recall from the Week 3 tutorials and exercises how we how we isolated data using the `select()` and `filter()` functions. In the code chunk below, look at descriptives for just `proportion_earned` , `time_spent` and `gender`, but only for the "OcnA" and "PhysA" subjects.
 
@@ -735,7 +735,7 @@ Note that we also included the `bins =` argument in our `geom_historgram()` func
 
 **Pro Tip**: If you scroll to the bottom of most help pages for functions, you will see and examples section with code for executing those functions. You can copy and paste that code in the console to view the output of those functions and discover different ways they can be used.
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Now change the number of bins using the code chunk below below and note any differences in what you interpret about the data.
 
@@ -766,7 +766,7 @@ ggplot(mpg, aes(displ, hwy)) +
   facet_wrap(~class)
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 In the code below, create a faceted histogram based on the subject of the course. To do so, consider both:
 
@@ -811,7 +811,7 @@ ggplot(data_to_explore) +
                  color = enrollment_status))
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 We can also additionally create faceted plots, like the one you created for the histogram. In the code below, facet the plot by `subject`.
 
@@ -909,7 +909,7 @@ data_to_explore |>
   fashion()
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 In the code chunk below, select 3-4 numeric variables in addition to `time_spent_hours` that you think may be related to student achievement, i.e. `proportion_earned`, and run a simple correlation.
 
@@ -1026,7 +1026,7 @@ Finally, similar to our APA formatted correlation table above, we can use the {a
 apa.reg.table(m1, filename = "lm-table.doc")
 ```
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+#### **👉 Your Turn ⤵**
 
 Repurpose the code from above to estimate a different regression models with at least 2 variables, save as `m2`, and view a `summary()` of the results:
 
