@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2024-09-21">
+<meta name="dcterms.date" content="2024-09-28">
 
 <title>Unit 1 Case Study: Predicting Student Achievement</title>
 <style>
@@ -138,7 +138,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
   <li><a href="#data-sources-analysis" id="toc-data-sources-analysis" class="nav-link" data-scroll-target="#data-sources-analysis">Data Sources &amp; Analysis</a></li>
-  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><strong>👉 Your Turn ⤵</strong></a></li>
   </ul></li>
   <li><a href="#b.-define-questions" id="toc-b.-define-questions" class="nav-link" data-scroll-target="#b.-define-questions">1b. Define Questions</a></li>
   <li><a href="#c.-load-libraries" id="toc-c.-load-libraries" class="nav-link" data-scroll-target="#c.-load-libraries">1c. Load Libraries</a>
@@ -151,36 +151,36 @@ window.Quarto = {
   <li><a href="#a.-import-data" id="toc-a.-import-data" class="nav-link" data-scroll-target="#a.-import-data">a. Import Data</a>
   <ul class="collapse">
   <li><a href="#data-source-1-log-data" id="toc-data-source-1-log-data" class="nav-link" data-scroll-target="#data-source-1-log-data">Data Source #1: Log Data</a></li>
-  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#data-source-2-academic-achievement-data" id="toc-data-source-2-academic-achievement-data" class="nav-link" data-scroll-target="#data-source-2-academic-achievement-data">Data Source #2: Academic Achievement Data</a></li>
   <li><a href="#data-source-3-self-report-survey" id="toc-data-source-3-self-report-survey" class="nav-link" data-scroll-target="#data-source-3-self-report-survey">Data Source #3: Self-Report Survey</a></li>
-  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#view-data" id="toc-view-data" class="nav-link" data-scroll-target="#view-data">View Data</a></li>
   </ul></li>
   <li><a href="#b.-tidy-data" id="toc-b.-tidy-data" class="nav-link" data-scroll-target="#b.-tidy-data">b. Tidy Data</a>
   <ul class="collapse">
-  <li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#process-log-data" id="toc-process-log-data" class="nav-link" data-scroll-target="#process-log-data">Process Log Data</a></li>
-  <li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  <li><a href="#your-turn-5" id="toc-your-turn-5" class="nav-link" data-scroll-target="#your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><strong>👉 Your Turn ⤵</strong></a></li>
+  <li><a href="#your-turn-5" id="toc-your-turn-5" class="nav-link" data-scroll-target="#your-turn-5"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#mutate-a-column-to-change-the-time-spent-variable-to-represent-hours" id="toc-mutate-a-column-to-change-the-time-spent-variable-to-represent-hours" class="nav-link" data-scroll-target="#mutate-a-column-to-change-the-time-spent-variable-to-represent-hours">“Mutate” a column to change the time spent variable to represent hours</a></li>
-  <li><a href="#your-turn-6" id="toc-your-turn-6" class="nav-link" data-scroll-target="#your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-6" id="toc-your-turn-6" class="nav-link" data-scroll-target="#your-turn-6"><strong>👉 Your Turn ⤵</strong></a></li>
+  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#process-gradebook-data" id="toc-process-gradebook-data" class="nav-link" data-scroll-target="#process-gradebook-data">Process Gradebook Data</a></li>
-  <li><a href="#your-turn-8" id="toc-your-turn-8" class="nav-link" data-scroll-target="#your-turn-8"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  <li><a href="#your-turn-9" id="toc-your-turn-9" class="nav-link" data-scroll-target="#your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-8" id="toc-your-turn-8" class="nav-link" data-scroll-target="#your-turn-8"><strong>👉 Your Turn ⤵</strong></a></li>
+  <li><a href="#your-turn-9" id="toc-your-turn-9" class="nav-link" data-scroll-target="#your-turn-9"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#process-survey-data" id="toc-process-survey-data" class="nav-link" data-scroll-target="#process-survey-data">Process Survey Data</a></li>
   </ul></li>
   <li><a href="#c.-joining-the-data" id="toc-c.-joining-the-data" class="nav-link" data-scroll-target="#c.-joining-the-data">c.&nbsp;Joining the data</a>
   <ul class="collapse">
-  <li><a href="#your-turn-10" id="toc-your-turn-10" class="nav-link" data-scroll-target="#your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
-  <li><a href="#your-turn-11" id="toc-your-turn-11" class="nav-link" data-scroll-target="#your-turn-11"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-10" id="toc-your-turn-10" class="nav-link" data-scroll-target="#your-turn-10"><strong>👉 Your Turn ⤵</strong></a></li>
+  <li><a href="#your-turn-11" id="toc-your-turn-11" class="nav-link" data-scroll-target="#your-turn-11"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#join-gradebook-and-log-data" id="toc-join-gradebook-and-log-data" class="nav-link" data-scroll-target="#join-gradebook-and-log-data">Join Gradebook and Log Data</a></li>
-  <li><a href="#your-turn-12" id="toc-your-turn-12" class="nav-link" data-scroll-target="#your-turn-12"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-12" id="toc-your-turn-12" class="nav-link" data-scroll-target="#your-turn-12"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#join-gradebook-and-log-data-1" id="toc-join-gradebook-and-log-data-1" class="nav-link" data-scroll-target="#join-gradebook-and-log-data-1">Join Gradebook and Log Data</a></li>
-  <li><a href="#your-turn-13" id="toc-your-turn-13" class="nav-link" data-scroll-target="#your-turn-13"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-13" id="toc-your-turn-13" class="nav-link" data-scroll-target="#your-turn-13"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#change-data-type" id="toc-change-data-type" class="nav-link" data-scroll-target="#change-data-type">Change Data Type</a></li>
-  <li><a href="#your-turn-14" id="toc-your-turn-14" class="nav-link" data-scroll-target="#your-turn-14"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-14" id="toc-your-turn-14" class="nav-link" data-scroll-target="#your-turn-14"><strong>👉 Your Turn ⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#explore" id="toc-explore" class="nav-link" data-scroll-target="#explore">3. EXPLORE</a>
@@ -188,22 +188,22 @@ window.Quarto = {
   <li><a href="#a.-table-summaries" id="toc-a.-table-summaries" class="nav-link" data-scroll-target="#a.-table-summaries">a. Table Summaries</a>
   <ul class="collapse">
   <li><a href="#skimr-package" id="toc-skimr-package" class="nav-link" data-scroll-target="#skimr-package">Skimr Package</a></li>
-  <li><a href="#your-turn-15" id="toc-your-turn-15" class="nav-link" data-scroll-target="#your-turn-15"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-15" id="toc-your-turn-15" class="nav-link" data-scroll-target="#your-turn-15"><strong>👉 Your Turn ⤵</strong></a></li>
   </ul></li>
   <li><a href="#b.-data-visualization" id="toc-b.-data-visualization" class="nav-link" data-scroll-target="#b.-data-visualization">b. Data Visualization</a></li>
   <li><a href="#the-graphing-workflow" id="toc-the-graphing-workflow" class="nav-link" data-scroll-target="#the-graphing-workflow">The Graphing Workflow</a>
   <ul class="collapse">
-  <li><a href="#your-turn-16" id="toc-your-turn-16" class="nav-link" data-scroll-target="#your-turn-16"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-16" id="toc-your-turn-16" class="nav-link" data-scroll-target="#your-turn-16"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting">Faceting</a></li>
-  <li><a href="#your-turn-17" id="toc-your-turn-17" class="nav-link" data-scroll-target="#your-turn-17"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-17" id="toc-your-turn-17" class="nav-link" data-scroll-target="#your-turn-17"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots">Scatter Plots</a></li>
-  <li><a href="#your-turn-18" id="toc-your-turn-18" class="nav-link" data-scroll-target="#your-turn-18"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-18" id="toc-your-turn-18" class="nav-link" data-scroll-target="#your-turn-18"><strong>👉 Your Turn ⤵</strong></a></li>
   </ul></li>
   <li><a href="#c.-create-a-correlation-matrix" id="toc-c.-create-a-correlation-matrix" class="nav-link" data-scroll-target="#c.-create-a-correlation-matrix">c.&nbsp;Create a Correlation Matrix</a>
   <ul class="collapse">
   <li><a href="#corrr-package" id="toc-corrr-package" class="nav-link" data-scroll-target="#corrr-package">Corrr Package</a></li>
   <li><a href="#time-spent-and-course-grade" id="toc-time-spent-and-course-grade" class="nav-link" data-scroll-target="#time-spent-and-course-grade">Time Spent and Course Grade</a></li>
-  <li><a href="#your-turn-19" id="toc-your-turn-19" class="nav-link" data-scroll-target="#your-turn-19"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-19" id="toc-your-turn-19" class="nav-link" data-scroll-target="#your-turn-19"><strong>👉 Your Turn ⤵</strong></a></li>
   <li><a href="#apa-formatted-tables" id="toc-apa-formatted-tables" class="nav-link" data-scroll-target="#apa-formatted-tables">APA Formatted Tables</a></li>
   </ul></li>
   </ul></li>
@@ -214,7 +214,7 @@ window.Quarto = {
   <li><a href="#does-time-spent-predict-grade-earned" id="toc-does-time-spent-predict-grade-earned" class="nav-link" data-scroll-target="#does-time-spent-predict-grade-earned">Does Time Spent Predict Grade Earned?</a></li>
   <li><a href="#how-about-interest-in-science" id="toc-how-about-interest-in-science" class="nav-link" data-scroll-target="#how-about-interest-in-science">How about interest in science?</a></li>
   <li><a href="#do-average-students-earn-an-average-grade" id="toc-do-average-students-earn-an-average-grade" class="nav-link" data-scroll-target="#do-average-students-earn-an-average-grade">Do average students earn an average grade?</a></li>
-  <li><a href="#your-turn-20" id="toc-your-turn-20" class="nav-link" data-scroll-target="#your-turn-20"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-20" id="toc-your-turn-20" class="nav-link" data-scroll-target="#your-turn-20"><strong>👉 Your Turn ⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
@@ -247,7 +247,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 21, 2024</p>
+      <p class="date">September 28, 2024</p>
     </div>
   </div>
   
@@ -292,7 +292,7 @@ window.Quarto = {
 <p>The authors used scatter plots for identifying potential correlational trends between variables under investigation, followed by a a simple correlation analysis of each variable to further interrogate the significance of selected variables as indicators of student achievement. Finally, a linear multiple regression analysis was therefore conducted, in order to develop a predictive model in which ‘Student final grade’ was the continuous dependent variable.</p>
 </section>
 <section id="your-turn" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Take a quick scan of Table 1 in the article linked above (and also located in your “lit” folder in the files pane) and in the space below, answer the following question: Of the 13 LMS variables correlated with student final grade, which 2-3 do you think will found to significantly predict final grades?</p>
 <ul>
 <li>YOUR RESPONSE HERE</li>
@@ -378,7 +378,7 @@ dbl (2): student_id, time_spent
 <p>Second, the message in the output indicated that four of the columns were specified as “character” data types and two of the columns <code>student_id</code> and <code>time_spent</code> as double (dbl) or numeric types.</p>
 </section>
 <section id="your-turn-1" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-1"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-1"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Let’s take a look at this data in a couple ways. First, type <code>time_spent</code> into the console (the pane below this one) and then hit return/enter. You should see a printed summary of this data frame.</p>
 <p>Next, got your files pane (bottom right corner of R Studio), click on the data folder then click on the file named “log-data.csv” and in the pop-up click “View File.”</p>
 <p>What do you notice about this data? What questions do you have? Add a couple of notes (or more—you can type return/enter after a bullet point to add another) on your observations and/or questions here:</p>
@@ -426,7 +426,7 @@ dbl (3): student_id, total_points_possible, total_points_earned
 <p>The third data source is a self-report survey. This was data collected before the start of the course. The survey included ten items, each corresponding to one of three motivation measures: interest, utility value, and perceived competence. The three motivation measures we explore here come from Expectancy-Value Theory, which states that students are motivated to learn when they both believe that they can achieve something (expectancy, also known as “perceived competence”) and believe that the concept they are trying to learn is important (value) <span class="citation" data-cites="wigfield2000expectancy">(<a href="#ref-wigfield2000expectancy" role="doc-biblioref">Wigfield and Eccles 2000</a>)</span>. For a more information about this survey, including the specific items included, see <a href="https://datascienceineducation.com/c07.html#data-sources">Chapter 7 of Data Science in Education Using R</a> <span class="citation" data-cites="estrellado2020data">(<a href="#ref-estrellado2020data" role="doc-biblioref">Estrellado et al. 2020</a>)</span>.</p>
 </section>
 <section id="your-turn-2" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-2"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-2"><strong>👉 Your Turn ⤵</strong></h4>
 <p>In the code chunk below, read in to R the <code>survey.csv</code> file located in the data folder. You can use the code above as a template. Assign the output from the <code>read_csv()</code> function to a new object named <code>survey</code>.</p>
 <p><strong>Hint</strong>: By asking you to “assign” the output from the <code>read_csv()</code> function to the name <code>survey</code>, consider how in the code chunk above this “Your Turn” we assigned the output from the <code>read_csv()</code> function to the name <code>gradebook</code>.</p>
 <div class="cell">
@@ -607,7 +607,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <li><p>Each type of observational unit is a table</p></li>
 </ol>
 <section id="your-turn-3" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-3"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-3"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Why would this data be considered “untidy”? <strong>Hint</strong>: Look at the column names.</p>
 <ul>
 <li>YOUR RESPONSE HERE</li>
@@ -702,7 +702,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 </section>
 <section id="your-turn-4" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-4"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-4"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Can you separate the variable in the above data frame not into two, but rather three, new variables?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> </span>
@@ -746,7 +746,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 </section>
 <section id="your-turn-5" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-5"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-5"><strong>👉 Your Turn ⤵</strong></h4>
 <p>There is one last key step – one that is likely to be a bit disorienting at first. Once we’ve processed the data how we would like, we have to assign, or save, the results back to the name for the data with which we have been working. This is done with the assignment operator, or the &lt;- symbol.</p>
 <p>Copy the code you successfully ran in the chunk above to follow the assignment operator in the chunk below. In other words, write the code you wrote above, but assign the output back to <code>time_spent</code>.</p>
 <div class="cell">
@@ -811,7 +811,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 </section>
 <section id="your-turn-6" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-6"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-6"><strong>👉 Your Turn ⤵</strong></h4>
 <p>We can combine many <code>mutate()</code> functions together. Below, complete the following code to create a new variable (let’s call it <code>points_proportion</code>) that represents the proportion of the total points students could, potentially, earn. To do this, you can divide <code>points_sum</code> created in the second line of code by the maximum possible points – 150.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="sc">|&gt;</span> </span>
@@ -837,7 +837,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>You should see output that contains four variables, one each for <code>var_a</code> and <code>var_b</code>, <code>points_sum</code>, which represents the sum of the points students earned, and <code>points_proportion</code>, which represents the percentage of the total points students earned.</p>
 </section>
 <section id="your-turn-7" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-7"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-7"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Let’s now process the <code>time_spent</code> variable. Specifically, this variable currently represents the number of <em>minutes</em> that students spent on the course LMS. Below, add to the template of code below to create a new variable, <code>time_spent_hours</code>, that represents the number of <em>hours</em> that students spent on the course LMS.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>time_spent <span class="sc">|&gt;</span> </span>
@@ -925,7 +925,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>Since interpreting proportions when the denominator is nine can be difficult, we may which to create a variable for the proportion.</p>
 </section>
 <section id="your-turn-8" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-8"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-8"><strong>👉 Your Turn ⤵</strong></h4>
 <p>After running the chunk above, print <code>df4</code> to the console to get a sense of what the data frame consists of. To create a third variable that represents the proportion of STEM club activities students participated in, divide <code>var_a</code> by <code>var_b</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">&lt;-</span> df4 <span class="sc">|&gt;</span> </span>
@@ -951,7 +951,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>What happens if the output is different than you intended? That’s no problem! Re-run the code-chunk <em>above</em> (in which we create <code>df</code>) to have a blank slate with which to try again.</p>
 </section>
 <section id="your-turn-9" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-9"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-9"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Your turn once more. This time, create a new variable—here, let’s name it <code>proportion_earned</code>—using the <code>gradebook</code> data. This will involve using the mutate function with the <code>gradebook</code> data, creating a new variable (<code>proportion_earned</code>) on the basis of the values of two existing variables:</p>
 <ul>
 <li><p><code>total_points_earned</code></p></li>
@@ -1041,7 +1041,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>To join two datasets, it is important that the <em>key</em> (or <em>keys</em>) on which you are joining the data is formatted identically. The key represents an identifier that is present in both of the data sets you are joining. For instance, you may have data collected from (or created about) the same students that are from two very different sources, such as a self-report survey of students and their teacher-assigned grades in class.</p>
 <p>While some of the time it takes some thought to determine what the key is (or what the keys are—you can join on multiple keys!), in the above case, there is just one variable that meets both of the above characteristics.</p>
 <section id="your-turn-10" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-10"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-10"><strong>👉 Your Turn ⤵</strong></h4>
 <p>In the code below, enter the name of the variable that is the key within the quotation marks following <code>by =</code>. Then run the code chunk and note the output.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(df5, df6, <span class="at">by =</span> <span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1063,7 +1063,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>There is one other join on which we’ll focus for now. That is <code>left_join()</code>, which differs from <code>full_join()</code> in that it returns all of the rows in the “left” data frame, the data frame named first in the function, but not all of the rows in the “right” data frame: it retains only the rows in the “right” data frame, the data frame named second in the function, that have a matching key. An example is necessary. Before running the code below, add the same key you added above.</p>
 </section>
 <section id="your-turn-11" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-11"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-11"><strong>👉 Your Turn ⤵</strong></h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(df5, df6, <span class="at">by =</span> <span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1111,7 +1111,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>This is related to not specifying anything for the <code>by =</code> part of the function; by default, <code>full_join()</code> (and <code>left_join()</code>) will consider any character strings with identical names that are present in both data sets to be keys. But, it’s generally better practice to specify the variables on which we are joining.</p>
 </section>
 <section id="your-turn-12" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-12"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-12"><strong>👉 Your Turn ⤵</strong></h4>
 <p>In the code chunk below, write your join like above, but add the <code>c("student_id", "subject", "semester", "section")</code> part to your code. You may notice the red message you may have noticed does not appear. This is generally a better practice because you know precisely on which variables you data sets are joining.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join together the gradebook and time_spent</span></span>
@@ -1157,7 +1157,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>Your probably also noticed that I included something strange in this code chunk, specifically the <code>#|eval: false</code> code chunk option. The <code>eval</code> argument is just one of many&nbsp;<a href="https://quarto.org/docs/reference/cells/cells-knitr.html#code-output">code chunk options</a> you can include to change the output and behavior for code in Quarto docs. The reason I included this in the code chunk is because the code doesn’t work until we change the data type, which we’ll do below. By setting eval to false, it’s saying don’t include this code when you render.</p>
 </section>
 <section id="your-turn-13" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-13"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-13"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Run the following code chunk to inspect our two data frames and record below the variable used in our key where we have a mismatch in data type:</p>
 <ul>
 <li>YOUR RESPONSE HERE</li>
@@ -1238,7 +1238,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>A quick note about “dbl” (short for double) vs.&nbsp;“numeric” data types. “dbl” is the designation you’ll commonly see for numeric columns when printing a tibble (a modern form of data frame provided by the tidyverse). This is just a user-friendly way to indicate that the column contains numeric (double-precision) data. For a nice simple list of data types and examples, check out this short article on the tidyverse website: <a href="https://tibble.tidyverse.org/articles/types.htmlhttps://tibble.tidyverse.org/articles/types.html">https://tibble.tidyverse.org/articles/types.html</a>.</p>
 </section>
 <section id="your-turn-14" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-14"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-14"><strong>👉 Your Turn ⤵</strong></h4>
 <p>In the code chunk below, try joining our two data frames again using the same code from above:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>data_to_explore <span class="ot">&lt;-</span> <span class="fu">full_join</span>(joined_data, survey, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"student_id"</span>, <span class="st">"subject"</span>, <span class="st">"semester"</span>, <span class="st">"section"</span>))</span>
@@ -1853,7 +1853,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p><strong>Hint:</strong> For help, also consider running <code>?skim()</code> in the console to view the documentation for the function.</p>
 </section>
 <section id="your-turn-15" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-15"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-15"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Recall from the Week 3 tutorials and exercises how we how we isolated data using the <code>select()</code> and <code>filter()</code> functions. In the code chunk below, look at descriptives for just <code>proportion_earned</code> , <code>time_spent</code> and <code>gender</code>, but only for the “OcnA” and “PhysA” subjects.</p>
 <p>Can you do this by modifying the code below to do this?</p>
 <div class="cell">
@@ -2051,7 +2051,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p>Note that we also included the <code>bins =</code> argument in our <code>geom_historgram()</code> function. Again, by default this is set to 30. Aside from the <code>bins =</code> argument, <code>geom_historgram()</code> has other arguments that you can modify, search the Help tab in the Files pane for ” geom_histrogram” or type <code>?geom_histogram</code> in the Console to open the help page.</p>
 <p><strong>Pro Tip</strong>: If you scroll to the bottom of most help pages for functions, you will see and examples section with code for executing those functions. You can copy and paste that code in the console to view the output of those functions and discover different ways they can be used.</p>
 <section id="your-turn-16" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-16"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-16"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Now change the number of bins using the code chunk below below and note any differences in what you interpret about the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2090,7 +2090,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 </section>
 <section id="your-turn-17" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-17"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-17"><strong>👉 Your Turn ⤵</strong></h4>
 <p>In the code below, create a faceted histogram based on the subject of the course. To do so, consider both:</p>
 <ul>
 <li><p>What code you used to create the histogram of the time students’ spent on the course</p></li>
@@ -2164,7 +2164,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 </section>
 <section id="your-turn-18" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-18"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-18"><strong>👉 Your Turn ⤵</strong></h4>
 <p>We can also additionally create faceted plots, like the one you created in the last learning lab. In the code below, facet the plot by <code>subject</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
@@ -2183,7 +2183,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </div>
 </div>
 </div>
-<p>You may wish to style your plot. Aside from using facets, a few other ways you can do that are as follows:</p>
+<p>In <code>ggplot2</code>, there are various ways to style a scatterplot, or any plot for that matter, to enhance its visual appeal and convey more information. Aside from using facets, here are some key styling options:</p>
 <ol type="1">
 <li><p><strong>Changing Point Shapes and Sizes</strong>: You can use shape to differentiate groups by using different symbols and size to change the size of the points.</p></li>
 <li><p><strong>Adjusting Colors</strong>: Use color or fill to map variables to point colors. This can be done for both continuous and categorical variables.</p></li>
@@ -2191,7 +2191,7 @@ $ date         &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <li><p><strong>Adding Titles and Labels</strong>: Use ggtitle(), xlab(), and ylab() to add plot titles and axis labels.</p></li>
 <li><p><strong>Customizing Themes</strong>: Modify the overall appearance with different themes such as theme_minimal(), theme_bw(), or create custom themes using theme().</p></li>
 </ol>
-<p>Some styling requires you to modify arguments in a function, like adding <code>color = enrollment_status</code> to the <code>aes()</code> function, others you can add to your plot by using the plus <code>+</code> operator to the line prior and then adding a new function. For instance, the following code adds the x-axis label of a plot:</p>
+<p>Some styling requires you to modify arguments in a function, like adding <code>color = enrollment_status</code> to the <code>aes()</code> function, others you can “add” <a href="https://r4ds.hadley.nz/layers">layers</a> to your plot by using the plus <code>+</code> operator to the line prior and then adding a new function. For instance, the following code adds the x-axis label of a plot:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_explore) <span class="sc">+</span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_spent_hours, <span class="at">y =</span> proportion_earned, </span>
@@ -2295,7 +2295,7 @@ Attaching package: 'corrr'</code></pre>
 </div>
 </section>
 <section id="your-turn-19" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-19"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-19"><strong>👉 Your Turn ⤵</strong></h4>
 <p>In the code chunk below, select 3-4 numeric variables in addition to <code>time_spent_hours</code> that you think may be related to student achievement, i.e.&nbsp;<code>proportion_earned</code>, and run a simple correlation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2503,7 +2503,7 @@ Square brackets are used to enclose the lower and upper limits of a confidence i
 </div>
 </section>
 <section id="your-turn-20" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-20"><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<h4 class="anchored" data-anchor-id="your-turn-20"><strong>👉 Your Turn ⤵</strong></h4>
 <p>Repurpose the code from above to estimate a different regression models with at least 2 variables, save as <code>m2</code>, and view a <code>summary()</code> of the results:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(proportion_earned <span class="sc">~</span> int <span class="sc">+</span> time_spent_hours <span class="sc">+</span> gender <span class="sc">+</span> val, <span class="at">data =</span> data_to_explore)</span>
