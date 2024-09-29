@@ -21,7 +21,7 @@ set.seed(20240706) # so the results are readily reproducible
 
 ## 1. PREPARE
 
-In Unit 2, we learn about five basic steps in a supervised machine learning process in addition to some other components of a learning analytics workflow. For example, to help prepare for analysis, we'll first take a step back and think about how we want to use machine learning, and *predicting* is a key word. Many scholars have focused on predicting students who are *at-risk*: of dropping a course or not succeeding in it. In this itroductory machine learning case study, we will cover the following workflow processes from @krumm2018 as we attempt to develop our own model for predicting student drop-out:
+In Unit 2, we learn about five basic steps in a supervised machine learning process in addition to some other components of a learning analytics workflow. For example, to help prepare for analysis, we'll first take a step back and think about how we want to use machine learning, and *predicting* is a key word. Many scholars have focused on predicting students who are *at-risk*: of dropping a course or not succeeding in it. In this introductory machine learning case study, we will cover the following workflow processes from @krumm2018 as we attempt to develop our own model for predicting student drop-out:
 
 1.  **Prepare**: Prior to analysis, we'll look at the context from which our data came, formulate a basic research question, and get introduced the {tidymodels} packages for machine learning.
 
@@ -41,9 +41,9 @@ Conceptually, in this case study we focus on prediction, the primary goal of sup
 
 Technically, we'll focus on the core parts of doing a machine learning analysis in R. We'll use the {[tidymodels](https://www.tidymodels.org/)} set of R packages (add-ons) to do so. We use as recent study by Zong and Davis @zong2024modeling as an inspiration for ours. These authors used inferential models to try to understand what relates to the graduation rates of around 700 four-year universities in the United States, predicting this outcome on the basis of student background, finance, academic and social environment, and retention rate independent variables. You can find this study in the `lit` folder if you are interested in taking a look.
 
-However, to help anchor our analysis and provide us with some direction, we'll focus on the following research question as we explore this new:
+However, to help anchor our analysis and provide us with some direction, we'll focus on the following research question as we explore this new data set:
 
-> How well can we predict students who are at risk of failing a course?
+> How well can we predict drop out rates for among four-year universities?
 
 #### Literature Review
 
@@ -57,9 +57,10 @@ There are two cultures in the use of statistical modeling to reach conclusions f
 
 #### **👉 Your Turn** **⤵**
 
-You can find this study in the `lit` folder as well. Open up the article and take quick scan of the article and note below an observation or question you have about the article.
+You can find this study in the `lit` folder as well. Open up the article and take quick scan of the article and note two observations you have about the article.
 
--   YOUR RESPONSE HERE
+-   OBSERVATION 1
+-   OBSERVATION 2
 
 ### 1b. Load Libraries
 
@@ -92,9 +93,9 @@ Remember to use the `library()` function to load these packages. After you've do
 
 ### 1c. Import & Inspect Data
 
-Next, we'll read in data. We'll use the `read_csv()` function to load the data file.
+In this case study, we will be using a new data set from the [IPEDS, the Integrated Postsecondary Education Data System](https://nces.ed.gov/ipeds/) and similar to the data set used by @zong2024modeling.
 
-Run the following code to read in the `ipeds-all-title-9-2022-data.csv` file, paying attention to where those files are located relative to this case study file – in the data folder!
+Run the following code to read in the `ipeds-all-title-9-2022-data.csv` file using the `read_csv()` function, paying attention to where those files are located relative to this case study file – in the data folder!
 
 ```{r}
 ipeds <- read_csv("data/ipeds-all-title-9-2022-data.csv")
@@ -114,41 +115,104 @@ In the chunk below, examine the data set using a function or means of your choic
 ipeds
 ```
 
-#### **👉 Your Turn** **⤵**
-
-Write down a few observations after inspecting the data - and any all observations welcome!
+Now write down a couple observations after inspecting the data - and any all observations welcome!
 
 -   YOUR RESPONSE HERE
 -   YOUR RESPONSE HERE
--   YOUR RESPONSE HERE
+
+#### ❓Question
+
+Recall that similar to @zong2024modeling, we are trying to predict student drop out rates using data readily available to higher education researchers. Take a look at our data set again and list three variables you think might be useful for predicting graduation rates:
+
+-   VARIABLE 1
+-   VARIABLE 2
+-   VARIABLE 3
 
 ## 2. WRANGLE
 
-Even though we cleaned the names to make them easier to view and type (thanks, `clean_names()`), they are still pretty long.
+In general, data wrangling involves some combination of cleaning, reshaping, transforming, and merging data @wickham2023r. The importance of data wrangling is difficult to overstate, as it involves the initial steps of going from raw data to a dataset that can be explored and modeled @krumm2018. In Part 2, we focus on the the following wrangling processes to:
+
+a.  **Selecting Variables**. We use the `select()` function to simultaneous select variables for analysis and rename exceptionally long variables.
+
+b.  **Filtering Variables.** We use the `filter()` function to further reduce our data set to include only Title IV postsecondary institutions.
+
+### 2a. Select Variables
+
+Even though we cleaned the names to make them easier to view and type (thanks, `clean_names()`)), they are still pretty long.
 
 The code chunk below uses a very handy function, `select()`. This allows you to simultaneously choose and rename variables, returning a data frame with only the variables you have selected --- named as you like. For now, we'll just run this code. Later in your analyses, you'll almost certainly use `select()` to get a more manageable dataset.
 
 ```{r}
-ipeds <- ipeds %>% 
+ipeds <- ipeds |> 
     select(name = institution_name, 
-           title_iv = hd2022_postsecondary_and_title_iv_institution_indicator, # is the university a title IV university?
-           carnegie_class = hd2022_carnegie_classification_2021_basic, # which carnegie classification
-           state = hd2022_state_abbreviation, # state
-           total_enroll = drvef2022_total_enrollment, # total enrollment
-           pct_admitted = drvadm2022_percent_admitted_total, # percentage of applicants admitted
-           n_bach = drvc2022_bachelors_degree, # number of students receiving a bachelor's degree
-           n_mast = drvc2022_masters_degree, # number receiving a master's
-           n_doc = drvc2022_doctors_degree_research_scholarship, # number receive a doctoral degree
-           tuition_fees = drvic2022_tuition_and_fees_2021_22, # total cost of tuition and fees
-           grad_rate = drvgr2022_graduation_rate_total_cohort, # graduation rate
-           percent_fin_aid = sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid, # percent of students receive financial aid
-           avg_salary = drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks) # average salary of instructional staff
+           title_iv = hd2022_postsecondary_and_title_iv_institution_indicator,
+           carnegie_class = hd2022_carnegie_classification_2021_basic,
+           state = hd2022_state_abbreviation,
+           total_enroll = drvef2022_total_enrollment,
+           pct_admitted = drvadm2022_percent_admitted_total,
+           n_bach = drvc2022_bachelors_degree,
+           n_mast = drvc2022_masters_degree,
+           n_doc = drvc2022_doctors_degree_research_scholarship,
+           tuition_fees = drvic2022_tuition_and_fees_2021_22,
+           grad_rate = drvgr2022_graduation_rate_total_cohort,
+           percent_fin_aid = sfa2122_percent_of_full_time_first_time_undergraduates_awarded_any_financial_aid,
+           avg_salary = drvhr2022_average_salary_equated_to_9_months_of_full_time_instructional_staff_all_ranks)
 ```
+
+Before moving on, let's make sure we understand what each variables represents. Even though the variables names are fairly intuitive, below is a breif description of variables we just selected:
+
+-   name: Institution name
+
+-   **title_iv**: Indicator if the university is Title IV eligible
+
+-   **carnegie_class**: Carnegie Classification of the institution
+
+-   **state**: State abbreviation
+
+-   **total_enroll**: Total enrollment
+
+-   **pct_admitted**: Percentage of applicants admitted
+
+-   **n_bach**: Number of students receiving a bachelor’s degree
+
+-   **n_mast**: Number receiving a master’s degree
+
+-   **n_doc**: Number receiving a doctoral degree
+
+-   **tuition_fees**: Total cost of tuition and fees
+
+-   **grad_rate**: Graduation rate
+
+-   **percent_fin_aid**: Percent of students receiving financial aid
+
+-   **avg_salary**: Average salary of instructional staff
+
+Sometimes publicly available data sets, particularly high-quality ones like IPEDS, will have a **codebook** or **glossary** to help that provides detailed information about a dataset, serving as a guide to understanding the structure, contents, and variables within the data. It essentially acts as a “dictionary” for your dataset, helping researchers, analysts, and anyone else using the data to interpret it correctly.
+
+#### **👉 Your Turn** **⤵**
+
+Visit the the IPEDS glossary located here: <https://surveys.nces.ed.gov/ipeds/public/glossary>
+
+Use the glossary to look up a variable from above or in our larger data set that you are interested in understanding better and record the full definition below:
+
+-   DEFINITION
+
+::: callout-note
+**Fun fact**: RTI International – located in the North Carolina's Research Triangle Park and from which they derive their name – has led IPEDS for over 20 years, collecting institution-level data from primary providers of postsecondary education nationwide. To learn more about their work visit: <https://www.rti.org/impact/integrated-postsecondary-education-data-system-ipeds>
+:::
+
+### 2b. Count Variables
+
+As illustrated in the figure below, @krumm2018 noted in Chapter 2 of *Learning Analytics goes to Schools,* processes in the Data-Intensive Research Workflow workflow (e.g., preparing, wrangling, exploring, etc.) are more can be seens as overlapping activities as much as distinct sequentional steps.
+
+![](img/workflow-overlap.png){width="80%"}
+
+For example, next we will explore our data a little bit to assist with our data wrangling process.
 
 A useful function for exploring data is `count()`; it does what it sounds like! It counts how many times values for a variable appear.
 
 ```{r}
-ipeds %>% 
+ipeds |> 
     count(title_iv)
 ```
 
@@ -159,18 +223,20 @@ This suggests we may wish to filter the 30 non-Title IV institutions --- somethi
 Can you count another variable? Pick another (see the code chunk two above) and add a count below. While simple, counting up different values in our data can be very informative (and can often lead to further explorations)!
 
 ```{r}
-ipeds %>% 
+ipeds |> 
     count(carnegie_class)
 ```
 
-### Filtering
+### 2c. Filter Variables
 
-`filter()` is a very handy function that is part of the tidyverse; it filters to *include* (or *exclude*) observations in your data based upon logical conditions (e.g., `==`, `>`, `<=`, etc.). See more [here](https://dplyr.tidyverse.org/reference/filter.html) if interested.
+Our final data wrangling step is filtering our data set to include only Title IV postsecondary institutions.
 
-Below, we filter the data to include only Title IV postsecondary institutions.
+We'll do this with a function you should now be fairly familiar with. `filter()` is a very handy function that is part of the tidyverse; it filters to *include* (or *exclude*) observations in your data based upon logical conditions (e.g., `==`, `>`, `<=`, etc.). See more [here](https://dplyr.tidyverse.org/reference/filter.html) if interested.
+
+Run the code chunk below to filter the data so it only includes only Title IV postsecondary institutions.
 
 ```{r}
-ipeds <- ipeds %>% 
+ipeds <- ipeds |> 
     filter(title_iv == "Title IV postsecondary institution")
 ```
 
@@ -181,7 +247,7 @@ Can you filter the data again, this time to *only* include institutions with a c
 In other words, can you exclude those institutions with a value for the `carnegie_class` variable that is "Not applicable, not in Carnegie universe (not accredited or nondegree-granting)")? A little hint: whereas the logical operator `==` is used to include only matching conditions, the logical operator `!=` excludes matching conditions.
 
 ```{r}
-ipeds <- ipeds %>% 
+ipeds <- ipeds |> 
     filter(carnegie_class != "Not applicable, not in Carnegie universe (not accredited or nondegree-granting)")
 ```
 
@@ -195,15 +261,25 @@ glimpse(ipeds)
 
 ## 3. EXPLORE
 
+As noted by @krumm2018, exploratory data analysis often involves some combination of data visualization and feature engineering. In Part 3, we will create some quick visualization to help us better understand our data and transform our dependent variable from continuous to categorical to simplify our modeling. Specifically, in Part 3 we will:
+
+a.  **Visualize Variables** by using the {ggplot2} pacakge to visually inspect our `grad_rate` dependent variable as well as other variables of interest.
+
+b.  **Dichotomize Dependent Variable** by "mutating" our `grad_rate` dependent variable from our continuous variable to a dichotomous variable.
+
+### 3a. Examine Dependent Variable
+
 One key step in most analyses is to explore the data. Here, we conduct an exploratory data analysis with the IPEDS data, focusing on the key outcome of graduate rate.
 
 Below, we use the ggplot2 package (part of the tidyverse) to visualize the *spread* of the values of our dependent variable, `grad_rate`, which represents institutions' graduation rate. There is a *lot* to ggplot2, and data visualizations are not the focus of this module, but [this web page](https://ggplot2.tidyverse.org/) has a lot of information you can use to learn more, if you are interested. ggplot2 is fantastic for creating publication-ready visualizations!
 
 ```{r}
-ipeds %>% 
+ipeds |> 
     ggplot(aes(x = grad_rate)) +
     geom_histogram()
 ```
+
+#### ❓Question
 
 What do you notice about this graph -- and about graduation rate?
 
@@ -215,48 +291,62 @@ What do you notice about this graph -- and about graduation rate?
 Below, can you add one ggplot2 plot with a different variable/variables? Use the ggplot2 page linked above (also [here](https://ggplot2.tidyverse.org/)) or the code above as a starting point (another histogram is fine!) for your visualization.
 
 ```{r}
-ipeds %>% 
+ipeds |> 
     ggplot(aes(x = pct_admitted)) +
     geom_histogram()
 
-ipeds %>% 
+ipeds |> 
     ggplot(aes(x = tuition_fees, y = total_enroll, color = avg_salary)) +
     geom_point()
 ```
 
-We'll next do a little additional data wrangling. For now, we'll model our dependent variable, `grad_rate`, as a dichotomous (i.e., yes or no; 1 or 0) dependent variable. This isn't necessary, but it makes the contrast between the regression and supervised machine learning model a bit more vivid, and also dichotomous and categorical outcome variables are common in supervised machine learning applications, and so we'll do this for this case study.
+### 3b. Dichotomoize Variables
+
+Next we'll again overlap our data wrangling and exploring activities in preparation for some data modeling that will come next. Recall that we are interested in assessing how we we can predict graduation rates, our **dependent variable**, using other variables or **predictors** in our data set.
+
+Supervised machine learning, or predictive modeling, involves two broad approaches: classification and regression.
+
+-   **Classification** algorithms model categorical outcomes (e.g., yes or no outcomes);
+
+-   **Regression** algorithms characterize continuous outcomes (e.g., test scores).
+
+To simplify our analysis for this case study, we'll focus on classification. Specifically, we will model our dependent variable, `grad_rate`, as a dichotomous (i.e., yes or no; 1 or 0) dependent variable. This isn't necessary, but it makes the contrast between the regression and supervised machine learning model a bit more vivid, and also dichotomous and categorical outcome variables are common in supervised machine learning applications, and so we'll do this for this case study.
 
 #### **👉 Your Turn** **⤵**
 
 Your next task is to decide what constitutes a good graduation rate. Our only suggestion - don't pick a number *too* close to 0% or 100%. Otherwise, please replace XXX below with the number from 0-100 that represents the graduation rate percentage. Just add the number --- don't add the percentage symbol.
 
 ```{r}
-ipeds <- ipeds %>% 
+ipeds <- ipeds |> 
     mutate(good_grad_rate = if_else(grad_rate > 62, 1, 0),
            good_grad_rate = as.factor(good_grad_rate))
 ```
 
 Here, add a reason or two for how and why you picked the number you did:
 
--   
+-   REASON 1
 
--   
+-   REASON 2
+
+Before moving on, let's unpack what we just did in the few lines of code above. The code is performing two primary operations on our `ipeds` dataset using the `mutate()` function from the `dplyr` package:
+
+1.  **Creating a New Variable `good_grad_rate`:**
+    -   The `mutate()` function adds a new variable named `good_grad_rate` to the `ipeds` dataset.
+    -   `if_else(grad_rate > XXX, 1, 0)`: This part creates a binary (0 or 1) variable based on the `grad_rate` column.
+        -   If `grad_rate` is greater than `XXX` (where `XXX` is a placeholder value that needs to be specified), the value of `good_grad_rate` will be `1`.
+        -   If `grad_rate` is not greater than `XXX`, the value of `good_grad_rate` will be `0`.
+2.  **Converting `good_grad_rate` to a Factor:**
+    -   `good_grad_rate = as.factor(good_grad_rate)`: This part converts the `good_grad_rate` variable from a numeric type (0 or 1) to a factor type. Factors are useful in R for categorical data, and they help in modeling processes where the variable is treated as a categorical predictor.
+
+In summary, the code is creating a new categorical variable `good_grad_rate` in the `ipeds` dataset that indicates whether the graduation rate (`grad_rate`) is above a specified threshold (`XXX`) and then converts this variable into a factor type with two levels: `0` (not above the threshold) and `1` (above the threshold).
 
 ## 4. MODEL
 
-Now, we reach a fork in the road. Recall from our first reading that there are two general types of modeling approaches: unsupervised and supervised machine learning. In Part 4, we focus on supervised learning models, which are used to quantify relationships between features (e.g., motivation and performance) and a known outcome (e.g., student drop out). These models can be used for classification of binary or categorical outcomes, as we'll illustrate in this section, or regression as we'll demonstrate in modules 2 and 3.
+Recall from our readings that there are two general types of modeling approaches: unsupervised and supervised machine learning. In Part 4, we focus on supervised learning models, which are used to quantify relationships between features (e.g., total enrollments and % of students admitted) and a known outcome (e.g., a good graduation rate). These models can be used for statistical inference, as illustrated in Unit 1, or prediction as we'll illustrate in this section.
 
-Please write our preliminary, draft research questions for both a regression (RQ A) and supervised machine learning (RQ B) analysis. It may help to review the readings for this module; you can find them in the `lit` folder; they are listed in `sml-1-readings.qmd`, too. There aren't right or wrong answers here; the point is to try to draw out what question might accompany these different analyses (or vice versa - what research questions are feasible to answer using different analyses).
+In Chapter 3, @krumm2018 note that the term term regression can take on different meanings across inference and prediction uses:
 
-#### **👉 Your Turn** **⤵**
-
-### RQ A - Regression Research Question
-
--   YOUR RESEARCH QUESTION
-
-### RQ B - Supervised Machine Learning Research Question
-
--   YOUR RESEARCH QUESTION
+> From a statistical, or inferential perspective, regression denotes a family of models that can be used on either categorical or continuous outcomes. Perhaps most confusing to newcomers or to researchers steeped in either inference or prediction are the ways in which specific models, such as logistic regression, can be used for either inference or classification.
 
 Now, we will proceed to the analyses.
 
@@ -268,6 +358,16 @@ m1 <- glm(good_grad_rate ~ total_enroll + pct_admitted + n_bach + n_mast + n_doc
 summary(m1) # summary table of model output
 ```
 
+Specifically, in Part 4 we will learn how to:
+
+a.  **Split Data** into a training and test set that will be used to develop a predictive model.
+
+b.  **Create a "Recipe"** for our predictive model and learn how to deal with nominal data that we would like to use as predictors.
+
+c.  **Fit Models** to our training set using logistic regression and random forest models.
+
+d.  **Check Model Accuracy** on our test set to see how well our model can "predict" our outcome of interest.
+
 Then, we'll conduct a supervised machine learning analysis (with a simple but still commonly used model - in fact, the same model we used for the regression, a generalized linear model!). Again, for now, you'll run this code; later, you'll work through each step in detail.
 
 ```{r}
@@ -275,21 +375,21 @@ my_rec <- recipe(good_grad_rate ~ total_enroll + pct_admitted + n_bach + n_mast 
 
 # specify model
 my_mod <-
-    logistic_reg() %>% # specifies a logistic regression
-    set_engine("glm") %>% # specifies the specific package used to estimate the logistic regression
+    logistic_reg() |> # specifies a logistic regression
+    set_engine("glm") |> # specifies the specific package used to estimate the logistic regression
     set_mode("classification") # specifies that our outcome is a dichotomous or categorical variable
 
-my_wf <- workflow() %>% # this starts a workflow, which will stitch together the steps in our analysis
-    add_model(my_mod) %>% # adds the model
+my_wf <- workflow() |> # this starts a workflow, which will stitch together the steps in our analysis
+    add_model(my_mod) |> # adds the model
     add_recipe(my_rec) # adds the recipe
 
 fit_model <- fit(my_wf, ipeds) # fits the model
 
-predictions <- predict(fit_model, ipeds) %>% # predicts the value of the dependent variable using only the predictors' values and our trained model
+predictions <- predict(fit_model, ipeds) |> # predicts the value of the dependent variable using only the predictors' values and our trained model
   bind_cols(ipeds) # this adds the original data back to the predicted values, so everything is together
 
-accuracy <- predictions %>% # this and the next two steps calculate the accuracy of our predictions
-  metrics(truth = good_grad_rate, estimate = .pred_class) %>%
+accuracy <- predictions |> # this and the next two steps calculate the accuracy of our predictions
+  metrics(truth = good_grad_rate, estimate = .pred_class) |>
   filter(.metric == "accuracy")
 
 accuracy # print the accuracy
