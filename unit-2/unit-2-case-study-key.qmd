@@ -318,7 +318,7 @@ Your next task is to decide what constitutes a good graduation rate. Our only su
 
 ```{r}
 ipeds <- ipeds |> 
-    mutate(good_grad_rate = if_else(grad_rate > 62, 1, 0),
+    mutate(good_grad_rate = if_else(grad_rate > 66, 1, 0),
            good_grad_rate = as.factor(good_grad_rate))
 ```
 
@@ -336,7 +336,7 @@ Before moving on, let's unpack what we just did in the few lines of code above. 
         -   If `grad_rate` is greater than `XXX` (where `XXX` is a placeholder value that needs to be specified), the value of `good_grad_rate` will be `1`.
         -   If `grad_rate` is not greater than `XXX`, the value of `good_grad_rate` will be `0`.
 2.  **Converting `good_grad_rate` to a Factor:**
-    -   `good_grad_rate = as.factor(good_grad_rate)`: This part converts the `good_grad_rate` variable from a numeric type (0 or 1) to a factor type. Factors are useful in R for categorical data, and they help in modeling processes where the variable is treated as a categorical predictor.
+    -   `good_grad_rate = as.factor(good_grad_rate)`: This part converts the `good_grad_rate` variable from a numeric type (0 or 1) to a factor type. Factors are useful in R for categorical data, and they help in modeling processes where the variable is treated as a categorical predictor or outcome variable.
 
 In summary, the code is creating a new categorical variable `good_grad_rate` in the `ipeds` dataset that indicates whether the graduation rate (`grad_rate`) is above a specified threshold (`XXX`) and then converts this variable into a factor type with two levels: `0` (not above the threshold) and `1` (above the threshold).
 
@@ -350,13 +350,108 @@ In Chapter 3, @krumm2018 note that the term term regression can take on differen
 
 Now, we will proceed to the analyses.
 
-We'll first conduct a regression analysis, like in the code-along. We use a generalized linear model due to the dependent variable being dichotomous. The code is relatively straightforward; the comments explain each step.
+### 4a. Inferential Analysis
+
+We'll first conduct a simple regression analysis from a statistical inference perspective, similar to what we did in Unit 1 for our online learning data.
+
+Run the code chunk below to fit generalized linear model `glm()` function, due to the dependent variable being dichotomous. The code is relatively straightforward; the comments explain each step.
 
 ```{r}
-m1 <- glm(good_grad_rate ~ total_enroll + pct_admitted + n_bach + n_mast + n_doc + tuition_fees + percent_fin_aid + avg_salary, data = ipeds, family = "binomial") # to the left of the ~ is our dependent variable; to the right are the independent variables; family = "binomial" is to specify the correct model type for the dichotomous dependent variable
+m1 <- glm(good_grad_rate ~ 
+            total_enroll + 
+            pct_admitted + 
+            n_bach + 
+            n_mast + 
+            n_doc + 
+            tuition_fees + 
+            percent_fin_aid + 
+            avg_salary, 
+          data = ipeds, 
+          family = "binomial") # to the left of the ~ is our dependent variable; to the right are the independent variables; family = "binomial" is to specify the correct model type for the dichotomous dependent variable
 
 summary(m1) # summary table of model output
 ```
+
+#### Code Explanation
+
+Before interpreting the output of this model, let's breakdown what each line of code above is doing:
+
+1.  **Building a Logistic Regression Model (`glm`):**
+    -   `m1 <- glm(...)`: This line creates a generalized linear model (GLM) and assigns it to the object `m1`.
+    -   `good_grad_rate ~ ...`: The model is predicting `good_grad_rate`, a binary outcome, using multiple independent variables (`total_enroll`, `pct_admitted`, `n_bach`, `n_mast`, `n_doc`, `tuition_fees`, `percent_fin_aid`, and `avg_salary`).
+    -   The `family = "binomial"` argument specifies that this is a logistic regression model, which is appropriate when the dependent variable (`good_grad_rate`) is binary (0 or 1).
+2.  **Independent Variables:**
+    -   The model includes multiple predictors:
+        -   `total_enroll`: Total enrollment
+        -   `pct_admitted`: Percentage of applicants admitted
+        -   `n_bach`: Number of students receiving a bachelor's degree
+        -   `n_mast`: Number receiving a master's degree
+        -   `n_doc`: Number receiving a doctoral degree
+        -   `tuition_fees`: Total cost of tuition and fees
+        -   `percent_fin_aid`: Percentage of students receiving financial aid
+        -   `avg_salary`: Average salary of instructional staff
+3.  **Displaying the Model Output (`summary(m1)`):**
+    -   Finally, the `summary(m1)` function provides detailed information about the logistic regression model, including:
+        -   Coefficients for each predictor variable.
+        -   Standard errors, z-values, and p-values for hypothesis testing.
+        -   Overall model statistics such as the null and residual deviance, indicating model fit.
+
+In summary, our code fits a logistic regression model to help us determine whether a university has a "good" graduation rate (`good_grad_rate`) based on several institutional characteristics. The `summary(m1)` output will show which predictors are statistically significant and how they influence the likelihood of a "good" graduation rate.
+
+#### Output Interpretation
+
+This output provides the results of a logistic regression model predicting whether a university has a "good" graduation rate (`good_grad_rate`) based on various institutional characteristics. Note that your output will look a little different based on the cut-off point you selected for a "good" graduate rate. In my case, I somewhat arbitratily decided that if at least two-thirds (\~67%) of students graduated, it was considered "good."
+
+Now let's break down the interpretation. The table below provides my estimates for each predictor, along with their standard errors, z-values, and p-values:
+
+| Predictor | Estimate | Std. Error | z value | Pr(\> | z |
+|------------|------------|------------|------------|------------|------------|
+| (Intercept) | -0.4732 | 0.7276 | -0.650 | 0.515466 | (Not significant) |
+| total_enroll | -0.0001054 | 0.00004649 | -2.267 | 0.023415 | \* Significant |
+| pct_admitted | -0.01357 | 0.003959 | -3.427 | 0.000610 | \*\*\* Highly significant |
+| n_bach | 0.0007563 | 0.0001981 | 3.817 | 0.000135 | \*\*\* Highly significant |
+| n_mast | -0.0004373 | 0.0002131 | -2.052 | 0.040140 | \* Significant |
+| n_doc | 0.005749 | 0.001520 | 3.782 | 0.000156 | \*\*\* Highly significant |
+| tuition_fees | 0.00007245 | 5.630e-06 | 12.868 | \< 2e-16 | \*\*\* Highly significant |
+| percent_fin_aid | -0.03674 | 0.006666 | -5.512 | 3.56e-08 | \*\*\* Highly significant |
+| avg_salary | 0.00002599 | 4.396e-06 | 5.912 | 3.39e-09 | \*\*\* Highly significant |
+
+First lets take a look at the model coefficients:
+
+-   **Intercept**: The intercept value (-0.4732) represents the log-odds of a university having a “good” graduation rate when all predictor variables are set to zero. The p-value (0.515) indicates that the intercept is not statistically significant, which isn’t a concern because our primary interest is in understanding the relationship between the independent variables and a `good_grad_rate`.
+-   **total_enroll**: For each additional unit increase in total enrollment, the log-odds of having a good graduation rate decrease by 0.0001054. This effect is statistically significant (\*).
+-   **pct_admitted**: A 1% increase in the percentage of students admitted leads to a decrease in the log-odds of having a good graduation rate by 0.01357. This effect is highly significant (\*\*\*).
+-   **n_bach**: Each additional bachelor's degree awarded is associated with an increase in the log-odds of a good graduation rate by 0.0007563, and this effect is highly significant (\*\*\*).
+-   **n_mast**: Each additional master's degree awarded is associated with a slight decrease in the log-odds by 0.0004373, and this effect is marginally significant (\*).
+-   **n_doc**: Each additional doctoral degree awarded is associated with an increase in the log-odds of a good graduation rate by 0.005749, and this effect is highly significant (\*\*\*).
+-   **tuition_fees**: An increase of one unit in tuition fees is associated with a significant increase in the log-odds of having a good graduation rate by 0.00007245 (\*\*\*).
+-   **percent_fin_aid**: A 1% increase in students receiving financial aid is associated with a decrease in the log-odds of having a good graduation rate by 0.03674, and this effect is highly significant (\*\*\*).
+-   **avg_salary**: Each additional unit in average salary for instructional staff is associated with an increase in the log-odds of having a good graduation rate by 0.00002599, and this effect is highly significant (\*\*\*).
+
+::: callout-note
+Significance codes (\*\*\*, \*\*, \*) provide a quick way to understand the strength of the evidence against the null hypothesis for each predictor in a regression model. Here’s a more detailed explanation:
+
+-    **\*\*\* Highly significant (p \< 0.001)**. This indicates a **very strong** evidence against the null hypothesis (which typically states that the predictor has no effect on the outcome variable). A p-value less than 0.001 means there’s less than a 0.1% chance that the observed relationship is due to random chance. Therefore, we have very high confidence that this predictor is indeed related to the outcome variable.
+
+-   **\*\* Significant (p \< 0.01)**. This indicates **strong** evidence against the null hypothesis. A p-value between 0.001 and 0.01 means there’s less than a 1% chance that the observed relationship is due to random chance. We can still be quite confident that this predictor is related to the outcome variable, though not as strong as in the previous category.
+
+-   **\* Marginally significant (p \< 0.05)**. This indicates **moderate** evidence against the null hypothesis. A p-value between 0.01 and 0.05 means there’s less than a 5% chance that the observed relationship is due to random chance. While this predictor may have a real effect on the outcome variable, the evidence is weaker compared to predictors with smaller p-values.
+:::
+
+Now let's take a look a key Model Fit Statistic, the **Akaike Information Criterion (AIC)**, which is a metric used to evaluate how well a model fits the data while also considering the complexity of the model. It not only evaluates how well the model explains the data but also penalizes the model for having too many predictors.
+
+Our model has an AIC Value of 1387.5; however, you can’t interpret the AIC value in isolation as “good” or “bad”; instead, you compare it across models.
+
+-   A **lower AIC value** indicates a model that achieves a better balance between goodness-of-fit and simplicity.
+-   It means the model provides a good explanation of the data without being overly complex.
+
+If we were add or remove predictors from our model to test other models, the model with the **lowest AIC** would be considered the best among the compared models, as it suggests the optimal combination of fit and simplicity.
+
+Overall, the model appears to be a good fit for predicting a "good" graduation rate, with tuition fees, percent financial aid, and average salary being especially influential factors. Specifically, the predictors `pct_admitted`, `n_bach`, `n_doc`, `tuition_fees`, `percent_fin_aid`, and `avg_salary` are highly significant in predicting whether a university has a good graduation rate.
+
+#### **👉 Your Turn** **⤵**
+
+### 4a. Prediction Analysis
 
 Specifically, in Part 4 we will learn how to:
 
