@@ -383,7 +383,7 @@ In summary, our code fits a logistic regression model to help us determine wheth
 
 #### Output Interpretation
 
-This output provides the results of a logistic regression model predicting whether a university has a "good" graduation rate (`good_grad_rate`) based on various institutional characteristics. Note that your output will look a little different based on the cut-off point you selected for a "good" graduate rate. In my case, I somewhat arbitratily decided that if at least two-thirds (\~67%) of students graduated, it was considered "good."
+The table below provides the results of a logistic regression model predicting whether a university has a "good" graduation rate (`good_grad_rate`) based on various institutional characteristics. Note that your output will look a little different based on the cut-off point you selected for a "good" graduate rate. In my case, I somewhat arbitratily decided that if at least two-thirds (\~67%) of students graduated, it was considered "good."
 
 Now let's break down the interpretation. The table below provides my estimates for each predictor, along with their standard errors, z-values, and p-values:
 
