@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Shaun Kellogg">
-<meta name="dcterms.date" content="2024-09-29">
+<meta name="dcterms.date" content="2024-09-30">
 
 <title>Explaining or Predicting Graduation Rates Using IPEDS</title>
 <style>
@@ -92,6 +92,35 @@ div.csl-indent {
 <link href="unit-2-case-study-key_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="unit-2-case-study-key_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -152,22 +181,37 @@ div.csl-indent {
   </ul></li>
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a>
   <ul>
-  <li><a href="#a.-inferential-analysis" id="toc-a.-inferential-analysis" class="nav-link" data-scroll-target="#a.-inferential-analysis">4a. Inferential Analysis</a>
+  <li><a href="#a.-statistical-inference" id="toc-a.-statistical-inference" class="nav-link" data-scroll-target="#a.-statistical-inference">4a. Statistical Inference</a>
   <ul class="collapse">
   <li><a href="#code-explanation" id="toc-code-explanation" class="nav-link" data-scroll-target="#code-explanation">Code Explanation</a></li>
   <li><a href="#output-interpretation" id="toc-output-interpretation" class="nav-link" data-scroll-target="#output-interpretation">Output Interpretation</a></li>
   <li><a href="#your-turn-9" id="toc-your-turn-9" class="nav-link" data-scroll-target="#your-turn-9"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
   </ul></li>
-  <li><a href="#a.-prediction-analysis" id="toc-a.-prediction-analysis" class="nav-link" data-scroll-target="#a.-prediction-analysis">4a. Prediction Analysis</a>
+  <li><a href="#a.-supervised-machine-learning" id="toc-a.-supervised-machine-learning" class="nav-link" data-scroll-target="#a.-supervised-machine-learning">4a. Supervised Machine Learning</a>
   <ul class="collapse">
+  <li><a href="#step-1.-split-data" id="toc-step-1.-split-data" class="nav-link" data-scroll-target="#step-1.-split-data">Step 1. Split data</a></li>
   <li><a href="#your-turn-10" id="toc-your-turn-10" class="nav-link" data-scroll-target="#your-turn-10"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#step-2-create-a-recipe" id="toc-step-2-create-a-recipe" class="nav-link" data-scroll-target="#step-2-create-a-recipe">Step 2: Create a “Recipe”</a></li>
+  </ul></li>
+  <li><a href="#step-3-specify-a-model" id="toc-step-3-specify-a-model" class="nav-link" data-scroll-target="#step-3-specify-a-model">Step 3: Specify a Model</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-11" id="toc-your-turn-11" class="nav-link" data-scroll-target="#your-turn-11"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#add-model-and-recipe-to-workflow" id="toc-add-model-and-recipe-to-workflow" class="nav-link" data-scroll-target="#add-model-and-recipe-to-workflow"><strong>Add Model and Recipe to Workflow</strong></a></li>
+  </ul></li>
+  <li><a href="#step-4-fit-model-to-training-data" id="toc-step-4-fit-model-to-training-data" class="nav-link" data-scroll-target="#step-4-fit-model-to-training-data">Step 4: Fit Model to Training Data</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-12" id="toc-your-turn-12" class="nav-link" data-scroll-target="#your-turn-12"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  </ul></li>
+  <li><a href="#step-5-assess-accuracty-on-test-data" id="toc-step-5-assess-accuracty-on-test-data" class="nav-link" data-scroll-target="#step-5-assess-accuracty-on-test-data">Step 5: Assess Accuracty on Test Data</a>
+  <ul class="collapse">
+  <li><a href="#accuracy-metrics" id="toc-accuracy-metrics" class="nav-link" data-scroll-target="#accuracy-metrics">Accuracy Metrics</a></li>
+  <li><a href="#your-turn-13" id="toc-your-turn-13" class="nav-link" data-scroll-target="#your-turn-13"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
   <ul>
-  <li><a href="#rq-a" id="toc-rq-a" class="nav-link" data-scroll-target="#rq-a">RQ A</a></li>
-  <li><a href="#rq" id="toc-rq" class="nav-link" data-scroll-target="#rq">RQ</a></li>
-  <li><a href="#knit-check" id="toc-knit-check" class="nav-link" data-scroll-target="#knit-check">🧶 Knit &amp; Check ✅</a></li>
+  <li><a href="#your-turn-14" id="toc-your-turn-14" class="nav-link" data-scroll-target="#your-turn-14"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations">Congratulations!</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -194,7 +238,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2024</p>
+      <p class="date">September 30, 2024</p>
     </div>
   </div>
   
@@ -285,7 +329,7 @@ div.csl-indent {
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -515,10 +559,23 @@ Note
 <section id="your-turn-5" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-5"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Can you filter the data again, this time to <em>only</em> include institutions with a carnegie classification?</p>
-<p>In other words, can you exclude those institutions with a value for the <code>carnegie_class</code> variable that is “Not applicable, not in Carnegie universe (not accredited or nondegree-granting)”)? A little hint: whereas the logical operator <code>==</code> is used to include only matching conditions, the logical operator <code>!=</code> excludes matching conditions.</p>
+<p>In other words, can you exclude those institutions with a value for the <code>carnegie_class</code> variable that is “Not applicable, not in Carnegie universe (not accredited or nondegree-granting)”)?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ipeds <span class="ot">&lt;-</span> ipeds <span class="sc">|&gt;</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(carnegie_class <span class="sc">!=</span> <span class="st">"Not applicable, not in Carnegie universe (not accredited or nondegree-granting)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Whereas the logical operator <code>==</code> is used to include only matching conditions, the logical operator <code>!=</code> excludes matching conditions.</p>
+</div>
 </div>
 </section>
 <section id="your-turn-6" class="level4">
@@ -634,7 +691,7 @@ $ avg_salary      &lt;dbl&gt; 77824, 106434, 36637, 92561, 72635, 97394, 63494, 
 <p>To simplify our analysis for this case study, we’ll focus on classification. Specifically, we will model our dependent variable, <code>grad_rate</code>, as a dichotomous (i.e., yes or no; 1 or 0) dependent variable. This isn’t necessary, but it makes the contrast between the regression and supervised machine learning model a bit more vivid, and also dichotomous and categorical outcome variables are common in supervised machine learning applications, and so we’ll do this for this case study.</p>
 <section id="your-turn-8" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-8"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
-<p>Your next task is to decide what constitutes a good graduation rate. Our only suggestion - don’t pick a number <em>too</em> close to 0% or 100%. Otherwise, please replace XXX below with the number from 0-100 that represents the graduation rate percentage. Just add the number — don’t add the percentage symbol.</p>
+<p>Your next task is to decide what constitutes a good graduation rate. Our only suggestion - don’t pick a number <em>too</em> close to 0% or 100%. Otherwise, please replace XXX below with the number from 0-100 that represents the graduation rate percentage. Just add the number – don’t add the percentage symbol.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ipeds <span class="ot">&lt;-</span> ipeds <span class="sc">|&gt;</span> </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">good_grad_rate =</span> <span class="fu">if_else</span>(grad_rate <span class="sc">&gt;</span> <span class="dv">66</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
@@ -667,16 +724,16 @@ $ avg_salary      &lt;dbl&gt; 77824, 106434, 36637, 92561, 72635, 97394, 63494, 
 </section>
 <section id="model" class="level2">
 <h2 class="anchored" data-anchor-id="model">4. MODEL</h2>
-<p>Recall from our readings that there are two general types of modeling approaches: unsupervised and supervised machine learning. In Part 4, we focus on supervised learning models, which are used to quantify relationships between features (e.g., total enrollments and % of students admitted) and a known outcome (e.g., a good graduation rate). These models can be used for statistical inference, as illustrated in Unit 1, or prediction as we’ll illustrate in this section.</p>
-<p>In Chapter 3, <span class="citation" data-cites="krumm2018">Krumm, Means, and Bienkowski (<a href="#ref-krumm2018" role="doc-biblioref">2018</a>)</span> note that the term term regression can take on different meanings across inference and prediction uses:</p>
+<p>Models can be used for statistical inference, that is to test scientific hypotheses and understand the relationship between variables and an outcomes, or in the case of machine learning, can be use primarily for the purpose of predicting an outcome as accurately as possible. In this section we revisit the use of regression models for statistical inference, and then compare the use of the same model for the purpose of prediction.</p>
+<p>Note that in Chapter 3, <span class="citation" data-cites="krumm2018">Krumm, Means, and Bienkowski (<a href="#ref-krumm2018" role="doc-biblioref">2018</a>)</span> highlight that the term <strong>regression</strong> can take on different meanings across inference and prediction uses:</p>
 <blockquote class="blockquote">
 <p>From a statistical, or inferential perspective, regression denotes a family of models that can be used on either categorical or continuous outcomes. Perhaps most confusing to newcomers or to researchers steeped in either inference or prediction are the ways in which specific models, such as logistic regression, can be used for either inference or classification.</p>
 </blockquote>
-<p>Now, we will proceed to the analyses.</p>
-<section id="a.-inferential-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="a.-inferential-analysis">4a. Inferential Analysis</h3>
-<p>We’ll first conduct a simple regression analysis from a statistical inference perspective, similar to what we did in Unit 1 for our online learning data.</p>
-<p>Run the code chunk below to fit generalized linear model <code>glm()</code> function, due to the dependent variable being dichotomous. The code is relatively straightforward; the comments explain each step.</p>
+<p>In both sections below we use <strong>logistic regression</strong>, a statistical method used to model the relationship between one or more independent variables (predictors) and a binary outcome (dependent variable). In the context of machine learning, this is considered a classification problem since we are trying to build a model that can “classify” or label data based on patterns in inherent in the data itself.</p>
+<section id="a.-statistical-inference" class="level3">
+<h3 class="anchored" data-anchor-id="a.-statistical-inference">4a. Statistical Inference</h3>
+<p>We’ll first conduct a simple regression analysis from a statistical inference perspective, similar to what we did in Unit 1 for our virtual public school data.</p>
+<p>Run the code chunk below to “fit” generalized linear model <code>glm()</code> function, due to the dependent variable being dichotomous:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(good_grad_rate <span class="sc">~</span> </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>            total_enroll <span class="sc">+</span> </span>
@@ -724,31 +781,17 @@ Number of Fisher Scoring iterations: 6</code></pre>
 </div>
 <section id="code-explanation" class="level4">
 <h4 class="anchored" data-anchor-id="code-explanation">Code Explanation</h4>
-<p>Before interpreting the output of this model, let’s breakdown what each line of code above is doing:</p>
+<p>The code is relatively straightforward but let’s breakdown what each line of code above is doing before interpreting the output of this model:</p>
 <ol type="1">
 <li><strong>Building a Logistic Regression Model (<code>glm</code>):</strong>
 <ul>
 <li><code>m1 &lt;- glm(...)</code>: This line creates a generalized linear model (GLM) and assigns it to the object <code>m1</code>.</li>
-<li><code>good_grad_rate ~ ...</code>: The model is predicting <code>good_grad_rate</code>, a binary outcome, using multiple independent variables (<code>total_enroll</code>, <code>pct_admitted</code>, <code>n_bach</code>, <code>n_mast</code>, <code>n_doc</code>, <code>tuition_fees</code>, <code>percent_fin_aid</code>, and <code>avg_salary</code>).</li>
+<li><code>good_grad_rate ~ ...</code>: The model is predicting <code>good_grad_rate</code>, a binary outcome variable that we created above, using multiple independent variables including <code>total_enroll</code>, <code>pct_admitted</code>, <code>n_bach</code>, <code>n_mast</code>, <code>n_doc</code>, <code>tuition_fees</code>, <code>percent_fin_aid</code>, and <code>avg_salary</code>.</li>
 <li>The <code>family = "binomial"</code> argument specifies that this is a logistic regression model, which is appropriate when the dependent variable (<code>good_grad_rate</code>) is binary (0 or 1).</li>
-</ul></li>
-<li><strong>Independent Variables:</strong>
-<ul>
-<li>The model includes multiple predictors:
-<ul>
-<li><code>total_enroll</code>: Total enrollment</li>
-<li><code>pct_admitted</code>: Percentage of applicants admitted</li>
-<li><code>n_bach</code>: Number of students receiving a bachelor’s degree</li>
-<li><code>n_mast</code>: Number receiving a master’s degree</li>
-<li><code>n_doc</code>: Number receiving a doctoral degree</li>
-<li><code>tuition_fees</code>: Total cost of tuition and fees</li>
-<li><code>percent_fin_aid</code>: Percentage of students receiving financial aid</li>
-<li><code>avg_salary</code>: Average salary of instructional staff</li>
-</ul></li>
 </ul></li>
 <li><strong>Displaying the Model Output (<code>summary(m1)</code>):</strong>
 <ul>
-<li>Finally, the <code>summary(m1)</code> function provides detailed information about the logistic regression model, including:
+<li>Finally, the <code>summary(m1)</code> function provides detailed information about the logistic regression model, which we save as <code>m1</code>, and includes:
 <ul>
 <li>Coefficients for each predictor variable.</li>
 <li>Standard errors, z-values, and p-values for hypothesis testing.</li>
@@ -760,8 +803,9 @@ Number of Fisher Scoring iterations: 6</code></pre>
 </section>
 <section id="output-interpretation" class="level4">
 <h4 class="anchored" data-anchor-id="output-interpretation">Output Interpretation</h4>
-<p>The table below provides the results of a logistic regression model predicting whether a university has a “good” graduation rate (<code>good_grad_rate</code>) based on various institutional characteristics. Note that your output will look a little different based on the cut-off point you selected for a “good” graduate rate. In my case, I somewhat arbitratily decided that if at least two-thirds (~67%) of students graduated, it was considered “good.”</p>
-<p>Now let’s break down the interpretation. The table below provides my estimates for each predictor, along with their standard errors, z-values, and p-values:</p>
+<p>Now let’s focus on interpreting the output of <code>summary()</code> function and model. The table below provides the results of a logistic regression model predicting whether a university has a “good” graduation rate (<code>good_grad_rate</code>) using various institutional characteristics as predictors.</p>
+<p><strong>Note:</strong> Your output will look a little different based on the cut-off point you selected for a “good” graduate rate. In my case, I somewhat arbitratily decided that if at least two-thirds (~67%) of students graduated, it was considered “good.”</p>
+<p>Now let’s break down the interpretation. The table below provides estimates for each predictor, along with their standard errors, z-values, and p-values:</p>
 <table class="table">
 <colgroup>
 <col style="width: 16%">
@@ -893,97 +937,404 @@ Note
 <li>It means the model provides a good explanation of the data without being overly complex.</li>
 </ul>
 <p>If we were add or remove predictors from our model to test other models, the model with the <strong>lowest AIC</strong> would be considered the best among the compared models, as it suggests the optimal combination of fit and simplicity.</p>
-<p>Overall, the model appears to be a good fit for predicting a “good” graduation rate, with tuition fees, percent financial aid, and average salary being especially influential factors. Specifically, the predictors <code>pct_admitted</code>, <code>n_bach</code>, <code>n_doc</code>, <code>tuition_fees</code>, <code>percent_fin_aid</code>, and <code>avg_salary</code> are highly significant in predicting whether a university has a good graduation rate.</p>
+<p><strong>Summary</strong></p>
+<p>Overall, the model appears to be a good fit for understanding factors related to a “good” graduation rate, with tuition fees, percent financial aid, and average salary being especially influential factors. Specifically, the predictors <code>pct_admitted</code>, <code>n_bach</code>, <code>n_doc</code>, <code>tuition_fees</code>, <code>percent_fin_aid</code>, and <code>avg_salary</code> are highly significant in predicting whether a university has a good graduation rate.</p>
 </section>
 <section id="your-turn-9" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-9"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<p>In the space below, note a few similarities and/or differences between the model and it’s interpretation described above and the model you ran with your own determination of a “good” graduation rate:</p>
+<ul>
+<li><p>NOTE 1</p></li>
+<li><p>NOTE 2</p></li>
+<li><p>NOTE 3</p></li>
+</ul>
 </section>
 </section>
-<section id="a.-prediction-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="a.-prediction-analysis">4a. Prediction Analysis</h3>
-<p>Specifically, in Part 4 we will learn how to:</p>
-<ol type="a">
-<li><p><strong>Split Data</strong> into a training and test set that will be used to develop a predictive model.</p></li>
-<li><p><strong>Create a “Recipe”</strong> for our predictive model and learn how to deal with nominal data that we would like to use as predictors.</p></li>
-<li><p><strong>Fit Models</strong> to our training set using logistic regression and random forest models.</p></li>
-<li><p><strong>Check Model Accuracy</strong> on our test set to see how well our model can “predict” our outcome of interest.</p></li>
+<section id="a.-supervised-machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="a.-supervised-machine-learning">4a. Supervised Machine Learning</h3>
+<p>Recall from our readings that there are two general types of machine learning approaches: unsupervised and supervised learning. In this section we focus on supervised learning models, which are used to quantify relationships between features (e.g., % of students admitted and tuition fees) and a known outcome (i.e., a good graduation rate). These models can be used for statistical inference, as illustrated above, or primarily for prediction purposes, as we’ll illustrate below.</p>
+<p>In this section we’ll learn five basic machine learning steps for building, training, and evaluating a model. Specifically, we will use the {tidymodels} package in R and learn how to:</p>
+<ol type="1">
+<li><p><strong>Split Data</strong> into a training and test set that will be used to develop a predictive model;</p></li>
+<li><p><strong>Create a “Recipe”</strong> for our predictive model and learn how to deal with data that we would like to use as predictors;</p></li>
+<li><p><strong>Specify model and workflow</strong> by selecting the <em>functional form</em> of the model that we want and using a <em>model workflow</em> to pair our model and recipe together;</p></li>
+<li><p><strong>Fit model</strong> to our <em>training</em> <em>set</em> using logistic regression;</p></li>
+<li><p><strong>Assess Accuracy</strong> of our model on our <em>testing set</em> to see how well our model can “predict” a good graduation rate.</p></li>
 </ol>
-<p>Then, we’ll conduct a supervised machine learning analysis (with a simple but still commonly used model - in fact, the same model we used for the regression, a generalized linear model!). Again, for now, you’ll run this code; later, you’ll work through each step in detail.</p>
+<section id="step-1.-split-data" class="level4">
+<h4 class="anchored" data-anchor-id="step-1.-split-data">Step 1. Split data</h4>
+<p>The authors of Data Science in Education Using R (Estrellado et al.,2020) remind us that:</p>
+<blockquote class="blockquote">
+<p>At its core, machine learning is the process of “showing” your statistical model only some of the data at once and training the model to predict accurately on that training dataset (this is the “learning” part of machine learning). Then, the model as developed on the training data is shown new data - data you had all along, but hid from your computer initially - and you see how well the model that you developed on the training data performs on this new testing data. Eventually, you might use the model on entirely new data.</p>
+</blockquote>
+<p><strong>Training and Testing Sets</strong></p>
+<p>It is therefore common when beginning a machine learning project to <a href="https://bookdown.org/max/FES/data-splitting.html">separate the data set</a> into two partitions:</p>
+<ul>
+<li><p>The <em>training set</em> is used to estimate, develop and compare models; feature engineering techniques; tune models, etc.</p></li>
+<li><p>The <em>test set</em> is held in reserve until the end of the project, at which point there should only be one or two models under serious consideration. It is used as an unbiased source for measuring final model performance.</p></li>
+</ul>
+<p>There are different ways to create these partitions of the data and there is no uniform guideline for determining how much data should be set aside for testing. The proportion of data can be driven by many factors, including the size of the original pool of samples and the total number of predictors.&nbsp;</p>
+<p>After you decide how much to set aside, the most common approach for actually partitioning your data is to use a random sample. For our purposes, we’ll use random sampling to select 20% for the test set and use the remainder for the training set, which are the defaults for the {<a href="https://tidymodels.github.io/rsample/">rsample</a>} package.</p>
+<p><strong>Split data set</strong></p>
+<p>To split our data, we will be using our first {tidymodels} function - <code>initial_split()</code>.</p>
+<p>The function <code>initial_split()</code> function from the {rsample} package takes the original data and saves the information on how to make the partitions. The {rsample} package has two aptly named functions for created a training and testing data set called <code>training()</code> and <code>testing()</code>, respectively.</p>
+<p>We also specify the strata to ensure there is not misbalance in the dependent variable (good_grad_rate).</p>
+<p>Run the following code to split the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>my_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(good_grad_rate <span class="sc">~</span> total_enroll <span class="sc">+</span> pct_admitted <span class="sc">+</span> n_bach <span class="sc">+</span> n_mast <span class="sc">+</span> n_doc <span class="sc">+</span> tuition_fees <span class="sc">+</span> percent_fin_aid <span class="sc">+</span> avg_salary, <span class="at">data =</span> ipeds) <span class="co"># same as above; this sets up what predicts the outcome</span></span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># specify model</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span> <span class="co"># specifies a logistic regression</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span> <span class="co"># specifies the specific package used to estimate the logistic regression</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="co"># specifies that our outcome is a dichotomous or categorical variable</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training (80%) and testing (20%) sets</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Setting a seed for reproducibility</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>data_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(ipeds, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> good_grad_rate) </span>
 <span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>my_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> <span class="co"># this starts a workflow, which will stitch together the steps in our analysis</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_model</span>(my_mod) <span class="sc">|&gt;</span> <span class="co"># adds the model</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_recipe</span>(my_rec) <span class="co"># adds the recipe</span></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>fit_model <span class="ot">&lt;-</span> <span class="fu">fit</span>(my_wf, ipeds) <span class="co"># fits the model</span></span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_model, ipeds) <span class="sc">|&gt;</span> <span class="co"># predicts the value of the dependent variable using only the predictors' values and our trained model</span></span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(ipeds) <span class="co"># this adds the original data back to the predicted values, so everything is together</span></span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> predictions <span class="sc">|&gt;</span> <span class="co"># this and the next two steps calculate the accuracy of our predictions</span></span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">metrics</span>(<span class="at">truth =</span> good_grad_rate, <span class="at">estimate =</span> .pred_class) <span class="sc">|&gt;</span></span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">"accuracy"</span>)</span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>accuracy <span class="co"># print the accuracy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create training and testing datasets</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>training_data <span class="ot">&lt;-</span> <span class="fu">training</span>(data_split)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>testing_data <span class="ot">&lt;-</span> <span class="fu">testing</span>(data_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s break down what we just did a little further:</p>
+<ul>
+<li><p><code>initial_split(ipeds, prop = 0.8)</code> splits our <code>ipeds</code> data into 80% for training and 20% for testing.</p></li>
+<li><p><code>strata = good_grad_rate</code> ensures stratified sampling, meaning the proportion of <code>good_grad_rate</code> categories is maintained in both the training and testing sets.</p></li>
+<li><p><code>training(data_split)</code> extracts the training set.</p></li>
+<li><p><code>testing(data_split)</code> Extracts the testing set.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Note</strong>: Since random sampling uses random numbers, it is important to set the random number seed using the <code>set.seed()</code> function. This ensures that the random numbers can be reproduced at a later time (if needed). Here we use <code>12345</code> but any number will work!</p>
+</div>
+</div>
+</section>
+<section id="your-turn-10" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-10"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<p>Go ahead and type <code>data_train</code> and <code>data_test</code> into the console (in steps) to check that this data set indeed has 80% of the number of observations as in the larger data. Do that in the chunk below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>training_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3,054 × 14
+   name    title_iv carnegie_class state total_enroll pct_admitted n_bach n_mast
+   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Alabam… Title I… Master's Coll… Alab…         6007           68    511    249
+ 2 Univer… Title I… Doctoral Univ… Alab…        21639           87   2785   2512
+ 3 Univer… Title I… Doctoral Univ… Alab…         9237           78   1624    570
+ 4 Alabam… Title I… Doctoral/Prof… Alab…         3828           97    480    119
+ 5 Centra… Title I… Associate's C… Alab…         1777           NA     NA     NA
+ 6 Athens… Title I… Baccalaureate… Alab…         2894           NA    738     80
+ 7 Auburn… Title I… Master's Coll… Alab…         5109           92    672    300
+ 8 Birmin… Title I… Baccalaureate… Alab…          975           57    263      0
+ 9 Chatta… Title I… Associate's C… Alab…         1641           NA     NA     NA
+10 South … Title I… Baccalaureate… Alab…          361           NA     31     17
+# ℹ 3,044 more rows
+# ℹ 6 more variables: n_doc &lt;dbl&gt;, tuition_fees &lt;dbl&gt;, grad_rate &lt;dbl&gt;,
+#   percent_fin_aid &lt;dbl&gt;, avg_salary &lt;dbl&gt;, good_grad_rate &lt;fct&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>testing_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 764 × 14
+   name    title_iv carnegie_class state total_enroll pct_admitted n_bach n_mast
+   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Amridg… Title I… Master's Coll… Alab…          647           NA     54     96
+ 2 Faulkn… Title I… Master's Coll… Alab…         2817           82    448    347
+ 3 J. F. … Title I… Associate's C… Alab…          976           NA     NA     NA
+ 4 Stillm… Title I… Baccalaureate… Alab…          744           65    100      0
+ 5 United… Title I… Special Focus… Alab…          240          100     11     25
+ 6 Alaska… Title I… Baccalaureate… Alas…          595           99     63     41
+ 7 Carrin… Title I… Special Focus… Ariz…         1048           NA     NA     NA
+ 8 Carrin… Title I… Special Focus… Ariz…          446           NA     NA     NA
+ 9 Brookl… Title I… Special Focus… Ariz…          888           NA    248     16
+10 Arizon… Title I… Doctoral Univ… Ariz…        80065           90  14960   3727
+# ℹ 754 more rows
+# ℹ 6 more variables: n_doc &lt;dbl&gt;, tuition_fees &lt;dbl&gt;, grad_rate &lt;dbl&gt;,
+#   percent_fin_aid &lt;dbl&gt;, avg_salary &lt;dbl&gt;, good_grad_rate &lt;fct&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="step-2-create-a-recipe" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-create-a-recipe">Step 2: Create a “Recipe”</h4>
+<p>In this section, we introduce another tidymodels package named {<a href="https://recipes.tidymodels.org/">recipes</a>}, which is designed to help you prepare your data <em>before</em> training your model. <strong>Recipes</strong> are built as a series of preprocessing steps, such as:</p>
+<ul>
+<li><p>converting qualitative predictors to indicator variables (also known as dummy variables),</p></li>
+<li><p>transforming data to be on a different scale (e.g., taking the logarithm of a variable),</p></li>
+<li><p>transforming whole groups of predictors together,</p></li>
+<li><p>extracting key features from raw variables (e.g., getting the day of the week out of a date variable), and so on.</p></li>
+</ul>
+<p>If you are familiar with R’s formula interface, a lot of this might sound familiar and is very similar to what we did above in the statistical inference section. Recipes can be used to do many of the same things, but they have a much wider range of possibilities.</p>
+<p><strong>Add a Formula</strong></p>
+<p>To get started, let’s create a recipe for a simple logistic regression model. The <a href="https://recipes.tidymodels.org/reference/recipe.html"><code>recipe()</code>function</a> as we used it here has two arguments:</p>
+<ul>
+<li><p>A <strong>formula</strong>. Any variable on the left-hand side of the tilde (<code>~</code>) is considered the model outcome (<code>code</code>, in our present case). On the right-hand side of the tilde are the predictors. Variables may be listed by name, or you can use the dot (<code>.</code>) to indicate all other variables as predictors.</p></li>
+<li><p>The <strong>data</strong>. A recipe is associated with the data set used to create the model. This will typically be the <em>training</em> set, so <code>data = train_data</code> here. Naming a data set doesn’t actually change the data itself; it is only used to catalog the names of the variables and their types, like factors, integers, dates, etc.</p></li>
+</ul>
+<p>Run the following code chunk to create a recipe where we predict <code>good_grad_rate</code> (the outcome variable) using the same predictor variables we used above:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>my_recipe <span class="ot">&lt;-</span> <span class="fu">recipe</span>(good_grad_rate <span class="sc">~</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                   total_enroll <span class="sc">+</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                   pct_admitted <span class="sc">+</span> </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                   n_bach <span class="sc">+</span> </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                   n_mast <span class="sc">+</span> </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>                   n_doc <span class="sc">+</span> </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>                   tuition_fees <span class="sc">+</span> </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>                   percent_fin_aid <span class="sc">+</span> </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>                   avg_salary, </span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> training_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Code Explanation</strong></p>
+<p>Again, let’s unpack what is happening in this code:</p>
+<ul>
+<li><p>This code defines a recipe that outlines which variables (<code>total_enroll</code>, <code>pct_admitted</code>, etc.) will be used to predict the outcome (<code>good_grad_rate</code>) and ensures that this process is applied to the <code>training_data</code>.</p></li>
+<li><p>At this stage, no actual preprocessing (e.g., scaling, imputation) is performed. The recipe simply sets up the structure, which can be extended later to include data cleaning, transformations, or feature engineering as needed.</p></li>
+</ul>
+<p>By defining the recipe, you make the analysis more modular, allowing you to handle data preprocessing consistently and efficiently before training the machine learning model. These topics are covered in much greater depth in the Machine Learning course.</p>
+</section>
+</section>
+<section id="step-3-specify-a-model" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-specify-a-model">Step 3: Specify a Model</h3>
+<p>With tidymodels, we next start building a model by specifying the <em>functional form</em> of the model that we want using the <a href="https://tidymodels.github.io/parsnip/">{parsnip} package</a>. Since our outcome is binary, the model type we will use is&nbsp;“<a href="https://parsnip.tidymodels.org/reference/logistic_reg.html">logistic regression</a>.” We can declare this with <code>logistic_reg()</code> and assign to an object we will later use in our workflow:</p>
+<section id="your-turn-11" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-11"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<p>In the code chunk below, specify our model by assigning the <code>logistic_reg()</code> function to a new object named <code>my_model</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify model</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>()</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>my_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Logistic Regression Model Specification (classification)
+
+Computational engine: glm </code></pre>
+</div>
+</div>
+<p>Great! If you did this correctly you should see the following output:</p>
+<pre><code>Logistic Regression Model Specification (classification)
+
+Computational engine: glm </code></pre>
+</section>
+<section id="add-model-and-recipe-to-workflow" class="level4">
+<h4 class="anchored" data-anchor-id="add-model-and-recipe-to-workflow"><strong>Add Model and Recipe to Workflow</strong></h4>
+<p>Finally, we’ll create a “workflow”, which pairs a model and recipe together. Although we’ll just be using a single recipe This is a straightforward approach because different recipes are often needed for different models, so when a model and recipe are bundled, it becomes easier to train and test <em>workflows</em>.</p>
+<p>We’ll use the {<a href="https://workflows.tidymodels.org/">workflows</a>} package from tidymodels to bundle our parsnip model (<code>my_model</code>) with our recipe (<code>my_recipe</code>).</p>
+<p>Add your model and recipe (see their names above)!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>my_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> <span class="co"># create a workflow</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_model</span>(my_model) <span class="sc">|&gt;</span> <span class="co"># add the model we wrote above</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_recipe</span>(my_recipe) <span class="co"># add our recipe we wrote above</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="step-4-fit-model-to-training-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-fit-model-to-training-data">Step 4: Fit Model to Training Data</h3>
+<p>Now that we have a single workflow that can be used to prepare the recipe and train the model from the resulting predictors, we can use the <code>fit()</code> function to fit our model to our <code>training_data</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fit_model <span class="ot">&lt;-</span> <span class="fu">fit</span>(my_workflow, training_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="your-turn-12" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-12"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<p>Type the output of the above function (the name you assigned the output to) below; this is the final, fitted model—one that can be interpreted further in the next step!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fit_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow [trained] ══════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: logistic_reg()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+0 Recipe Steps
+
+── Model ───────────────────────────────────────────────────────────────────────
+
+Call:  stats::glm(formula = ..y ~ ., family = stats::binomial, data = data)
+
+Coefficients:
+    (Intercept)     total_enroll     pct_admitted           n_bach  
+     -4.055e-01       -9.880e-05       -1.253e-02        7.103e-04  
+         n_mast            n_doc     tuition_fees  percent_fin_aid  
+     -4.400e-04        5.773e-03        7.111e-05       -3.749e-02  
+     avg_salary  
+      2.588e-05  
+
+Degrees of Freedom: 1294 Total (i.e. Null);  1286 Residual
+  (1759 observations deleted due to missingness)
+Null Deviance:      1635 
+Residual Deviance: 1101     AIC: 1119</code></pre>
+</div>
+</div>
+<p>Great work!</p>
+</section>
+</section>
+<section id="step-5-assess-accuracty-on-test-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-assess-accuracty-on-test-data">Step 5: Assess Accuracty on Test Data</h3>
+<p>Finally, run the following code snippet to generate predictions from the trained logistic regression model (<code>fit_model</code>) on the test dataset (<code>testing_data</code>) and then combine those predictions with the original test data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_model, testing_data) <span class="sc">|&gt;</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(testing_data)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>predictions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 764 × 15
+   .pred_class name      title_iv carnegie_class state total_enroll pct_admitted
+   &lt;fct&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+ 1 &lt;NA&gt;        Amridge … Title I… Master's Coll… Alab…          647           NA
+ 2 0           Faulkner… Title I… Master's Coll… Alab…         2817           82
+ 3 &lt;NA&gt;        J. F. Dr… Title I… Associate's C… Alab…          976           NA
+ 4 0           Stillman… Title I… Baccalaureate… Alab…          744           65
+ 5 &lt;NA&gt;        United S… Title I… Special Focus… Alab…          240          100
+ 6 0           Alaska P… Title I… Baccalaureate… Alas…          595           99
+ 7 &lt;NA&gt;        Carringt… Title I… Special Focus… Ariz…         1048           NA
+ 8 &lt;NA&gt;        Carringt… Title I… Special Focus… Ariz…          446           NA
+ 9 &lt;NA&gt;        Brooklin… Title I… Special Focus… Ariz…          888           NA
+10 1           Arizona … Title I… Doctoral Univ… Ariz…        80065           90
+# ℹ 754 more rows
+# ℹ 8 more variables: n_bach &lt;dbl&gt;, n_mast &lt;dbl&gt;, n_doc &lt;dbl&gt;,
+#   tuition_fees &lt;dbl&gt;, grad_rate &lt;dbl&gt;, percent_fin_aid &lt;dbl&gt;,
+#   avg_salary &lt;dbl&gt;, good_grad_rate &lt;fct&gt;</code></pre>
+</div>
+</div>
+<p>Again, let’s breakdown what is happening with this code and then interpret the output:</p>
+<ul>
+<li>The <code>predict()</code> function produces a set of predictions for the outcome variable (<code>good_grad_rate</code>) for each observation in the <code>testing_data</code>.
+<ul>
+<li><code>fit_model</code>: The logistic regression model that was previously trained on the training data.</li>
+<li><code>testing_data</code>: The dataset used to test the model’s performance, which contains new, unseen data.</li>
+</ul></li>
+<li>The <code>bind_cols()</code> function merges the predicted values with the original test dataset row by row, resulting in a data frame that contains both the actual values (from <code>testing_data</code>) and the model’s predicted values side by side.</li>
+<li>The <code>predictions</code> object now contains a combined dataset that includes:
+<ul>
+<li>All original columns from <code>testing_data</code>.</li>
+<li>A new column (or columns) with the predicted values from the model, allowing you to compare the actual values with the predicted ones.</li>
+</ul></li>
+<li>When you print <code>predictions</code>, you’ll see a data frame that includes both the original test data and the predicted values for <code>good_grad_rate</code>. This allows you to analyze how well the model’s predictions match the actual values.</li>
+</ul>
+<p>This step is crucial for evaluating the model’s accuracy and effectiveness in making predictions on unseen data, which helps determine how well the model generalizes beyond the training data.</p>
+<p>The output represents the predicted classification (<code>.pred_class</code>) for whether an institution has a “good” graduation rate (<code>1</code> indicates “good,” and <code>0</code> indicates “not good”) based on the trained logistic regression model, along with some details about each institution, such as their <code>name</code> and <code>title_iv</code> status.</p>
+<p><strong>Interpretation of the Output:</strong></p>
+<ol type="1">
+<li><p><strong><code>.pred_class</code>:</strong> This column contains the predicted class labels for each institution:</p>
+<ul>
+<li><strong><code>1</code></strong>: The model predicts that the institution has a “good” graduation rate.</li>
+<li><strong><code>0</code></strong>: The model predicts that the institution does not have a “good” graduation rate.</li>
+<li><strong><code>NA</code></strong>: The model could not make a prediction for these institutions. This might be due to missing data in the predictor variables or data preprocessing issues that caused the model to be unable to generate a prediction.</li>
+</ul></li>
+<li><p><strong><code>name</code>:</strong> This column lists the names of the institutions.</p></li>
+<li><p><strong><code>title_iv</code>:</strong> This column indicates whether the institution is a “Title IV postsecondary institution,” meaning they are eligible for federal financial aid programs.</p></li>
+</ol>
+<ul>
+<li>The model has successfully classified some institutions into having either a good (<code>1</code>) or not good (<code>0</code>) graduation rate.</li>
+<li>The presence of <code>NA</code> values suggests that data issues (e.g., missing predictor values or cases where the model couldn’t confidently make a prediction) need to be investigated further to ensure comprehensive predictions.</li>
+</ul>
+<section id="accuracy-metrics" class="level4">
+<h4 class="anchored" data-anchor-id="accuracy-metrics">Accuracy Metrics</h4>
+<p>Our final step is to assess model accuracy by comparing the predicted values (<code>.pred_class</code>) with the actual <code>good_grad_rate</code> values for the test set to evaluate the model’s performance on predicting graduation rates.</p>
+<p>So, how accurate was our predictive model? Consider how well our model would have done by chance alone – what would the accuracy be in that case (with the model predicting pass one-half of the time)?</p>
+<p>Run the following code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate accuracy on the testing set</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> predictions <span class="sc">|&gt;</span> </span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">metrics</span>(<span class="at">truth =</span> good_grad_rate, <span class="at">estimate =</span> .pred_class) <span class="sc">|&gt;</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">"accuracy"</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print accuracy</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.827</code></pre>
+1 accuracy binary         0.819</code></pre>
 </div>
 </div>
+<p>You probably saw an output that looks something similar to the table below:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>.metric</th>
+<th>.estimator</th>
+<th>.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>accuracy</td>
+<td>binary</td>
+<td>0.8193146</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s break these down:</p>
+<ol type="1">
+<li><strong><code>.metric = "accuracy"</code>:</strong> Indicates that the metric being reported is <strong>accuracy</strong>.</li>
+<li><strong><code>.estimator = "binary"</code>:</strong> Specifies that the model is a <strong>binary classifier</strong>, meaning the model predicts one of two possible outcomes (in this case, predicting whether <code>good_grad_rate</code> is 0 or 1).</li>
+<li><strong><code>.estimate = 0.8193146</code>:</strong> This value represents the accuracy of the model’s predictions on the test dataset. An accuracy of <strong>0.8193</strong> (or <strong>81.93%</strong>) means that the model correctly predicted whether universities have a “good” graduation rate in approximately 81.93% of the cases in the test set.</li>
+</ol>
+<p><strong>Accuracy</strong> is the proportion of correct predictions made by the model out of all predictions. It is calculated as:</p>
+<p><span class="math inline">\(\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}}\)</span></p>
+<p>Accurracy, like AIC discussed above, is just one of several metrics we could use to tell us how well our model performs. This metric is an essential indicator of how well the model generalizes to unseen data, which is crucial for evaluating its overall performance.</p>
+<p>The model’s accuracy on the test dataset reveals that the model correctly predicts the outcome (good graduation rate) approximately 81.93% of the time, which on the surfance seems suggests that it is pretty good at predicting whether a college has a good graduation rate.</p>
+<p><strong>Code Explanation</strong></p>
+<p>Before moving on, let’s also break down the code we used to generate this output:</p>
+<ul>
+<li><p>The <code>metrics()</code> function calculates various performance metrics for the model’s predictions, which we saved as <code>predictions</code>.</p>
+<ul>
+<li><p><code>truth = good_grad_rate</code>: Specifies the actual values of the target variable (<code>good_grad_rate</code>) from the test data.</p></li>
+<li><p><code>estimate = .pred_class</code>: Refers to the predicted values (i.e., the predicted class labels <code>0</code> or <code>1</code>) generated by the model.</p></li>
+</ul></li>
+</ul>
+<p>This step produces a data frame containing several evaluation metrics such as accuracy, precision, recall, etc., that compare the actual values (<code>truth</code>) with the predicted values (<code>estimate</code>), which we then passed on to:</p>
+<ul>
+<li><p><strong><code>filter(.metric == "accuracy")</code></strong>, which extracts only the row corresponding to the “accuracy” metric from the resulting data frame.</p></li>
+<li><p>The <code>accuracy</code> object now contains a single row representing the accuracy of the model on the test data.</p></li>
+</ul>
+</section>
+<section id="your-turn-13" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-13"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>The key to observe at this point is what is similar and different between the two approaches (regression and supervised machine learning). Both used the same underlying statistical model, but had some stark differences. Add two or more similarities and two or more differences (no wrong answers!) below.</p>
-<section id="your-turn-10" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-10"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Similarities:</p>
 <ul>
-<li>XX</li>
-<li>XX</li>
+<li>SIMILARITY 1</li>
+<li>SIMILARITY 2</li>
 </ul>
 <p>Differences:</p>
 <ul>
-<li></li>
-<li></li>
+<li><p>DIFFERENCE 1</p></li>
+<li><p>DIFFERENCE 2</p></li>
 </ul>
 </section>
 </section>
 </section>
 <section id="communicate" class="level2">
 <h2 class="anchored" data-anchor-id="communicate">5. COMMUNICATE</h2>
-<p>The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al.&nbsp;(2018) have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:</p>
+<p>Recall that the final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al.&nbsp;(2018) have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:</p>
 <ol type="1">
 <li><p><strong>Select.</strong> Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e.&nbsp;a “data product.”</p></li>
 <li><p><strong>Polish</strong>. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.</p></li>
 <li><p><strong>Narrate.</strong> Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.</p></li>
 </ol>
-<p>Now, let’s return to our research questions. What did we find? This (especially the supervised machine learning model and its output) is very likely new, and this is meant to elicit initial perceptions, and not the right answer. What did we find for each of your RQs? Add a few thoughts below for each. Focus on what you would communicate about this analysis to a general audience, again, keeping in mind this is based on your very initial interpretations.</p>
-<section id="rq-a" class="level3">
-<h3 class="anchored" data-anchor-id="rq-a">RQ A</h3>
+<p>In this case study, we focused applying some basic machine learning techniques to help us understand how a predictive model used in predict colleges with good graduation rates. Specifically, we made a very crude first attempt at developing a model using machine learning techniques that seemed to perform reasonably well as predicting graduation rates.</p>
+<p>For this case study, let’s simply focus on return to our research question:</p>
+<blockquote class="blockquote">
+<p>How well can we predict drop out rates for among four-year universities?</p>
+</blockquote>
+<section id="your-turn-14" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-14"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<p>At the beginning of this section you chose for yourself what constitutes a good graduation rate. Now create your own recipe and see how it performs.</p>
+<p>Use the code chunk below to repeat our machine learning steps but this time modify the recipe to see if you can create a model that predicts graduation outcomes with a higher level of accuracy. Feel free to copy and paste from our code above to assist you with this process.</p>
+<p>What did you find? How accurately were you able to predict “good” graduation rates? Focus on what you would communicate about this analysis to a general audience, again, keeping in mind this is based on your very initial interpretations.</p>
 <ul>
-<li><p>ADD YOUR RESPONSE HERE</p></li>
-<li><p>ADD YOUR RESPONSE HERE</p></li>
+<li>YOUR RESPONSE HERE</li>
 </ul>
+<p><strong>Note</strong>: This exercise (especially the supervised machine learning model and its output) is very likely new, and this is meant to elicit initial perceptions, and not the right answer, so don’t stress to much about creating accurate models.</p>
 </section>
-<section id="rq" class="level3">
-<h3 class="anchored" data-anchor-id="rq">RQ</h3>
-<ul>
-<li><p>ADD YOUR RESPONSE HERE</p></li>
-<li><p>ADD YOUR RESPONSE HERE</p></li>
-</ul>
-</section>
-<section id="knit-check" class="level3">
-<h3 class="anchored" data-anchor-id="knit-check">🧶 Knit &amp; Check ✅</h3>
-<p>For your SML Module 1 Badge, you will further reflect on and interpret these models, and their distinctions.</p>
-<p>Rendered HTML files can be published online through a variety of ways including <a href="https://posit.cloud/learn/guide#publish-from-cloud">Posit Cloud</a>, <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, <a href="#0">Quarto Pub</a>, or <a href="#0">other methods</a>. The easiest way to quickly publish your file online is to publish directly from RStudio. You can do so by clicking the “Publish” button located in the Viewer Pane after you render your document as illustrated in the screenshot below.</p>
-<p><img src="img/publish.png" class="img-fluid"></p>
-<p>Congratulations - you’ve completed this case study! Move on to the badge activity next.</p>
+<section id="congratulations" class="level3">
+<h3 class="anchored" data-anchor-id="congratulations">Congratulations!</h3>
+<p>You’ve completed the Unit 2 Case Study: Introduction to Machine Learning! To “turn in” your work, you can click the “Render” icon in the menu bar above. This will create a HTML report in your Files pane that serves as a record of your completed assignment and that can be opened in a browser or shared on the web.</p>
 
 </section>
 </section>

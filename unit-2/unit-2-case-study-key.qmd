@@ -15,10 +15,6 @@ editor: visual
 bibliography: lit/references.bib
 ---
 
-```{r setup, include=FALSE}
-set.seed(20240706) # so the results are readily reproducible
-```
-
 ## 1. PREPARE
 
 In Unit 2, we learn about five basic steps in a supervised machine learning process in addition to some other components of a learning analytics workflow. For example, to help prepare for analysis, we'll first take a step back and think about how we want to use machine learning, and *predicting* is a key word. Many scholars have focused on predicting students who are *at-risk*: of dropping a course or not succeeding in it. In this introductory machine learning case study, we will cover the following workflow processes from @krumm2018 as we attempt to develop our own model for predicting student drop-out:
@@ -244,12 +240,16 @@ ipeds <- ipeds |>
 
 Can you filter the data again, this time to *only* include institutions with a carnegie classification?
 
-In other words, can you exclude those institutions with a value for the `carnegie_class` variable that is "Not applicable, not in Carnegie universe (not accredited or nondegree-granting)")? A little hint: whereas the logical operator `==` is used to include only matching conditions, the logical operator `!=` excludes matching conditions.
+In other words, can you exclude those institutions with a value for the `carnegie_class` variable that is "Not applicable, not in Carnegie universe (not accredited or nondegree-granting)")?
 
 ```{r}
 ipeds <- ipeds |> 
     filter(carnegie_class != "Not applicable, not in Carnegie universe (not accredited or nondegree-granting)")
 ```
+
+::: callout-tip
+Whereas the logical operator `==` is used to include only matching conditions, the logical operator `!=` excludes matching conditions.
+:::
 
 #### **👉 Your Turn** **⤵**
 
@@ -314,7 +314,7 @@ To simplify our analysis for this case study, we'll focus on classification. Spe
 
 #### **👉 Your Turn** **⤵**
 
-Your next task is to decide what constitutes a good graduation rate. Our only suggestion - don't pick a number *too* close to 0% or 100%. Otherwise, please replace XXX below with the number from 0-100 that represents the graduation rate percentage. Just add the number --- don't add the percentage symbol.
+Your next task is to decide what constitutes a good graduation rate. Our only suggestion - don't pick a number *too* close to 0% or 100%. Otherwise, please replace XXX below with the number from 0-100 that represents the graduation rate percentage. Just add the number – don't add the percentage symbol.
 
 ```{r}
 ipeds <- ipeds |> 
@@ -342,19 +342,19 @@ In summary, the code is creating a new categorical variable `good_grad_rate` in 
 
 ## 4. MODEL
 
-Recall from our readings that there are two general types of modeling approaches: unsupervised and supervised machine learning. In Part 4, we focus on supervised learning models, which are used to quantify relationships between features (e.g., total enrollments and % of students admitted) and a known outcome (e.g., a good graduation rate). These models can be used for statistical inference, as illustrated in Unit 1, or prediction as we'll illustrate in this section.
+Models can be used for statistical inference, that is to test scientific hypotheses and understand the relationship between variables and an outcomes, or in the case of machine learning, can be use primarily for the purpose of predicting an outcome as accurately as possible. In this section we revisit the use of regression models for statistical inference, and then compare the use of the same model for the purpose of prediction.
 
-In Chapter 3, @krumm2018 note that the term term regression can take on different meanings across inference and prediction uses:
+Note that in Chapter 3, @krumm2018 highlight that the term **regression** can take on different meanings across inference and prediction uses:
 
 > From a statistical, or inferential perspective, regression denotes a family of models that can be used on either categorical or continuous outcomes. Perhaps most confusing to newcomers or to researchers steeped in either inference or prediction are the ways in which specific models, such as logistic regression, can be used for either inference or classification.
 
-Now, we will proceed to the analyses.
+In both sections below we use **logistic regression**, a statistical method used to model the relationship between one or more independent variables (predictors) and a binary outcome (dependent variable). In the context of machine learning, this is considered a classification problem since we are trying to build a model that can "classify" or label data based on patterns in inherent in the data itself.
 
-### 4a. Inferential Analysis
+### 4a. Statistical Inference
 
-We'll first conduct a simple regression analysis from a statistical inference perspective, similar to what we did in Unit 1 for our online learning data.
+We'll first conduct a simple regression analysis from a statistical inference perspective, similar to what we did in Unit 1 for our virtual public school data.
 
-Run the code chunk below to fit generalized linear model `glm()` function, due to the dependent variable being dichotomous. The code is relatively straightforward; the comments explain each step.
+Run the code chunk below to "fit" generalized linear model `glm()` function, due to the dependent variable being dichotomous:
 
 ```{r}
 m1 <- glm(good_grad_rate ~ 
@@ -374,24 +374,14 @@ summary(m1)
 
 #### Code Explanation
 
-Before interpreting the output of this model, let's breakdown what each line of code above is doing:
+The code is relatively straightforward but let's breakdown what each line of code above is doing before interpreting the output of this model:
 
 1.  **Building a Logistic Regression Model (`glm`):**
     -   `m1 <- glm(...)`: This line creates a generalized linear model (GLM) and assigns it to the object `m1`.
-    -   `good_grad_rate ~ ...`: The model is predicting `good_grad_rate`, a binary outcome, using multiple independent variables (`total_enroll`, `pct_admitted`, `n_bach`, `n_mast`, `n_doc`, `tuition_fees`, `percent_fin_aid`, and `avg_salary`).
+    -   `good_grad_rate ~ ...`: The model is predicting `good_grad_rate`, a binary outcome variable that we created above, using multiple independent variables including `total_enroll`, `pct_admitted`, `n_bach`, `n_mast`, `n_doc`, `tuition_fees`, `percent_fin_aid`, and `avg_salary`.
     -   The `family = "binomial"` argument specifies that this is a logistic regression model, which is appropriate when the dependent variable (`good_grad_rate`) is binary (0 or 1).
-2.  **Independent Variables:**
-    -   The model includes multiple predictors:
-        -   `total_enroll`: Total enrollment
-        -   `pct_admitted`: Percentage of applicants admitted
-        -   `n_bach`: Number of students receiving a bachelor's degree
-        -   `n_mast`: Number receiving a master's degree
-        -   `n_doc`: Number receiving a doctoral degree
-        -   `tuition_fees`: Total cost of tuition and fees
-        -   `percent_fin_aid`: Percentage of students receiving financial aid
-        -   `avg_salary`: Average salary of instructional staff
-3.  **Displaying the Model Output (`summary(m1)`):**
-    -   Finally, the `summary(m1)` function provides detailed information about the logistic regression model, including:
+2.  **Displaying the Model Output (`summary(m1)`):**
+    -   Finally, the `summary(m1)` function provides detailed information about the logistic regression model, which we save as `m1`, and includes:
         -   Coefficients for each predictor variable.
         -   Standard errors, z-values, and p-values for hypothesis testing.
         -   Overall model statistics such as the null and residual deviance, indicating model fit.
@@ -400,9 +390,11 @@ In summary, our code fits a logistic regression model to help us determine wheth
 
 #### Output Interpretation
 
-The table below provides the results of a logistic regression model predicting whether a university has a "good" graduation rate (`good_grad_rate`) based on various institutional characteristics. Note that your output will look a little different based on the cut-off point you selected for a "good" graduate rate. In my case, I somewhat arbitratily decided that if at least two-thirds (\~67%) of students graduated, it was considered "good."
+Now let's focus on interpreting the output of `summary()` function and model. The table below provides the results of a logistic regression model predicting whether a university has a "good" graduation rate (`good_grad_rate`) using various institutional characteristics as predictors.
 
-Now let's break down the interpretation. The table below provides my estimates for each predictor, along with their standard errors, z-values, and p-values:
+**Note:** Your output will look a little different based on the cut-off point you selected for a "good" graduate rate. In my case, I somewhat arbitratily decided that if at least two-thirds (\~67%) of students graduated, it was considered "good."
+
+Now let's break down the interpretation. The table below provides estimates for each predictor, along with their standard errors, z-values, and p-values:
 
 | Predictor | Estimate | Std. Error | z value | Pr(\> | z |
 |------------|------------|------------|------------|------------|------------|
@@ -431,7 +423,7 @@ First lets take a look at the model coefficients:
 ::: callout-note
 Significance codes (\*\*\*, \*\*, \*) provide a quick way to understand the strength of the evidence against the null hypothesis for each predictor in a regression model. Here’s a more detailed explanation:
 
--    **\*\*\* Highly significant (p \< 0.001)**. This indicates a **very strong** evidence against the null hypothesis (which typically states that the predictor has no effect on the outcome variable). A p-value less than 0.001 means there’s less than a 0.1% chance that the observed relationship is due to random chance. Therefore, we have very high confidence that this predictor is indeed related to the outcome variable.
+-   **\*\*\* Highly significant (p \< 0.001)**. This indicates a **very strong** evidence against the null hypothesis (which typically states that the predictor has no effect on the outcome variable). A p-value less than 0.001 means there’s less than a 0.1% chance that the observed relationship is due to random chance. Therefore, we have very high confidence that this predictor is indeed related to the outcome variable.
 
 -   **\*\* Significant (p \< 0.01)**. This indicates **strong** evidence against the null hypothesis. A p-value between 0.001 and 0.01 means there’s less than a 1% chance that the observed relationship is due to random chance. We can still be quite confident that this predictor is related to the outcome variable, though not as strong as in the previous category.
 
@@ -447,67 +439,319 @@ Our model has an AIC Value of 1387.5; however, you can’t interpret the AIC val
 
 If we were add or remove predictors from our model to test other models, the model with the **lowest AIC** would be considered the best among the compared models, as it suggests the optimal combination of fit and simplicity.
 
-Overall, the model appears to be a good fit for predicting a "good" graduation rate, with tuition fees, percent financial aid, and average salary being especially influential factors. Specifically, the predictors `pct_admitted`, `n_bach`, `n_doc`, `tuition_fees`, `percent_fin_aid`, and `avg_salary` are highly significant in predicting whether a university has a good graduation rate.
+**Summary**
+
+Overall, the model appears to be a good fit for understanding factors related to a "good" graduation rate, with tuition fees, percent financial aid, and average salary being especially influential factors. Specifically, the predictors `pct_admitted`, `n_bach`, `n_doc`, `tuition_fees`, `percent_fin_aid`, and `avg_salary` are highly significant in predicting whether a university has a good graduation rate.
 
 #### **👉 Your Turn** **⤵**
 
-### 4a. Prediction Analysis
+In the space below, note a few similarities and/or differences between the model and it's interpretation described above and the model you ran with your own determination of a "good" graduation rate:
 
-Specifically, in Part 4 we will learn how to:
+-   NOTE 1
 
-a.  **Split Data** into a training and test set that will be used to develop a predictive model.
+-   NOTE 2
 
-b.  **Create a "Recipe"** for our predictive model and learn how to deal with nominal data that we would like to use as predictors.
+-   NOTE 3
 
-c.  **Fit Models** to our training set using logistic regression and random forest models.
+### 4a. Supervised Machine Learning
 
-d.  **Check Model Accuracy** on our test set to see how well our model can "predict" our outcome of interest.
+Recall from our readings that there are two general types of machine learning approaches: unsupervised and supervised learning. In this section we focus on supervised learning models, which are used to quantify relationships between features (e.g., % of students admitted and tuition fees) and a known outcome (i.e., a good graduation rate). These models can be used for statistical inference, as illustrated above, or primarily for prediction purposes, as we'll illustrate below.
 
-Then, we'll conduct a supervised machine learning analysis (with a simple but still commonly used model - in fact, the same model we used for the regression, a generalized linear model!). Again, for now, you'll run this code; later, you'll work through each step in detail.
+In this section we'll learn five basic machine learning steps for building, training, and evaluating a model. Specifically, we will use the {tidymodels} package in R and learn how to:
+
+1.  **Split Data** into a training and test set that will be used to develop a predictive model;
+
+2.  **Create a "Recipe"** for our predictive model and learn how to deal with data that we would like to use as predictors;
+
+3.  **Specify model and workflow** by selecting the *functional form* of the model that we want and using a *model workflow* to pair our model and recipe together;
+
+4.  **Fit model** to our *training* *set* using logistic regression;
+
+5.  **Assess Accuracy** of our model on our *testing set* to see how well our model can "predict" a good graduation rate.
+
+#### Step 1. Split data
+
+The authors of Data Science in Education Using R (Estrellado et al.,2020) remind us that:
+
+> At its core, machine learning is the process of "showing" your statistical model only some of the data at once and training the model to predict accurately on that training dataset (this is the "learning" part of machine learning). Then, the model as developed on the training data is shown new data - data you had all along, but hid from your computer initially - and you see how well the model that you developed on the training data performs on this new testing data. Eventually, you might use the model on entirely new data.
+
+**Training and Testing Sets**
+
+It is therefore common when beginning a machine learning project to [separate the data set](https://bookdown.org/max/FES/data-splitting.html) into two partitions:
+
+-   The *training set* is used to estimate, develop and compare models; feature engineering techniques; tune models, etc.
+
+-   The *test set* is held in reserve until the end of the project, at which point there should only be one or two models under serious consideration. It is used as an unbiased source for measuring final model performance.
+
+There are different ways to create these partitions of the data and there is no uniform guideline for determining how much data should be set aside for testing. The proportion of data can be driven by many factors, including the size of the original pool of samples and the total number of predictors. 
+
+After you decide how much to set aside, the most common approach for actually partitioning your data is to use a random sample. For our purposes, we'll use random sampling to select 20% for the test set and use the remainder for the training set, which are the defaults for the {[rsample](https://tidymodels.github.io/rsample/)} package.
+
+**Split data set**
+
+To split our data, we will be using our first {tidymodels} function - `initial_split()`.
+
+The function `initial_split()` function from the {rsample} package takes the original data and saves the information on how to make the partitions. The {rsample} package has two aptly named functions for created a training and testing data set called `training()` and `testing()`, respectively.
+
+We also specify the strata to ensure there is not misbalance in the dependent variable (good_grad_rate).
+
+Run the following code to split the data:
 
 ```{r}
-my_rec <- recipe(good_grad_rate ~ total_enroll + pct_admitted + n_bach + n_mast + n_doc + tuition_fees + percent_fin_aid + avg_salary, data = ipeds) # same as above; this sets up what predicts the outcome
+set.seed(12345)
 
+# Split the data into training (80%) and testing (20%) sets
+
+set.seed(123) # Setting a seed for reproducibility
+
+data_split <- initial_split(ipeds, prop = 0.8, strata = good_grad_rate) 
+
+# Create training and testing datasets
+training_data <- training(data_split)
+
+testing_data <- testing(data_split)
+```
+
+Let's break down what we just did a little further:
+
+-   `initial_split(ipeds, prop = 0.8)` splits our `ipeds` data into 80% for training and 20% for testing.
+
+-   `strata = good_grad_rate` ensures stratified sampling, meaning the proportion of `good_grad_rate` categories is maintained in both the training and testing sets.
+
+-   `training(data_split)` extracts the training set.
+
+-   `testing(data_split)` Extracts the testing set.
+
+::: callout-note
+**Note**: Since random sampling uses random numbers, it is important to set the random number seed using the `set.seed()` function. This ensures that the random numbers can be reproduced at a later time (if needed). Here we use `12345` but any number will work!
+:::
+
+#### **👉 Your Turn** **⤵**
+
+Go ahead and type `data_train` and `data_test` into the console (in steps) to check that this data set indeed has 80% of the number of observations as in the larger data. Do that in the chunk below:
+
+```{r}
+training_data
+
+testing_data
+```
+
+#### Step 2: Create a "Recipe"
+
+In this section, we introduce another tidymodels package named {[recipes](https://recipes.tidymodels.org/)}, which is designed to help you prepare your data *before* training your model. **Recipes** are built as a series of preprocessing steps, such as:
+
+-   converting qualitative predictors to indicator variables (also known as dummy variables),
+
+-   transforming data to be on a different scale (e.g., taking the logarithm of a variable),
+
+-   transforming whole groups of predictors together,
+
+-   extracting key features from raw variables (e.g., getting the day of the week out of a date variable), and so on.
+
+If you are familiar with R's formula interface, a lot of this might sound familiar and is very similar to what we did above in the statistical inference section. Recipes can be used to do many of the same things, but they have a much wider range of possibilities.
+
+**Add a Formula**
+
+To get started, let's create a recipe for a simple logistic regression model. The [`recipe()`function](https://recipes.tidymodels.org/reference/recipe.html) as we used it here has two arguments:
+
+-   A **formula**. Any variable on the left-hand side of the tilde (`~`) is considered the model outcome (`code`, in our present case). On the right-hand side of the tilde are the predictors. Variables may be listed by name, or you can use the dot (`.`) to indicate all other variables as predictors.
+
+-   The **data**. A recipe is associated with the data set used to create the model. This will typically be the *training* set, so `data = train_data` here. Naming a data set doesn't actually change the data itself; it is only used to catalog the names of the variables and their types, like factors, integers, dates, etc.
+
+Run the following code chunk to create a recipe where we predict `good_grad_rate` (the outcome variable) using the same predictor variables we used above:
+
+```{r}
+
+my_recipe <- recipe(good_grad_rate ~ 
+                   total_enroll + 
+                   pct_admitted + 
+                   n_bach + 
+                   n_mast + 
+                   n_doc + 
+                   tuition_fees + 
+                   percent_fin_aid + 
+                   avg_salary, 
+                 data = training_data)
+```
+
+**Code Explanation**
+
+Again, let's unpack what is happening in this code:
+
+-   This code defines a recipe that outlines which variables (`total_enroll`, `pct_admitted`, etc.) will be used to predict the outcome (`good_grad_rate`) and ensures that this process is applied to the `training_data`.
+
+-   At this stage, no actual preprocessing (e.g., scaling, imputation) is performed. The recipe simply sets up the structure, which can be extended later to include data cleaning, transformations, or feature engineering as needed.
+
+By defining the recipe, you make the analysis more modular, allowing you to handle data preprocessing consistently and efficiently before training the machine learning model. These topics are covered in much greater depth in the Machine Learning course.
+
+### Step 3: Specify a Model
+
+With tidymodels, we next start building a model by specifying the *functional form* of the model that we want using the [{parsnip} package](https://tidymodels.github.io/parsnip/). Since our outcome is binary, the model type we will use is "[logistic regression](https://parsnip.tidymodels.org/reference/logistic_reg.html)." We can declare this with `logistic_reg()` and assign to an object we will later use in our workflow:
+
+#### **👉 Your Turn** **⤵**
+
+In the code chunk below, specify our model by assigning the `logistic_reg()` function to a new object named `my_model` :
+
+```{r}
 # specify model
-my_mod <-
-    logistic_reg() |> # specifies a logistic regression
-    set_engine("glm") |> # specifies the specific package used to estimate the logistic regression
-    set_mode("classification") # specifies that our outcome is a dichotomous or categorical variable
+my_model <- logistic_reg()
 
-my_wf <- workflow() |> # this starts a workflow, which will stitch together the steps in our analysis
-    add_model(my_mod) |> # adds the model
-    add_recipe(my_rec) # adds the recipe
+my_model
+```
 
-fit_model <- fit(my_wf, ipeds) # fits the model
+Great! If you did this correctly you should see the following output:
 
-predictions <- predict(fit_model, ipeds) |> # predicts the value of the dependent variable using only the predictors' values and our trained model
-  bind_cols(ipeds) # this adds the original data back to the predicted values, so everything is together
+```         
+Logistic Regression Model Specification (classification)
 
-accuracy <- predictions |> # this and the next two steps calculate the accuracy of our predictions
+Computational engine: glm 
+```
+
+#### **Add Model and Recipe to Workflow**
+
+Finally, we'll create a "workflow", which pairs a model and recipe together. Although we'll just be using a single recipe This is a straightforward approach because different recipes are often needed for different models, so when a model and recipe are bundled, it becomes easier to train and test *workflows*.
+
+We'll use the {[workflows](https://workflows.tidymodels.org/)} package from tidymodels to bundle our parsnip model (`my_model`) with our recipe (`my_recipe`).
+
+Add your model and recipe (see their names above)!
+
+```{r}
+my_workflow <- workflow() |> # create a workflow
+    add_model(my_model) |> # add the model we wrote above
+    add_recipe(my_recipe) # add our recipe we wrote above
+```
+
+### Step 4: Fit Model to Training Data
+
+Now that we have a single workflow that can be used to prepare the recipe and train the model from the resulting predictors, we can use the `fit()` function to fit our model to our `training_data`.
+
+```{r}
+fit_model <- fit(my_workflow, training_data)
+```
+
+#### **👉 Your Turn** **⤵**
+
+Type the output of the above function (the name you assigned the output to) below; this is the final, fitted model---one that can be interpreted further in the next step!
+
+```{r}
+fit_model
+```
+
+Great work!
+
+### Step 5: Assess Accuracty on Test Data
+
+Finally, run the following code snippet to generate predictions from the trained logistic regression model (`fit_model`) on the test dataset (`testing_data`) and then combine those predictions with the original test data.
+
+```{r}
+predictions <- predict(fit_model, testing_data) |> 
+  bind_cols(testing_data)
+
+predictions
+```
+
+Again, let's breakdown what is happening with this code and then interpret the output:
+
+-   The `predict()` function produces a set of predictions for the outcome variable (`good_grad_rate`) for each observation in the `testing_data`.
+    -    `fit_model`: The logistic regression model that was previously trained on the training data.
+    -   `testing_data`: The dataset used to test the model's performance, which contains new, unseen data.
+-   The `bind_cols()` function merges the predicted values with the original test dataset row by row, resulting in a data frame that contains both the actual values (from `testing_data`) and the model's predicted values side by side.
+-   The `predictions` object now contains a combined dataset that includes:
+    -   All original columns from `testing_data`.
+    -   A new column (or columns) with the predicted values from the model, allowing you to compare the actual values with the predicted ones.
+-   When you print `predictions`, you'll see a data frame that includes both the original test data and the predicted values for `good_grad_rate`. This allows you to analyze how well the model's predictions match the actual values.
+
+This step is crucial for evaluating the model's accuracy and effectiveness in making predictions on unseen data, which helps determine how well the model generalizes beyond the training data.
+
+The output represents the predicted classification (`.pred_class`) for whether an institution has a "good" graduation rate (`1` indicates "good," and `0` indicates "not good") based on the trained logistic regression model, along with some details about each institution, such as their `name` and `title_iv` status.
+
+**Interpretation of the Output:**
+
+1.  **`.pred_class`:** This column contains the predicted class labels for each institution:
+
+    -   **`1`**: The model predicts that the institution has a "good" graduation rate.
+    -   **`0`**: The model predicts that the institution does not have a "good" graduation rate.
+    -   **`NA`**: The model could not make a prediction for these institutions. This might be due to missing data in the predictor variables or data preprocessing issues that caused the model to be unable to generate a prediction.
+
+2.  **`name`:** This column lists the names of the institutions.
+
+3.  **`title_iv`:** This column indicates whether the institution is a "Title IV postsecondary institution," meaning they are eligible for federal financial aid programs.
+
+-   The model has successfully classified some institutions into having either a good (`1`) or not good (`0`) graduation rate.
+-   The presence of `NA` values suggests that data issues (e.g., missing predictor values or cases where the model couldn't confidently make a prediction) need to be investigated further to ensure comprehensive predictions.
+
+#### Accuracy Metrics
+
+Our final step is to assess model accuracy by comparing the predicted values (`.pred_class`) with the actual `good_grad_rate` values for the test set to evaluate the model's performance on predicting graduation rates.
+
+So, how accurate was our predictive model? Consider how well our model would have done by chance alone -- what would the accuracy be in that case (with the model predicting pass one-half of the time)?
+
+Run the following code
+
+```{r}
+# Calculate accuracy on the testing set
+accuracy <- predictions |> 
   metrics(truth = good_grad_rate, estimate = .pred_class) |>
   filter(.metric == "accuracy")
 
-accuracy # print the accuracy
+# Print accuracy
+accuracy
 ```
 
-The key to observe at this point is what is similar and different between the two approaches (regression and supervised machine learning). Both used the same underlying statistical model, but had some stark differences. Add two or more similarities and two or more differences (no wrong answers!) below.
+You probably saw an output that looks something similar to the table below:
+
+| .metric  | .estimator | .estimate |
+|----------|------------|-----------|
+| accuracy | binary     | 0.8193146 |
+
+Let's break these down:
+
+1.  **`.metric = "accuracy"`:** Indicates that the metric being reported is **accuracy**.
+2.  **`.estimator = "binary"`:** Specifies that the model is a **binary classifier**, meaning the model predicts one of two possible outcomes (in this case, predicting whether `good_grad_rate` is 0 or 1).
+3.  **`.estimate = 0.8193146`:** This value represents the accuracy of the model's predictions on the test dataset. An accuracy of **0.8193** (or **81.93%**) means that the model correctly predicted whether universities have a "good" graduation rate in approximately 81.93% of the cases in the test set.
+
+**Accuracy** is the proportion of correct predictions made by the model out of all predictions. It is calculated as:
+
+$\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}}$
+
+Accurracy, like AIC discussed above, is just one of several metrics we could use to tell us how well our model performs. This metric is an essential indicator of how well the model generalizes to unseen data, which is crucial for evaluating its overall performance.
+
+The model's accuracy on the test dataset reveals that the model correctly predicts the outcome (good graduation rate) approximately 81.93% of the time, which on the surfance seems suggests that it is pretty good at predicting whether a college has a good graduation rate.
+
+**Code Explanation**
+
+Before moving on, let's also break down the code we used to generate this output:
+
+-   The `metrics()` function calculates various performance metrics for the model's predictions, which we saved as `predictions`.
+
+    -   `truth = good_grad_rate`: Specifies the actual values of the target variable (`good_grad_rate`) from the test data.
+
+    -   `estimate = .pred_class`: Refers to the predicted values (i.e., the predicted class labels `0` or `1`) generated by the model.
+
+This step produces a data frame containing several evaluation metrics such as accuracy, precision, recall, etc., that compare the actual values (`truth`) with the predicted values (`estimate`), which we then passed on to:
+
+-   **`filter(.metric == "accuracy")`**, which extracts only the row corresponding to the "accuracy" metric from the resulting data frame.
+
+-   The `accuracy` object now contains a single row representing the accuracy of the model on the test data.
 
 #### **👉 Your Turn** **⤵**
 
+The key to observe at this point is what is similar and different between the two approaches (regression and supervised machine learning). Both used the same underlying statistical model, but had some stark differences. Add two or more similarities and two or more differences (no wrong answers!) below.
+
 Similarities:
 
--   XX
--   XX
+-   SIMILARITY 1
+-   SIMILARITY 2
 
 Differences:
 
--   
+-   DIFFERENCE 1
 
--   
+-   DIFFERENCE 2
 
 ## 5. COMMUNICATE
 
-The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. (2018) have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
+Recall that the final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. (2018) have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
 
 1.  **Select.** Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
 
@@ -515,26 +759,28 @@ The final step in the workflow/process is sharing the results of your analysis w
 
 3.  **Narrate.** Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question.
 
-Now, let's return to our research questions. What did we find? This (especially the supervised machine learning model and its output) is very likely new, and this is meant to elicit initial perceptions, and not the right answer. What did we find for each of your RQs? Add a few thoughts below for each. Focus on what you would communicate about this analysis to a general audience, again, keeping in mind this is based on your very initial interpretations.
+In this case study, we focused applying some basic machine learning techniques to help us understand how a predictive model used in predict colleges with good graduation rates. Specifically, we made a very crude first attempt at developing a model using machine learning techniques that seemed to perform reasonably well as predicting graduation rates.
 
-### RQ A
+For this case study, let's simply focus on return to our research question:
 
--   ADD YOUR RESPONSE HERE
+> How well can we predict drop out rates for among four-year universities?
 
--   ADD YOUR RESPONSE HERE
+#### **👉 Your Turn** **⤵**
 
-### RQ
+At the beginning of this section you chose for yourself what constitutes a good graduation rate. Now create your own recipe and see how it performs.
 
--   ADD YOUR RESPONSE HERE
+Use the code chunk below to repeat our machine learning steps but this time modify the recipe to see if you can create a model that predicts graduation outcomes with a higher level of accuracy. Feel free to copy and paste from our code above to assist you with this process.
 
--   ADD YOUR RESPONSE HERE
+```{r}
 
-### 🧶 Knit & Check ✅
+```
 
-For your SML Module 1 Badge, you will further reflect on and interpret these models, and their distinctions.
+What did you find? How accurately were you able to predict "good" graduation rates? Focus on what you would communicate about this analysis to a general audience, again, keeping in mind this is based on your very initial interpretations.
 
-Rendered HTML files can be published online through a variety of ways including [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0). The easiest way to quickly publish your file online is to publish directly from RStudio. You can do so by clicking the "Publish" button located in the Viewer Pane after you render your document as illustrated in the screenshot below.
+-   YOUR RESPONSE HERE
 
-![](img/publish.png)
+**Note**: This exercise (especially the supervised machine learning model and its output) is very likely new, and this is meant to elicit initial perceptions, and not the right answer, so don't stress to much about creating accurate models.
 
-Congratulations - you've completed this case study! Move on to the badge activity next.
+### Congratulations!
+
+You've completed the Unit 2 Case Study: Introduction to Machine Learning! To "turn in" your work, you can click the "Render" icon in the menu bar above. This will create a HTML report in your Files pane that serves as a record of your completed assignment and that can be opened in a browser or shared on the web.
