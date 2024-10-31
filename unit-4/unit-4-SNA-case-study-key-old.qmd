@@ -15,10 +15,6 @@ editor: visual
 bibliography: lit/references.bib
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # 1. PREPARE
 
 Our Unit 4 Case Study: Hashtag Common Core is inspired by the work of Jonathan Supovitz, Alan Daly, Miguel del Fresno and Christian Kolouch who examined the intense debate surrounding the Common Core State Standards education reform as it played out on Twitter. As noted on their expansive and interactive website for the [#COMMONCORE Project](https://www.hashtagcommoncore.com), the Common Core was a major education policy initiative of the early 21st century. A primary aim of the Common Core was to strengthen education systems across the United States through a set of specific and challenging education standards. Although these standards once enjoyed bipartisan support, we saw in our previous case study how these standards have become a political punching bag.
