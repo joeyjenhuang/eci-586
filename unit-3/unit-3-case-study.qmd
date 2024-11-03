@@ -339,7 +339,7 @@ head(ccss_tweets_clean)
 
 Recall from section [1b. Define Questions] that we are interested in comparing word usage and public sentiment around both the Common Core and Next Gen Science Standards.
 
-Create an new `ngss_tweets_clean` data frame consisting of the Next Generation Science Standards tweets we imported earlier by using the code directly above as a guide.
+Create a new `ngss_tweets_clean` data frame consisting of the Next Generation Science Standards tweets we imported earlier by using the code directly above as a guide.
 
 ```{r}
 # YOUR CODE HERE
