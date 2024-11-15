@@ -396,7 +396,7 @@ Now let's focus on interpreting the output of `summary()` function and model. Th
 Now let's break down the interpretation. The table below provides estimates for each predictor, along with their standard errors, z-values, and p-values:
 
 | Predictor | Estimate | Std. Error | z value | Pr(\> | z |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | (Intercept) | -0.4732 | 0.7276 | -0.650 | 0.515466 | (Not significant) |
 | total_enroll | -0.0001054 | 0.00004649 | -2.267 | 0.023415 | \* Significant |
 | pct_admitted | -0.01357 | 0.003959 | -3.427 | 0.000610 | \*\*\* Highly significant |
@@ -650,7 +650,7 @@ predictions
 Again, let's breakdown what is happening with this code and then interpret the output:
 
 -   The `predict()` function produces a set of predictions for the outcome variable (`good_grad_rate`) for each observation in the `testing_data`.
-    -    `fit_model`: The logistic regression model that was previously trained on the training data.
+    -   `fit_model`: The logistic regression model that was previously trained on the training data.
     -   `testing_data`: The dataset used to test the model's performance, which contains new, unseen data.
 -   The `bind_cols()` function merges the predicted values with the original test dataset row by row, resulting in a data frame that contains both the actual values (from `testing_data`) and the model's predicted values side by side.
 -   The `predictions` object now contains a combined dataset that includes:
