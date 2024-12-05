@@ -39,7 +39,7 @@ Your data project should demonstrate your ability to use R to manipulate, clean,
 
 ### Analyze
 
-Your data project should demonstrate your ability to use R to apply text mining techniques appropriate to your research questions and data sources. Specifically, your data product should clearly include:
+Your data project should demonstrate your ability to use R to apply learning analytics techniques appropriate to your research questions and data sources. Specifically, your data product should clearly include:
 
 5.  Clear descriptions of the **techniques** (e.g., descriptive statistics, network analysis, sentiment analysis, etc.) you applied to analyze your data.
 
