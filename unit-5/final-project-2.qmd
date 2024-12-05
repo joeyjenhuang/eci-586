@@ -31,9 +31,9 @@ Your data product should demonstrate your ability to formulate clear, actionable
 
 ### Wrangle
 
-Your data project should demonstrate your ability to use R to manipulate, clean, transform, and/or merging data in order to prepare your text for analysis. Specifically, your data product should clearly describe:
+Your data project should demonstrate your ability to use R to manipulate, clean, transform, and/or merging data in order to prepare your data for analysis. Specifically, your data product should clearly describe:
 
-3.  **Data preprocessing** steps (e.g., renaming variables, filtering, tokenization, stemming, stop words removal, etc.) taken to clean and prepare your text for analysis and why are they necessary, as well as any steps will excluded and why.
+3.  **Data preprocessing** steps (e.g., renaming variables, filtering, tokenization, stemming, dealing with missing values, etc.) taken to clean and prepare your data for analysis and why are they necessary, as well as any steps will excluded and why.
 
 4.  Any **new variables or features** you created to address your research questions; or any data **transformations** you made required for the types of analyses or packages used (e.g. reshaping, merging, joining etc.).
 
