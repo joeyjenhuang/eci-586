@@ -1,6 +1,6 @@
 ---
 title: "Final Project: Independent Analysis Planning"
-subtitle: "ECI 586 Intro to Learning Analytics"
+subtitle: "ECI 586: Intro to Learning Analytics"
 author: "Dr. Shaun Kellogg"
 date: today
 format:
@@ -15,7 +15,7 @@ editor: visual
 
 ## Overview
 
-Throughout this course, you conducted several analyses as part of the unit case studies and developed your first data product using Quarto in Unit 3. For your final course project, you'll be asked to complete an independent analysis and create your own data product (e.g., slide show, dashboard, report, or mini "case study") to showcase your analyses and findings. Your data product will bring together some of the data-intensive research workflow processes that we've learned this semester to help answer a research question you have about a dataset of your own choosing.
+Throughout this course, you conducted several analyses as part of the unit case studies. For your final course project, you'll be asked to complete an independent analysis and create your own data product (e.g., slide show, dashboard, report, or mini "case study") to showcase your analyses and findings. Your data product will bring together some of the data-intensive research workflow processes that we've learned this semester to help answer a research question you have about a dataset of your own choosing.
 
 ## Assignment
 
