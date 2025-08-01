@@ -2,9 +2,11 @@
 
 ## Course Overview
 
-As the use of digital resources continues to expand in education, an unprecedented amount of new data is becoming available to educational researchers and practitioners. In response, Learning Analytics (LA) has emerged over the past decade as an interdisciplinary field encompassing Learning (e.g. educational technology, learning and assessment sciences), Analytics (e.g. visualization, computer/data sciences), and Human-Centered Design (e.g. usability, participatory design).
+As the use of digital technologies and artificial intelligence (AI) continues to expand in education, an unprecedented volume of data is being generated across learning environments. In response, Learning Analytics (LA) has emerged as an interdisciplinary field that integrates Learning (e.g., educational technology, learning and assessment sciences), Analytics (e.g., data visualization, machine learning, computer/data sciences), and Human-Centered Design (e.g., usability, participatory design, ethical AI).
 
-This course will provide students with an overview of the field, examples of its use in educational contexts, and applied experience with tools and techniques for analyzing new sources of data from new perspectives. As participants gain experience in the collection, analysis, and reporting of data throughout the course, they will be better prepared to help educational organizations understand and improve learning and the contexts in which learning occurs.
+This course provides students with a broad introduction to the field, examples of its application in educational contexts, and hands-on experience with tools and techniques for analyzing educational data. Students will engage with topics such as predictive modeling, dashboards, text and network analysis, and the growing role of AI in shaping learning systems.
+
+Through applied projects and critical reflection, students will develop the skills to collect, analyze, and interpret learning data—equipping them to support data-informed decisions and design responsible, equitable learning environments.
 
 **Number of Credits:** 3
 
@@ -20,12 +22,10 @@ Students must have Internet access and access to a Web browser (e.g., Safari, Fi
 
 ## Instructor Information
 
-**Name:** [Dr.Joey Huang]\
-**Email:** [shaun.kellogg\@ncsu.edu](shaun.kellogg@ncsu.edu)\
-**Office:** [Friday Institute for Educational Innovation](https://www.fi.ncsu.edu) (Room 223)\
-**Phone:** (919) 513-8563\
-**Hours:** Appointments by [Calendly](https://calendly.com/sbkellogg/analytics) Monday-Friday 8:00-4:00\
-**Social:** [LinkedIn](https://www.linkedin.com/in/shaunbkellogg/) \| [GitHub](https://github.com/settings/profile)
+**Name:** Dr.Joey Huang\
+**Email:** [joeyhuang\@ncsu.edu](joeyhuang@ncsu.edu)\
+**Hours:** By appointments [insert calendly links]
+**Social:** [Website](https://ced.ncsu.edu/people/chuang35/) \| [Personal Website](https://www.joeyjenhuang.com/)
 
 ## Course Texts
 
@@ -87,53 +87,62 @@ This course requires R and R Studio, which will be used to provide hands-on expe
 
 ## Course Goals
 
-Goals for the Introduction to Learning Analytics course are guided by the North Carolina State University motto: ***Think and Do***. Specifically, goals for this course are twofold:
+Goals for the *Introduction to Learning Analytics* course are guided by the North Carolina State University motto: **Think and Do**. This course is designed to help students:
 
--   **Disciplinary Knowledge.** Students will deepen their understanding of Learning Analytics as an emerging approach within the field of Learning Analytics, including its application in a wide range of education settings.
+- **Build Disciplinary Knowledge:** Deepen their understanding of Learning Analytics as an interdisciplinary field that integrates educational theory, data science, and human-centered design. Students will explore its applications across K–12, higher education, and digital learning contexts.
 
--   **Technical Skills.** Scholars will develop proficiency with the processes, tools, and techniques necessary to efficiently, effectively, and ethically apply Learning Analytics for understanding and improving learning and the contexts in which learning occurs.
+- **Develop Technical and Analytical Skills:** Gain hands-on experience with tools and techniques used to collect, analyze, visualize, and interpret learning data—including data dashboards, R-based workflows, and AI-enhanced tools.
+
+- **Engage with Emerging Trends and Ethical Considerations:** Critically examine the role of artificial intelligence in learning environments, including ethical concerns around automation, bias, and algorithmic decision-making in education.
 
 ## Student Learning Outcomes
 
-The following learning objectives are aligned with the overarching objectives of the Graduate Certificate in Learning Analytics program and are embedded in each unit of the course. Students who complete this course will be able to:
+The following learning objectives are aligned with the Graduate Certificate in Learning Analytics program and are embedded throughout the course. Students who complete this course will be able to:
 
--   **Conceptual Foundations:** Describe Learning Analytics as a discipline (e.g. history, concepts, theories, methodologies, stakeholders, legal and ethical issues) and how it has been applied to important problems, questions, and issues in education;
+- **Conceptual Foundations:** Describe Learning Analytics as a discipline, including its historical development, core concepts, theories, methodologies, and ethical implications.
 
--   **Data Sources & Measures:** Identify and appropriately use educational data sources (e.g. Student Information and Learning Management Systems) and key student metrics;
+- **Data Sources and Measures:** Identify, evaluate, and appropriately use educational data sources (e.g., LMS logs, student information systems, clickstream data) to support analysis and decision-making.
 
--   **Tool Proficiency:** Efficiently and effectively apply up-to-date software and tools (i.e. R or Tableau) to implement Learning Analytics workflows for preparing, analyzing, and sharing data;
+- **Tool Proficiency:** Use current software tools such as R, RStudio, ggplot2, and Shiny to implement Learning Analytics workflows, including data preparation, analysis, and visualization.
 
--   **Processes & Techniques**: Understand and apply data visualization approaches and techniques (e.g. interactive visualization and data dashboards) in order to understand and improve learning and the contexts in which learning occurs; and,
+- **AI Awareness and Integration:** Analyze how AI tools—including predictive models and large language models—are used in educational settings, and reflect on their affordances, risks, and responsible use.
 
--   **Communication:** Clearly communicate methods, analyses, findings, and recommendations that can provide actionable insight into learning contexts for a range of education stakeholders.
+- **Processes and Techniques:** Design and execute analysis workflows that incorporate visualization, modeling, and interpretation of learning data to uncover patterns and support improvement.
+
+- **Communication:** Communicate data-driven insights clearly and ethically through visualizations, dashboards, and written reports tailored to educational stakeholders such as educators, administrators, and learners.
 
 ## Course Structure & Schedule
 
-This course is divided into four units focused on conceptualizing Learning Analytics as a research discipline and developing the foundational skills for data exploration using a range of digital data sources. The first week of each unit introduces terminology, core concepts, and applications of Learning Analytics through readings, course videos, and discussion. In the second week, we focus on developing essential technical skills necessary for data-intensive Research workflows through R software tutorials. In the third week of each unit, we apply these skills to conduct an analysis and create a data product using publicly available educational datasets.
+This course begins with an **introductory week** for orientation and setup, followed by four instructional units. Each unit follows a three-week cycle:
 
-| **Schedule** | **Topics**                                                                                                                                                                                                                         |
-|------------|------------------------------------------------------------|
-| **WELCOME**  | **OVERVIEW & INTRODUCTIONS**                                                                                                                                                                                                       |
-| Week 1       | Introductions, syllabus review, and software setup                                                                                                                                                                                 |
-| **UNIT 1**   | **WHAT IS LEARNING ANALYTICS?**                                                                                                                                                                                                    |
-| Week 2       | **Readings & Discussion:** Introduction to Learning Analytics as a discipline, including a little history, key concepts, learning theories, methodologies, etc.)                                                                   |
-| Week 3       | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report "tidy" data.                                                                                 |
-| Week 4       | **Case Study**: A look into student-level data from online classes provided by a state-wide virtual public school.                                                                                                                 |
-| **UNIT 2**   | **PARTNERSHIPS & PREDICTIVE ANALYTICS**                                                                                                                                                                                            |
-| Week 5       | **Readings & Discussion:** An examination of the use of data visualization and dashboards in Learning Analytics to understand and improve student learning.                                                                        |
-| Week 6       | **R Toolkit Tutorial**: A deeper dive into the "grammar of graphics" and development of foundational skills for creating interactive data apps.                                                                                    |
-| Week 7       | **Case Study**: An exploration of aggregate student data to examine educational inequities and changes over time.                                                                                                                  |
-| **UNIT 3**   | **TEXT AS DATA**                                                                                                                                                                                                                   |
-| Week 8       | **Readings & Discussion:** Introduction to text mining in education, including a key concepts and common techniques, and their application in educational settings.                                                                |
-| Week 9       | **R Toolkit Tutorial**: An introduction to the Shiny package and development of interactive data apps.                                                                                                                             |
-| Week 10      | **Case Study**: A focus on text processing, word frequencies, and sentiment lexicons to examine public opinions on Twitter around the Common Core and Next Generation Science Standards.                                           |
-| **UNIT 4**   | **A NETWORK PERSPECTIVE**                                                                                                                                                                                                          |
-| Week 11      | **Readings & Discussion:** Introduction to social network analysis in education, including a key concepts and common techniques, and applications in educational settings.                                                         |
-| Week 12      | **R Toolkit Tutorial**: Software tutorials on critical packages and key functions used to import, wrangle, explore, model, and report relational data.                                                                             |
-| Week 13      | **Case Study**: A focus on network data formats, descriptives, and sociograms to examine peer interaction in Massively Open Online Course for Educators (MOOC-Eds).                                                                |
-| **WRAP UP**  | **MAKE UP & FINAL PROJECTS**                                                                                                                                                                                                       |
-| Week 14      | **Make-up Week:** Final opportunity for students to complete any missing work. This week should also be used to make significant progress on your final project.                                                                   |
-| Week 15      | **Final Project:** In lieu of a final exam, students will complete and Independent analysis and develop a data product (e.g. report, presentation, data dashboard, etc.) that demonstrates concepts learned throughout the course. |
+- **Week 1 of each unit** introduces core concepts through readings, videos, and discussion.
+- **Week 2 of each unit** focuses on building technical skills using R and related tools.
+- **Week 3 of each unit** applies those skills through hands-on case studies using real-world educational data.
+
+Key themes include predictive analytics, data visualization, text mining, social network analysis, and the ethical use of AI in learning contexts. The course concludes with a final project that allows students to synthesize their learning and showcase their analytic skills.
+
+| **Week** | **Topic** | **Focus** |
+|----------|-----------|-----------|
+| **Week 1** | Course Orientation | Introductions, syllabus overview, and software setup (Posit Cloud, RPubs, DataCamp) |
+| **Unit 1** | **What Is Learning Analytics?** |  |
+| **Week 2** | Conceptual Foundations | Concepts, history, theoretical foundations, ethics, and key stakeholders |
+| **Week 3** | R Fundamentals | Introduction to R, tidyverse, importing and wrangling data |
+| **Week 4** | Case Study 1 | Analyze student-level data from a statewide virtual public school |
+| **Unit 2** | **Dashboards and Predictive Models** |  |
+| **Week 5** | Visualization and Prediction | Readings on dashboards, equity, and prediction in learning analytics |
+| **Week 6** | Data Visualization and Modeling | Develop visualizations with ggplot2, explore interactive data apps and optional AI tools |
+| **Week 7** | Case Study 2 | Analyze aggregate student data to explore trends and inequities |
+| **Unit 3** | **Text as Data** |  |
+| **Week 8** | Text Mining and AI | Readings on text mining, sentiment analysis, and generative AI in education |
+| **Week 9** | Shiny Apps for Text Data | Tutorials on text processing and building interactive apps using Shiny |
+| **Week 10** | Case Study 3 | Analyze sentiment and discourse on educational standards using social media data |
+| **Unit 4** | **Network Analysis in Education** |  |
+| **Week 11** | Social Network Theory | Introduction to social network theory, learning networks, and collaboration |
+| **Week 12** | Modeling Social Networks | Work with relational data, sociograms, and network metrics in R |
+| **Week 13** | Case Study 4 | Examine discussion forums from a MOOC to identify network patterns and learning outcomes |
+| **Week 14** | Project Work Week | Complete outstanding assignments, meet with the instructor, and finalize your project |
+| **Week 15** | Final Project Presentation | Submit an independent analysis and a data product (such as a dashboard, report, or interactive visualization) that demonstrates your learning |
+
 
 ## **Major Assignments & Assessment**
 
@@ -155,7 +164,7 @@ C+ (77-79), C (74-76), C- (70-73), D+ (67-69), D (64-66), D- (60-63), F (59 or l
 
 Late work is accepted but may be penalized at 15% per week it is late. Assignments submitted by the due date, however, may be revised and resubmitted for a higher grade by the following week. Students experiencing unforeseen circumstances with a resulting excused absence (e.g., family medical emergency) are allowed to make up work without penalty.
 
-**Course Feedback Expectations:** Please contact your instructor via email (shaun.kellogg\@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback to help improve the design of current and future course implementations. 
+**Course Feedback Expectations:** Please contact your instructor via email (joeyhuang\@ncsu.edu) with any questions about the course project or other assignments. Your instructor will strive to answer any emails within 24 hours (M-F) and 48 hours on the weekend, and grade submitted assignments within 5-7 days of the due date. In addition, students will be provided ongoing opportunities, and are strongly encouraged, to provide course feedback to help improve the design of current and future course implementations. 
 
 ## **NC State Policies**
 
