@@ -1,3 +1,4 @@
+# **ECI 586: Introduction to Learning Analytics**
 # **Syllabus**
 
 ## Course Overview
