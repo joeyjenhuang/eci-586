@@ -2,7 +2,7 @@
 title-block-banner: false
 title: "Course Syllabus"
 subtitle: "ECI 586 Intro to Learning Analytics"
-author: "Dr. Shaun Kellogg"
+author: "Dr. Joey Huang"
 date: today
 format:
   html:
