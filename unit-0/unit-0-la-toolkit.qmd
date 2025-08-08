@@ -2,7 +2,7 @@
 title-block-banner: false
 title: "Learning Analytics Toolkit"
 subtitle: "ECI 586 Intro to Learning Analytics"
-author: "Dr. Shaun Kellogg"
+author: "Dr. Joey Huang"
 date: today
 format:
   html:
@@ -15,7 +15,7 @@ Your final task this week is to prepare your Learning Analytics Toolkit by setti
 
 ## Part 1: Text & Software
 
-The first step in preparing your toolkit is making sure you can access the required course texts and data analysis software. These required texts and software, as well as optional but recommended software and texts, are describe in more detail in our [ECI 586 Course Syllabus](https://sbkellogg.github.io/eci-586/unit-0/unit-0-syllabus.html).
+The first step in preparing your toolkit is making sure you can access the required course texts and data analysis software. These required texts and software, as well as optional but recommended software and texts, are describe in more detail in our [ECI 586 Course Syllabus](https://docs.google.com/document/d/1VltliC1MxwArDVja-0Lky6SzhpjBZJZzh8QzjbmXKrY/edit?usp=sharing).
 
 ### **Course Texts**
 
