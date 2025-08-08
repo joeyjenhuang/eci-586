@@ -11,8 +11,6 @@ theme: journal
 editor: visual
 ---
 
-## Version 1 
-
 Your final task this week is to prepare your Learning Analytics Toolkit by setting up and getting familiar with the required texts and software we'll be using throughout the course.
 
 ## Part 1: Text & Software
