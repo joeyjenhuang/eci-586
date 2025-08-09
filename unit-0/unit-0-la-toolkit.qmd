@@ -49,7 +49,7 @@ Hands-on data analysis tutorials and experiences will make extensive use of R an
 
     -   After registering with your NC State email, click the following link to access our [Learning Analytics DataCamp group space](https://www.datacamp.com/groups/shared_links/b6b84feb66a4f045585bb4dbe7eb154418aef1136ccef4450d5eb3f453b0e136) where you will complete required assignments during Week 2 of each unit.
 
-## Part 2: Introduction to R DataCamp Assignment 
+## Part 2: Introduction to R DataCamp Assignment
 
 The second step in preparing your Learning Analytics Toolkit is to join our Learning Analytics group on DataCamp and complete your first assignment: Introduction to R.
 
@@ -135,7 +135,7 @@ Complete the assignment by reading through the document and completing coding ac
 
 Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. Even experienced R developers like Hadley Wickham [get frustrated](#0):
 
-> "It's easy when you start out programming to get really frustrated and think, 'Oh it's me, I'm really stupid,' or, 'I'm not made out ![](images/Screenshot 2024-08-18 at 3.53.24 PM.png)to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later."
+> "It's easy when you start out programming to get really frustrated and think, 'Oh it's me, I'm really stupid,' or, 'I'm not made out ![](images/Screenshot%202024-08-18%20at%203.53.24%20PM.png)to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later."
 
 When feeling stuck or like banging your head against your desk, there are several options for seeking out help within and beyond this course:
 
@@ -150,4 +150,4 @@ When feeling stuck or like banging your head against your desk, there are severa
 
 5.  **Social Media**: If you use Twitter, you can also post R-related questions and content with the [#rstats](https://twitter.com/search?q=%23rstats&src=typed_query) hashtag. One of the things I most value about the R in general is that the R community is exceptionally helpful.
 
-6.  **The Interwebs**: Aside from Google of course, [StackOverflow](https://stackoverflow.com/) and the [RStudio Community](https://community.rstudio.com/) will likely become tried and true tools in your text mining toolkit. In fact, I'd wager that the majority of Google searcher will likely direct you to one of these two sites. Note that when search Google, it sometimes helps to include "rstats" in your query. 
+6.  **The Interwebs**: Aside from Google of course, [StackOverflow](https://stackoverflow.com/) and the [RStudio Community](https://community.rstudio.com/) will likely become tried and true tools in your text mining toolkit. In fact, I'd wager that the majority of Google searcher will likely direct you to one of these two sites. Note that when search Google, it sometimes helps to include "rstats" in your query.
