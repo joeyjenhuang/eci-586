@@ -11,7 +11,7 @@ theme: journal
 editor: visual
 ---
 
-Your final task this week is to prepare your Learning Analytics Toolkit by setting up and getting familiar with the required texts and software we'll be using throughout the course.
+Your final task of Week 1 is to prepare your Learning Analytics Toolkit by setting up and getting familiar with the required texts and software we'll be using throughout the course.
 
 ## Part 1: Text & Software
 
@@ -65,11 +65,11 @@ Next, click the following link to access our [Learning Analytics DataCamp group 
 
 ![](img/datacamp-join.png)
 
-Next you'll be prompted to "Start with the course that Shaun Kellogg has assigned to you" or "Go to the Dashboard -\>" instead. You're welcome to get started immediately on the **Introduction to R** course, but I recommend taking a quick visit to the group dashboard first. ![](img/datacamp-start.png)
+Next you'll be prompted to "Start with the course that Joey Huang has assigned to you" or "Go to the Dashboard -\>" instead. You're welcome to get started immediately on the **Introduction to R** course, but I recommend taking a quick visit to the group dashboard first. ![](images/data camp intive.png)
 
 ### Visit Dashboard
 
-The DataCamp Dashboard is where you can access DataCamp courses, tutorials, assessments, certifications, etc. As part of the educator group I set up for this course and for my [LASER Institute](https://fi.ncsu.edu/projects/laser-institute/), you have free access to the full suite of DataCamp instructional resources for the fall semester!
+The DataCamp Dashboard is where you can access DataCamp courses, tutorials, assessments, certifications, etc. As part of the educator group I set up for this course and for the [LASER Institute](https://fi.ncsu.edu/projects/laser-institute/), you have free access to the full suite of DataCamp instructional resources for the fall semester!
 
 ![](img/datacamp-dashboard.png)
 
@@ -81,7 +81,7 @@ You should see the **Introduction to R** course assignment on your dashboard. Cl
 
 ![](img/datacamp-course.png)
 
-Click "Start' to get started on the assignment. Once you do, you'll see an exercise with a set of instructions on the left, and on the right you'll see a code editor and R Console for writing and runing code and viewing the outputs of the R code you run.
+Click "Start' to get started on the assignment. Once you do, you'll see an exercise with a set of instructions on the left, and on the right you'll see a code editor and R Console for writing and running code and viewing the outputs of the R code you run.
 
 ![](img/datacamp-assignment.png)
 
@@ -99,17 +99,11 @@ If you haven't done so already, be sure to sign up for a free Posit account. You
 
 ### Join Space
 
-Next, access our [ECI 586 Intro to Learning Analytics (2023)](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) workspace. This space is part of my paid plan and will provide you unlimited use of Posit Cloud during the semester. You should see a prompt to "Join Space?" like the one below:
+Next, access our [ECI 586 Intro to Learning Analytics](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) workspace. This space is part of my paid plan and will provide you unlimited use of Posit Cloud during the semester. You should see a prompt to "Join Space?" like the one below:
 
 ![](img/join-space.png){width="100%"}
 
-### View Content
-
-After joining the space, you may see a description of the space like in the screenshot below. Click the "Content" menu tab next.
-
-![](img/about-space.png)
-
-### Start Assignment
+### View Content & Start Assignment
 
 Once you have accessed the content section of our workspace, click on the assignment labeled **Unit 0 - Getting Started**, which will create a copy of the R Project for your individual use.
 
@@ -141,13 +135,16 @@ When feeling stuck or like banging your head against your desk, there are severa
 
 1.  **Course Forums & Email**: Including this general software troubleshooting forum, we will have forums for each assignment. You'll likely have similar questions as your peers, and you'll likely be able to answer other peoples' questions too so I encourage you to use these forums. Unlike most of my apps and social media accounts, I actually have notifications enabled. Also, do not hesitate to email me directly as well.
 
-2.  **Learning Analytics Office Hours**: Some issues are much easier to troubleshoot in real time. To schedule a 1 on 1 meeting with me in person of via Zoom, use the following Calendly link: [https://calendly.com/sbkellogg/analytics](https://calendly.com/sbkellogg/analytics?back=1&month=2024-08)
+2.  **Learning Analytics Office Hours**: Some issues are much easier to troubleshoot in real time. To schedule a 1 on 1 meeting with me in person of via Zoom, use the following Calendly link: <https://calendly.com/chuang35-ncsu/eci-586-intro-to-la>
 
 3.  **ChatGPT** (<https://openai.com/chatgpt/>) is an advanced AI language model developed by OpenAI and is **highly recommended for this course**. It's and excellent tool for learning analytics and can assist by explaining concepts, helping with code, offering analysis guidance, and troubleshooting, though it's important to verify its advice against reliable sources.\
     Use with or without registering for an account at: <https://chatgpt.com>
 
 4.  **NCSU Library Services**: The [Data & Visualization](https://www.lib.ncsu.edu/services/data-visualization) group is an incredible asset for NC State students. Though the library's website, you can access and enroll in workshops, find resources, and chat or schedule a Zoom appointment to get R help. 
 
-5.  **Social Media**: If you use Twitter, you can also post R-related questions and content with the [#rstats](https://twitter.com/search?q=%23rstats&src=typed_query) hashtag. One of the things I most value about the R in general is that the R community is exceptionally helpful.
+5.  **Social Media**: If you use X (Twitter), you can also post R-related questions and content with the [#rstats](https://twitter.com/search?q=%23rstats&src=typed_query) hashtag. One of the things I most value about the R in general is that the R community is exceptionally helpful.
 
 6.  **The Interwebs**: Aside from Google of course, [StackOverflow](https://stackoverflow.com/) and the [RStudio Community](https://community.rstudio.com/) will likely become tried and true tools in your text mining toolkit. In fact, I'd wager that the majority of Google searcher will likely direct you to one of these two sites. Note that when search Google, it sometimes helps to include "rstats" in your query.
+
+**Acknowledgment**
+Portions of the course materials, including the Learning Analytics Toolkit and related instructions, are adapted with permission from materials originally developed by Dr. Shaun Kellogg.
