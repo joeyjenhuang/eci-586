@@ -1,5 +1,5 @@
 ---
-title: "Unit 1 Week 2 Readings: What is Learning Analytics?"
+title: "Week 2-- Unit 1 (Part 1/3) Readings: What is Learning Analytics?"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Joey Huang"
 date: today
@@ -15,7 +15,7 @@ editor: visual
 
 ## OVERVIEW
 
-The primary goal of the Unit 1 readings and discussion is to build a basic understanding of Learning Analytics as a discipline and as a community of education researchers and practitioners whose primary goal is to understand and improve student learning. The required and self-selected readings this week provide an introduction to Learning Analytics in practice, including defining characteristics, data sources, and methods used. A secondary goal of our readings and discussion in each unit is to help you start generating ideas for your final course project.
+The primary goal this week is to build a foundational understanding of Learning Analytics (LA) as both a discipline and a professional community focused on understanding and improving learning. You’ll explore defining characteristics, core methods, and types of educational data used in LA. A secondary goal is to start generating potential directions for your final project by connecting the concepts to contexts and datasets that interest you.
 
 ## READINGS
 
@@ -29,13 +29,11 @@ In addition to watching the Unit 1 intro video, this week you'll be required to 
 
 ### 2. Self-Selected Resource
 
-Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a journal article, presentation, website or other scholarly resource that includes: 1) the key words "learning analytics" as well as a definition of this term, and 2) and addresses a topic of interest to you. Your selection should also address one or more of the discussion topics/questions provided below. In addition, you are welcome to find less formal resources such as videos or shorter online articles to share with the class and that help us better understand this week's topics for discussion.
+Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a journal article, presentation, website or other scholarly resource that includes: 1) the key words "learning analytics" as well as a definition of this term, and 2) and addresses a topic of interest to you. Your selection should also address one or more of the discussion topics/questions provided below. Optional: You may also share supplementary media (e.g., videos, blog posts, infographics) that help clarify or illustrate the topic, but these should be in addition to—not instead of—the scholarly source.
 
 ## DISCUSSION
 
-In lieu of the peer interaction and discussion of course materials that normally take place "in class", you'll be asked to log in this week and engage with other members of our learning community through the course discussion forum. To help guide our discussions, **we will collectively address a set of guiding questions provided in each forum**. You are also welcome to add your own topics or questions for the class to discuss.
-
-With the exception of the Self-Selected resource, **you are not required to post to every thread or address every question listed below**, particularly if you feel others in the class have thoroughly addressed the topic or questions. Our primary goal for these discussions is to collectively build our understanding of this week's topics through back-and-forth dialogue and avoid a "collective monologue" in which we see 20 variations of the same post.
+Your posts should respond to **at least two** of the guiding questions below. The aim is to build collective understanding through dialogue, not just post isolated summaries.
 
 ### Guiding Questions
 
@@ -43,81 +41,58 @@ With the exception of the Self-Selected resource, **you are not required to post
 
 Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
 
-1.  How is LA defined? What is your interpretation of this definition?
-
-2.  What are some similarities and differences when compared to similar fields such as Educational Data Mining (EDM) or Data Science?
-
-3.  What is a core characteristic or feature of learning analytics that stands out to you? 
-
-4.  From where does does learning analytics take its historical roots?
-
-5.  What are some of the most common uses of learning analytics?
-
-6.  What questions do you still have about learning analytics?
+-   How is Learning Analytics defined, and how would you refine or interpret that definition?
+-   What similarities and differences do you see between LA, Educational Data Mining (EDM), and Data Science?
+-   What historical influences shaped LA?
+-   Which current applications of LA feel most relevant to your context?
 
 #### Chapter 2: Data Used in Educational Data-Intensive Research
 
 Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
 
-1.  Among the types of educational data used in data-intensive research, with which are you most/least familiar? Most/least interested in working with?
-
-2.  How might these sources of data be used to better understand or improve the educational contexts in which you work or are interested in researching?
-
-3.  What are challenges typically faced with these types of data? What challenges or opportunities do you anticipate for yourself?
-
-4.  How might learning analytics be used to better understand a dataset or educational context of personal or professional interest to you?
-
-5.  How is the data intensive workflow similar to or different than other data analysis processes you may have come across before?
-
-6.  What questions do you still have about data used in data-intensive research like learning analytics?
+-   Which educational data sources are you most/least familiar with or interested in?
+-   What opportunities and challenges might these data sources present in your own professional context?
+-   How does the LA data workflow compare to other analysis processes you’ve used?
 
 #### Chapter 3: Methods Used in Educational Data-Intensive Research
 
 Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
 
-1.  What exactly does it mean to prepare for collaborative, data-intensive research?
-
-2.  What are some common techniques used to wrangle data add what do they entail?
-
-3.  What exactly is meant by exploratory data analysis (EDA) and how why might researchers explore data as part of workflow?
-
-4.  What are some common approaches used in data-intensive research to model data and what do they entail?
-
-5.  What exactly is involved in the communicate step of the data-intensive workflow and what makes a "good" data product used to communicate findings?
-
-6.  What are some of the challenges of working with big data and data-intensive research in particular?
-
-7.  How, and to what extent, might education practitioners collaborate on these steps?
+-   What does it mean to prepare for collaborative, data-intensive research?
+-   How do exploratory data analysis (EDA) and data wrangling fit into the LA workflow?
+-   What makes a “good” data product for communicating findings in education?
 
 #### Self-Selected Resource
 
 Provide a brief overview of your self-selected resource that includes the following:
 
 -   APA Citation (note: this can be easily [retrieved via Google Scholar](#0))
-
 -   What was the **purpose** of your article?
-
 -   How was Learning Analytics **defined** and/or characterized?
-
 -   What **data source(s)** were analyzed or discussed?
-
 -   How, if at all, did your article touch upon the **application(s)** of LA to "understand and improve learning and the contexts in which learning occurs?"
-
 -   Did your selection address any **ethical or legal considerations** of LA?
 
-## ASSESSMENT
+## ASSESSMENT (6 points) 
 
 ### Grading
 
-Grading for this week is fairly lenient, provided that it's clear from your posts that you've done the required readings. Readings and discussion for each unit are worth 6 points and assessed based on quantity and quality of your posts.
+**Quantity – 3 points**
 
-In term of **quantity** (3 points), you'll be expected to add at least 3 posts in addition to an overview of your Selected Resource. *Your initial post should be shared by Friday* to help facilitate discussion.
+-   **Minimum:** Three posts during the week
+    -   **Post 1:** Overview of your self-selected resource (**due Friday**)
+    -   **Posts 2 & 3:** Responses to peers or additional reflections (before unit closes)
+    -   Posts can be original thoughts or replies, but each must add value.
 
-In terms of **quality** (3 points), your posts over the next week should provide new or insightful contributions to the division questions or topics. There is no requisite for the length of each posting, and I strongly recommend taking a look at Table 1 of [Gao's productive online discussion model](#0) (summarized below) for ways to contribute to the conversation.
+**Quality – 3 points**
+Your posts must:
 
-At minimum, your collective posts should also help us interpret or elaborate on discussion topics, questions, or ideas others have shared by "making connection to the learning materials" and should reference at some point the required video, course text and your self-selected resource.
+1.  Reference **all three required sources** at some point this week — Unit video, course text, and your self-selected resource.
+2.  Address at least **two guiding questions** (can be spread across posts).
+3.  **Apply at least one disposition** from the [Productive Online Discussion Model (Gao, Table 1)](https://github.com/joeyjenhuang/eci-586/blob/main/unit-1/lit/Gao-productive-discussion.pdf) summarized below.
+4.  At minimum, your collective posts should also help us interpret or elaborate on discussion topics, questions, or ideas others have shared by "making connection to the learning materials" and should reference at some point the required video, course text and your self-selected resource.
 
-### Productive Online Discussion Model
+### Productive Online Discussion Model (Gao et al., 2009)
 
 #### **Disposition 1: Discuss to Comprehend**
 
