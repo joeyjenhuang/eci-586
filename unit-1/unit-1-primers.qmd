@@ -15,7 +15,7 @@ editor: visual
 
 ## OVERVIEW
 
-The second week of each unit consists of [Posit Primers](https://posit.cloud/learn/primers) for working with R packages used import, wrangle, explore, and model data. The primary goal of these primers is to support familiarity and fluency with R syntax and key functions for data analysis. In addition to completing the assigned tutorials, you\'ll be asked to demonstrate these essential skills on an educational data set provided by your instructor.
+The second week of each unit consists of [Posit Primers](https://posit.cloud/learn/primers) for working with R packages used import, wrangle, explore, and model data. The primary goal of these primers is to support familiarity and fluency with R syntax and key functions for data analysis. In addition to completing the assigned tutorials, you'll be asked to demonstrate these essential skills on an educational data set provided by your instructor.
 
 ## **Assignment**
 

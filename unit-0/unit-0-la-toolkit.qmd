@@ -41,13 +41,13 @@ Hands-on data analysis tutorials and experiences will make extensive use of R an
 
     -   First, register for a free Posit Cloud account at: <https://login.posit.cloud/register.>
 
-    -   Next, access our ECI 586 Intro to Learning Analytics workspace at: <https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp>
+    -   Next, access our ECI 586 Intro to Learning Analytics workspace at: <https://posit.cloud/spaces/677551/join?access_code=19XaljG95C_VBh5GKD2c_7CCp5jrxhc1_NcdjN1S>
 
 2.  **DataCamp** ([https://www.datacamp.com](https://www.datacamp.com/)) is an online learning platform with a large catalog of video tutorials, coding activities, assessments and certifications for R, Python, data science, statistics & more.
 
     -   Register for a free account using your \@ncsu.edu email address at: <https://www.datacamp.com/users/sign_up>
 
-    -   After registering with your NC State email, click the following link to access our [Learning Analytics DataCamp group space](https://www.datacamp.com/groups/shared_links/b6b84feb66a4f045585bb4dbe7eb154418aef1136ccef4450d5eb3f453b0e136) where you will complete required assignments during Week 2 of each unit.
+    -   After registering with your NC State email, click the following link to access our [ECI 586 Intro to Learning Analytics DataCamp group space](https://www.datacamp.com/groups/shared_links/5d665bb57941d90921f6a9f51195aa9c6ee2ebf05a55e67d46d22d36ad5120dd) where you will complete required assignments during Week 2 of each unit.
 
 ## Part 2: Introduction to R DataCamp Assignment
 
@@ -65,7 +65,7 @@ Next, click the following link to access our [Learning Analytics DataCamp group 
 
 ![](img/datacamp-join.png)
 
-Next you'll be prompted to "Start with the course that Joey Huang has assigned to you" or "Go to the Dashboard -\>" instead. You're welcome to get started immediately on the **Introduction to R** course, but I recommend taking a quick visit to the group dashboard first. ![](images/data camp intive.png)
+Next you'll be prompted to "Start with the course that Joey Huang has assigned to you" or "Go to the Dashboard -\>" instead. You're welcome to get started immediately on the **Introduction to R** course, but I recommend taking a quick visit to the group dashboard first. ![](images/data%20camp%20intive.png)
 
 ### Visit Dashboard
 
@@ -99,7 +99,7 @@ If you haven't done so already, be sure to sign up for a free Posit account. You
 
 ### Join Space
 
-Next, access our [ECI 586 Intro to Learning Analytics](https://posit.cloud/spaces/399154/join?access_code=0VTsUSIXKD1knmHEZZerH6aYg0Q-_e-TKV-a94Bp) workspace. This space is part of my paid plan and will provide you unlimited use of Posit Cloud during the semester. You should see a prompt to "Join Space?" like the one below:
+Next, access our [ECI 586 Intro to Learning Analytics_Fall 2025](https://posit.cloud/spaces/677551/join?access_code=19XaljG95C_VBh5GKD2c_7CCp5jrxhc1_NcdjN1S) workspace. This space is part of my paid plan and will provide you unlimited use of Posit Cloud during the semester. You should see a prompt to "Join Space?" like the one below:
 
 ![](img/join-space.png){width="100%"}
 
@@ -127,9 +127,9 @@ Complete the assignment by reading through the document and completing coding ac
 
 ## Troubleshooting
 
-Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. Even experienced R developers like Hadley Wickham [get frustrated](#0):
+Learning a programming language like R (or any new language for that matter) will inevitably be a little frustrating at first. One of the most important developers of R packages (and co-author of our textbook), Hadley Wickham, was recently [quoted in an interview](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/):
 
-> "It's easy when you start out programming to get really frustrated and think, 'Oh it's me, I'm really stupid,' or, 'I'm not made out ![](images/Screenshot%202024-08-18%20at%203.53.24%20PM.png)to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later."
+> "It's easy when you start out programming to get really frustrated and think, 'Oh it's me, I'm really stupid,' or, 'I'm not made out to program.' But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later."
 
 When feeling stuck or like banging your head against your desk, there are several options for seeking out help within and beyond this course:
 
@@ -146,5 +146,4 @@ When feeling stuck or like banging your head against your desk, there are severa
 
 6.  **The Interwebs**: Aside from Google of course, [StackOverflow](https://stackoverflow.com/) and the [RStudio Community](https://community.rstudio.com/) will likely become tried and true tools in your text mining toolkit. In fact, I'd wager that the majority of Google searcher will likely direct you to one of these two sites. Note that when search Google, it sometimes helps to include "rstats" in your query.
 
-**Acknowledgment**
-Portions of the course materials, including the Learning Analytics Toolkit and related instructions, are adapted with permission from materials originally developed by Dr. Shaun Kellogg.
+**Acknowledgment** Portions of the course materials, including the Learning Analytics Toolkit and related instructions, are adapted with permission from materials originally developed by Dr. Shaun Kellogg.
