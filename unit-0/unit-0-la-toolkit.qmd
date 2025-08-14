@@ -37,13 +37,13 @@ Course readings will draw heavily from the following resources:  
 
 Hands-on data analysis tutorials and experiences will make extensive use of R and R Studio during the semester. You will access Learning Analytics Case Study activities through Posit Cloud and will complete R tutorials to assist with these activities through DataCamp.
 
-1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> provides access to Posit's powerful set of data science tools, including **RStudio** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. As part of our Case Studies, we'll also be making extensive use of **Quarto** ([https://quarto.org](https://quarto.org/)), an open-source scientific and technical publishing system used for creating reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
+1.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> ***Purpose in This Course:** This is where you will complete **Case Study assignments** during the final week of each unit. You’ll use it to run code, analyze data, and produce your final reports.* Posit Cloud provides access to Posit's powerful set of data science tools, including **RStudio** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. As part of our Case Studies, we'll also be making extensive use of **Quarto** ([https://quarto.org](https://quarto.org/)), an open-source scientific and technical publishing system used for creating reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
 
     -   First, register for a free Posit Cloud account at: <https://login.posit.cloud/register.>
 
     -   Next, access our ECI 586 Intro to Learning Analytics workspace at: <https://posit.cloud/spaces/677551/join?access_code=19XaljG95C_VBh5GKD2c_7CCp5jrxhc1_NcdjN1S>
 
-2.  **DataCamp** ([https://www.datacamp.com](https://www.datacamp.com/)) is an online learning platform with a large catalog of video tutorials, coding activities, assessments and certifications for R, Python, data science, statistics & more.
+2.  **DataCamp** ([https://www.datacamp.com](https://www.datacamp.com/)) ***Purpose in This Course:** This is where you will complete **interactive R tutorials** during Week 2 of each unit to build your skills before using them in Posit Cloud.* DataCamp is an online learning platform with a large catalog of video tutorials, coding activities, assessments and certifications for R, Python, data science, statistics & more.
 
     -   Register for a free account using your \@ncsu.edu email address at: <https://www.datacamp.com/users/sign_up>
 
