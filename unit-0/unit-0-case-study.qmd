@@ -468,7 +468,7 @@ For now, we will wrap up this case study by converting our work into a webpage t
 
 2.  create a file in your directory that you can use to share you work through [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0).
 
-Now that you've finished your first case study, scroll back to the very top of this Quarto Document and change the `author: "YOUR NAME HERE"` to your actual name surrounded by quotation marks like so: `author: "Shaun Kellogg"`
+Now that you've finished your first case study, scroll back to the very top of this Quarto Document and change the `author: "YOUR NAME HERE"` to your actual name surrounded by quotation marks like so: `author: "Joey Huang"`
 
 Next, click the "Render" button in the toolbar at the top of your document to render this document to a HTML web page, just one of [the many publishing formats you can create with Quarto](https://quarto.org/docs/output-formats/all-formats.html) documents.
 
