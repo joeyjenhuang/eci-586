@@ -75,7 +75,7 @@ This week our “in-class” conversation happens in the forum. Jump in, build o
 
 Provide a brief overview of your self-selected resource that includes the following:
 
--   APA Citation (note: this can be easily [retrieved via Google Scholar](#0))
+-   APA Citation (note: this can be easily retrieved via Google Scholar)
 -   What was the **purpose** of your article?
 -   What **data source(s),** if any, were analyzed or discussed?
 -   What data-intensive research **workflows** steps, if any, were described by your selection?
@@ -92,7 +92,7 @@ Provide a brief overview of your self-selected resource that includes the follow
 
 ### Grading
 
-#### Quantity (3pts)
+#### **Quantity (3pts)**
 
 -   Three original posts, one in each thread above, plus one peer reply.
 
