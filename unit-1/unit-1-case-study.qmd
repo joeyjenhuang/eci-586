@@ -254,7 +254,7 @@ df <- tibble(course_var = c("Fall - Chemistry",
 df
 ```
 
-Print `df` to the console. You should see a single variable, `course_var`, with four rows.
+Print `df` to the console. You should see a single variable, `course_var`, with five rows.
 
 In this (very small) data frame, there is information about both the semester and the course are encoded within the same variable. The `separate()` function has two primary arguments, one each for:
 
