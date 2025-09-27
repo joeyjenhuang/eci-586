@@ -1,7 +1,7 @@
 ---
 title: "Unit 3 Readings: Collaborative Research & Text as Data"
 subtitle: "ECI 586 Intro to Learning Analytics"
-author: "Dr. Shaun Kellogg"
+author: "Dr. Joey Huang"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 format:
   html:
@@ -19,7 +19,7 @@ In Unit 3 we examine the foundations of the collaborative data-intensive improve
 
 ## READINGS
 
-In addition to watching the Unit 3 Intro video, this week you'll be required to read chapter 5 from [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134), an article introducing text mining methods in education, and one self-selected journal article, conference presentation, or scholarly resource to help address our discussion questions for the week.
+In addition to watching the Unit 3 Intro video, this week you'll be required to read **Chapter 5** from [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134), an article introducing text mining methods in education, and one self-selected journal article, conference presentation, or scholarly resource to help address our discussion questions for the week.
 
 ### Required
 
@@ -42,38 +42,32 @@ Your selection should also address one or more of the discussion topics/question
 
 ## DISCUSSION
 
-In lieu of the peer interaction and discussion of course materials that normally take place "in class", you'll be asked to log in this week and engage with other members of our learning community through the course discussion forum. To help guide our discussions, we will collectively address a set of guiding questions provided in each forum. You are also welcome to add your own topics or questions for the class to discuss.
+This week our “in-class” conversation happens in the forum. Jump in, build on one another’s ideas, and ground your points in the readings.
 
-With the exception of the self-selected resource, you are not required to post to every thread or address every question raised in the discussions, particularly if you feel others in the class have thoroughly addressed the topic or questions. Our primary goal for these discussions is to collectively build our understanding of this week's topics through back-and-forth dialogue.
+### **What to post (your 3 posts + 1 reply)**
 
-### Guiding Questions
+1.  **LA Goes to School Chapter 5: Foundations of Collaborative Applications of Learning Analytics**: make **one original post** in that thread. **Pick exactly one question** from the list below and respond to it.
+2.  **Text as Data**: Methods for Education Research: make **one original post** in that thread. **Pick exactly one question** from the list below and respond to it.
+3.  **Self-Selected Resource**: make **one original post** that overviews your resource.
+4.  **Reply to a peer**: respond thoughtfully to **at least one** classmate in any thread.
 
-#### LA Goes to School Chapter 5: Foundations of Collaborative Applications of Learning Analytics
+**Label your post:** Start each original post by **pasting the question you chose** at the top.
 
-Consider an educational context you might be interested in studying an answer one or more of the following questions:
+**Guiding Questions**
 
--   What real or hypothetical context educational context are you interested in better understanding or improving through collaborative data-intensive improvement?
--   How might one of the foundational approaches described described in Chapter 5 be applied to understand or improve this context?
--   What specific characteristics, processes, and/or tools of this approach might you utilize and for what purpose?
+### 1) LA Goes to School Chapter 5: Foundations of Collaborative Applications of Learning Analytics
 
-#### Text as Data: Methods for Education Research
+-   What educational context (real or hypothetical) are you interested in better understanding or improving through collaborative data-intensive approaches?
+-   How might one of the foundational approaches described in Chapter 5 be applied to this context?
+-   What specific characteristics, processes, or tools of this approach might you utilize, and for what purpose?
 
-Reflecting on the course text and your self-selected reading, answer one or more of the following questions:
+### 2) Text as Data: Methods for Education Research
 
--   How might text mining be used to:
-    -   expand the types of research questions that researchers can ask?
-    -   improve the external validity and representativeness of research?
-    -   reduce the cost of research?
--   Think about text-based data source you might be interested in analyzing.
-    -   What would be considered a "document" or a single observation of text (e.g., one essay, one text message, one tweet, or one discussion board post) in the data set that you would construct and/or analyze?
-    -   What research question(s) might you address through automated text analysis methods?
-    -   Which of the three methods would you use to answer your question?
-    -   What might you have to do to prepare your text for analysis?
-    -   What do you anticipate you might find from your analysis?
--   What is one limitation of automated text analysis and how might a researcher addresses it?
--   How do researchers using these methods produce valid and/or reliable results?
+-   How might text mining be used to expand research questions, improve validity and representativeness, or reduce the cost of research?
+-   What text-based data source might you analyze, and what would count as a single “document” (e.g., essay, tweet, discussion post) in your dataset?
+-   What research question might you address using automated text analysis methods, which method would you choose, and how would you prepare your text for analysis?
 
-#### Self-Selected Resource
+### Self-Selected Resource
 
 Provide a brief overview of your self-selected resource that includes the following:
 
@@ -81,26 +75,34 @@ Provide a brief overview of your self-selected resource that includes the follow
 -   What was the **purpose** of your article?
 -   What **data source(s),** if any, were analyzed or discussed?
 -   What collaborated data-intensive research **methods or influences**, if any, were described by your selection?
--   What specific text mining **techniques(s)** were applied or discussed in your selection?
--   If a research article, what were the key **findings** of the study?
+-   What collaborative or text-mining methods were applied or discussed, and what were the key findings or implications?
 -   Who were the intended **beneficiaries** of the work and what "change ideas" might the result imply for them?
 -   Did your selection discuss any **limitations or ethical considerations** of text mining?
 
-## ASSESSMENT
+### Due
+
+-   Share your **first post by Friday 11:59 pm ET** to seed the discussion.
+-   Complete your remaining posts and your peer reply by **Sunday 11:59 pm ET**.
+
+## ASSIGNMENT
 
 ### Grading
 
-Grading for this week is fairly lenient, provided that it's clear from your posts that you've done the required readings. Readings and discussion for each unit are worth 6 points and judged based on quantity and quality of your posts.
+#### **Quantity (3pts)**
 
-In term of **quantity** (3 points), you'll be expected to add at least 3 posts in addition to an overview of your Selected Resource. Your initial post should be shared by Friday to help facilitate discussion.
+-   Three original posts, one in each thread above, plus one peer reply.
 
-In terms of **quality** (3 points), your posts over the next week should provide new or insightful contributions to the division questions or topics. There is no requisite for the length of each posting, and I strongly recommend taking a look at Table 1 of [Gao's productive online discussion model](https://github.com/sbkellogg/eci-586/blob/main/unit-1/lit/Gao-productive-discussion.pdf) (summarized below) for ways to contribute to the conversation.
+#### **Quality (3 pts)**
+
+-   Offer **new or insightful contributions** that move the conversation forward. No strict word count; aim for substance.
+-   Across your posts, reference the **course text** and your **self-selected resource** (and any assigned videos, if relevant).
+-   Use the model below to guide how you contribute. Table 1 of [Gao's productive online discussion model](https://github.com/sbkellogg/eci-586/blob/main/unit-1/lit/Gao-productive-discussion.pdf) (summarized below)
 
 At minimum, your collective posts should also help us interpret or elaborate on discussion topics, questions, or ideas others have shared by "making connection to the learning materials" and should reference at some point the required video, course text and your self-selected resource.
 
 ### Productive Online Discussion Model
 
-#### Disposition 1: Discuss to Comprehend
+#### **Disposition 1: Discuss to Comprehend**
 
 Actively engage in such cognitive processes as interpretation, elaboration, **making connections to** prior knowledge.
 
@@ -108,7 +110,7 @@ Actively engage in such cognitive processes as interpretation, elaboration, **ma
 -   Interpreting or elaborating the ideas by making connection to **personal experience**
 -   Interpreting or elaborating the ideas by making connection to other **ideas, sources, or references**
 
-#### Disposition 2: Discuss to Critique
+#### **Disposition 2: Discuss to Critique**
 
 Carefully **examine other people's views**, and be sensitive and analytical to conflicting views.
 
@@ -116,7 +118,7 @@ Carefully **examine other people's views**, and be sensitive and analytical to c
 -   **Challenging ideas** in the texts
 -   Challenging ideas in others' posts
 
-#### Disposition 3: Discuss to Construct Knowledge
+#### **Disposition 3: Discuss to Construct Knowledge**
 
 Actively **negotiate meanings**, and be ready to reconsider, refine and sometimes revise their thinking.
 
@@ -124,10 +126,12 @@ Actively **negotiate meanings**, and be ready to reconsider, refine and sometime
 -   Facilitating thinking and discussions by **raising questions**
 -   Refining and **revising one's own view** based on the texts or others' posts
 
-#### Disposition 4: Discuss to Share Improved Understanding
+#### **Disposition 4: Discuss to Share Improved Understanding**
 
 Actively **synthesize knowledge** and explicitly express improved understanding based on a review of previous discussions.
 
 -   **Summarizing personal learning** experiences of online discussions
+
 -   **Synthesizing content** of discussion
+
 -   **Generating new topics** based on a review of previous discussions
