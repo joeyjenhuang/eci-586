@@ -53,8 +53,6 @@ This week our “in-class” conversation happens in the forum. Jump in, build o
 
 **Label your post:** Start each original post by **pasting the question you chose** at the top.
 
-**Guiding Questions**
-
 ### 1) LA Goes to School Chapter 5: Foundations of Collaborative Applications of Learning Analytics
 
 -   What educational context (real or hypothetical) are you interested in better understanding or improving through collaborative data-intensive approaches?
