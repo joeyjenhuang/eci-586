@@ -5,10 +5,12 @@ author: "Dr. Joey Huang"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 format:
   html:
-    theme:
-      dark: cyborg
+    toc: true
+    toc-depth: 3
+theme:
+  light: simplex
+  dark: cyborg
 editor: visual
-bibliography: lit/references.bib
 ---
 
 ## OVERVIEW
@@ -35,14 +37,14 @@ Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](htt
 
 Our “in-class” conversation happens in the forum. Build on peers’ ideas and ground points in the readings.
 
-### **What to post (your 3 posts + 1 reply)**
+### What to post (your 3 posts + 1 reply)
 
 1.  **Carolan Ch. 1** — One original post. Choose **one** question below and paste it at the top. **Label your post:** Start each original post by **pasting the question you chose** at the top.
 2.  **Applied SNA Design** — One original post where you draft an SNA-based mini study plan (see prompts below).
 3.  **Self-Selected Resource** — One original post that overviews your resource (see prompts below).
 4.  **Peer Reply** — Respond thoughtfully to at least one classmate in any thread.
 
-### 1) **Carolan Ch. 1:** The Social Network Perspective and Educational Research Introduction
+### 1) Carolan Ch. 1: The Social Network Perspective and Educational Research Introduction
 
 Choose **one**:
 
@@ -54,7 +56,7 @@ Choose **one**:
 
 -   Draft a research question that **requires relational data**. What relations would you measure, and at what **level** (ego, dyad, triad, or complete network)? Why that level?
 
-### 2) **Applied SNA Design (mini study plan)**
+### 2) Applied SNA Design (mini study plan)
 
 Post a short plan for applying SNA to an educational context of your choice:
 
