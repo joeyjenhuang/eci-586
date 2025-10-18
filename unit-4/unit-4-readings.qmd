@@ -5,9 +5,7 @@ author: "Dr. Joey Huang
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 format:
   html:
-    toc: true
-    toc-depth: 3
-theme:
+   theme:
   light: simplex
   dark: cyborg
 editor: visual
