@@ -1,7 +1,7 @@
 ---
 title: "Unit 4 Readings: A Social Network Perspective"
 subtitle: "ECI 586 Intro to Learning Analytics"
-author: "Dr. Shaun Kellogg"
+author: "Dr. Joey Huang
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 format:
   html:
@@ -19,7 +19,7 @@ In Unit 4 we learn about social network analysis as a both a theory and a method
 
 ## READINGS
 
-For Unit 4, you will read Chapter 1 from [Social Network Analysis and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) (Carolan 2014) and locate one additional research article, presentation, or informal study to help address our discussion questions for the week.
+For Unit 4, you will read Chapter 1 from [Social Network Analysis and Education](https://methods-sagepub-com.prox.lib.ncsu.edu/book/mono/social-network-analysis-and-education/toc) (Carolan 2014) and locate one additional research article, presentation, or informal study to help address our discussion questions for the week.
 
 ### SNA and Education Part I: Theory and Concepts
 
@@ -27,64 +27,77 @@ The following chapter illustrates how social network analysis provides education
 
 -   [Chapter 1: The Social Network Perspective and Educational Research Introduction](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n1.xml)
 
+    Carolan, B. V. (2014). *Chapter 1: The Social Network Perspective and Educational Research.* In *Social Network Analysis and Education: Theory, Methods & Applications*. Sage.
+
 ### Self-Selected Resource
 
 Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a journal article, presentation, website or other scholarly resource that uses the social network perspective to analyze a topic of interest. Your selection should also address one or more of the discussion topics/questions provided below. In addition, you are welcome to find less formal resources such as videos or shorter online articles to share with the class and that help us better understand this week's topics for discussion.
 
 ## DISCUSSION
 
-In lieu of the peer interaction and discussion of course materials that normally take place "in class", you'll be asked to log in this week and engage with other members of our learning community through the course discussion forum. To help guide our discussions, we will collectively address a set of guiding questions provided in each forum. You are also welcome to add your own topics or questions for the class to discuss.
+Our “in-class” conversation happens in the forum. Build on peers’ ideas and ground points in the readings.
 
-With the exception of the self-selected resource, you are not required to post to every thread or address every question raised in the discussions, particularly if you feel others in the class have thoroughly addressed the topic or questions. Our primary goal for these discussions is to collectively build our understanding of this week's topics through back-and-forth dialogue.
+### **What to post (your 3 posts + 1 reply)**
 
-### Guiding Questions
+1.  **Carolan Ch. 1** — One original post. Choose **one** question below and paste it at the top. **Label your post:** Start each original post by **pasting the question you chose** at the top.
+2.  **Applied SNA Design** — One original post where you draft an SNA-based mini study plan (see prompts below).
+3.  **Self-Selected Resource** — One original post that overviews your resource (see prompts below).
+4.  **Peer Reply** — Respond thoughtfully to at least one classmate in any thread.
 
-#### The Social Network Perspective and Educational Research Introduction
+### 1) **Carolan Ch. 1:** The Social Network Perspective and Educational Research Introduction
 
-1.  Consider a network of which you are a part.
+Choose **one**:
 
--   Who are the network's actors?
--   What ties connect these actors?
--   Are there any groups within this network?
--   What relations within this network might be of interest to a researcher?
--   Finally, what makes this collection of actors a social network?
+-   Consider a real or hypothetical network you’re part of (e.g., a course cohort, school team, online community).
 
-2.  Draft a research question that would be of interest to educational researchers that would require the collection of relational data.
+    Who are the **actors**? What **ties** connect them? Are there identifiable **groups/communities**? What makes this collection a **social network**?
 
--   What relational data would need to be collected?
--   For what reason would relational data need to be collected in order to address this question?
--   Using the same question from the previous response, explain the analytical level at which these data would need to be collected and analyzed.
+-   Which aspect of the social network perspective (interdependence of actors, ties as resource channels, or social structure as opportunity/constraint) best illuminates a learning problem you care about—and **why**?
 
-#### Self-Selected Resource
+-   Draft a research question that **requires relational data**. What relations would you measure, and at what **level** (ego, dyad, triad, or complete network)? Why that level?
 
-Provide an APA citation and brief overview of your self-selected resource and answer the following questions:
+### 2) **Applied SNA Design (mini study plan)**
 
-1.  To what degree does the study emphasize one or more of the following?
+Post a short plan for applying SNA to an educational context of your choice:
 
--   individuals and their actions are viewed as interdependent;
--   relational ties between individuals are opportunities for transmission of resources;
--   the pattern of relations among individuals---the social structure---is an environment that can provide either opportunities for or constraints on individual action;
--   social structure as an enduring pattern of relations among actors
+-   **Context & question**: What learning problem or process are you investigating?
+-   **Actors & ties**: Who are the nodes? What tie(s) will you measure (e.g., co-work, feedback, help-seeking, replies)?
+-   **Data & level**: How will you collect relational data (survey, logs, observations)? At what level (ego, dyad, triad, complete), and why?
+-   **Measures/analysis**: Which basic metrics or models might you use (e.g., degree/betweenness centrality, density, community detection, ERGM, SIENA)?
+-   **Use & equity**: How might insights inform actionable “change ideas” (e.g., fostering bridging ties, redesigning groupings), and what ethical safeguards will you put in place?
 
-2.  At which level are the social network data measured and collected: ego, dyad, triad, or complete?
+### 3) Self-Selected Resource
 
-3.  What relations have been measured among actors? Why were these relations measured and others excluded?
+Provide a brief overview of your self-selected resource that includes the following:
 
-## ASSESSMENT
+-   APA Citation (note: this can be easily [retrieved via Google Scholar](https://libanswers.ucmerced.edu/faq/95935))
+-   **Purpose** of the study/resource
+-   **Network level** measured (ego, dyad, triad, complete) and **why**
+-   **Relations** measured among actors (e.g., collaboration, advice-seeking, replies) and why those (and not others)
+-   How the work emphasizes one or more of these SNA premises:
+    -   Interdependence of actors
+    -   Ties as channels for resources/information
+    -   Social structure as opportunity/constraint
+    -   Structure as an **enduring** pattern of relations
+-   **Key findings/implications** and intended **beneficiaries** (e.g., teachers, students, leaders)
+-   **Limitations/ethics** (consent, privacy, re-identification risks, power dynamics)
 
-### Grading
+### Due
 
-Grading for this week is fairly lenient, provided that it's clear from your posts that you've done the required readings. Readings and discussion for each unit are worth 6 points and judged based on quantity and quality of your posts.
+-   Share your **first post by Friday 11:59 pm ET** to seed the discussion.
+-   **Remaining posts + peer reply due:** **Sunday, 11:59 pm ET**
 
-In term of **quantity** (3 points), you'll be expected to add at least 3 posts in addition to an overview of your Selected Resource. Your initial post should be shared by Friday to help facilitate discussion.
+## Grading 
 
-In terms of **quality** (3 points), your posts over the next week should provide new or insightful contributions to the division questions or topics. There is no requisite for the length of each posting, and I strongly recommend taking a look at Table 1 of [Gao's productive online discussion model](https://github.com/sbkellogg/eci-586/blob/main/unit-1/lit/Gao-productive-discussion.pdf) (summarized below) for ways to contribute to the conversation.
+-   **Quantity (3 pts):** Three original posts (one per thread above) + one peer reply.
+-   **Quality (3 pts):** Offer substantive, forward-moving contributions grounded in the chapter and your self-selected resource. No fixed word count—prioritize clarity, evidence, and specificity.
+-   Use the model below to guide how you contribute. Table 1 of [Gao's productive online discussion model](https://github.com/sbkellogg/eci-586/blob/main/unit-1/lit/Gao-productive-discussion.pdf) (summarized below)
 
-At minimum, your collective posts should also help us interpret or elaborate on discussion topics, questions, or ideas others have shared by "making connection to the learning materials" and should reference at some point the required video, course text and your self-selected resource.
+At minimum, your collective posts should also help us interpret or elaborate on discussion topics, questions, or ideas others have shared by "making connection to the learning materials" and should reference at some point the required video, course text and your self-selected resource.
 
 ### Productive Online Discussion Model
 
-#### Disposition 1: Discuss to Comprehend
+#### **Disposition 1: Discuss to Comprehend**
 
 Actively engage in such cognitive processes as interpretation, elaboration, **making connections to** prior knowledge.
 
@@ -92,7 +105,7 @@ Actively engage in such cognitive processes as interpretation, elaboration, **ma
 -   Interpreting or elaborating the ideas by making connection to **personal experience**
 -   Interpreting or elaborating the ideas by making connection to other **ideas, sources, or references**
 
-#### Disposition 2: Discuss to Critique
+#### **Disposition 2: Discuss to Critique**
 
 Carefully **examine other people's views**, and be sensitive and analytical to conflicting views.
 
@@ -100,7 +113,7 @@ Carefully **examine other people's views**, and be sensitive and analytical to c
 -   **Challenging ideas** in the texts
 -   Challenging ideas in others' posts
 
-#### Disposition 3: Discuss to Construct Knowledge
+#### **Disposition 3: Discuss to Construct Knowledge**
 
 Actively **negotiate meanings**, and be ready to reconsider, refine and sometimes revise their thinking.
 
@@ -108,10 +121,12 @@ Actively **negotiate meanings**, and be ready to reconsider, refine and sometime
 -   Facilitating thinking and discussions by **raising questions**
 -   Refining and **revising one's own view** based on the texts or others' posts
 
-#### Disposition 4: Discuss to Share Improved Understanding
+#### **Disposition 4: Discuss to Share Improved Understanding**
 
 Actively **synthesize knowledge** and explicitly express improved understanding based on a review of previous discussions.
 
 -   **Summarizing personal learning** experiences of online discussions
+
 -   **Synthesizing content** of discussion
+
 -   **Generating new topics** based on a review of previous discussions
