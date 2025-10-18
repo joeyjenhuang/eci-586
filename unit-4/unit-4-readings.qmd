@@ -1,14 +1,14 @@
 ---
-title: "Unit 4 Readings: A Social Network Perspective"
+title: "Unit 4 Readings: A Social Network"
 subtitle: "ECI 586 Intro to Learning Analytics"
-author: "Dr. Joey Huang
+author: "Dr. Joey Huang"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 format:
   html:
-   theme:
-  light: simplex
-  dark: cyborg
+    theme:
+      dark: cyborg
 editor: visual
+bibliography: lit/references.bib
 ---
 
 ## OVERVIEW
