@@ -8,8 +8,8 @@ format:
     toc: true
     toc-depth: 3
 theme:
-  light: simplex
-  dark: cyborg
+  light: flatly
+  dark: darkly
 editor: visual
 ---
 
