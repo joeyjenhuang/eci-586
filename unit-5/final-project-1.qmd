@@ -1,7 +1,7 @@
 ---
 title: "Final Project: Independent Analysis Planning"
 subtitle: "ECI 586: Intro to Learning Analytics"
-author: "Dr. Shaun Kellogg"
+author: "Dr. Joey Huang"
 date: today
 format:
   html:
@@ -15,7 +15,7 @@ editor: visual
 
 ## Overview
 
-Throughout this course, you conducted several analyses as part of the unit case studies. For your final course project, you'll be asked to complete an independent analysis and create your own data product (e.g., slide show, dashboard, report, or mini "case study") to showcase your analyses and findings. Your data product will bring together some of the data-intensive research workflow processes that we've learned this semester to help answer a research question you have about a dataset of your own choosing.
+Throughout this course, you have conducted several analyses as part of the unit case studies. For your final course project, you will complete an independent analysis and create your own **data product** (e.g., slideshow, dashboard, report, or mini case study) to showcase your analyses and findings. Your data product should integrate the data-intensive research workflow processes we’ve learned this semester to help answer a **research question** based on a dataset of your choice.
 
 ## Assignment
 
@@ -62,39 +62,30 @@ This assignment accounts for one-fourth of your final project grade (6 points to
 ### Education Data
 
 -   NC School Report Cards (SRC): <https://www.dpi.nc.gov/data-reports/school-report-cards/school-report-card-resources-researchers>
-
 -   Open University Learning Analytics dataset:\
-    [https://www.nature.com/articles/sdata2017171](https://www.nature.com/articles/sdata2017171https://www.nature.com/articles/sdata2017171) (description)\
-    <https://analyse.kmi.open.ac.uk/open_dataset> (data)
-
--   Friday Institute MOOC-Ed Resource Utilization Data: <https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/FI-Hewlett%20MOOC-Ed%20Data%20%28Fall%202014%29-2.xlsx> ([Data Codebook](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/MOOC-Ed%20Data%20Set%202%20Description.docx))
-
+    Description (Kuzilek et al., 2017, *Scientific Data*): <https://www.nature.com/articles/sdata2017171>\
+    Dataset: <https://analyse.kmi.open.ac.uk/open-dataset>
 -   National Center for Education Statistics: <https://nces.ed.gov/datatools/>
-
 -   University of Virginia Education Statistics, Data Sets, and Data Experts: <https://guides.lib.virginia.edu/statisticsdatasets>
-
 -   Urban Institute Education Data Explorer: <https://educationdata.urban.org/data-explorer/>
 
 ### Text Data
 
--   [Race to the Top Online PD Survey](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/opd_survey.csv) ([Data Description pg. 15](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/0%20-%20OPD_Y1_FINAL_11_9_12%20copy.jpg))
-
--   [MOOC-Ed Discussion Forums](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/ts_forum_data.csv): https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/1246137/mod_forum/post/604814/ts_forum_data.csv
+-   ERIC Education Research Abstracts: <https://eric.ed.gov/>
+-   Canvas Network (de-identified open courses, 2014–2015): <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/1XORAL>
 
 ### Network Data
 
--   Social Network Analysis and Education data sets: <https://studysites.sagepub.com/carolan/study/resources.htm>
-
--   Massively Open Online Course for Educators (MOOC-Ed) network dataset: <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZZH3UB>
+-   Duke Network Analysis Center – Datasets: [https://sites.duke.edu/dnac/resources/datasets/](https://sites.duke.edu/dnac/resources/datasets/?utm_source=chatgpt.com)
+-   SNAP (Stanford Large Network Dataset Collection): [https://snap.stanford.edu/data/](https://snap.stanford.edu/data/?utm_source=chatgpt.com)
+-   Network Repository: [https://networkrepository.com/](https://networkrepository.com/?utm_source=chatgpt.com)
 
 ## Example Data Products
 
 ### Slides
 
 -   Assessing Student Performance Factors in Calculus II: <https://rpubs.com/akourou/calculus_final_presentation>
-
 -   Academic Mental Health on Twitter: <https://jennhouchins.github.io/Sentiments/SentimentAnalysisinR.html#1>
-
 -   North Carolina Goes Back to School: <https://cullerth.github.io/wk_7_indpndnt_analysis/wk_7_presentation.html#1>
 
 ### Reports
@@ -104,15 +95,11 @@ This assignment accounts for one-fourth of your final project grade (6 points to
 ### Case Studies
 
 -   Reddit Vaccine Myths Sentiment Analysis: <https://rpubs.com/jmbethe2/983173>
-
 -   BeAM Online Training: <https://rpubs.com/aengelke/984188>
-
 -   Predicting Non-success in a College Science Course: <https://rpubs.com/rmlucas/845863>
-
 -   #BlackinSTEM and #DiversityinSTEM Twitter Analysis: <https://rpubs.com/dsc21/845881>
 
 ### Dashboards
 
 -   Accountability and Testing Reports Dashboard: <https://jkhouchins.shinyapps.io/accountability/>
-
 -   Troubles with Technology for School Children in America: <https://speckart.shinyapps.io/Project/>
