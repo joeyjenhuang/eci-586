@@ -1,7 +1,7 @@
 ---
 title: "Final Project: Independent Data Product"
 subtitle: "ECI 586 Intro to Learning Analytics"
-author: "Dr. Shaun Kellogg"
+author: "Dr. Joey Huang"
 date: today
 format:
   html:
@@ -15,11 +15,11 @@ editor: visual
 
 ## Overview
 
-For the end-of-course project, you'll be applying the knowledge and skills gained throughout this semester to conduct the independent analysis proposed in the previous assignment. Similar to the case studies provided in this course, your analysis should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. You will also be expected to use [Quarto](https://quarto.org) (or [R Markdown](https://bookdown.org/yihui/rmarkdown/) if preferred) to create a reproducible data product (e.g., slide show, dashboard, report, mini "data product", etc.), which contains all the code used during each step of your analysis so it can be reproduced by others.
+For the end-of-course project, you will apply the knowledge and skills gained this semester to conduct the independent analysis proposed in the previous assignment. Similar to the case studies in this course, your analysis should demonstrate your ability to wrangle, analyze, and communicate findings in response to a research question of interest. You will also be expected to use [Quarto](https://quarto.org) (or [R Markdown](https://bookdown.org/yihui/rmarkdown/) if preferred) to create a reproducible data product (e.g., slide show, dashboard, report, mini case study, etc.), that contains all the code used at each step of your analysis it can be reproduced by others.
 
 ## Grading Criteria
 
-Grading criteria for your final project is guided by the Data-Intensive Research Workflow from [Learning analytics goes to school: A collaborative approach to improving education](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm, Means, & Bienkowski, 2018).
+Grading criteria for your final project are guided by the Data-Intensive Research Workflow from [Learning analytics goes to school: A collaborative approach to improving education](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm, Means, & Bienkowski, 2018).
 
 ### Prepare
 
@@ -27,15 +27,15 @@ Your data product should demonstrate your ability to formulate clear, actionable
 
 1.  Clearly describes the **purpose** of your data product, including the research question(s) guiding your analyses.
 
-2.  Provides information about the **data sources**, including the context in which the data was collected and variables used to address your research questions.
+2.  Provides information about the **data sources**, including the context in which the data were collected and variables used to address your research questions.
 
 ### Wrangle
 
-Your data project should demonstrate your ability to use R to manipulate, clean, transform, and/or merging data in order to prepare your data for analysis. Specifically, your data product should clearly describe:
+Your data product should demonstrate your ability to use R to manipulate, clean, transform, and/or merge data in order to prepare your data for analysis. Specifically, your data product should clearly describe:
 
-3.  **Data preprocessing** steps (e.g., renaming variables, filtering, tokenization, stemming, dealing with missing values, etc.) taken to clean and prepare your data for analysis and why are they necessary, as well as any steps will excluded and why.
+3.  **Data preprocessing** steps (e.g., renaming variables, filtering, tokenization, stemming, handling missing values, etc.) taken to clean and prepare your data for analysis and why are they necessary, as well as any steps will excluded and why.
 
-4.  Any **new variables or features** you created to address your research questions; or any data **transformations** you made required for the types of analyses or packages used (e.g. reshaping, merging, joining etc.).
+4.  Any **new variables or features** you created to address your research questions; or any data **transformations** required for the types of analyses or packages used (e.g. reshaping, merging, joining etc.).
 
 ### Analyze
 
@@ -43,9 +43,9 @@ Your data project should demonstrate your ability to use R to apply learning ana
 
 5.  Clear descriptions of the **techniques** (e.g., descriptive statistics, network analysis, sentiment analysis, etc.) you applied to analyze your data.
 
-6.  Interpretations/meanings of specific **metrics** (e.g., counts, means, proportions, sentiment values, centrality measures, etc.) that your analysis generated. 
+6.  Interpretations and meanings of specific **metrics** (e.g., counts, means, proportions, sentiment values, centrality measures, etc.) that your analysis generated. 
 
-7.  Data **visualizations** that are attractive and easy to interpret, and include text or narrative for aiding their Interpretation by others.
+7.  Data **visualizations** that are attractive and easy to interpret, with accompanying text or narrative to aid interpretation by others.
 
 ### Communication
 
