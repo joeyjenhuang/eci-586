@@ -8,8 +8,8 @@ format:
     toc: true
     toc-depth: 3
 theme:
-  light: flatly
-  dark: darkly
+  light: simplex
+
 editor: visual
 ---
 
