@@ -59,4 +59,4 @@ Your data product should demonstrate your ability to clearly and effectively com
 
 ## Assessment
 
-This assignment is worth 18 points total. You will receive 1 point (10 points total) for each of the project criteria adequately addressed by your data product, and 4 points (8 points total) for each post providing constructive feedback to at least two of your peers.
+This assignment is worth 16 points total. You will receive 1 point (10 points total) for each of the project criteria adequately addressed by your data product, and 3 points (6 points total) for each post providing constructive feedback to at least two of your peers.
