@@ -9,7 +9,6 @@ format:
     toc-depth: 3
 theme:
   light: simplex
-  dark: cyborg
 editor: visual
 ---
 
@@ -19,7 +18,7 @@ The primary goal this week is to build a foundational understanding of Learning 
 
 ## READINGS
 
-In addition to watching the Unit 1 intro video, this week you'll be required to read two chapters from [Learning Analytics Goes to School](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) and find one self-selected journal article, presentation, website or other scholarly resource to help address our discussion questions for the week.
+In addition to watching the Unit 1 intro video, this week you'll be required to read two chapters from [Learning Analytics Goes to School](https://www-taylorfrancis-com.prox.lib.ncsu.edu/books/mono/10.4324/9781315650722/learning-analytics-goes-school-barbara-means-andrew-krumm-marie-bienkowski) and find one self-selected journal article, presentation, website or other scholarly resource to help address our discussion questions for the week.
 
 ### 1. Learning Analytics Goes to School
 
