@@ -31,7 +31,7 @@ Course readings will draw heavily from the following resources:  
 
 4.  Lang, C., Siemens, G., Wise, A., & Gasevic, D., Merceron, A. (Eds.). (2022). [*Handbook of learning analytics (2nd. ed.)*.](https://www.solaresearch.org/publications/hla-22/ "https://www.solaresearch.org/publications/hla-22/") Vancouver, BC. SoLAR, Society for Learning Analytics and Research. DOI: 10.18608/hla22
 
-5.  Carolan, B. V. (2013). [*Social network analysis and education: Theory, methods & applications*.](methods.sagepub.com/book/mono/social-network-analysis-and-education/toc#_) Sage Publications.
+5.  Carolan, B. V. (2013). [*Social network analysis and education: Theory, methods & applications*.](https://methods-sagepub-com.prox.lib.ncsu.edu/book/mono/social-network-analysis-and-education/toc) Sage Publications.
 
 ### Data Analysis Software
 
