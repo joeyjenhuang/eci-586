@@ -15,7 +15,7 @@ Your final task of Week 1 is to prepare your Learning Analytics Toolkit by setti
 
 ## Part 1: Text & Software
 
-The first step in preparing your toolkit is making sure you can access the required course texts and data analysis software. These required texts and software, as well as optional but recommended software and texts, are describe in more detail in our [ECI 586 Course Syllabus](https://docs.google.com/document/d/1VltliC1MxwArDVja-0Lky6SzhpjBZJZzh8QzjbmXKrY/edit?usp=sharing).
+The first step in preparing your toolkit is making sure you can access the required course texts and data analysis software. These required texts and software, as well as optional but recommended software and texts, are describe in more detail in our [ECI 586 Course Syllabus](https://docs.google.com/document/d/1ermP8p8yFRaDgtKOrdoA4fV3LxW8GiMT0sMuaoUdarE/edit?usp=sharing).
 
 ### **Course Texts**
 
@@ -23,7 +23,7 @@ There are several required textbooks for this course, all of which are freely av
 
 Course readings will draw heavily from the following resources:  
 
-1.  Krumm, A., Means, B., & Bienkowski, M. (2018). [*Learning analytics goes to school: A collaborative approach to improving education.*](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) Routledge.
+1.  Krumm, A., Means, B., & Bienkowski, M. (2018). [*Learning analytics goes to school: A collaborative approach to improving education.*](https://www-taylorfrancis-com.prox.lib.ncsu.edu/books/mono/10.4324/9781315650722/learning-analytics-goes-school-barbara-means-andrew-krumm-marie-bienkowski) Routledge.
 
 2.  Estrellado, R. A., Freer, E. A., Mostipak, J., Rosenberg, J. M., & Velásquez, I. C. (2020). [*Data science in education using R*.](https://datascienceineducation.com/) Routledge.
 
@@ -40,12 +40,12 @@ Hands-on data analysis tutorials and experiences will make extensive use of R an
 1.  **DataCamp** ([https://www.datacamp.com](https://www.datacamp.com/)) (see Part 2 for step-by-step instructions). ***Purpose in This Course:** This is where you will complete **interactive R tutorials** during Week 2 of each unit to build your skills before using them in Posit Cloud.* DataCamp is an online learning platform with a large catalog of video tutorials, coding activities, assessments and certifications for R, Python, data science, statistics & more.
 
     -   Register for a free account using your \@ncsu.edu email address at: <https://www.datacamp.com/users/sign_up>
-    -   After registering with your NC State email, click the following link to access our [ECI 586 Intro to Learning Analytics DataCamp group space](https://www.datacamp.com/groups/shared_links/5d665bb57941d90921f6a9f51195aa9c6ee2ebf05a55e67d46d22d36ad5120dd) where you will complete required assignments during Week 2 of each unit.
+    -   After registering with your NC State email, click the following link to access our [ECI 586 Intro to Learning Analytics DataCamp group space](https://www.datacamp.com/groups/shared_links/50928b578afc5cacc07dec9062b31665a682f4acd70cda838182c1b56d86d854) where you will complete required assignments during Week 2 of each unit.
 
 2.  **Posit Cloud** (<https://posit.co/products/cloud/cloud/)> (see Part 3 for step-by-step instructions). ***Purpose in This Course:** This is where you will complete **Case Study assignments** during the final week of each unit. You’ll use it to run code, analyze data, and produce your final reports.* Posit Cloud provides access to Posit's powerful set of data science tools, including **RStudio** ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)), an integrated development environment (IDE) for R and Python that includes a console and syntax-highlighting editor, as well as tools for plotting, history, debugging, and workspace management. As part of our Case Studies, we'll also be making extensive use of **Quarto** ([https://quarto.org](https://quarto.org/)), an open-source scientific and technical publishing system used for creating reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
 
     -   First, register for a free Posit Cloud account at: <https://login.posit.cloud/register>
-    -   Next, access our ECI 586 Intro to Learning Analytics workspace at: [https://posit.cloud/spaces/677551/joinaccess_code=19XaljG95C_VBh5GKD2c_7CCp5jrxhc1_NcdjN1S](https://posit.cloud/spaces/677551/join?access_code=19XaljG95C_VBh5GKD2c_7CCp5jrxhc1_NcdjN1S){.uri}
+    -   Next, access our ECI 586 Intro to Learning Analytics workspace at: <https://posit.cloud/spaces/806446/join?access_code=5kQ2_uFmOaGLmwDPAUExEX34cyr-9xP84wR7uqK_>
 
 ## Part 2: Introduction to R DataCamp Assignment
 
@@ -133,7 +133,7 @@ When feeling stuck or like banging your head against your desk, there are severa
 
 1.  **Course Forums & Email**: Including this general software troubleshooting forum, we will have forums for each assignment. You'll likely have similar questions as your peers, and you'll likely be able to answer other peoples' questions too so I encourage you to use these forums. Unlike most of my apps and social media accounts, I actually have notifications enabled. Also, do not hesitate to email me directly as well.
 
-2.  **Learning Analytics Office Hours**: Some issues are much easier to troubleshoot in real time. To schedule a 1 on 1 meeting with me in person of via Zoom, use the following Calendly link: <https://calendly.com/chuang35-ncsu/eci-586-intro-to-la>
+2.  **Learning Analytics Office Hours**: Some issues are much easier to troubleshoot in real time. To schedule a 1 on 1 meeting with me in person of via Zoom, use the following Calendly link: <https://calendar.app.google/wJQdAoTmxniCfueB8>
 
 3.  **Google NotebookLM** (<https://notebooklm.google>): A powerful AI-assisted study tool designed to help you deeply engage with course readings. You can upload assigned texts, articles, or your own notes, and receive concise summaries, detailed explanations, and thought-provoking discussion prompts. Use it to break down complex concepts, track key themes, and draw connections across multiple readings, which will help you prepare for discussions and reinforce your understanding of the material.
 
