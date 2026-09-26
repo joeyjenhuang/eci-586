@@ -2,7 +2,7 @@
 title: "Unit 3 Readings: Collaborative Research & Text as Data"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Joey Huang"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today
 format:
   html:
     toc: true
