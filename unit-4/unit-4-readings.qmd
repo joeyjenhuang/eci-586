@@ -2,14 +2,13 @@
 title: "Unit 4 Readings: A Social Network"
 subtitle: "ECI 586 Intro to Learning Analytics"
 author: "Dr. Joey Huang"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
+date: today 
 format:
   html:
     toc: true
     toc-depth: 3
 theme:
   light: simplex
-  dark: cyborg
 editor: visual
 ---
 
@@ -70,7 +69,7 @@ Post a short plan for applying SNA to an educational context of your choice:
 
 Provide a brief overview of your self-selected resource that includes the following:
 
--   APA Citation (note: this can be easily [retrieved via Google Scholar](https://libanswers.ucmerced.edu/faq/95935))
+-   APA Citation (note: this can be easily [retrieved via Google Scholar](https://libanswers.ucmerced.edu/faq/95935))
 -   **Purpose** of the study/resource
 -   **Network level** measured (ego, dyad, triad, complete) and **why**
 -   **Relations** measured among actors (e.g., collaboration, advice-seeking, replies) and why those (and not others)
