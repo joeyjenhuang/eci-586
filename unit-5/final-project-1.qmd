@@ -19,7 +19,7 @@ Throughout this course, you have conducted several analyses as part of the unit 
 
 ## Assignment
 
-Week 14 provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Week 15, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
+This week provides some space to plan and conceptualize your final course project. More details about the actual content and format of your data product are provided in Final Project: Data Product, but in general, you will be expected to demonstrate you ability to prepare for analysis, wrangle and explore data, and communicate useful findings.
 
 To help plan for your final project, your assignment this week is to:
 
