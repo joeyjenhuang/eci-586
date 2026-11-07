@@ -19,7 +19,7 @@ For the end-of-course project, you will apply the knowledge and skills gained th
 
 ## Grading Criteria
 
-Grading criteria for your final project are guided by the Data-Intensive Research Workflow from [Learning analytics goes to school: A collaborative approach to improving education](https://catalog.lib.ncsu.edu/catalog/NCSU4862134) (Krumm, Means, & Bienkowski, 2018).
+Grading criteria for your final project are guided by the Data-Intensive Research Workflow from[ Learning analytics goes to school: A collaborative approach to improving education](https://www.routledge.com/Learning-Analytics-Goes-to-School-A-Collaborative-Approach-to-Improving-Education/Krumm-Means-Bienkowski/p/book/9781138121836) (Krumm, Means, & Bienkowski, 2018).
 
 ### Prepare
 
